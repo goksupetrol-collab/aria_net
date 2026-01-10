@@ -381,7 +381,7 @@
         loadTabsFromStorage();
       }, 50);
       
-      // Telerik Kendo Grid oluştur
+          // Telerik Kendo Grid oluştur
       setTimeout(function() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
           // 20 boş satır oluştur
@@ -407,6 +407,9 @@
           // Ekran genişliği: 1920px
           // ALAN 1: 28px, ALAN 2: 86px, ALAN 3: 23px, Tab: 32px = Toplam: 169px
           // Kullanılabilir genişlik: 1920px (padding yok)
+          // Grid container genişliğini hesapla
+          var containerWidth = $("#kredi-karti-grid").parent().width() || $(window).width();
+          var gridWidth = Math.min(containerWidth, 1920);
           
           $("#kredi-karti-grid").kendoGrid({
             dataSource: {
@@ -431,10 +434,7 @@
                 }
               }
             },
-            width: function() {
-              // Container genişliğini al (100vw - scrollbar genişliği)
-              return Math.min($(window).width(), 1920);
-            },
+            width: gridWidth,
             height: "100%",
             scrollable: false,
             sortable: true,
