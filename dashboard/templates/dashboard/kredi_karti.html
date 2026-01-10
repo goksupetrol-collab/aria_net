@@ -294,9 +294,14 @@
               }
             }
           } else {
+            // Tab yoksa lobiye dön
             activeTabId = null;
-            $('#main-content-operasyon').hide();
-            $('#title-bar').show();
+            if (window.location.pathname !== '/') {
+              window.location.href = "/";
+            } else {
+              $('#main-content-operasyon').hide();
+              $('#title-bar').show();
+            }
             setActiveRibbonButton(null);
           }
         }
