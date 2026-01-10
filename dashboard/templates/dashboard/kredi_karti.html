@@ -431,7 +431,10 @@
                 }
               }
             },
-            width: 1920,
+            width: function() {
+              // Container genişliğini al (100vw - scrollbar genişliği)
+              return Math.min($(window).width(), 1920);
+            },
             height: "100%",
             scrollable: false,
             sortable: true,
@@ -578,9 +581,10 @@
                 
                 // Grid genişliğini container'a göre ayarla
                 var containerWidth = gridElement.parent().width();
-                if (containerWidth < 1920) {
-                  grid.resize();
-                }
+                var windowWidth = $(window).width();
+                var maxWidth = Math.min(windowWidth, 1920);
+                gridElement.css("width", maxWidth + "px");
+                grid.resize();
                 
                 console.log("Kredi Kartı Grid yüklendi - 20 satır, horizontal scroll kapalı");
               }, 100);
