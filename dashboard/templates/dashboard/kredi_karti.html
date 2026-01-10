@@ -429,7 +429,9 @@
             },
             width: "100%",
             height: "100%",
-            scrollable: false, // Horizontal scroll kapalı
+            scrollable: {
+              virtual: false
+            },
             sortable: true,
             filterable: true,
             resizable: false, // Sütun genişliği değiştirme kapalı (horizontal scroll olmasın diye)
@@ -438,7 +440,7 @@
               {
                 field: "son_odeme",
                 title: "SON ÖDEME",
-                width: 130,
+                width: 125,
                 format: "{0:dd.MM.yyyy}",
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
@@ -447,7 +449,7 @@
               {
                 field: "kalan_gun",
                 title: "KALAN GÜN",
-                width: 100,
+                width: 95,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -458,7 +460,7 @@
               {
                 field: "tutar",
                 title: "TUTAR",
-                width: 120,
+                width: 115,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -469,7 +471,7 @@
               {
                 field: "banka",
                 title: "BANKA",
-                width: 140,
+                width: 135,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -477,7 +479,7 @@
               {
                 field: "kime_ait",
                 title: "KİME AİT",
-                width: 120,
+                width: 115,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -485,7 +487,7 @@
               {
                 field: "kart_numarasi",
                 title: "KART NUMARASI",
-                width: 180,
+                width: 175,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -493,7 +495,7 @@
               {
                 field: "son_kullanim_tarihi",
                 title: "SON KULLANMA TARİHİ",
-                width: 140,
+                width: 135,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -501,7 +503,7 @@
               {
                 field: "cv",
                 title: "CV",
-                width: 70,
+                width: 65,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -512,7 +514,7 @@
               {
                 field: "iban",
                 title: "İBAN",
-                width: 200,
+                width: 195,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -520,7 +522,7 @@
               {
                 field: "sifre",
                 title: "ŞİFRE",
-                width: 80,
+                width: 75,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -531,7 +533,7 @@
               {
                 field: "sutun1",
                 title: "Sütun1",
-                width: 120,
+                width: 115,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
                 }
@@ -539,7 +541,7 @@
               {
                 field: "sutun2",
                 title: "Sütun2",
-                width: 150,
+                width: 145,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
                 }
@@ -547,7 +549,7 @@
               {
                 field: "sutun3",
                 title: "Sütun3",
-                width: 120,
+                width: 115,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
                 }

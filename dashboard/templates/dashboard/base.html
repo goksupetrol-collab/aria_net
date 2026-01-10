@@ -8,7 +8,11 @@
   <link rel="icon" href="data:,">
   <style>
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;height:100%;font-size:11px;overflow-x:hidden;overflow-y:auto}
+    html,body{margin:0;padding:0;height:100%;font-size:11px;overflow-x:hidden !important;overflow-y:auto}
+    
+    /* main-content overflow kontrolü - horizontal scroll olmasın */
+    #main-content{overflow-x:hidden !important;overflow-y:auto;width:100%;max-width:100%}
+    #main-content > * {max-width:100%;overflow-x:hidden}
     
     /* 3 Sabit Alan - Basit HTML ile */
     #fixed-area-1-container,
