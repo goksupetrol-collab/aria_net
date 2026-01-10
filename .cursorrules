@@ -1,5 +1,88 @@
 Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için tüm kodları yaz, hataları kendi kendine (Agent modunda) tara ve düzelt. Benimle her zaman Türkçe konuş.
 
-ÖNEMLİ: Ana sayfadaki proje (dashboard.html) durduruldu, artık Telerik'e adım adım taşınıyor. Ana sayfadaki proje silinmeyecek veya değişiklik yapılmayacak. Tüm Telerik geliştirmeleri '/telerik-yeni-proje/' sayfasında yapılacak. Telerik sayfasında yapılan tüm değişiklikler Git'e kaydedilecek.
+## PROJE BİLGİLERİ
+- **Proje:** aria_net (Django 5.2.9)
+- **Klasör:** D:\tayfun
+- **Ana Sayfa:** `dashboard/templates/dashboard/telerik_yeni_proje.html` (base.html'i extend ediyor)
+- **Base Template:** `dashboard/templates/dashboard/base.html`
+- **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
 
-GİT KULLANIMI: Tüm değişiklikler Git'e kaydedilecek. Her önemli değişiklikten sonra commit yapılacak. Commit mesajları Türkçe ve açıklayıcı olacak (örnek: "MOTORİN tablosu Telerik'e taşındı", "TAHSİLAT tablosuna yeni özellik eklendi"). Commit komutları: `git add .` ve `git commit -m "Açıklayıcı mesaj"`. Her gün sonunda ve her önemli değişiklikte kayıt yapılacak.
+## GİT KURALLARI - MUTLAKA UYULMALI
+**HER İŞLEMDEN SONRA GİT KAYDET - ASLA UNUTMA!**
+- Her değişiklikten sonra: `git add -A` ve `git commit -m "açıklama"`
+- Commit mesajları Türkçe ve açıklayıcı olacak
+- Kullanıcı kod yazmayı bilmiyor, bu yüzden ben (AI) otomatik commit yapacağım
+- Her önemli değişiklikte, her gün sonunda, her özellik eklendiğinde commit yapılacak
+- **UNUTMA:** Git kaydetmeden işlem tamamlanmış sayılmaz!
+
+## TELERİK KULLANIMI - TÜM İMKANLAR KULLANILACAK
+**Telerik lisanslı - TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!**
+
+### Temel Kurallar:
+- ✅ **SADECE Telerik bileşenleri kullanılacak** (Menu, Grid, Toolbar, Button, Window, Chart, DatePicker, ComboBox, Notification, TabStrip, TreeView, vb.)
+- ✅ **Telerik CSS sınıfları kullanılacak** (`k-button`, `k-grid`, `k-menu`, vb.)
+- ✅ **Telerik CSS değişkenleri kullanılacak** (`var(--kendo-color-...)`)
+- ❌ **Özel HTML/CSS çözümleri YASAK** (Telerik bileşeni olmayan)
+- 📌 **Kural:** Her şey Telerik'in kendi bileşenleri ve CSS sınıfları ile yapılmalı
+
+### Kullanılabilir Telerik Bileşenleri:
+- **Menu:** `$("#menu").kendoMenu()` - Açılır menüler
+- **Grid:** `$("#grid").kendoGrid()` - Veri tabloları
+- **Toolbar:** `$("#toolbar").kendoToolbar()` - Araç çubukları
+- **Button:** `$("#button").kendoButton()` veya CSS: `k-button k-button-md`
+- **Window:** `$("#window").kendoWindow()` - Popup pencereler
+- **Chart:** `$("#chart").kendoChart()` - Grafikler
+- **DatePicker:** `$("#datepicker").kendoDatePicker()` - Tarih seçimi
+- **ComboBox:** `$("#combobox").kendoComboBox()` - Dropdown liste
+- **Notification:** `$("#notification").kendoNotification()` - Bildirimler
+- **TabStrip:** `$("#tabstrip").kendoTabStrip()` - Sekmeler
+- **TreeView:** `$("#treeview").kendoTreeView()` - Ağaç görünümü
+- **Ve daha fazlası:** Telerik'in tüm lisanslı bileşenleri kullanılabilir!
+
+### Telerik Dosyaları:
+- **CSS:** `dashboard/static/dashboard/kendo/styles/default-main.css`
+- **JS:** `dashboard/static/dashboard/js/kendo.all.min.js`
+- **jQuery:** `dashboard/static/dashboard/js/jquery-3.6.0.min.js` (Telerik için gerekli)
+- **Kültür:** `dashboard/static/dashboard/js/cultures/kendo.culture.tr-TR.min.js`
+- **Lisans:** `dashboard/static/dashboard/kendo/telerik-license.js`
+
+### Renk Paleti:
+- ❌ **Mavi kullanılmamalı** (kullanıcı tercihi)
+- ✅ **Uyumlu renkler:** Gri tonları, açık mavi tonları
+- 🎨 **Telerik CSS değişkenleri:** `var(--kendo-color-...)` kullanılabilir
+
+### Detaylı Bilgi:
+- 📄 **Telerik Proje Bilgileri:** `TELERIK_PROJE_BILGILERI.md`
+- 📄 **Detaylı Kullanım Rehberi:** `TELERIK_DETAYLI_KULLANIM_REHBERI.md`
+- 📄 **ASP.NET AJAX Bilgileri:** `TELERIK_ASPNET_AJAX_BILGILERI.md` (referans için)
+- 📄 **WPF Bilgileri:** `TELERIK_WPF_BILGILERI.md` (referans için)
+
+## PROJE YAPISI
+- **Base Template:** `base.html` - ALAN 1, ALAN 2, ALAN 3 sabit alanlar, ribbon butonları, tab sistemi
+- **Operasyon Sayfası:** `telerik_yeni_proje.html` - base.html'i extend ediyor, içerik burada
+- **Models:** `dashboard/models.py` - MenuItem, Firma, Urun, vb.
+- **Views:** `dashboard/views.py` - API endpoints
+- **URLs:** `dashboard/urls.py`, `aria_net/urls.py`
+
+## ÇALIŞMA ŞEKLİ
+1. Kullanıcı mantığı söyler
+2. Ben (AI) kodları yazarım
+3. Hataları tararım ve düzeltirim (Agent modunda)
+4. **MUTLAKA Git'e kaydederim** (`git add -A` ve `git commit -m "açıklama"`)
+5. Kullanıcıya Türkçe bilgi veririm
+
+## ÖNEMLİ NOTLAR
+- Eski program (`dashboard.html`) silindi, sadece Telerik projesi kullanılıyor
+- Tüm geliştirmeler `telerik_yeni_proje.html` ve `base.html` üzerinde yapılıyor
+- Tab sistemi sessionStorage ile çalışıyor
+- Ribbon butonları veritabanından (MenuItem) yükleniyor
+- ALAN 1, ALAN 2, ALAN 3 sabit alanlar base.html'de tanımlı
+
+## YENİ SOHBET BAŞLARKEN
+Bu dosyayı okuyun ve şu bilgileri hatırlayın:
+1. Git kullanılıyor, **HER İŞLEMDEN SONRA commit yapılacak - ASLA UNUTMA!**
+2. Telerik lisanslı, **TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!**
+3. Kullanıcı kod yazmayı bilmiyor, sadece mantık söylüyor
+4. Ana dosyalar: `base.html` ve `telerik_yeni_proje.html`
+5. Proje: D:\tayfun klasöründe
+6. Django 5.2.9, Telerik Kendo UI for jQuery kullanılıyor
