@@ -1,0 +1,3912 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Title>Petech Online</Title>
+    <Author>Asis Akaryakıt Otomasyon Sistemleri Ltd.Şti.</Author>
+    <LastAuthor>U1</LastAuthor>
+    <Created>1999-05-26T10:00:00Z</Created>
+    <LastSaved>2026-01-07T00:00:00Z</LastSaved>
+    <Company>Asis Akaryakıt Otomasyon Sistemleri Ltd.Şti.</Company>
+    <Version>11.9999</Version>
+  </DocumentProperties>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>5010</WindowHeight>
+    <WindowWidth>9420</WindowWidth>
+    <WindowTopX>120</WindowTopX>
+    <WindowTopY>75</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+    <DisplayInkNotes>False</DisplayInkNotes>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders />
+      <Font x:Charset="162" ss:FontName="Tahoma" />
+      <Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
+      <NumberFormat />
+      <Protection />
+    </Style>
+    <Style ss:ID="sHeader">
+      <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Font ss:FontName="Tahoma" x:Charset="162" ss:Color="#FFFFFF" x:Family="Swiss" ss:Bold="1" />
+      <Interior ss:Color="#17375D" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sTime">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="[hh]:mm:ss" />
+    </Style>
+    <Style ss:ID="sTimeWDay">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="dd.hh:mm:ss" />
+    </Style>
+    <Style ss:ID="sDateddMMyyyy">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="dd/MM/yyyy" />
+    </Style>
+    <Style ss:ID="sDateddMMyyyy hh:mm">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="dd/MM/yyyy\ hh:mm" />
+    </Style>
+    <Style ss:ID="sDateddMMyyyy hh:mm:ss">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="dd/MM/yyyy\ hh:mm:ss" />
+    </Style>
+    <Style ss:ID="sDateddMMyyyy hh:mm:ss.000">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="dd/MM/yyyy\ hh:mm:ss.000" />
+    </Style>
+    <Style ss:ID="sMetin">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sMetinCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sText">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+    </Style>
+    <Style ss:ID="sTextCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+    </Style>
+    <Style ss:ID="sInteger1">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1Center">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1Top">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger0">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0Center">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0Top">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sDecimal0">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="" />
+    </Style>
+    <Style ss:ID="sDecimalA">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+    </Style>
+    <Style ss:ID="sDecimalB3">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.000" />
+    </Style>
+    <Style ss:ID="sDecimalB2">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.00" />
+    </Style>
+    <Style ss:ID="sDecimalB1">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.0" />
+    </Style>
+    <Style ss:ID="sDecimalC3">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.000" />
+    </Style>
+    <Style ss:ID="sDecimalC2">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.00" />
+    </Style>
+    <Style ss:ID="sDecimalC1">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.0" />
+    </Style>
+    <Style ss:ID="sDecimalE3">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.000" />
+    </Style>
+    <Style ss:ID="sDecimalE2">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.00" />
+    </Style>
+    <Style ss:ID="sDecimalE1">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.0" />
+    </Style>
+    <Style ss:ID="sDecimalD3">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.000" />
+    </Style>
+    <Style ss:ID="sDecimalD2">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.00" />
+    </Style>
+    <Style ss:ID="sDecimalD1">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.0" />
+    </Style>
+    <Style ss:ID="sMetinRed">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sMetinRedCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sTextRed">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sTextRedCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sInteger1Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1RedCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1RedTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger0Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0RedCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0RedTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sDecimal0Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalARed">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.##" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB3Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.000" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB2Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.00" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB1Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.0" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC3Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.000" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC2Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.00" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC1Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.0" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE3Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.000" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE2Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.00" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE1Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.0" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD3Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.000" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD2Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.00" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD1Red">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.0" />
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sMetinGreen">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sMetinGreenCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sTextGreen">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sTextGreenCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sInteger1Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1GreenCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1GreenTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger0Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0GreenCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0GreenTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sDecimal0Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalAGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.##" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB3Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.000" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB2Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.00" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB1Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.0" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC3Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.000" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC2Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.00" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC1Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.0" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE3Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.000" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE2Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.00" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE1Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.0" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD3Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.000" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD2Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.00" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD1Green">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.0" />
+      <Interior ss:Color="#008000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sMetinLightCoral">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sMetinLightCoralCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sTextLightCoral">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sTextLightCoralCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sInteger1LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1LightCoralCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1LightCoralTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger0LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0LightCoralCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0LightCoralTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sDecimal0LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalALightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.##" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB3LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.000" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB2LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.00" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB1LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.0" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC3LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.000" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC2LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.00" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC1LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.0" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE3LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.000" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE2LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.00" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE1LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.0" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD3LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.000" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD2LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.00" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD1LightCoral">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.0" />
+      <Interior ss:Color="#F08080" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sMetinLightGreen">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sMetinLightGreenCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sTextLightGreen">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sTextLightGreenCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sInteger1LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1LightGreenCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1LightGreenTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger0LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0LightGreenCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0LightGreenTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sDecimal0LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalALightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.##" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB3LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.000" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB2LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.00" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB1LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.0" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC3LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.000" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC2LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.00" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC1LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.0" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE3LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.000" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE2LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.00" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE1LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.0" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD3LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.000" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD2LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.00" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD1LightGreen">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.0" />
+      <Interior ss:Color="#90EE90" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sMetinDeepSkyBlue">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sMetinDeepSkyBlueCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="@" />
+    </Style>
+    <Style ss:ID="sTextDeepSkyBlue">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sTextDeepSkyBlueCenter">
+      <Alignment ss:Horizontal="Left" ss:Vertical="Center" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sInteger1DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1DeepSkyBlueCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger1DeepSkyBlueTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="0" />
+    </Style>
+    <Style ss:ID="sInteger0DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0DeepSkyBlueCenter">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sInteger0DeepSkyBlueTop">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+      <NumberFormat ss:Format="#,##0" />
+    </Style>
+    <Style ss:ID="sDecimal0DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalADeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.##" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB3DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.000" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB2DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.00" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalB1DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,##0.0" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC3DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.000" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC2DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.00" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalC1DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#,###.0" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE3DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.000" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE2DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.00" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalE1DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="0.0" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD3DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.000" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD2DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.00" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="sDecimalD1DeepSkyBlue">
+      <Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#808080" />
+      </Borders>
+      <NumberFormat ss:Format="#.0" />
+      <Interior ss:Color="#00BFFF" ss:Pattern="Solid" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Sheet1">
+    <Table x:FullColumns="1" x:FullRows="1">
+      <Row>
+        <Cell ss:MergeAcross="21" ss:StyleID="sText">
+          <Data ss:Type="String">RaporBaslikTank Son Durum Tarihi</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:MergeAcross="21" ss:StyleID="sText">
+          <Data ss:Type="String">Günün Tarihi07.01.2026 19:28</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:MergeAcross="21" ss:StyleID="sText">
+          <Data ss:Type="String" />
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Durum Tarihi</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String"> ERP Kod</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">EPDK Kodu</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">İst. Kod</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">İstasyon Adı</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Şehir</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">İlçe </Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Tank</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Ürün</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Kapasitesi</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Yakıt  (mm)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Yakıt (Brüt lt)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Yakıt (Net Lt)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Doluluk Oranı (%)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Yakıt Durum</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Su (mm)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Su  (lt)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Su Durum</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Sıcaklık</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Sıcaklık Durum Açıklaması</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Kalibrasyon(%)</Data>
+        </Cell>
+        <Cell ss:StyleID="sHeader">
+          <Data ss:Type="String">Marka</Data>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:30:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44899</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750203</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK SANAYİ VE TİCARET ANONİM ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">144.19</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">486.37</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">486.25</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">2.43</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">21.57</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">29.31</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.30</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:30:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44899</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750203</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK SANAYİ VE TİCARET ANONİM ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">150.23</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">514.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">514.03</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">2.57</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">24.04</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">33.89</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.40</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:30:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44899</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750203</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK SANAYİ VE TİCARET ANONİM ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">909.19</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">6863.81</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">6862.08</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">34.32</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">37.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">65.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:30:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44899</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750203</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK SANAYİ VE TİCARET ANONİM ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">888.22</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">6692.92</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">6689.82</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">33.46</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">23.71</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">33.81</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.55</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:30:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44899</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750203</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK SANAYİ VE TİCARET ANONİM ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">652.66</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">4246.27</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">4239.84</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">21.23</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">23.98</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">33.36</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">16.80</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:30:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44899</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750203</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK SANAYİ VE TİCARET ANONİM ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">151.59</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">523.11</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">522.45</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">2.62</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">24.96</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">35.43</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">16.50</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/37179</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750209</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ÖZGÜR AKARYAKIT GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADIYAMAN</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADIYAMAN</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">29259.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">734.50</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">8168.40</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">8135.39</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">27.92</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">131.86</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">677.37</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Su Çok Yüksek</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">19.80</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/37179</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750209</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ÖZGÜR AKARYAKIT GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADIYAMAN</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADIYAMAN</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">29313.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">699.30</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">7592.53</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">7563.76</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB1">
+          <Data ss:Type="Number">25.9</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">74.21</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">287.45</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Su Çok Yüksek</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">19.50</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/37179</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">750209</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ÖZGÜR AKARYAKIT GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADIYAMAN</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADIYAMAN</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">29842.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">230.19</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1542.90</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1535.12</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">5.17</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">63.16</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">227.10</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Su Yüksek</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">19.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/46591</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751042</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK ŞEKER MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">10000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">218.02</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">532.85</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">532.36</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">5.33</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">16.10</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/46591</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751042</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK ŞEKER MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">10000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">173.32</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">375.15</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">374.77</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">3.75</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">16.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/46591</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751042</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK ŞEKER MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1349.21</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">15111.92</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">15106.21</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">75.56</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.30</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">89</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/46591</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751042</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK ŞEKER MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">710.08</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">6650.14</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">6645.10</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">33.25</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.92</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.74</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.90</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">79</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/46591</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751042</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK ŞEKER MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">632.60</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">5728.13</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">5723.31</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">28.64</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">16.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">83</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44872</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751043</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK AKOVA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1453.08</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">16864.99</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">16867.83</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">84.32</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">14.80</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">88</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44872</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751043</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK AKOVA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">30000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">219.70</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1771.43</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1774.42</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB1">
+          <Data ss:Type="Number">5.9</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">13.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">57</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44872</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751043</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK AKOVA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">10000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1197.73</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">8156.72</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">8181.39</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">81.57</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.94</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">12.60</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">51</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44519</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751044</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK KOOP.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1012.66</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">10860.94</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">10848.62</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB1">
+          <Data ss:Type="Number">54.3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.90</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">44</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44519</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751044</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK KOOP.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">149.56</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">638.52</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">638.04</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">3.19</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.90</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">12</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44519</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751044</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK KOOP.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">287.47</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1863.47</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1862.21</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">9.32</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.80</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">85</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44519</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751044</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK KOOP.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1467.08</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">16879.96</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">16870.01</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB1">
+          <Data ss:Type="Number">84.4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.70</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">92</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44953</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751045</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK NAZİLLİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20997.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">149.68</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">450.08</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">448.49</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">2.14</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">19.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">42</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44953</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751045</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK NAZİLLİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">21434.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">207.58</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">760.70</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">758.07</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">3.55</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.33</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.16</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">19.10</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44953</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751045</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK NAZİLLİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">15231.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">379.37</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1311.44</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1307.36</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">8.61</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">18.70</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44953</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751045</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK NAZİLLİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">15526.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">623.32</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">2856.85</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">2843.53</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB1">
+          <Data ss:Type="Number">18.4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Sipariş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">18.70</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44953</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751045</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK NAZİLLİ</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">15305.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">177.21</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">407.62</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">406.35</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">2.66</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">18.70</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44647</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751046</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK TEPEKUM MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">10000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1348.08</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">7602.59</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">7614.09</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">76.03</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">13.80</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">79</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44647</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751046</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK TEPEKUM MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">10000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">635.94</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">2807.49</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">2808.68</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">28.07</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">14.50</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">76</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44647</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751046</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK TEPEKUM MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">166.89</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">757.33</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">758.10</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">3.79</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">13.80</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44647</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751046</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK TEPEKUM MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">20000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">884.81</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">8628.46</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">8626.28</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">43.14</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">15.30</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">92</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/939-82/44647</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751046</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ARİA LOJİSTİK TEPEKUM MAH.</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">50000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">152.32</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1699.44</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">1701.44</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB1">
+          <Data ss:Type="Number">3.4</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">13.60</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">72</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/455-297/05136</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751047</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">NAMDAR PETROL</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">22000.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">883.03</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">9901.96</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">9913.63</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">45.01</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">13.60</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">88</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/455-297/05136</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751047</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">NAMDAR PETROL</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Mtrn</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">8800.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">265.89</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">623.84</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">625.31</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">7.09</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Bitiş Alarmı</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">12.20</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">90</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sDateddMMyyyy hh:mm:ss">
+          <Data ss:Type="DateTime">2026-01-07T19:00:00.000</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">BAY/455-297/05136</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">751047</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">NAMDAR PETROL</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">SAKARYA</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">ADAPAZARI</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">K95</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger0">
+          <Data ss:Type="Number">8300.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">1113.11</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">5264.09</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalC2">
+          <Data ss:Type="Number">5283.99</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalB2">
+          <Data ss:Type="Number">63.42</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">0.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sDecimalE2">
+          <Data ss:Type="Number">12.00</Data>
+        </Cell>
+        <Cell ss:StyleID="sText">
+          <Data ss:Type="String">Normal</Data>
+        </Cell>
+        <Cell ss:StyleID="sInteger1">
+          <Data ss:Type="Number">94</Data>
+        </Cell>
+        <Cell ss:StyleID="sText" />
+      </Row>
+    </Table>
+  </Worksheet>
+</Workbook>

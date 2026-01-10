@@ -1,0 +1,5 @@
+Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için tüm kodları yaz, hataları kendi kendine (Agent modunda) tara ve düzelt. Benimle her zaman Türkçe konuş.
+
+ÖNEMLİ: Ana sayfadaki proje (dashboard.html) durduruldu, artık Telerik'e adım adım taşınıyor. Ana sayfadaki proje silinmeyecek veya değişiklik yapılmayacak. Tüm Telerik geliştirmeleri '/telerik-yeni-proje/' sayfasında yapılacak. Telerik sayfasında yapılan tüm değişiklikler Git'e kaydedilecek.
+
+GİT KULLANIMI: Tüm değişiklikler Git'e kaydedilecek. Her önemli değişiklikten sonra commit yapılacak. Commit mesajları Türkçe ve açıklayıcı olacak (örnek: "MOTORİN tablosu Telerik'e taşındı", "TAHSİLAT tablosuna yeni özellik eklendi"). Commit komutları: `git add .` ve `git commit -m "Açıklayıcı mesaj"`. Her gün sonunda ve her önemli değişiklikte kayıt yapılacak.

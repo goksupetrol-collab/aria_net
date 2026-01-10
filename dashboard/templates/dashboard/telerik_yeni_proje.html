@@ -1,0 +1,1437 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}Yeni Telerik Projesi{% endblock %}
+
+{% block extra_head %}
+  <style>
+    *{box-sizing:border-box}
+    /* Sadece layout için minimal CSS - Telerik bileşenleri kendi stillerini kullanacak */
+    .container{width:100%;height:100%;padding:2px;overflow:auto}
+    .header{display:none}
+    .menu-container{display:none}
+    #top-menu-bar{display:block !important;visibility:visible !important;width:100%;min-height:30px}
+    #top-menu-bar .k-menu{display:block !important;width:100% !important;background:#fff !important}
+    #top-menu-bar .k-menu-item{display:inline-block !important;visibility:visible !important}
+    .content-area{width:100%;height:calc(100% - 10px);margin-top:5px;display:grid;grid-template-columns:620px 620px 640px;grid-template-rows:448px 438px;gap:5px;padding:0}
+    .panel{position:relative;display:flex;flex-direction:column;overflow:hidden}
+    .panel-content{flex:1;overflow:auto;position:relative}
+    .mtr1-section{grid-column:1;grid-row:1}
+    .mtr2-section{grid-column:2;grid-row:1}
+    .right-section{grid-column:3;grid-row:1 / span 2;display:flex;flex-direction:column;gap:3px}
+    .entry-section{grid-column:1;grid-row:2}
+    .cars-section{grid-column:2;grid-row:2;display:flex;flex-direction:column;overflow:hidden}
+    .right-column{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:600px 20px 25px 1fr;gap:3px;height:100%}
+    .tahsilat-area{grid-column:1;grid-row:1}
+    .odeme-area{grid-column:2;grid-row:1}
+    .tahsilat-total{grid-column:1;grid-row:2;display:flex;align-items:center;justify-content:center;height:20px}
+    .odeme-total{grid-column:2;grid-row:2;display:flex;align-items:center;justify-content:center;height:20px}
+    .genel-total{grid-column:1 / span 2;grid-row:3;display:flex;align-items:center;justify-content:center;height:25px}
+    .limits-area{grid-column:1 / span 2;grid-row:4;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+    .content-wrapper{width:100%;height:calc(100% - 40px);overflow:auto;margin-top:5px}
+    
+    /* Telerik Menu özelleştirmeleri - Resimdeki gibi */
+    #top-menu-container{background:#e3f2fd !important}
+    #top-menu-bar .k-menu{background:#e3f2fd !important;border:none !important;height:28px !important}
+    #top-menu-bar .k-menu-item{background:transparent !important;border-right:1px solid #90caf9 !important;padding:4px 12px !important;height:28px !important;line-height:20px !important}
+    #top-menu-bar .k-menu-item:hover{background:#bbdefb !important}
+    #top-menu-bar .k-menu-item-text{font-size:11px !important;font-weight:normal !important;color:#000 !important}
+    #top-menu-bar .k-menu-group{background:#fff !important;border:1px solid #90caf9 !important;box-shadow:0 2px 4px rgba(0,0,0,.1) !important}
+    #top-menu-bar .k-menu-group .k-menu-item{background:#fff !important;border-right:none !important;padding:6px 12px !important;height:auto !important}
+    #top-menu-bar .k-menu-group .k-menu-item:hover{background:#f5f5f5 !important}
+    
+    /* BAŞLIK: LOBI - Sadece menü (lobi) ekranında görünür */
+    /* Başlangıçta görünür (lobi ekranı), JavaScript ile kontrol edilir */
+    #title-bar{position:fixed;top:165px;left:0;right:0;z-index:9995;height:40px;background:linear-gradient(to bottom, rgb(60, 80, 100), rgb(40, 60, 80));display:flex;align-items:center;justify-content:center;padding:0;font-family:'Segoe UI',Arial,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+    #title-bar div{color:#FFFFFF;font-size:18pt;font-weight:600;letter-spacing:1px;text-shadow:1px 1px 2px rgba(0,0,0,0.3);text-align:center;width:100%;}
+    
+    /* İçerik wrapper margin düzeltmesi */
+    .content-wrapper{margin-top:0 !important;}
+    
+    /* İçerik alanı margin ayarı - base.html'deki main-content margin-top:165px var */
+    #main-content-operasyon{margin-top:0;display:block;}
+    
+    /* İçerik wrapper margin düzeltmesi */
+    .content-wrapper{margin-top:0 !important;}
+    
+    /* title-bar JavaScript ile kontrol ediliyor, CSS'de !important kullanmayalım */
+  </style>
+{% endblock %}
+
+{% block content %}
+  <!-- BAŞLIK: LOBI - Sadece menü (lobi) ekranında görünür -->
+  <div id="title-bar">
+    <div>LOBI</div>
+  </div>
+  
+  <div class="container" id="main-content-operasyon" style="display:block;">
+    <div class="header">
+      <div id="header-toolbar"></div>
+    </div>
+    
+    <!-- Sol Üstte Kompakt Menü Yapısı -->
+    <div class="menu-container">
+      <!-- Altında: 3 İkonlu Buton - Kompakt -->
+      <div id="middle-buttons" style="display:flex;gap:5px;padding:5px 0;margin-top:5px"></div>
+      
+      <!-- En Alt: 2 Sabit Öğe - Kompakt -->
+      <div id="bottom-fixed" style="display:flex;gap:5px;padding:5px 0;margin-top:5px"></div>
+    </div>
+    
+    <!-- İçerik Alanı (Dinamik) -->
+    <div class="content-wrapper" style="margin-top:185px;">
+    <div class="content-area">
+      <!-- MOTORİN Tablosu (Sol Üst) - Telerik PanelBar -->
+      <div class="panel mtr1-section">
+        <div id="motorin-toolbar"></div>
+        <div class="panel-content">
+          <div id="motorin-grid"></div>
+        </div>
+      </div>
+
+      <!-- BENZİN Tablosu (Orta Üst) - Telerik PanelBar -->
+      <div class="panel mtr2-section">
+        <div id="benzin-toolbar"></div>
+        <div class="panel-content">
+          <div id="benzin-grid"></div>
+        </div>
+      </div>
+
+      <!-- Sağ Blok -->
+      <div class="right-section">
+        <div class="right-column">
+          <!-- TAHSİLAT Tablosu - Telerik Toolbar -->
+          <div class="panel tahsilat-area">
+            <div id="tahsilat-toolbar"></div>
+            <div class="panel-content">
+              <div id="tahsilat-grid"></div>
+            </div>
+          </div>
+
+          <!-- ÖDEME Tablosu - Telerik Toolbar -->
+          <div class="panel odeme-area">
+            <div id="odeme-toolbar"></div>
+            <div class="panel-content">
+              <div id="odeme-grid"></div>
+            </div>
+          </div>
+
+          <!-- Toplamlar - Telerik Badge/Label -->
+          <div id="tahsilat-total" class="tahsilat-total"></div>
+          <div id="odeme-total" class="odeme-total"></div>
+          <div id="genel-total" class="genel-total"></div>
+
+          <!-- HYPCO ve AYGAZ - Telerik Toolbar -->
+          <div class="limits-area">
+            <div class="panel">
+              <div id="hypco-toolbar"></div>
+              <div class="panel-content">
+                <div id="hypco-grid"></div>
+              </div>
+            </div>
+            <div class="panel">
+              <div id="aygaz-toolbar"></div>
+              <div class="panel-content">
+                <div id="aygaz-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YAKIT ALIMLARI (Sol Alt) - Telerik Toolbar -->
+      <div class="panel entry-section">
+        <div id="yakit-toolbar"></div>
+        <div class="panel-content">
+          <div id="yakit-alimlari-grid"></div>
+        </div>
+      </div>
+
+      <!-- ARAÇLAR (Orta Alt) - Telerik Toolbar -->
+      <div class="panel cars-section">
+        <div id="nakliye-toolbar"></div>
+        <div class="panel-content" style="overflow-y:auto;overflow-x:auto;">
+          <div id="araclar-grid"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- FIRMA YÖNETİMİ WINDOW -->
+  <div id="firma-window">
+    <div id="firma-grid-container" style="padding:10px;height:100%;">
+      <div id="firma-grid" style="height:500px;"></div>
+    </div>
+  </div>
+  
+  <!-- ÜRÜN YÖNETİMİ WINDOW -->
+  <div id="urun-window">
+    <div id="urun-grid-container" style="padding:10px;height:100%;">
+      <div id="urun-grid" style="height:500px;"></div>
+    </div>
+  </div>
+  
+  <!-- TANIMLAR ALT MENÜ -->
+  <div id="tanimlar-menu" style="position:fixed;top:28px;left:0;background:#FFFFFF;border:1px solid #E0E0E0;box-shadow:0 2px 4px rgba(0,0,0,0.1);z-index:10001;display:none;min-width:200px;">
+    <div id="tanimlar-firmalar" style="padding:5px 15px;cursor:pointer;border-bottom:1px solid #F0F0F0;">Firmalar</div>
+    <div id="tanimlar-urunler" style="padding:5px 15px;cursor:pointer;">Ürünler</div>
+  </div>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script>
+    // Telerik Menüler ve Toolbar'lar
+    $(document).ready(function() {
+      // EN ÜST: 2 Açılır Menü (Tanımlar ve Kartlar) - Telerik Menu (HTML yapısı ile)
+      // Telerik dokümantasyonuna göre: HTML <ul><li> yapısı kullanılmalı
+      function initTelerikMenu() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoMenu !== 'undefined') {
+          try {
+            $("#top-menu-bar").kendoMenu({
+              orientation: "horizontal",
+              openOnClick: false,
+              animation: false,
+              select: function(e) {
+                console.log("Menü tıklandı:", $(e.item).text());
+              }
+            });
+            console.log("✅ Telerik Menu başarıyla oluşturuldu!");
+          } catch(error) {
+            console.error("❌ Telerik Menu oluşturulurken hata:", error);
+            console.error("Hata detayı:", error.message, error.stack);
+          }
+        } else {
+          console.log("⏳ Telerik yükleniyor, bekleniyor... (kendo:", typeof kendo, ", kendoMenu:", typeof $.fn.kendoMenu, ")");
+          setTimeout(initTelerikMenu, 100);
+        }
+      }
+      initTelerikMenu();
+      
+      // ANA RİBBON: Menü öğelerini base.html'den al (menuItems zaten base.html'de tanımlı)
+      // Ribbon butonlarına tıklama - Dinamik Tab Sistemi ile
+      $(document).on("click", ".ribbon-button", function() {
+        var pageName = $(this).data('page');
+        var menuItem = menuItems.find(function(item) { return item.name === pageName; });
+        
+        if (!menuItem) return;
+        
+        // Tab açma mantığı - PetroNet gibi
+        var tabBaslik = menuItem.tab_baslik || menuItem.baslik;
+        var existingTab = findTabByTitle(tabBaslik);
+        
+        if (existingTab) {
+          // Tab zaten açıksa aktif yap
+          setActiveTab(existingTab);
+        } else {
+          // Yeni tab aç
+          openTab(tabBaslik, pageName, menuItem.icon);
+          
+          // Eğer Operasyon Sayfası ise içeriği göster
+          if (pageName === 'operasyon_sayfasi') {
+            $('#main-content-operasyon').show();
+            $('#title-bar').hide(); // Başlığı gizle (operasyon sayfası açıldı)
+          }
+        }
+        
+        setActiveRibbonButton(pageName);
+        
+        // Eğer page_url varsa ve farklı bir sayfaysa o sayfaya git (tab açtıktan sonra)
+        if (menuItem.page_url && menuItem.page_url !== window.location.pathname && menuItem.page_url !== '/') {
+          window.location.href = menuItem.page_url;
+        }
+      });
+      
+      // İlk açılışta hiçbir buton aktif değil (lobi gibi)
+      var currentPage = null; // Şu anki sayfa yok
+      
+      // İçeriği gizle (ilk açılışta boş ekran - lobi)
+      // Ama eğer eski program sayfasından geliyorsa veya sessionStorage'da flag varsa içeriği göster ve tab aç
+      setTimeout(function() {
+        var showContent = false;
+        var hasTabs = false;
+        
+        // F5 yapıldı mı kontrol et - Performance Navigation API kullan
+        var isPageRefresh = false;
+        if (performance.navigation) {
+          // Eski API (deprecated ama hala çalışıyor)
+          isPageRefresh = (performance.navigation.type === 1); // TYPE_RELOAD = 1
+        } else if (performance.getEntriesByType) {
+          // Yeni API
+          var navEntries = performance.getEntriesByType('navigation');
+          if (navEntries.length > 0) {
+            isPageRefresh = (navEntries[0].type === 'reload');
+          }
+        }
+        
+        // Eğer referrer yoksa veya aynı sayfa ise, F5 yapılmış olabilir
+        if (!isPageRefresh) {
+          var referrerPath = document.referrer ? new URL(document.referrer).pathname : '';
+          var currentPath = window.location.pathname;
+          if (!document.referrer || referrerPath === currentPath || referrerPath === '/' && currentPath === '/') {
+            isPageRefresh = true;
+          }
+        }
+        
+        // Eğer F5 yapılmadıysa (başka bir sayfadan geldiyse), sessionStorage'dan tab'ları yükle
+        if (!isPageRefresh) {
+          loadTabsFromStorage();
+          hasTabs = Object.keys(openTabs).length > 0;
+        }
+        
+        // Referrer kontrolü kaldırıldı (eski program silindi)
+        
+        // SessionStorage kontrolü
+        if (sessionStorage.getItem('showOperasyonContent') === 'true') {
+          showContent = true;
+          sessionStorage.removeItem('showOperasyonContent'); // Temizle
+        }
+        
+        // Eğer tab'lar varsa içeriği göster
+        if (hasTabs) {
+          showContent = true;
+        }
+        
+        if (showContent) {
+          // İçeriği göster
+          $('#main-content-operasyon').show();
+          setActiveRibbonButton('operasyon_sayfasi');
+          
+          // Başlığı gizle (operasyon sayfası açıldı)
+          $('#title-bar').hide();
+          
+          // Eğer tab yoksa Operasyon Sayfası tab'ını aç
+          if (!hasTabs) {
+            var operasyonItem = menuItems.find(function(item) { return item.name === 'operasyon_sayfasi'; });
+            if (operasyonItem) {
+              var tabBaslik = operasyonItem.tab_baslik || operasyonItem.baslik;
+              openTab(tabBaslik, 'operasyon_sayfasi', operasyonItem.icon);
+            }
+          }
+        } else {
+          // Lobi ekranı - başlığı göster, içeriği gizle
+          $('#main-content-operasyon').hide();
+          $('#title-bar').show();
+        }
+      }, 50);
+      
+      // Ribbon butonlarına hover efekti
+      $(".ribbon-button").hover(
+        function() { 
+          if (!$(this).hasClass('active')) {
+            $(this).css("background", "rgba(255,255,255,0.2)"); 
+          }
+        },
+        function() { 
+          if (!$(this).hasClass('active')) {
+            $(this).css("background", "transparent"); 
+          }
+        }
+      );
+      
+      // Tab yönetimi - Dinamik Tab Sistemi
+      var openTabs = {};
+      var activeTabId = null;
+      
+      // Tab'ları sessionStorage'a kaydetme fonksiyonu
+      function saveTabsToStorage() {
+        var tabsArray = [];
+        for (var tabId in openTabs) {
+          tabsArray.push({
+            tabId: tabId,
+            title: openTabs[tabId].title,
+            pageId: openTabs[tabId].pageId,
+            icon: openTabs[tabId].icon
+          });
+        }
+        sessionStorage.setItem('openTabs', JSON.stringify({
+          tabs: tabsArray,
+          activeTabId: activeTabId
+        }));
+      }
+      
+      // Tab'ları sessionStorage'dan yükleme fonksiyonu
+      function loadTabsFromStorage() {
+        var stored = sessionStorage.getItem('openTabs');
+        if (!stored) return;
+        
+        try {
+          var data = JSON.parse(stored);
+          if (data.tabs && data.tabs.length > 0) {
+            data.tabs.forEach(function(tabData) {
+              // Tab'ı yeniden oluştur (DOM element olmadan)
+              openTabs[tabData.tabId] = {
+                title: tabData.title,
+                pageId: tabData.pageId,
+                icon: tabData.icon,
+                tabElement: null // DOM elementi sonra oluşturulacak
+              };
+            });
+            
+            // Tab'ları DOM'a ekle
+            for (var tabId in openTabs) {
+              if (!openTabs[tabId].tabElement) {
+                createTabElement(tabId);
+              }
+            }
+            
+            // Aktif tab'ı ayarla
+            if (data.activeTabId && openTabs[data.activeTabId]) {
+              setActiveTab(data.activeTabId);
+            }
+          }
+        } catch (e) {
+          console.error('Tab yükleme hatası:', e);
+        }
+      }
+      
+      // Tab DOM elementi oluşturma fonksiyonu
+      function createTabElement(tabId) {
+        var tab = openTabs[tabId];
+        if (!tab) return;
+        
+        var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '" style="background:linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150));border:1px solid #CC9966;border-bottom:none;height:32px;padding:0 15px;display:flex;align-items:center;gap:8px;color:#333333;font-weight:normal;border-radius:4px 4px 0 0;margin-right:2px;cursor:pointer;">' +
+          '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + tab.icon + '</div>' +
+          '<span>' + tab.title + '</span>' +
+          '<div class="tab-close" style="width:16px;height:16px;margin-left:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#666666;font-size:12px;font-weight:bold;border-radius:50%;transition:background 0.2s;">×</div>' +
+          '</div>');
+        
+      // Tab'a tıklama - Tab'a tıklayınca o sayfaya git
+      tabElement.find('span, div:not(.tab-close)').on('click', function() {
+        setActiveTab(tabId);
+        // Tab'a tıklayınca o sayfaya git
+        var pageId = tab.pageId;
+        if (pageId === 'operasyon_sayfasi' || pageId === 'operasyon') {
+          // Operasyon sayfasına git
+          if (window.location.pathname !== '/') {
+            window.location.href = "/";
+          }
+        } else {
+          // Diğer sayfalar için menuItem'dan page_url al
+          var menuItem = menuItems.find(function(item) { return item.name === pageId; });
+          if (menuItem && menuItem.page_url && window.location.pathname !== menuItem.page_url) {
+            window.location.href = menuItem.page_url;
+          }
+        }
+      });
+        
+        // X butonuna tıklama
+        tabElement.find('.tab-close').on('click', function(e) {
+          e.stopPropagation();
+          closeTab(tabId);
+        });
+        
+        // Hover efekti
+        tabElement.find('.tab-close').hover(
+          function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
+          function() { $(this).css('background', 'transparent'); }
+        );
+        
+        // Tab'ı ekle
+        $('#tabs-list').append(tabElement);
+        
+        // Tab elementini kaydet
+        openTabs[tabId].tabElement = tabElement;
+      }
+      
+      // Tab açma fonksiyonu
+      function openTab(title, pageId, icon) {
+        var tabId = 'tab-' + pageId;
+        
+        // Eğer tab zaten varsa, sadece aktif yap
+        if (openTabs[tabId]) {
+          setActiveTab(tabId);
+          saveTabsToStorage();
+          return;
+        }
+        
+        // Yeni tab oluştur
+        var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '" style="background:linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150));border:1px solid #CC9966;border-bottom:none;height:32px;padding:0 15px;display:flex;align-items:center;gap:8px;color:#333333;font-weight:normal;border-radius:4px 4px 0 0;margin-right:2px;cursor:pointer;">' +
+          '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + icon + '</div>' +
+          '<span>' + title + '</span>' +
+          '<div class="tab-close" style="width:16px;height:16px;margin-left:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#666666;font-size:12px;font-weight:bold;border-radius:50%;transition:background 0.2s;">×</div>' +
+          '</div>');
+        
+      // Tab'a tıklama - Tab'a tıklayınca o sayfaya git
+      tabElement.find('span, div:not(.tab-close)').on('click', function() {
+        setActiveTab(tabId);
+        // Tab'a tıklayınca o sayfaya git
+        if (pageId === 'operasyon_sayfasi' || pageId === 'operasyon') {
+          // Operasyon sayfasına git
+          if (window.location.pathname !== '/') {
+            window.location.href = "/";
+          }
+        } else {
+          // Diğer sayfalar için menuItem'dan page_url al
+          var menuItem = menuItems.find(function(item) { return item.name === pageId; });
+          if (menuItem && menuItem.page_url && window.location.pathname !== menuItem.page_url) {
+            window.location.href = menuItem.page_url;
+          }
+        }
+      });
+        
+        // X butonuna tıklama
+        tabElement.find('.tab-close').on('click', function(e) {
+          e.stopPropagation();
+          closeTab(tabId);
+        });
+        
+        // Hover efekti
+        tabElement.find('.tab-close').hover(
+          function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
+          function() { $(this).css('background', 'transparent'); }
+        );
+        
+        // Tab'ı ekle
+        $('#tabs-list').append(tabElement);
+        
+        // Tab'ı kaydet
+        openTabs[tabId] = {
+          title: title,
+          pageId: pageId,
+          icon: icon,
+          tabElement: tabElement
+        };
+        
+        // Aktif yap
+        setActiveTab(tabId);
+        
+        // SessionStorage'a kaydet
+        saveTabsToStorage();
+        
+        // Eğer Operasyon Sayfası tab'ıysa içeriği göster
+        if (pageId === 'operasyon_sayfasi' || pageId === 'operasyon') {
+          $('#main-content-operasyon').show();
+        } else {
+          $('#main-content-operasyon').hide();
+        }
+      }
+      
+      // Tab bulma fonksiyonu
+      function findTabByTitle(title) {
+        for (var id in openTabs) {
+          if (openTabs[id].title === title) {
+            return id;
+          }
+        }
+        return null;
+      }
+      
+      // Aktif tab değiştirme
+      function setActiveTab(tabId) {
+        // Tüm tab'ları pasif yap
+        $('.tab-item').each(function() {
+          var id = $(this).data('tab-id');
+          if (id !== tabId) {
+            $(this).css({
+              'background': '#FFFFFF',
+              'border': '1px solid #CCCCCC',
+              'border-bottom': '1px solid #E0E0E0',
+              'height': '30px'
+            });
+            $(this).find('div:first').css({
+              'width': '14px',
+              'height': '14px',
+              'background': '#FFFFFF',
+              'border': '1px solid #4A90E2',
+              'border-radius': '2px',
+              'font-size': '12px'
+            });
+          }
+        });
+        
+        // Aktif tab'ı aktif yap
+        if (openTabs[tabId]) {
+          openTabs[tabId].tabElement.css({
+            'background': 'linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150))',
+            'border': '1px solid #CC9966',
+            'border-bottom': 'none',
+            'height': '32px'
+          });
+          openTabs[tabId].tabElement.find('div:first').css({
+            'width': '16px',
+            'height': '16px',
+            'background': '#4A90E2',
+            'border-radius': '50%',
+            'border': 'none',
+            'font-size': '14px'
+          });
+          
+          activeTabId = tabId;
+          
+          // Ribbon butonunu da güncelle
+          setActiveRibbonButton(openTabs[tabId].pageId);
+          
+          // İçeriği göster/gizle - PetroNet mantığı: Tab aktif olunca içerik görünür, sayfa değişmez
+          if (openTabs[tabId].pageId === 'operasyon_sayfasi' || openTabs[tabId].pageId === 'operasyon') {
+            $('#main-content-operasyon').show();
+            $('#title-bar').hide(); // Başlığı gizle (operasyon sayfası açıldı)
+          } else {
+            $('#main-content-operasyon').hide();
+            $('#title-bar').hide(); // Başlığı gizle (diğer sayfalar)
+          }
+          // Tab'a tıklayınca sayfa değişmez, sadece tab aktif olur
+          
+          // SessionStorage'a kaydet
+          saveTabsToStorage();
+        }
+      }
+      
+      // Tab kapatma - PetroNet mantığı: Tab kapatınca, eğer başka tab varsa o aktif olur ve o sayfaya gider, yoksa lobiye dönülür
+      function closeTab(tabId) {
+        if (!openTabs[tabId]) return;
+        
+        var wasActive = (activeTabId === tabId);
+        var closedPageId = openTabs[tabId].pageId;
+        var isOnClosedPage = false;
+        
+        // Kapatılan tab'ın sayfasında mıyız kontrol et
+        if (closedPageId === 'operasyon_sayfasi' || closedPageId === 'operasyon') {
+          isOnClosedPage = (window.location.pathname === '/');
+        } else {
+          var menuItem = menuItems.find(function(item) { return item.name === closedPageId; });
+          if (menuItem && menuItem.page_url) {
+            isOnClosedPage = (window.location.pathname === menuItem.page_url);
+          }
+        }
+        
+        // Tab'ı kaldır
+        openTabs[tabId].tabElement.remove();
+        delete openTabs[tabId];
+        
+        // Eğer kapatılan tab aktifse, başka bir tab'ı aktif yap
+        if (wasActive) {
+          var remainingTabs = Object.keys(openTabs);
+          if (remainingTabs.length > 0) {
+            // Başka tab varsa, en son açılan tab'ı aktif yap ve o sayfaya git
+            var lastTabId = remainingTabs[remainingTabs.length - 1];
+            var lastTab = openTabs[lastTabId];
+            
+            // Tab'ın DOM'da görünür olup olmadığını kontrol et
+            var isTabVisible = lastTab.tabElement && lastTab.tabElement.length > 0 && lastTab.tabElement.is(':visible');
+            
+            // Eğer kapatılan tab'ın sayfasındaysak, başka tab'ın sayfasına git
+            if (isOnClosedPage) {
+              // Tab görünürse o sayfaya git
+              if (isTabVisible) {
+                if (lastTab.pageId === 'operasyon_sayfasi' || lastTab.pageId === 'operasyon') {
+                  window.location.href = "/";
+                } else {
+                  var lastMenuItem = menuItems.find(function(item) { return item.name === lastTab.pageId; });
+                  if (lastMenuItem && lastMenuItem.page_url) {
+                    window.location.href = lastMenuItem.page_url;
+                  }
+                }
+              } else {
+                // Tab görünmüyorsa lobiye dön
+                activeTabId = null;
+                $('#main-content-operasyon').hide();
+                $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                setActiveRibbonButton(null);
+              }
+            } else {
+              // Başka sayfadaysak sadece tab'ı aktif yap (eğer görünürse)
+              if (isTabVisible) {
+                setActiveTab(lastTabId);
+              } else {
+                // Tab görünmüyorsa lobiye dön
+                activeTabId = null;
+                $('#main-content-operasyon').hide();
+                $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                setActiveRibbonButton(null);
+              }
+            }
+          } else {
+            // Tüm tab'lar kapandı, lobiye dön (boş ekran)
+            activeTabId = null;
+            $('#main-content-operasyon').hide();
+            $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+            // Ribbon butonlarını pasif yap
+            setActiveRibbonButton(null);
+          }
+        }
+        
+        // SessionStorage'a kaydet
+        saveTabsToStorage();
+      }
+      
+      // Aktif ribbon butonunu ayarlama fonksiyonu
+      function setActiveRibbonButton(pageName) {
+        $(".ribbon-button").each(function() {
+          var page = $(this).data('page');
+          if (pageName && page === pageName) {
+            // Aktif buton
+            $(this).addClass('active');
+            $(this).css({
+              'background': 'rgba(255,255,255,0.4)',
+              'border': '2px solid #4A90E2',
+              'box-shadow': '0 2px 4px rgba(74, 144, 226, 0.3)'
+            });
+            $(this).find('div:last').css({
+              'color': '#1e3a8a',
+              'font-weight': '600'
+            });
+          } else {
+            // Pasif buton
+            $(this).removeClass('active');
+            $(this).css({
+              'background': 'transparent',
+              'border': '2px solid transparent',
+              'box-shadow': 'none'
+            });
+            $(this).find('div:last').css({
+              'color': '#333333',
+              'font-weight': '500'
+            });
+          }
+        });
+      }
+      
+      // TANIMLAR menüsüne tıklama - Alt menü aç
+      $("#top-menu-bar-container span").first().on("click", function(e) {
+        e.stopPropagation();
+        var menu = $("#tanimlar-menu");
+        if (menu.is(":visible")) {
+          menu.hide();
+        } else {
+          var offset = $(this).offset();
+          menu.css({
+            top: offset.top + $(this).outerHeight(),
+            left: offset.left
+          }).show();
+        }
+      });
+      
+      // Dışarı tıklayınca menüyü kapat
+      $(document).on("click", function(e) {
+        if (!$(e.target).closest("#top-menu-bar-container span").first().length && 
+            !$(e.target).closest("#tanimlar-menu").length) {
+          kapatTanimlarMenu();
+        }
+      });
+      
+      function kapatTanimlarMenu() {
+        $("#tanimlar-menu").hide();
+      }
+      
+      // Alt menü item'larına tıklama
+      $("#tanimlar-firmalar").on("click", function(e) {
+        e.stopPropagation();
+        console.log("Firmalar tıklandı");
+        acFirmaYonetimPenceresi();
+        kapatTanimlarMenu();
+      });
+      
+      $("#tanimlar-urunler").on("click", function(e) {
+        e.stopPropagation();
+        console.log("Ürünler tıklandı");
+        acUrunYonetimPenceresi();
+        kapatTanimlarMenu();
+      });
+      
+      // Hover efektleri
+      $("#tanimlar-firmalar, #tanimlar-urunler").hover(
+        function() { $(this).css("background", "#F5F5F5"); },
+        function() { $(this).css("background", "#FFFFFF"); }
+      );
+      
+      // FIRMA YÖNETİMİ PENCERESİ
+      function acFirmaYonetimPenceresi() {
+        // Window oluştur
+        if (!$("#firma-window").data("kendoWindow")) {
+          $("#firma-window").kendoWindow({
+            title: "Firma Tanımları",
+            width: 800,
+            height: 600,
+            modal: true,
+            visible: false,
+            actions: ["Close"],
+            open: function() {
+              // Grid'i oluştur
+              console.log("Firma penceresi açıldı, grid oluşturuluyor...");
+              setTimeout(function() {
+                olusturFirmaGrid();
+              }, 100);
+            }
+          });
+        }
+        
+        var window = $("#firma-window").data("kendoWindow");
+        window.center().open();
+      }
+      
+      // FIRMA GRID'İ OLUŞTUR
+      function olusturFirmaGrid() {
+        // Önceki grid varsa yok et
+        if ($("#firma-grid").data("kendoGrid")) {
+          $("#firma-grid").data("kendoGrid").destroy();
+        }
+        
+        console.log("Firma grid oluşturuluyor...");
+        
+        // Önce API'den veriyi test et
+        $.ajax({
+          url: "/api/firmalar/",
+          type: "GET",
+          dataType: "json",
+          success: function(data) {
+            console.log("API başarılı, veri:", data);
+            console.log("Veri tipi:", typeof data, "Uzunluk:", Array.isArray(data) ? data.length : "Array değil");
+            
+            // Grid container'ı kontrol et
+            var gridContainer = $("#firma-grid");
+            if (gridContainer.length === 0) {
+              console.error("Grid container bulunamadı! #firma-grid");
+              alert("Grid container bulunamadı!");
+              return;
+            }
+            console.log("Grid container bulundu:", gridContainer.length);
+            
+            // Önceki grid varsa yok et
+            if (gridContainer.data("kendoGrid")) {
+              console.log("Eski grid yok ediliyor...");
+              gridContainer.data("kendoGrid").destroy();
+            }
+            
+            // Grid'i oluştur
+            gridContainer.kendoGrid({
+              dataSource: {
+                data: data,
+                schema: {
+                  model: {
+                    id: "id",
+                    fields: {
+                      id: { type: "number", editable: false },
+                      sira_no: { type: "number", validation: { required: true, min: 1 } },
+                      ad: { type: "string", validation: { required: true } },
+                      aktif: { type: "boolean", defaultValue: true }
+                    }
+                  }
+                },
+                pageSize: 20
+              },
+              height: 500,
+              scrollable: true,
+              sortable: true,
+              filterable: false,
+              pageable: {
+                pageSizes: [10, 20, 50],
+                buttonCount: 5
+              },
+              toolbar: [
+                { name: "create", text: "Yeni Firma Ekle" },
+                { name: "save", text: "Kaydet" },
+                { name: "cancel", text: "İptal" }
+              ],
+              messages: {
+                commands: {
+                  edit: "Düzenle",
+                  destroy: "Sil",
+                  canceledit: "İptal",
+                  update: "Güncelle"
+                }
+              },
+              editable: {
+                mode: "incell",
+                confirmation: "Silmek istediğinizden emin misiniz?"
+              },
+              columns: [
+                { field: "sira_no", title: "Sıra No", width: 100 },
+                { field: "ad", title: "Firma Adı", width: 300 },
+                { field: "aktif", title: "Aktif", width: 80, template: "#= aktif ? 'Evet' : 'Hayır' #" },
+                { 
+                  command: [
+                    { name: "edit", text: "Düzenle", className: "k-button k-button-sm" },
+                    { name: "destroy", text: "Sil", className: "k-button k-button-sm" }
+                  ], 
+                  title: "İşlemler", 
+                  width: 150 
+                }
+              ],
+              dataBound: function(e) {
+                console.log("Grid yüklendi, kayıt sayısı:", e.sender.dataSource.total());
+                console.log("Grid verileri:", e.sender.dataSource.data());
+                if (e.sender.dataSource.total() === 0) {
+                  console.warn("UYARI: Grid'de hiç veri yok!");
+                }
+              },
+              error: function(e) {
+                console.error("Grid hatası:", e);
+              }
+            });
+          },
+          error: function(xhr, status, error) {
+            console.error("API hatası:", status, error, xhr.responseText);
+            alert("Firmalar yüklenirken hata oluştu: " + error + "\n\nDetay: " + xhr.responseText);
+          }
+        });
+      }
+      
+      // ÜRÜN YÖNETİMİ PENCERESİ
+      function acUrunYonetimPenceresi() {
+        // Window oluştur
+        if (!$("#urun-window").data("kendoWindow")) {
+          $("#urun-window").kendoWindow({
+            title: "Ürün Tanımları",
+            width: 800,
+            height: 600,
+            modal: true,
+            visible: false,
+            actions: ["Close"],
+            open: function() {
+              console.log("Ürün penceresi açıldı, grid oluşturuluyor...");
+              setTimeout(function() {
+                olusturUrunGrid();
+              }, 100);
+            }
+          });
+        }
+        
+        var window = $("#urun-window").data("kendoWindow");
+        window.center().open();
+      }
+      
+      // ÜRÜN GRID'İ OLUŞTUR
+      function olusturUrunGrid() {
+        // Önceki grid varsa yok et
+        if ($("#urun-grid").data("kendoGrid")) {
+          $("#urun-grid").data("kendoGrid").destroy();
+        }
+        
+        console.log("Ürün grid oluşturuluyor...");
+        
+        // Önce API'den veriyi test et
+        $.ajax({
+          url: "/api/urunler/",
+          type: "GET",
+          dataType: "json",
+          success: function(data) {
+            console.log("API başarılı, veri:", data);
+            console.log("Veri tipi:", typeof data, "Uzunluk:", Array.isArray(data) ? data.length : "Array değil");
+            
+            // Grid container'ı kontrol et
+            var gridContainer = $("#urun-grid");
+            if (gridContainer.length === 0) {
+              console.error("Grid container bulunamadı! #urun-grid");
+              alert("Grid container bulunamadı!");
+              return;
+            }
+            console.log("Grid container bulundu:", gridContainer.length);
+            
+            // Önceki grid varsa yok et
+            if (gridContainer.data("kendoGrid")) {
+              console.log("Eski grid yok ediliyor...");
+              gridContainer.data("kendoGrid").destroy();
+            }
+            
+            // Grid'i oluştur
+            gridContainer.kendoGrid({
+              dataSource: {
+                data: data,
+                schema: {
+                  model: {
+                    id: "id",
+                    fields: {
+                      id: { type: "number", editable: false },
+                      sira_no: { type: "number", validation: { required: true, min: 1 } },
+                      ad: { type: "string", validation: { required: true } },
+                      aktif: { type: "boolean", defaultValue: true }
+                    }
+                  }
+                },
+                pageSize: 20
+              },
+              height: 500,
+              scrollable: true,
+              sortable: true,
+              filterable: false,
+              pageable: {
+                pageSizes: [10, 20, 50],
+                buttonCount: 5
+              },
+              toolbar: [
+                { name: "create", text: "Yeni Ürün Ekle" },
+                { name: "save", text: "Kaydet" },
+                { name: "cancel", text: "İptal" }
+              ],
+              editable: {
+                mode: "incell",
+                confirmation: "Silmek istediğinizden emin misiniz?"
+              },
+              columns: [
+                { field: "sira_no", title: "Sıra No", width: 100 },
+                { field: "ad", title: "Ürün Adı", width: 300 },
+                { field: "aktif", title: "Aktif", width: 80, template: "#= aktif ? 'Evet' : 'Hayır' #" },
+                { 
+                  command: [
+                    { name: "edit", text: "Düzenle", className: "k-button k-button-sm" },
+                    { name: "destroy", text: "Sil", className: "k-button k-button-sm" }
+                  ], 
+                  title: "İşlemler", 
+                  width: 150 
+                }
+              ],
+              messages: {
+                commands: {
+                  edit: "Düzenle",
+                  destroy: "Sil",
+                  canceledit: "İptal",
+                  update: "Güncelle"
+                }
+              },
+              dataBound: function(e) {
+                console.log("Grid yüklendi, kayıt sayısı:", e.sender.dataSource.total());
+                console.log("Grid verileri:", e.sender.dataSource.data());
+                if (e.sender.dataSource.total() === 0) {
+                  console.warn("UYARI: Grid'de hiç veri yok!");
+                }
+              },
+              error: function(e) {
+                console.error("Grid hatası:", e);
+              }
+            });
+          },
+          error: function(xhr, status, error) {
+            console.error("API hatası:", status, error, xhr.responseText);
+            alert("Ürünler yüklenirken hata oluştu: " + error + "\n\nDetay: " + xhr.responseText);
+          }
+        });
+      }
+      
+      // Panel Başlıkları - Telerik CSS sınıfları ile (lisanslı tema kullanımı)
+      // Telerik'in kendi CSS sınıflarını kullanarak HTML yapıyoruz
+      $("#motorin-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">MOTORİN</div>');
+      $("#benzin-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">BENZİN</div>');
+      $("#tahsilat-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">TAHSİLAT</div>');
+      $("#odeme-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">ÖDEME</div>');
+      $("#hypco-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">HYPCO</div>');
+      $("#aygaz-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">AYGAZ</div>');
+      $("#yakit-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">YAKIT ALIMLARI</div>');
+      $("#nakliye-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">NAKLİYE</div>');
+      
+      // Header - Telerik CSS sınıfları ile
+      $("#header-toolbar").html('<h1 class="k-h1" style="margin:0;color:var(--kendo-color-on-app-surface, #3d3d3d);font-size:24px;font-weight:600;">Yeni Bir Proje</h1>');
+      
+      // Toplam çubukları - Telerik CSS sınıfları ile
+      $("#tahsilat-total").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border-radius:2px;">₺0</div>');
+      $("#odeme-total").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border-radius:2px;">₺0</div>');
+      $("#genel-total").html('<div class="k-button k-button-md k-button-solid k-button-solid-secondary" style="width:100%;height:25px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:2px;color:#fff;">₺0</div>');
+    });
+    
+    $(document).ready(function() {
+      // MOTORİN Tablosu - 8 sütun, 27 satır
+      var motorinColumns = [
+        { field: "mtr", title: "MTR", width: 110, locked: true, editable: false },
+        { field: "yagcilar", title: "YAĞCILAR", width: "auto" },
+        { field: "tepekum", title: "TEPEKUM", width: "auto" },
+        { field: "namdar", title: "NAMDAR", width: "auto" },
+        { field: "seker", title: "ŞEKER", width: "auto" },
+        { field: "akova", title: "AKOVA", width: "auto" },
+        { field: "koop", title: "KOOP.", width: "auto" },
+        { field: "nazilli", title: "NAZİLLİ", width: "auto" }
+      ];
+      
+      var motorinData = [];
+      var motorinRowLabels = ["KAPASİTE", "ANLIK", "SATIŞ", "TARİH"];
+      var subeAdlari = ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER", "AKOVA", "KOOP.", "NAZİLLİ"];
+      
+      // İlk 4 satır: KAPASİTE, ANLIK, SATIŞ, TARİH
+      var motorinKapasite = ["100.000", "100.000", "29.000", "60.000", "50.000", "60.000", "70.000"];
+      for (var i = 0; i < 4; i++) {
+        var row = { mtr: motorinRowLabels[i] };
+        if (i === 0) { // KAPASİTE satırı - değerler
+          for (var j = 0; j < 7; j++) {
+            row[motorinColumns[j+1].field] = motorinKapasite[j];
+          }
+        } else if (i === 3) { // TARİH satırı - şube adları
+          for (var j = 0; j < 7; j++) {
+            row[motorinColumns[j+1].field] = subeAdlari[j];
+          }
+        } else {
+          for (var j = 1; j < 8; j++) {
+            row[motorinColumns[j].field] = "";
+          }
+        }
+        motorinData.push(row);
+      }
+      
+      // Tarih satırları: Perşembe, Cuma, Cumartesi ve boş satırlar
+      var tarihSatirlari = ["Perşembe", "Cuma", "Cumartesi"];
+      for (var i = 0; i < 23; i++) {
+        var row = { mtr: i < 3 ? tarihSatirlari[i] : "" };
+        for (var j = 1; j < 8; j++) {
+          row[motorinColumns[j].field] = "";
+        }
+        motorinData.push(row);
+      }
+      
+      // MOTORİN Grid'i oluştur
+      $("#motorin-grid").kendoGrid({
+        dataSource: { data: motorinData, pageSize: 100 },
+        height: 420,
+        scrollable: true,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: motorinColumns,
+        edit: function(e) {
+          // KAPASİTE, ANLIK, TARİH satırlarını düzenlenemez yap
+          var dataItem = e.model;
+          var mtrValue = dataItem.mtr;
+          if (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "TARİH") {
+            e.container.find("input").prop("readonly", true);
+          }
+        },
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            var row = $(this);
+            if (index % 2 === 0) {
+              row.css("background", "#fafafa");
+            } else {
+              row.css("background", "#ffffff");
+            }
+            // MTR sütunu için özel Telerik renkleri
+            var mtrCell = row.find("td:first");
+            var mtrValue = mtrCell.text().trim();
+            if (mtrValue && (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "SATIŞ" || mtrValue === "TARİH")) {
+              mtrCell.css("background", "#666666").css("color", "#ffffff").css("font-weight", "600");
+            } else if (mtrValue && (mtrValue === "Perşembe" || mtrValue === "Cuma" || mtrValue === "Cumartesi")) {
+              mtrCell.css("background", "#525252").css("color", "#ffffff").css("font-weight", "600");
+            }
+          });
+        }
+      });
+
+      // BENZİN Tablosu - 8 sütun, 27 satır
+      var benzinData = [];
+      var benzinRowLabels = ["KAPASİTE", "ANLIK", "SATIŞ", "TARİH"];
+      
+      // İlk 4 satır: KAPASİTE, ANLIK, SATIŞ, TARİH
+      var benzinKapasite = ["20.000", "10.000", "9.000", "20.000", "10.000", "20.000", "15.000"];
+      for (var i = 0; i < 4; i++) {
+        var row = { mtr: benzinRowLabels[i] };
+        if (i === 0) { // KAPASİTE satırı - değerler
+          for (var j = 0; j < 7; j++) {
+            row[motorinColumns[j+1].field] = benzinKapasite[j];
+          }
+        } else if (i === 3) { // TARİH satırı - şube adları
+          for (var j = 0; j < 7; j++) {
+            row[motorinColumns[j+1].field] = subeAdlari[j];
+          }
+        } else {
+          for (var j = 1; j < 8; j++) {
+            row[motorinColumns[j].field] = "";
+          }
+        }
+        benzinData.push(row);
+      }
+      
+      // Tarih satırları: Perşembe, Cuma, Cumartesi ve boş satırlar
+      for (var i = 0; i < 23; i++) {
+        var row = { mtr: i < 3 ? tarihSatirlari[i] : "" };
+        for (var j = 1; j < 8; j++) {
+          row[motorinColumns[j].field] = "";
+        }
+        benzinData.push(row);
+      }
+      
+      $("#benzin-grid").kendoGrid({
+        dataSource: { data: benzinData, pageSize: 100 },
+        height: 420,
+        scrollable: true,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: motorinColumns,
+        edit: function(e) {
+          // KAPASİTE, ANLIK, TARİH satırlarını düzenlenemez yap
+          var dataItem = e.model;
+          var mtrValue = dataItem.mtr;
+          if (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "TARİH") {
+            e.container.find("input").prop("readonly", true);
+          }
+        },
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            var row = $(this);
+            if (index % 2 === 0) {
+              row.css("background", "#fafafa");
+            } else {
+              row.css("background", "#ffffff");
+            }
+            // MTR sütunu için özel Telerik renkleri
+            var mtrCell = row.find("td:first");
+            var mtrValue = mtrCell.text().trim();
+            if (mtrValue && (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "SATIŞ" || mtrValue === "TARİH")) {
+              mtrCell.css("background", "#666666").css("color", "#ffffff").css("font-weight", "600");
+            } else if (mtrValue && (mtrValue === "Perşembe" || mtrValue === "Cuma" || mtrValue === "Cumartesi")) {
+              mtrCell.css("background", "#525252").css("color", "#ffffff").css("font-weight", "600");
+            }
+          });
+        }
+      });
+
+      // TAHSİLAT Tablosu - 3 sütun, 35 satır
+      var tahsilatData = [];
+      for (var i = 0; i < 35; i++) {
+        tahsilatData.push({ aciklama: "", tl: "", onay: "" });
+      }
+      
+      $("#tahsilat-grid").kendoGrid({
+        dataSource: { data: tahsilatData, pageSize: 100 },
+        height: 572,
+        scrollable: true,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: [
+          { field: "aciklama", title: "AÇIKLAMA", width: "auto" },
+          { field: "tl", title: "TL", width: 80, attributes: { style: "text-align:right;" } },
+          { field: "onay", title: "ONAY", width: 80, attributes: { style: "text-align:center;" } }
+        ],
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            if (index % 2 === 0) {
+              $(this).css("background", "#fafafa");
+            } else {
+              $(this).css("background", "#ffffff");
+            }
+          });
+        }
+      });
+
+      // ÖDEME Tablosu - 3 sütun, 35 satır
+      var odemeData = [];
+      for (var i = 0; i < 35; i++) {
+        odemeData.push({ aciklama: "", tl: "", onay: "" });
+      }
+      
+      $("#odeme-grid").kendoGrid({
+        dataSource: { data: odemeData, pageSize: 100 },
+        height: 572,
+        scrollable: true,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: [
+          { field: "aciklama", title: "AÇIKLAMA", width: "auto" },
+          { field: "tl", title: "TL", width: 80, attributes: { style: "text-align:right;" } },
+          { field: "onay", title: "ONAY", width: 80, attributes: { style: "text-align:center;" } }
+        ],
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            if (index % 2 === 0) {
+              $(this).css("background", "#fafafa");
+            } else {
+              $(this).css("background", "#ffffff");
+            }
+          });
+        }
+      });
+
+      // HYPCO Tablosu - 4 sütun, 3 satır
+      var hypcoData = [
+        { firma: "Aria", nakit_limit: "", dbs_limit: "", top_borc: "" },
+        { firma: "Namdar", nakit_limit: "", dbs_limit: "", top_borc: "" },
+        { firma: "", nakit_limit: "", dbs_limit: "", top_borc: "" }
+      ];
+      
+      $("#hypco-grid").kendoGrid({
+        dataSource: { data: hypcoData, pageSize: 10 },
+        height: 122,
+        scrollable: false,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: [
+          { field: "firma", title: "Firma", width: "25%" },
+          { field: "nakit_limit", title: "Nakit Limit", width: "25%", attributes: { style: "text-align:right;" } },
+          { field: "dbs_limit", title: "DBS Limit", width: "25%", attributes: { style: "text-align:right;" } },
+          { field: "top_borc", title: "Top. Borç", width: "25%", attributes: { style: "text-align:right;" } }
+        ],
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            if (index % 2 === 0) {
+              $(this).css("background", "#fafafa");
+            } else {
+              $(this).css("background", "#ffffff");
+            }
+          });
+        }
+      });
+
+      // AYGAZ Tablosu - 4 sütun, 3 satır
+      var aygazData = [
+        { firma: "Aria", nakit_limit: "", dbs_limit: "", top_borc: "" },
+        { firma: "Namdar", nakit_limit: "", dbs_limit: "", top_borc: "" },
+        { firma: "", nakit_limit: "", dbs_limit: "", top_borc: "" }
+      ];
+      
+      $("#aygaz-grid").kendoGrid({
+        dataSource: { data: aygazData, pageSize: 10 },
+        height: 122,
+        scrollable: false,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: [
+          { field: "firma", title: "Firma", width: "25%" },
+          { field: "nakit_limit", title: "Nakit Limit", width: "25%", attributes: { style: "text-align:right;" } },
+          { field: "dbs_limit", title: "DBS Limit", width: "25%", attributes: { style: "text-align:right;" } },
+          { field: "top_borc", title: "Top. Borç", width: "25%", attributes: { style: "text-align:right;" } }
+        ],
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            if (index % 2 === 0) {
+              $(this).css("background", "#fafafa");
+            } else {
+              $(this).css("background", "#ffffff");
+            }
+          });
+        }
+      });
+
+      // YAKIT ALIMLARI Tablosu - 6 sütun, 30 satır
+      var yakitData = [];
+      for (var i = 0; i < 30; i++) {
+        yakitData.push({ firma: "", urun: "", litre: "", tl: "", odeme_tur: "", onay: "" });
+      }
+      
+      $("#yakit-alimlari-grid").kendoGrid({
+        dataSource: { data: yakitData, pageSize: 100 },
+        height: 410,
+        scrollable: true,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: [
+          { field: "firma", title: "FİRMA", width: "16.66%" },
+          { field: "urun", title: "ÜRÜN", width: "16.66%" },
+          { field: "litre", title: "LİTRE", width: "16.66%", attributes: { style: "text-align:right;" } },
+          { field: "tl", title: "TL", width: "16.66%", attributes: { style: "text-align:right;" } },
+          { field: "odeme_tur", title: "ÖDEME TÜR", width: "16.66%" },
+          { field: "onay", title: "ONAY", width: "16.66%", attributes: { style: "text-align:center;" } }
+        ],
+        dataBound: function(e) {
+          // Telerik'in gerçek renkleri
+          this.tbody.find("tr").each(function(index) {
+            if (index % 2 === 0) {
+              $(this).css("background", "#fafafa");
+            } else {
+              $(this).css("background", "#ffffff");
+            }
+          });
+        }
+      });
+
+      // ARAÇLAR Tablosu - 20 araç kartı, her biri 4 sütun, 8 satır
+      var aracData = [];
+      for (var arac = 1; arac <= 20; arac++) {
+        for (var satir = 1; satir <= 8; satir++) {
+          aracData.push({
+            arac_no: satir === 1 ? arac + " ARAÇ" : "",
+            a: "",
+            b: "",
+            c: "",
+            d: ""
+          });
+        }
+      }
+      
+      $("#araclar-grid").kendoGrid({
+        dataSource: { data: aracData, pageSize: 100 },
+        height: 410,
+        scrollable: true,
+        navigatable: true,
+        editable: {
+          mode: "incell",
+          update: true
+        },
+        sortable: false,
+        filterable: false,
+        selectable: false,
+        pageable: false,
+        resizable: true,
+        columns: [
+          { field: "arac_no", title: "ARAÇ", width: 100, locked: true },
+          { field: "a", title: "A", width: "25%" },
+          { field: "b", title: "B", width: "25%" },
+          { field: "c", title: "C", width: "25%" },
+          { field: "d", title: "D", width: "25%" }
+        ],
+        dataBound: function(e) {
+          this.tbody.find("tr").each(function(index) {
+            var row = $(this);
+            var aracCell = row.find("td:first");
+            var aracValue = aracCell.text().trim();
+            // Araç başlık satırları için Telerik renkleri
+            if (aracValue && aracValue.match(/\d+\s+ARAÇ/)) {
+              aracCell.css("background", "#666666").css("color", "#ffffff").css("font-weight", "600");
+            }
+            // Zebra striping - Telerik uyumlu
+            if (index % 2 === 0) {
+              row.css("background", "#fafafa");
+            } else {
+              row.css("background", "#ffffff");
+            }
+          });
+        }
+      });
+    });
+  </script>
+{% endblock %}

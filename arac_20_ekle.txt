@@ -1,0 +1,440 @@
+﻿<div class="panel carCard"><div class="title">1 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">2 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">3 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">4 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">5 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">6 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">7 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">8 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">9 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">10 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">11 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">12 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">13 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">14 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">15 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">16 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">17 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">18 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">19 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel carCard"><div class="title">20 ARAÃ‡</div><div class="sheet" style="overflow:auto;background:#fff;">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px;">
+      <thead style="position:sticky;top:0;z-index:10;background:#1e3a8a;">
+        <tr>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">TANKER</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">DORSE</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ã‡EKÄ°CÄ°</th>
+          <th style="width:25%;background:#1e3a8a;color:#fff;padding:2px;border:1px solid rgba(0,0,0,.1);">Ä°SÄ°M</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#f5f5f5;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+        <tr style="background:#fff;"><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td><td contenteditable="true" style="padding:2px;border:1px solid rgba(0,0,0,.1);"></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+{% load static %}
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Yeni Telerik Projesi{% endblock %}</title>
+  <link rel="icon" href="data:,">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;font-size:11px;overflow-x:hidden;overflow-y:auto}
+    
+    /* 3 Sabit Alan - Basit HTML ile */
+    #fixed-area-1-container,
+    #fixed-area-2-container,
+    #fixed-area-3-container {
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+  </style>
+  
+  <!-- Telerik Kendo UI CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/kendo/styles/default-main.css' %}" />
+  
+  <!-- jQuery (Telerik için gerekli) -->
+  <script src="{% static 'dashboard/js/jquery-3.6.0.min.js' %}"></script>
+  
+  <!-- Telerik Kendo UI JavaScript (Tüm bileşenler) -->
+  <script src="{% static 'dashboard/js/kendo.all.min.js' %}"></script>
+  
+  <!-- Telerik Türkçe Kültür -->
+  <script src="{% static 'dashboard/js/cultures/kendo.culture.tr-TR.min.js' %}"></script>
+  <script>
+    kendo.culture("tr-TR");
+  </script>
+  
+  <!-- Telerik Lisans -->
+  <script src="{% static 'dashboard/kendo/telerik-license.js' %}"></script>
+  
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) -->
+  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:#FFFFFF;height:28px;border-bottom:1px solid #E0E0E0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
+    <span style="color:#FF0000;font-size:11pt;font-weight:500;text-align:center;width:100%;">ALAN 1</span>
+  </div>
+  
+  <!-- 2. SABİT ALAN: ALAN 2 (Ribbon Butonlarının Üstü) -->
+  <div id="fixed-area-2-container" style="position:fixed;top:28px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, rgb(220, 230, 240), rgb(190, 210, 230));height:26px;display:flex;align-items:center;justify-content:center;padding-top:4px;font-family:'Segoe UI',Arial,sans-serif;">
+    <span style="color:#FF0000;font-size:11pt;font-weight:500;text-align:center;width:100%;">ALAN 2</span>
+  </div>
+  <div id="main-ribbon-container" style="position:fixed;top:54px;left:0;right:0;z-index:9998;height:60px;background:linear-gradient(to bottom, rgb(220, 230, 240), rgb(190, 210, 230));display:flex;align-items:center;padding:12px 8px;gap:8px;overflow-x:auto">
+    <div id="ribbon-buttons" style="display:flex;gap:8px;align-items:center;flex-wrap:nowrap"></div>
+  </div>
+  
+  <!-- 3. SABİT ALAN: ALAN 3 (Tab'ların Üstü) -->
+  <div id="fixed-area-3-container" style="position:fixed;top:110px;left:0;right:0;z-index:9997;background:#FFFFFF;border-bottom:1px solid #E0E0E0;height:23px;display:flex;align-items:center;justify-content:center;padding-top:2px;font-family:'Segoe UI',Arial,sans-serif;">
+    <span style="color:#FF0000;font-size:11pt;font-weight:500;text-align:center;width:100%;">ALAN 3</span>
+  </div>
+  <div id="tabs-container" style="position:fixed;top:133px;left:0;right:0;z-index:9996;height:32px;background:#FFFFFF;border-bottom:1px solid #E0E0E0;display:flex;align-items:flex-end;padding:0;font-family:'Segoe UI',Arial,sans-serif;font-size:11pt">
+    <div id="tabs-list" style="display:flex;align-items:flex-end;"></div>
+    <div style="flex:1;height:100%"></div>
+  </div>
+  
+  <!-- TANIMLAR ALT MENÜ -->
+  <div id="tanimlar-menu" style="position:fixed;top:28px;left:0;background:#FFFFFF;border:1px solid #E0E0E0;box-shadow:0 2px 4px rgba(0,0,0,0.1);z-index:10001;display:none;min-width:200px;">
+    <div id="tanimlar-firmalar" style="padding:5px 15px;cursor:pointer;border-bottom:1px solid #F0F0F0;">Firmalar</div>
+    <div id="tanimlar-urunler" style="padding:5px 15px;cursor:pointer;">Ürünler</div>
+  </div>
+  
+  <!-- FIRMA YÖNETİMİ WINDOW -->
+  <div id="firma-window">
+    <div id="firma-grid-container" style="padding:10px;height:100%;">
+      <div id="firma-grid" style="height:500px;"></div>
+    </div>
+  </div>
+  
+  <!-- ÜRÜN YÖNETİMİ WINDOW -->
+  <div id="urun-window">
+    <div id="urun-grid-container" style="padding:10px;height:100%;">
+      <div id="urun-grid" style="height:500px;"></div>
+    </div>
+  </div>
+  
+  <!-- İÇERİK ALANI -->
+  <div id="main-content" style="margin-top:165px;">
+    {% block content %}{% endblock %}
+  </div>
+  
+  <script>
+    // Menü öğelerini veritabanından yükle
+    var menuItems = {{ menu_items|safe }};
+    
+    // Ribbon butonlarını başlat
+    $(document).ready(function() {
+      // Ribbon butonlarını oluştur
+      loadRibbonButtons();
+    });
+    
+    // Ribbon butonlarını oluştur (tüm sayfalarda kullanılabilir)
+    function loadRibbonButtons() {
+      var html = '';
+      menuItems.forEach(function(item) {
+        if (item.aktif) {
+          var baslikHtml = item.baslik.replace(' ', '<br>');
+          html += `
+            <div class="ribbon-button" data-page="${item.name}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;min-width:90px;cursor:pointer;border-radius:3px;transition:all 0.2s;background:transparent;border:2px solid transparent;">
+              <div style="font-size:40px;margin-bottom:4px;">${item.icon}</div>
+              <div style="text-align:center;font-size:11pt;color:#333333;font-weight:500;line-height:1.2;max-width:85px;">${baslikHtml}</div>
+            </div>
+          `;
+        }
+      });
+      $("#ribbon-buttons").html(html);
+    }
+  </script>
+  
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
