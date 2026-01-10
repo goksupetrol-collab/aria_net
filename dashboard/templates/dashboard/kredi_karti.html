@@ -10,9 +10,9 @@
 {% endblock %}
 
 {% block content %}
-  <div style="padding:20px;width:100%;height:100%;">
-    <h1 style="text-align:center;color:#206d7d;margin-bottom:20px;font-size:24pt;font-weight:bold;">KREDİ KARTI TAKİP</h1>
-    <div id="kredi-karti-grid" style="width:100%;height:calc(100vh - 200px);"></div>
+  <div style="padding:10px;width:100%;height:100%;overflow:hidden;box-sizing:border-box;">
+    <h1 style="text-align:center;color:#206d7d;margin-bottom:10px;font-size:20pt;font-weight:bold;margin-top:0;">KREDİ KARTI TAKİP</h1>
+    <div id="kredi-karti-grid" style="width:100%;height:calc(100vh - 250px);overflow:hidden;"></div>
   </div>
 {% endblock %}
 
@@ -380,9 +380,33 @@
       // Telerik Kendo Grid oluştur
       setTimeout(function() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
+          // 20 boş satır oluştur
+          var emptyRows = [];
+          for (var i = 0; i < 20; i++) {
+            emptyRows.push({
+              son_odeme: null,
+              kalan_gun: null,
+              tutar: "",
+              banka: "",
+              kime_ait: "",
+              kart_numarasi: "",
+              son_kullanim_tarihi: "",
+              cv: "",
+              iban: "",
+              sifre: "",
+              sutun1: "",
+              sutun2: "",
+              sutun3: ""
+            });
+          }
+          
+          // Ekran genişliğini hesapla
+          var screenWidth = $(window).width();
+          var availableWidth = screenWidth - 40; // Padding için
+          
           $("#kredi-karti-grid").kendoGrid({
             dataSource: {
-              data: [], // Boş veri - sadece başlıklar
+              data: emptyRows, // 20 boş satır
               schema: {
                 model: {
                   fields: {
@@ -404,19 +428,19 @@
               }
             },
             height: "100%",
-            scrollable: true,
+            scrollable: {
+              virtual: false
+            },
             sortable: true,
             filterable: true,
             resizable: true,
-            pageable: {
-              pageSize: 20,
-              pageSizes: [10, 20, 50, 100]
-            },
+            pageable: false, // Sayfalama kapalı - tüm satırlar görünsün
             columns: [
               {
                 field: "son_odeme",
                 title: "SON ÖDEME",
-                width: 120,
+                width: "8%",
+                minScreenWidth: 0,
                 format: "{0:dd.MM.yyyy}",
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
@@ -425,7 +449,8 @@
               {
                 field: "kalan_gun",
                 title: "KALAN GÜN",
-                width: 100,
+                width: "7%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -436,7 +461,8 @@
               {
                 field: "tutar",
                 title: "TUTAR",
-                width: 120,
+                width: "8%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -447,7 +473,8 @@
               {
                 field: "banka",
                 title: "BANKA",
-                width: 150,
+                width: "9%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -455,7 +482,8 @@
               {
                 field: "kime_ait",
                 title: "KİME AİT",
-                width: 120,
+                width: "8%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -463,7 +491,8 @@
               {
                 field: "kart_numarasi",
                 title: "KART NUMARASI",
-                width: 180,
+                width: "11%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -471,7 +500,8 @@
               {
                 field: "son_kullanim_tarihi",
                 title: "SON KULLANMA TARİHİ",
-                width: 140,
+                width: "9%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -479,7 +509,8 @@
               {
                 field: "cv",
                 title: "CV",
-                width: 80,
+                width: "5%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -490,7 +521,8 @@
               {
                 field: "iban",
                 title: "İBAN",
-                width: 200,
+                width: "12%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 }
@@ -498,7 +530,8 @@
               {
                 field: "sifre",
                 title: "ŞİFRE",
-                width: 100,
+                width: "6%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
                 },
@@ -509,7 +542,8 @@
               {
                 field: "sutun1",
                 title: "Sütun1",
-                width: 120,
+                width: "7%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
                 }
@@ -517,7 +551,8 @@
               {
                 field: "sutun2",
                 title: "Sütun2",
-                width: 150,
+                width: "8%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
                 }
@@ -525,24 +560,54 @@
               {
                 field: "sutun3",
                 title: "Sütun3",
-                width: 120,
+                width: "6%",
+                minScreenWidth: 0,
                 headerAttributes: {
                   style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
                 }
               }
             ],
             dataBound: function(e) {
-              // Grid yüklendiğinde
-              console.log("Kredi Kartı Grid yüklendi");
+              // Grid yüklendiğinde horizontal scroll'u kaldır
+              var grid = this;
+              setTimeout(function() {
+                // Grid container'ı kontrol et
+                var gridElement = $("#kredi-karti-grid");
+                var gridContent = gridElement.find(".k-grid-content");
+                if (gridContent.length > 0) {
+                  // Horizontal scroll'u kaldır
+                  gridContent.css("overflow-x", "hidden");
+                  gridElement.find(".k-grid-header").css("overflow-x", "hidden");
+                  gridElement.find(".k-grid").css("overflow-x", "hidden");
+                }
+                console.log("Kredi Kartı Grid yüklendi - 20 satır");
+              }, 100);
             }
           });
           
-          console.log("✅ Kredi Kartı Grid başarıyla oluşturuldu!");
+          // Grid oluşturulduktan sonra horizontal scroll'u kaldır
+          setTimeout(function() {
+            var gridElement = $("#kredi-karti-grid");
+            gridElement.find(".k-grid-content").css("overflow-x", "hidden");
+            gridElement.find(".k-grid-header").css("overflow-x", "hidden");
+            gridElement.find(".k-grid").css("overflow-x", "hidden");
+            gridElement.css("overflow-x", "hidden");
+          }, 300);
+          
+          console.log("✅ Kredi Kartı Grid başarıyla oluşturuldu! (20 satır)");
         } else {
           console.log("⏳ Telerik yükleniyor, bekleniyor...");
           setTimeout(arguments.callee, 100);
         }
       }, 200);
+      
+      // Ekran boyutu değiştiğinde grid'i yeniden boyutlandır
+      $(window).on('resize', function() {
+        var grid = $("#kredi-karti-grid").data("kendoGrid");
+        if (grid) {
+          grid.resize();
+        }
+      });
     });
   </script>
 {% endblock %}
