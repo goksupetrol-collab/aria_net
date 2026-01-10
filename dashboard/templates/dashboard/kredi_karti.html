@@ -10,10 +10,9 @@
 {% endblock %}
 
 {% block content %}
-  <!-- Boş sayfa - İçerik sonra eklenecek -->
-  <div style="padding:20px;">
-    <h1>K.Kartı-Kredi</h1>
-    <p>Bu sayfa şu an boş. İçerik sonra eklenecek.</p>
+  <div style="padding:20px;width:100%;height:100%;">
+    <h1 style="text-align:center;color:#206d7d;margin-bottom:20px;font-size:24pt;font-weight:bold;">KREDİ KARTI TAKİP</h1>
+    <div id="kredi-karti-grid" style="width:100%;height:calc(100vh - 200px);"></div>
   </div>
 {% endblock %}
 
@@ -377,6 +376,173 @@
       setTimeout(function() {
         loadTabsFromStorage();
       }, 50);
+      
+      // Telerik Kendo Grid oluştur
+      setTimeout(function() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
+          $("#kredi-karti-grid").kendoGrid({
+            dataSource: {
+              data: [], // Boş veri - sadece başlıklar
+              schema: {
+                model: {
+                  fields: {
+                    son_odeme: { type: "date" },
+                    kalan_gun: { type: "number" },
+                    tutar: { type: "string" },
+                    banka: { type: "string" },
+                    kime_ait: { type: "string" },
+                    kart_numarasi: { type: "string" },
+                    son_kullanim_tarihi: { type: "string" },
+                    cv: { type: "string" },
+                    iban: { type: "string" },
+                    sifre: { type: "string" },
+                    sutun1: { type: "string" },
+                    sutun2: { type: "string" },
+                    sutun3: { type: "string" }
+                  }
+                }
+              }
+            },
+            height: "100%",
+            scrollable: true,
+            sortable: true,
+            filterable: true,
+            resizable: true,
+            pageable: {
+              pageSize: 20,
+              pageSizes: [10, 20, 50, 100]
+            },
+            columns: [
+              {
+                field: "son_odeme",
+                title: "SON ÖDEME",
+                width: 120,
+                format: "{0:dd.MM.yyyy}",
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "kalan_gun",
+                title: "KALAN GÜN",
+                width: 100,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                },
+                attributes: {
+                  style: "text-align: center;"
+                }
+              },
+              {
+                field: "tutar",
+                title: "TUTAR",
+                width: 120,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                },
+                attributes: {
+                  style: "text-align: right;"
+                }
+              },
+              {
+                field: "banka",
+                title: "BANKA",
+                width: 150,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "kime_ait",
+                title: "KİME AİT",
+                width: 120,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "kart_numarasi",
+                title: "KART NUMARASI",
+                width: 180,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "son_kullanim_tarihi",
+                title: "SON KULLANMA TARİHİ",
+                width: 140,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "cv",
+                title: "CV",
+                width: 80,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                },
+                attributes: {
+                  style: "text-align: center;"
+                }
+              },
+              {
+                field: "iban",
+                title: "İBAN",
+                width: 200,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "sifre",
+                title: "ŞİFRE",
+                width: 100,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #206d7d, #1a5a68); color: white; font-weight: bold; text-align: center;"
+                },
+                attributes: {
+                  style: "text-align: center;"
+                }
+              },
+              {
+                field: "sutun1",
+                title: "Sütun1",
+                width: 120,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "sutun2",
+                title: "Sütun2",
+                width: 150,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
+                }
+              },
+              {
+                field: "sutun3",
+                title: "Sütun3",
+                width: 120,
+                headerAttributes: {
+                  style: "background: linear-gradient(to bottom, #008000, #006600); color: white; font-weight: bold; text-align: center;"
+                }
+              }
+            ],
+            dataBound: function(e) {
+              // Grid yüklendiğinde
+              console.log("Kredi Kartı Grid yüklendi");
+            }
+          });
+          
+          console.log("✅ Kredi Kartı Grid başarıyla oluşturuldu!");
+        } else {
+          console.log("⏳ Telerik yükleniyor, bekleniyor...");
+          setTimeout(arguments.callee, 100);
+        }
+      }, 200);
     });
   </script>
 {% endblock %}
