@@ -387,28 +387,3 @@ class Urun(models.Model):
 
     def __str__(self):
         return f"{self.sira_no} - {self.ad}"
-
-
-class MenuItem(models.Model):
-    """Ribbon menü öğeleri - PetroNet gibi veritabanında saklanıyor"""
-    sira_no = models.IntegerField(verbose_name="Sıra No", unique=True)
-    name = models.CharField(max_length=100, verbose_name="Menü Adı (Kod)", unique=True)
-    baslik = models.CharField(max_length=100, verbose_name="Başlık (Türkçe)")
-    tab_baslik = models.CharField(max_length=100, verbose_name="Tab Başlığı", blank=True, null=True, help_text="Tab'da görünecek başlık (boşsa baslik kullanılır)")
-    icon = models.CharField(max_length=10, verbose_name="İkon (Emoji)", default="⛽")
-    page_url = models.CharField(max_length=200, verbose_name="Sayfa URL", blank=True, null=True)
-    aktif = models.BooleanField(default=True, verbose_name="Aktif")
-    olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
-    guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
-    
-    class Meta:
-        verbose_name = "Menü Öğesi"
-        verbose_name_plural = "Menü Öğeleri"
-        ordering = ['sira_no']
-    
-    def __str__(self):
-        return f"{self.sira_no} - {self.baslik}"
-    
-    def get_tab_baslik(self):
-        """Tab başlığını döndür (tab_baslik varsa onu, yoksa baslik)"""
-        return self.tab_baslik if self.tab_baslik else self.baslik
