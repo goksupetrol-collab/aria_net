@@ -85,6 +85,27 @@ def kredi_karti(request):
     return render(request, "dashboard/kredi_karti.html", context)
 
 
+def banka(request):
+    """Banka sayfası"""
+    # Menü öğelerini veritabanından çek
+    menu_items = MenuItem.objects.filter(aktif=True).order_by('sira_no')
+    menu_items_json = json.dumps([{
+        'sira_no': item.sira_no,
+        'name': item.name,
+        'baslik': item.baslik,
+        'tab_baslik': item.get_tab_baslik(),
+        'icon': item.icon,
+        'page_url': item.page_url or '',
+        'aktif': item.aktif
+    } for item in menu_items], ensure_ascii=False)
+    
+    context = {
+        "kendo_license": _load_license(),
+        "menu_items": menu_items_json,
+    }
+    return render(request, "dashboard/banka.html", context)
+
+
 # API ENDPOINTS
 
 @csrf_exempt
