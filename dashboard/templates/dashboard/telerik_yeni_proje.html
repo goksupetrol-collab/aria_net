@@ -634,8 +634,8 @@
                 // Tab görünmüyorsa lobiye dön
                 activeTabId = null;
                 // Operasyon sayfası zaten lobi sayfası (/), sadece içeriği değiştir
-                $('#main-content-operasyon').hide();
-                $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                $('#main-content-operasyon').css('display', 'none');
+                $('#title-bar').css('display', 'flex'); // Başlığı göster (lobi ekranı)
                 // Eğer başka sayfadaysak lobiye yönlendir
                 if (window.location.pathname !== '/') {
                   window.location.href = "/";
@@ -650,8 +650,8 @@
                 // Tab görünmüyorsa lobiye dön
                 activeTabId = null;
                 // Operasyon sayfası zaten lobi sayfası (/), sadece içeriği değiştir
-                $('#main-content-operasyon').hide();
-                $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                $('#main-content-operasyon').css('display', 'none');
+                $('#title-bar').css('display', 'flex'); // Başlığı göster (lobi ekranı)
                 // Eğer başka sayfadaysak lobiye yönlendir
                 if (window.location.pathname !== '/') {
                   window.location.href = "/";
@@ -663,8 +663,8 @@
             // Tüm tab'lar kapandı, lobiye dön (boş ekran)
             activeTabId = null;
             // Operasyon sayfası zaten lobi sayfası (/), sadece içeriği değiştir
-            $('#main-content-operasyon').hide();
-            $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+            $('#main-content-operasyon').css('display', 'none');
+            $('#title-bar').css('display', 'flex'); // Başlığı göster (lobi ekranı)
             // Eğer başka sayfadaysak lobiye yönlendir
             if (window.location.pathname !== '/') {
               window.location.href = "/";
