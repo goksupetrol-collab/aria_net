@@ -633,8 +633,12 @@
               } else {
                 // Tab görünmüyorsa lobiye dön
                 activeTabId = null;
-                $('#main-content-operasyon').hide();
-                $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                if (window.location.pathname !== '/') {
+                  window.location.href = "/";
+                } else {
+                  $('#main-content-operasyon').hide();
+                  $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                }
                 setActiveRibbonButton(null);
               }
             } else {
@@ -644,16 +648,24 @@
               } else {
                 // Tab görünmüyorsa lobiye dön
                 activeTabId = null;
-                $('#main-content-operasyon').hide();
-                $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                if (window.location.pathname !== '/') {
+                  window.location.href = "/";
+                } else {
+                  $('#main-content-operasyon').hide();
+                  $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+                }
                 setActiveRibbonButton(null);
               }
             }
           } else {
             // Tüm tab'lar kapandı, lobiye dön (boş ekran)
             activeTabId = null;
-            $('#main-content-operasyon').hide();
-            $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+            if (window.location.pathname !== '/') {
+              window.location.href = "/";
+            } else {
+              $('#main-content-operasyon').hide();
+              $('#title-bar').show(); // Başlığı göster (lobi ekranı)
+            }
             // Ribbon butonlarını pasif yap
             setActiveRibbonButton(null);
           }
