@@ -73,7 +73,12 @@
     
     /* title-bar JavaScript ile kontrol ediliyor, CSS'de !important kullanmayalım */
     
-    /* PROFESYONEL TABLO STİLLERİ - Material Design + Modern Best Practices */
+    /* PROFESYONEL RENK PALETİ - Modern & Temiz */
+    
+    /* Sayfa Arka Planı */
+    body, #main-content-operasyon, .content-wrapper {
+      background-color: #fafafa !important;
+    }
     
     /* Global Typography - Roboto font ailesi */
     .k-grid {
@@ -83,16 +88,17 @@
       font-size: 13px !important;
       line-height: 1.5 !important;
       letter-spacing: 0.01em !important;
+      background-color: #ffffff !important;
     }
     
-    /* Grid Header - Subtle gradient, professional styling - ÇOK GÜÇLÜ SELECTOR */
+    /* Grid Header - Açık Mavi Ton, Profesyonel */
     .k-grid .k-grid-header th,
     .k-grid-header th,
     .k-grid-header-wrap th,
     .k-grid-header-wrap table th,
     .k-grid table th.k-header {
-      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
-      background-image: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      background: linear-gradient(to bottom, #2196f3, #1976d2) !important;
+      background-image: linear-gradient(to bottom, #2196f3, #1976d2) !important;
       color: #ffffff !important;
       font-weight: 600 !important;
       font-size: 12px !important;
@@ -100,9 +106,10 @@
       text-transform: uppercase !important;
       padding: 12px 15px !important;
       border: none !important;
-      border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-bottom: 2px solid #1565c0 !important;
       text-align: center !important;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
     }
     
     .k-grid .k-grid-header th:last-child,
@@ -123,11 +130,13 @@
     .k-grid-content td,
     .k-grid-content table td {
       padding: 12px 15px !important;
-      border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+      border-right: 1px solid #e0e0e0 !important;
+      border-bottom: 1px solid #e0e0e0 !important;
+      border-top: none !important;
       font-size: 13px !important;
       line-height: 1.5 !important;
       color: #2d3748 !important;
+      background-color: inherit !important;
       transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     
@@ -144,19 +153,20 @@
     
     .k-grid tbody tr:hover,
     .k-grid-content tbody tr:hover {
-      background-color: #f0f4f8 !important;
+      background-color: #e3f2fd !important;
     }
     
     /* Telerik'in hover override */
     .k-grid tbody tr:hover td,
     .k-grid-content tbody tr:hover td {
-      background-color: #f0f4f8 !important;
+      background-color: #e3f2fd !important;
+      border-color: #bbdefb !important;
     }
     
-    /* Zebra striping - Subtle colors - ÇOK GÜÇLÜ */
+    /* Zebra striping - Temiz renkler */
     .k-grid tbody tr:nth-child(even),
     .k-grid-content tbody tr:nth-child(even) {
-      background-color: #fafbfc !important;
+      background-color: #fafafa !important;
     }
     
     .k-grid tbody tr:nth-child(odd),
@@ -182,8 +192,9 @@
     #araclar-grid {
       border-radius: 8px !important;
       overflow: hidden !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+      border: 1px solid #e0e0e0 !important;
+      background-color: #ffffff !important;
     }
     
     /* Grid header border radius */
@@ -216,66 +227,68 @@
       box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1) !important;
     }
     
-    /* Special row styling - Başlık satırları (KAPASİTE, ANLIK, SATIŞ, TARİH) - ÇOK GÜÇLÜ */
+    /* Special row styling - Başlık satırları (KAPASİTE, ANLIK, SATIŞ, TARİH) - Açık & Temiz */
     .k-grid .header-row,
     .k-grid tbody tr.header-row,
     .k-grid-content tbody tr.header-row,
     .k-grid tbody tr.header-row td,
     .k-grid-content tbody tr.header-row td {
-      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
-      background-image: linear-gradient(to bottom, #4a5568, #2d3748) !important;
-      color: #ffffff !important;
+      background-color: #e3f2fd !important;
+      color: #1565c0 !important;
       font-weight: 600 !important;
+      border-top: 2px solid #2196f3 !important;
+      border-bottom: 1px solid #bbdefb !important;
     }
     
     .k-grid .header-row td,
     .k-grid tbody tr.header-row td,
     .k-grid-content tbody tr.header-row td {
-      color: #ffffff !important;
-      border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
-      background: transparent !important;
+      color: #1565c0 !important;
+      border-right: 1px solid #bbdefb !important;
+      background-color: #e3f2fd !important;
     }
     
     /* Telerik override - header-row için */
     .k-grid tbody tr.header-row.k-alt,
     .k-grid tbody tr.header-row:hover {
-      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      background-color: #e3f2fd !important;
     }
     
     .k-grid tbody tr.header-row:hover td {
-      background: transparent !important;
-      color: #ffffff !important;
+      background-color: #bbdefb !important;
+      color: #0d47a1 !important;
     }
     
-    /* Sub-header row styling - Tarih satırları (Perşembe, Cuma, Cumartesi) - ÇOK GÜÇLÜ */
+    /* Sub-header row styling - Tarih satırları (Perşembe, Cuma, Cumartesi) - Açık & Temiz */
     .k-grid .sub-header-row,
     .k-grid tbody tr.sub-header-row,
     .k-grid-content tbody tr.sub-header-row,
     .k-grid tbody tr.sub-header-row td,
     .k-grid-content tbody tr.sub-header-row td {
-      background: linear-gradient(to bottom, #718096, #4a5568) !important;
-      background-image: linear-gradient(to bottom, #718096, #4a5568) !important;
-      color: #ffffff !important;
+      background-color: #f5f5f5 !important;
+      color: #424242 !important;
       font-weight: 500 !important;
+      border-top: 1px solid #e0e0e0 !important;
+      border-bottom: 1px solid #e0e0e0 !important;
     }
     
     .k-grid .sub-header-row td,
     .k-grid tbody tr.sub-header-row td,
     .k-grid-content tbody tr.sub-header-row td {
-      color: #ffffff !important;
-      border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
-      background: transparent !important;
+      color: #424242 !important;
+      border-right: 1px solid #e0e0e0 !important;
+      background-color: #f5f5f5 !important;
     }
     
     /* Telerik override - sub-header-row için */
     .k-grid tbody tr.sub-header-row.k-alt,
     .k-grid tbody tr.sub-header-row:hover {
-      background: linear-gradient(to bottom, #718096, #4a5568) !important;
+      background-color: #f5f5f5 !important;
     }
     
     .k-grid tbody tr.sub-header-row:hover td {
-      background: transparent !important;
-      color: #ffffff !important;
+      background-color: #eeeeee !important;
+      color: #212121 !important;
     }
     
     /* Number alignment - Right align for numbers */
@@ -289,7 +302,7 @@
       text-align: center !important;
     }
     
-    /* Panel Başlıkları - Profesyonel Gradient */
+    /* Panel Başlıkları - Açık Mavi Gradient */
     #motorin-toolbar > div,
     #benzin-toolbar > div,
     #tahsilat-toolbar > div,
@@ -308,11 +321,12 @@
       font-weight: 600 !important;
       letter-spacing: 0.05em !important;
       text-transform: uppercase !important;
-      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      background: linear-gradient(to bottom, #2196f3, #1976d2) !important;
       color: #ffffff !important;
       border-radius: 8px 8px 0 0 !important;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      border-bottom: 2px solid #1565c0 !important;
     }
     
     /* Toplam çubukları */

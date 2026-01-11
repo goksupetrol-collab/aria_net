@@ -44,13 +44,28 @@
       height: 100%;
       list-style: none;
     }
-    /* Telerik Menu için font boyutu (ALAN 1) */
-    #top-menu-bar .k-menu-item {
-      font-size: 12px !important;
+    /* Flash sorunu çözümü: Tüm sabit alanları ve içeriği sayfa yüklenene kadar gizle */
+    #fixed-area-1-container,
+    #fixed-area-2-container,
+    #tabs-container,
+    #main-content {
+      opacity: 0;
+      transition: opacity 0.05s;
     }
-    #top-menu-bar .k-menu-link {
-      font-size: 12px !important;
-      padding: 4px 12px !important;
+    /* Sayfa yüklendikten sonra göster */
+    body.loaded #fixed-area-1-container,
+    body.loaded #fixed-area-2-container,
+    body.loaded #tabs-container,
+    body.loaded #main-content {
+      opacity: 1 !important;
+    }
+    
+    /* ALAN 1 - Boş, ileride eklenecek */
+    #fixed-area-1-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
     }
     /* Telerik TabStrip için font boyutu (ALAN 3) */
     #tabs .k-tabstrip-item {
@@ -109,25 +124,14 @@
 </head>
 
 <body>
-    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) - Telerik Menu -->
-  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #E8E8E8, #D0D0D0);height:24px;border-bottom:1px solid #A0A0A0;padding-left:8px;font-family:'Segoe UI',Arial,sans-serif;font-size:12px;">
-    <ul id="top-menu-bar" style="margin:0;padding:0;list-style:none;height:100%;display:flex;align-items:center;">
-      <li>Tanımlar</li>
-      <li>Kartlar</li>
-      <li>İşlemler</li>
-      <li>Vardiya</li>
-      <li>Market</li>
-      <li>Finans</li>
-      <li>Genel Muhasebe</li>
-      <li>Raporlar</li>
-      <li>Hakkında</li>
-    </ul>
+    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) - Koyu Gri -->
+  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #616161, #424242);height:24px;border-bottom:1px solid #757575;font-family:'Segoe UI',Arial,sans-serif;font-size:12px;opacity:0;">
     <!-- ALAN 1 Etiketi (Proje anlatımı için) -->
     <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;">ALAN 1</span>
   </div>
   
-  <!-- 2. SABİT ALAN: ALAN 2 (İkonlu Butonlar) - Gri/Bej Tonu -->
-  <div id="fixed-area-2-container" style="position:fixed;top:24px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #F5F5F5, #E8E8E8);height:80px;display:flex;align-items:center;justify-content:flex-start;padding:8px 6px;gap:4px;font-family:'Segoe UI',Arial,sans-serif;border-bottom:1px solid #C0C0C0;">
+  <!-- 2. SABİT ALAN: ALAN 2 (İkonlu Butonlar) - Açık Gri -->
+  <div id="fixed-area-2-container" style="position:fixed;top:24px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #f5f5f5, #eeeeee);height:80px;display:flex;align-items:center;justify-content:flex-start;padding:8px 6px;gap:4px;font-family:'Segoe UI',Arial,sans-serif;border-bottom:1px solid #e0e0e0;opacity:0;">
     <!-- İkonlu Butonlar (ALAN 2'nin içinde) -->
     <div id="main-ribbon-container" style="display:flex;align-items:center;gap:4px;overflow-x:auto;flex:1;justify-content:flex-start;">
       <div id="ribbon-buttons" style="display:flex;gap:4px;align-items:center;flex-wrap:nowrap"></div>
@@ -136,8 +140,8 @@
     <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;">ALAN 2</span>
   </div>
   
-  <!-- 3. Tab Container - Telerik TabStrip -->
-  <div id="tabs-container" style="position:fixed;top:104px;left:0;right:0;z-index:9998;height:26px;background:#E8E8E8;border-bottom:1px solid #A0A0A0;padding:0;">
+  <!-- 3. Tab Container - Telerik TabStrip - Açık Gri (ALAN 2 ile aynı) -->
+  <div id="tabs-container" style="position:fixed;top:104px;left:0;right:0;z-index:9998;height:26px;background:#f5f5f5;border-bottom:1px solid #e0e0e0;padding:0;opacity:0;">
     <div id="tabs"></div>
     <!-- ALAN 3 Etiketi (Proje anlatımı için) -->
     <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;">ALAN 3</span>
@@ -164,7 +168,7 @@
   </div>
   
   <!-- İÇERİK ALANI -->
-  <div id="main-content" style="margin-top:130px;padding-top:0;">
+  <div id="main-content" style="margin-top:130px;padding-top:0;opacity:0;">
     {% block content %}{% endblock %}
   </div>
   
@@ -172,62 +176,112 @@
     // Menü öğelerini veritabanından yükle
     var menuItems = {{ menu_items|safe }};
     
-    // Tab yönetimi - Telerik TabStrip
-    var openTabs = {};
-    var activeTabId = null;
+    // Tab yönetimi - Sadece Operasyon sayfası için test
     var tabStrip = null;
+    var ignoreSelectEvent = false; // Tab kapatılırken select event'ini ignore et
+    var activeTabIdToKeep = null; // Pasif tab kapatıldığında aktif tab ID'sini korumak için
     
     // Ribbon butonlarını başlat
     $(document).ready(function() {
-      // Telerik Menu başlat (ALAN 1)
-      if (typeof kendo !== 'undefined' && typeof $.fn.kendoMenu !== 'undefined') {
-        $("#top-menu-bar").kendoMenu({
-          orientation: "horizontal",
-          openOnClick: false,
-          animation: false,
-          select: function(e) {
-            var itemText = $(e.item).text();
-            console.log("Menü seçildi:", itemText);
-          }
-        });
-      }
-      
-      // Ribbon butonlarını oluştur
+      // Flash sorunu çözümü: Sayfa yüklendiğinde body'ye 'loaded' class'ı ekle
+      $('body').addClass('loaded');
+
+      // ALAN 1 - Boş, ileride eklenecek
+
+      // Ribbon butonlarını oluştur (ALAN 2)
       loadRibbonButtons();
-      
-      // Telerik TabStrip başlat (ALAN 3)
+
+      // Telerik TabStrip başlat (ALAN 3) - Sadece operasyon için
       if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
         tabStrip = $("#tabs").kendoTabStrip({
           animation: false,
           tabPosition: "top",
           select: function(e) {
+            // Tab kapatılırken select event'ini ignore et
+            if (ignoreSelectEvent) {
+              console.log("Select event ignore edildi (tab kapatılıyor)");
+              
+              // Eğer aktif tab korunması gerekiyorsa koru
+              if (activeTabIdToKeep) {
+                console.log("Aktif tab korunuyor (select event içinde):", activeTabIdToKeep);
+                showPageOnly(activeTabIdToKeep);
+                activeTabIdToKeep = null; // Temizle
+                ignoreSelectEvent = false; // Flag'i kapat
+                return;
+              }
+              
+              ignoreSelectEvent = false; // Flag'i kapat
+              return;
+            }
+            
+            // Tab'a tıklayınca sayfayı göster
             var tabItem = $(e.item);
             var tabId = tabItem.attr("data-tab-id");
+            var tabText = tabItem.text() || tabItem.html() || "";
             
-            // Eğer data-tab-id yoksa, tab text'inden bul
+            console.log("Tab tıklandı, tabId:", tabId, "tabText:", tabText);
+            
+            // data-tab-id yoksa tabText'ten bul
             if (!tabId) {
-              var tabText = tabItem.text().trim();
-              for (var tid in openTabs) {
-                var expectedText = openTabs[tid].icon + ' ' + openTabs[tid].title;
-                if (tabText.indexOf(expectedText) >= 0) {
-                  tabId = tid;
-                  break;
-                }
+              if (tabText.indexOf("Operasyon") >= 0) {
+                tabId = "operasyon";
+              } else if (tabText.indexOf("Kredi Kartı") >= 0 || tabText.indexOf("Kredi") >= 0) {
+                tabId = "kredi-karti";
+              } else if (tabText.indexOf("Banka") >= 0) {
+                tabId = "banka";
+              } else if (tabText.indexOf("Tanker") >= 0) {
+                tabId = "tanker";
+              } else if (tabText.indexOf("Fiyat") >= 0) {
+                tabId = "fiyat-degisimi";
               }
             }
             
-            if (tabId && openTabs[tabId]) {
-              activeTabId = tabId;
-              handleTabNavigation(openTabs[tabId].pageId);
-              setActiveRibbonButton(openTabs[tabId].pageId);
-              saveTabsToStorage();
+            if (tabId) {
+              console.log("Sayfa gösteriliyor:", tabId);
+              showPageOnly(tabId);
+            } else {
+              console.log("Tab ID bulunamadı!");
             }
           }
         }).data("kendoTabStrip");
+        
       }
       
-      // Tab'ları yükle
-      loadTabsFromStorage();
+      // X butonlarına event delegation (dinamik elementler için)
+      $(document).on("click", ".tab-close-operasyon", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Operasyon X butonuna tıklandı!");
+        closeOperasyonTab();
+      });
+      
+      $(document).on("click", ".tab-close-kredi-karti", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Kredi Kartı X butonuna tıklandı!");
+        closeKrediKartiTab();
+      });
+      
+      $(document).on("click", ".tab-close-banka", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Banka X butonuna tıklandı!");
+        closeBankaTab();
+      });
+      
+      $(document).on("click", ".tab-close-tanker", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Tanker X butonuna tıklandı!");
+        closeTankerTab();
+      });
+      
+      $(document).on("click", ".tab-close-fiyat-degisimi", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Fiyat Değişimi X butonuna tıklandı!");
+        closeFiyatDegisimiTab();
+      });
     });
     
     // Ribbon butonlarını oluştur (tüm sayfalarda kullanılabilir) - Telerik Button ile
@@ -260,196 +314,7 @@
       });
     }
     
-    // Tab'ları sessionStorage'a kaydetme fonksiyonu
-    function saveTabsToStorage() {
-      var tabsArray = [];
-      for (var tabId in openTabs) {
-        tabsArray.push({
-          tabId: tabId,
-          title: openTabs[tabId].title,
-          pageId: openTabs[tabId].pageId,
-          icon: openTabs[tabId].icon
-        });
-      }
-      sessionStorage.setItem('openTabs', JSON.stringify({
-        tabs: tabsArray,
-        activeTabId: activeTabId
-      }));
-    }
-    
-    // Tab'ları sessionStorage'dan yükleme fonksiyonu - Telerik TabStrip için
-    function loadTabsFromStorage() {
-      var stored = sessionStorage.getItem('openTabs');
-      if (!stored || !tabStrip) return;
-      
-      try {
-        var data = JSON.parse(stored);
-        if (data.tabs && data.tabs.length > 0) {
-          data.tabs.forEach(function(tabData) {
-            openTabs[tabData.tabId] = {
-              title: tabData.title,
-              pageId: tabData.pageId,
-              icon: tabData.icon
-            };
-          });
-          
-          // Tüm tab'ları Telerik TabStrip'e ekle
-          for (var tabId in openTabs) {
-            createTabElement(tabId);
-          }
-          
-          // Aktif tab'ı seç
-          if (data.activeTabId && openTabs[data.activeTabId]) {
-            setTimeout(function() {
-              setActiveTab(data.activeTabId);
-            }, 200);
-          }
-        }
-      } catch (e) {
-        console.error('Tab yükleme hatası:', e);
-      }
-    }
-    
-    // Tab DOM elementi oluşturma fonksiyonu - Telerik TabStrip için
-    function createTabElement(tabId) {
-      var tab = openTabs[tabId];
-      if (!tab || !tabStrip) return;
-      
-      // Telerik TabStrip'te zaten bu tab var mı kontrol et
-      if ($("#tabs").find('[data-tab-id="' + tabId + '"]').length > 0) {
-        return; // Zaten var
-      }
-      
-      // Telerik TabStrip'e tab ekle
-      var tabContent = tab.icon + ' ' + tab.title + ' <span class="tab-close" data-tab-id="' + tabId + '" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;">×</span>';
-      tabStrip.append({
-        text: tabContent,
-        content: '<div></div>',
-        encoded: false
-      });
-      
-      // Tab elementine data-tab-id attribute ekle (setTimeout ile DOM hazır olana kadar bekle)
-      setTimeout(function() {
-        var addedTab = tabStrip.items().last();
-        $(addedTab).attr("data-tab-id", tabId);
-        
-        // Close butonuna direkt click event bağla
-        var closeBtn = $("#tabs").find('.tab-close[data-tab-id="' + tabId + '"]');
-        if (closeBtn.length > 0) {
-          closeBtn.off("click").on("click", function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            closeTab(tabId);
-          });
-        }
-      }, 100);
-    }
-    
-    // Tab index'ini bul - TabStrip'te tab'ları takip etmek için
-    function getTabIndex(tabId) {
-      if (!tabStrip || !openTabs[tabId]) return -1;
-      return tabStrip.items().index($("#tabs").find('[data-tab-id="' + tabId + '"]'));
-    }
-    
-    // Tab açma fonksiyonu - Telerik TabStrip için
-    function openTab(title, pageId, icon) {
-      var tabId = 'tab-' + pageId;
-      
-      // Eğer tab zaten varsa sadece aktif yap
-      if (openTabs[tabId]) {
-        setActiveTab(tabId);
-        saveTabsToStorage();
-        return;
-      }
-      
-      // Yeni tab ekle
-      openTabs[tabId] = {
-        title: title,
-        pageId: pageId,
-        icon: icon
-      };
-      
-      // Telerik TabStrip'e tab ekle
-      createTabElement(tabId);
-      
-      // Aktif yap
-      setActiveTab(tabId);
-      saveTabsToStorage();
-    }
-    
-    // Aktif tab değiştirme - Telerik TabStrip için
-    function setActiveTab(tabId) {
-      if (!tabStrip || !openTabs[tabId]) return;
-      
-      var tabIndex = getTabIndex(tabId);
-      if (tabIndex >= 0) {
-        tabStrip.select(tabIndex);
-        activeTabId = tabId;
-        setActiveRibbonButton(openTabs[tabId].pageId);
-        saveTabsToStorage();
-      }
-    }
-    
-    // Tab kapatma - Telerik TabStrip için
-    function closeTab(tabId) {
-      if (!openTabs[tabId] || !tabStrip) return;
-      
-      var tabIndex = getTabIndex(tabId);
-      if (tabIndex >= 0) {
-        tabStrip.remove(tabIndex);
-      }
-      
-      delete openTabs[tabId];
-      
-      // Kalan tab'ları kontrol et
-      var remainingTabs = Object.keys(openTabs);
-      if (remainingTabs.length > 0) {
-        // İlk kalan tab'ı aktif yap
-        var nextTabId = remainingTabs[0];
-        setActiveTab(nextTabId);
-        handleTabNavigation(openTabs[nextTabId].pageId);
-      } else {
-        activeTabId = null;
-        handleAllTabsClosed();
-      }
-      
-      saveTabsToStorage();
-    }
-    
-    // Tab var mı kontrol et
-    function tabExists(tabId) {
-      return openTabs.hasOwnProperty(tabId);
-    }
-    
-    // Tab navigasyonu (sayfa yönlendirmesi)
-    function handleTabNavigation(pageId) {
-      if (pageId === 'operasyon_sayfasi' || pageId === 'operasyon') {
-        if (window.location.pathname !== '/') {
-          window.location.href = "/";
-        } else {
-          $('#main-content-operasyon').show();
-          $('#title-bar').hide();
-        }
-      } else {
-        var menuItem = menuItems.find(function(item) { return item.name === pageId; });
-        if (menuItem && menuItem.page_url) {
-          if (window.location.pathname !== menuItem.page_url) {
-            window.location.href = menuItem.page_url;
-          }
-        }
-      }
-      setActiveRibbonButton(pageId);
-    }
-    
-    // Tüm tab'lar kapandığında
-    function handleAllTabsClosed() {
-      $('#main-content-operasyon').hide();
-      $('#title-bar').show();
-      if (window.location.pathname !== '/') {
-        window.location.href = "/";
-      }
-      setActiveRibbonButton(null);
-    }
+    // Tab yönetimi fonksiyonları temizlendi - Baştan yazılacak
     
     // Aktif ribbon butonunu ayarlama fonksiyonu - Telerik Button için
     function setActiveRibbonButton(pageName) {
@@ -474,28 +339,898 @@
       });
     }
     
-    // Ribbon butonlarına tıklama (Event delegation ile - Telerik Button görünümünde)
-    $(document).on("click", ".ribbon-button", function() {
-      var pageName = $(this).data('page');
-      var menuItem = menuItems.find(function(item) { return item.name === pageName; });
+    // Aktif tab ID'sini bul
+    function getActiveTabId() {
+      var activeTab = tabStrip.select();
+      if (!activeTab) return null;
       
-      if (!menuItem) {
-        console.error("MenuItem bulunamadı:", pageName);
+      var activeTabElement = $(activeTab);
+      var activeTabId = activeTabElement.attr("data-tab-id");
+      var activeTabText = activeTabElement.text() || activeTabElement.html() || "";
+      
+      if (!activeTabId) {
+        if (activeTabText.indexOf("Operasyon") >= 0) {
+          activeTabId = "operasyon";
+        } else if (activeTabText.indexOf("Kredi Kartı") >= 0 || activeTabText.indexOf("Kredi") >= 0) {
+          activeTabId = "kredi-karti";
+        } else if (activeTabText.indexOf("Banka") >= 0) {
+          activeTabId = "banka";
+        } else if (activeTabText.indexOf("Tanker") >= 0) {
+          activeTabId = "tanker";
+        } else if (activeTabText.indexOf("Fiyat") >= 0) {
+          activeTabId = "fiyat-degisimi";
+        }
+      }
+      
+      return activeTabId;
+    }
+    
+    // Tab ID'sine göre tab index'ini bul (GitHub çözümü)
+    function getTabIndexById(tabId) {
+      var items = tabStrip.items();
+      var index = -1;
+      for (var i = 0; i < items.length; i++) {
+        var tab = $(items[i]);
+        var currentTabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        // data-tab-id yoksa tabText'ten bul
+        if (!currentTabId) {
+          if (tabText.indexOf("Operasyon") >= 0) {
+            currentTabId = "operasyon";
+          } else if (tabText.indexOf("Kredi Kartı") >= 0 || tabText.indexOf("Kredi") >= 0) {
+            currentTabId = "kredi-karti";
+          } else if (tabText.indexOf("Banka") >= 0) {
+            currentTabId = "banka";
+          } else if (tabText.indexOf("Tanker") >= 0) {
+            currentTabId = "tanker";
+          } else if (tabText.indexOf("Fiyat") >= 0) {
+            currentTabId = "fiyat-degisimi";
+          }
+        }
+        
+        if (currentTabId === tabId) {
+          index = i;
+          break;
+        }
+      }
+      return index;
+    }
+    
+    // Tab kapatıldığında solundaki tab'ı bul ve göster
+    function showNextTabAfterClose(closedTabIndex, wasActiveTab) {
+      setTimeout(function() {
+        var remainingTabs = tabStrip.items();
+        var remainingTabsCount = remainingTabs.length;
+        console.log("Kalan tab sayısı:", remainingTabsCount, "Kapatılan tab index:", closedTabIndex, "Aktif tab mıydı:", wasActiveTab);
+        
+        if (remainingTabsCount === 0) {
+          // Hiç tab kalmadı → Lobiye dön
+          console.log("Tüm tab'lar kapandı, lobiye dönülüyor...");
+          showPageOnly(null);
+          setActiveRibbonButton(null);
+        } else {
+          // Aktif tab kapatıldıysa → Solundaki tab'ı göster
+          // Aktif olmayan tab kapatıldıysa → Aktif tab'ı koru (sayfa değişmesin)
+          if (wasActiveTab) {
+            // Aktif tab kapatıldı → Solundaki tab'ı aktif yap
+            var nextTabIndex;
+            if (closedTabIndex > 0) {
+              // Solunda tab var → Solundaki tab'ı göster
+              nextTabIndex = closedTabIndex - 1;
+            } else {
+              // En soldaki tab kapatıldı → En soldaki tab'ı göster (şimdi index 0)
+              nextTabIndex = 0;
+            }
+            
+            // Index sınırlarını kontrol et
+            if (nextTabIndex >= remainingTabsCount) {
+              nextTabIndex = remainingTabsCount - 1;
+            }
+            
+            var nextTab = remainingTabs[nextTabIndex];
+            
+            if (nextTab) {
+              var nextTabElement = $(nextTab);
+              var nextTabId = nextTabElement.attr("data-tab-id");
+              var nextTabText = nextTabElement.text() || nextTabElement.html() || "";
+              
+              // data-tab-id yoksa tabText'ten bul
+              if (!nextTabId) {
+                if (nextTabText.indexOf("Operasyon") >= 0) {
+                  nextTabId = "operasyon";
+                } else if (nextTabText.indexOf("Kredi Kartı") >= 0 || nextTabText.indexOf("Kredi") >= 0) {
+                  nextTabId = "kredi-karti";
+                } else if (nextTabText.indexOf("Banka") >= 0) {
+                  nextTabId = "banka";
+                } else if (nextTabText.indexOf("Tanker") >= 0) {
+                  nextTabId = "tanker";
+                } else if (nextTabText.indexOf("Fiyat") >= 0) {
+                  nextTabId = "fiyat-degisimi";
+                }
+              }
+              
+              if (nextTabId) {
+                console.log("Aktif tab kapatıldı, solundaki tab gösteriliyor:", nextTabId, "Index:", nextTabIndex);
+                // Aktif tab kapatıldığında select event'ini ignore et (çünkü manuel olarak select yapıyoruz)
+                ignoreSelectEvent = true;
+                tabStrip.select(nextTabIndex);
+                showPageOnly(nextTabId);
+                ignoreSelectEvent = false;
+              } else {
+                console.log("Solundaki tab ID bulunamadı, lobiye dönülüyor...");
+                showPageOnly(null);
+              }
+            } else {
+              console.log("Solundaki tab bulunamadı, lobiye dönülüyor...");
+              showPageOnly(null);
+            }
+          } else {
+            // Aktif olmayan tab kapatıldı → Aktif tab'ı koru, sayfa değişmesin
+            console.log("Aktif olmayan tab kapatıldı, aktif tab korunuyor...");
+            var currentActiveTab = tabStrip.select();
+            var remainingTabsArray = tabStrip.items();
+            var currentActiveTabIndex = -1;
+            for (var j = 0; j < remainingTabsArray.length; j++) {
+              if ($(remainingTabsArray[j])[0] === $(currentActiveTab)[0]) {
+                currentActiveTabIndex = j;
+                break;
+              }
+            }
+            
+            if (currentActiveTabIndex >= 0 && currentActiveTabIndex < remainingTabsCount) {
+              var activeTabElement = $(currentActiveTab);
+              var activeTabId = activeTabElement.attr("data-tab-id");
+              var activeTabText = activeTabElement.text() || activeTabElement.html() || "";
+              
+              // data-tab-id yoksa tabText'ten bul
+              if (!activeTabId) {
+                if (activeTabText.indexOf("Operasyon") >= 0) {
+                  activeTabId = "operasyon";
+                } else if (activeTabText.indexOf("Kredi Kartı") >= 0 || activeTabText.indexOf("Kredi") >= 0) {
+                  activeTabId = "kredi-karti";
+                } else if (activeTabText.indexOf("Banka") >= 0) {
+                  activeTabId = "banka";
+                } else if (activeTabText.indexOf("Tanker") >= 0) {
+                  activeTabId = "tanker";
+                } else if (activeTabText.indexOf("Fiyat") >= 0) {
+                  activeTabId = "fiyat-degisimi";
+                }
+              }
+              
+              if (activeTabId) {
+                console.log("Aktif tab korunuyor:", activeTabId);
+                showPageOnly(activeTabId);
+              }
+            }
+          }
+          
+          setActiveRibbonButton(null);
+        }
+        
+        // Flag'i her zaman sıfırla (işlem bittikten sonra)
+        ignoreSelectEvent = false;
+      }, 50);
+    }
+    
+    // Tüm sayfaları gizle, sadece belirtilen sayfayı göster
+    function showPageOnly(pageId) {
+      // Tüm sayfaları gizle
+      $('#main-content-operasyon').hide();
+      $('#main-content-kredi-karti').hide();
+      $('#main-content-banka').hide();
+      $('#main-content-tanker').hide();
+      $('#main-content-fiyat-degisimi').hide();
+      
+      // Belirtilen sayfayı göster
+      if (pageId === 'operasyon') {
+        $('#main-content-operasyon').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'kredi-karti') {
+        $('#main-content-kredi-karti').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'banka') {
+        $('#main-content-banka').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'tanker') {
+        $('#main-content-tanker').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'fiyat-degisimi') {
+        $('#main-content-fiyat-degisimi').show();
+        $('#title-bar').hide();
+      } else {
+        // Hiçbir sayfa açık değilse lobi göster
+        $('#title-bar').show();
+      }
+    }
+    
+    // Sadece Operasyon sayfası için basit tab mantığı
+    function openOperasyonTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
         return;
       }
       
-      var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
-      var tabIcon = menuItem.icon || '📄';
-      openTab(tabTitle, pageName, tabIcon);
+      // Tab zaten var mı kontrol et - Tüm tab'ları kontrol et
+      var allTabs = tabStrip.items();
+      var operasyonTabIndex = -1;
       
-      // Aktif ribbon butonunu ayarla
-      setActiveRibbonButton(pageName);
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        // data-tab-id veya içerikte "Operasyon" kelimesi varsa
+        if (tabId === "operasyon" || tabText.indexOf("Operasyon") >= 0) {
+          operasyonTabIndex = i;
+          break;
+        }
+      }
       
-      // Sayfa yönlendirmesi
-      handleTabNavigation(pageName);
-    });
+      // Tab zaten varsa sadece aktif yap
+      if (operasyonTabIndex >= 0) {
+        console.log("Operasyon tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(operasyonTabIndex);
+        showPageOnly('operasyon');
+        return;
+      }
+      
+      // Yeni tab ekle
+      console.log("Yeni operasyon tab'ı ekleniyor...");
+      
+      // ÖNCE sayfayı göster (tab eklenmeden önce)
+      showPageOnly('operasyon');
+      
+      var tabContent = '⛽ Operasyon Sayfası <span class="tab-close-operasyon" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      // Tab elementine data-tab-id ekle
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "operasyon");
+        
+        // Event delegation zaten document ready'de tanımlı, burada ekstra bir şey yapmaya gerek yok
+        
+        // Tab'ı aktif yap
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
     
-    // Tab close butonlarına tıklama artık createTabElement içinde direkt bağlanıyor
+    // Operasyon tab'ını kapat
+    function closeOperasyonTab() {
+      console.log("closeOperasyonTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      // Tab'ı bul ve kapat
+      var allTabs = tabStrip.items();
+      var operasyonTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "operasyon" || tabText.indexOf("Operasyon") >= 0) {
+          operasyonTabIndex = i;
+          break;
+        }
+      }
+      
+      // Kapatılmadan önce aktif tab mı kontrol et ve aktif tab ID'sini kaydet
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (operasyonTabIndex >= 0 && operasyonTabIndex === activeTabIndex);
+      
+      if (operasyonTabIndex < 0) {
+        console.log("Operasyon tab'ı bulunamadı!");
+        return;
+      }
+      
+      // Pasif tab kapatılıyorsa aktif tab ID'sini kaydet
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true; // Select event'ini ignore et
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      // GitHub çözümü: setTimeout ile remove() çağrısını ertele
+      setTimeout(function() {
+        try {
+          console.log("Operasyon tab'ı kapatılıyor... Index:", operasyonTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(operasyonTabIndex);
+          console.log("Tab kapatıldı, kalan tab sayısı:", tabStrip.items().length);
+          
+          // Pasif tab kapatıldıysa aktif tab'ı manuel olarak tekrar seç
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true; // Manuel seçim sırasında select event'ini ignore et
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            // Aktif tab kapatıldıysa solundaki tab'ı göster
+            showNextTabAfterClose(operasyonTabIndex, wasActiveTab);
+          }
+        } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+    
+    // Kredi kartı tab'ını aç - Operasyon kodlarının birebir aynısı
+    function openKrediKartiTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+      
+      // Tab zaten var mı kontrol et - Tüm tab'ları kontrol et
+      var allTabs = tabStrip.items();
+      var krediKartiTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        // data-tab-id veya içerikte "Kredi Kartı" kelimesi varsa
+        if (tabId === "kredi-karti" || tabText.indexOf("Kredi Kartı") >= 0) {
+          krediKartiTabIndex = i;
+          break;
+        }
+      }
+      
+      // Tab zaten varsa sadece aktif yap
+      if (krediKartiTabIndex >= 0) {
+        console.log("Kredi Kartı tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(krediKartiTabIndex);
+        showPageOnly('kredi-karti');
+        return;
+      }
+      
+      // Yeni tab ekle
+      console.log("Yeni kredi kartı tab'ı ekleniyor...");
+      
+      // ÖNCE sayfayı göster (tab eklenmeden önce)
+      showPageOnly('kredi-karti');
+      
+      var tabContent = '💳 Kredi Kartı <span class="tab-close-kredi-karti" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      // Tab elementine data-tab-id ekle
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "kredi-karti");
+        
+        // Event delegation zaten document ready'de tanımlı, burada ekstra bir şey yapmaya gerek yok
+        
+        // Tab'ı aktif yap
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+    
+    // Kredi kartı tab'ını kapat - Operasyon kodlarının birebir aynısı
+    function closeKrediKartiTab() {
+      console.log("closeKrediKartiTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      // Tab'ı bul ve kapat
+      var allTabs = tabStrip.items();
+      var krediKartiTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "kredi-karti" || tabText.indexOf("Kredi Kartı") >= 0) {
+          krediKartiTabIndex = i;
+          break;
+        }
+      }
+      
+      // Kapatılmadan önce aktif tab mı kontrol et ve aktif tab ID'sini kaydet
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (krediKartiTabIndex >= 0 && krediKartiTabIndex === activeTabIndex);
+      
+      if (krediKartiTabIndex < 0) {
+        console.log("Kredi Kartı tab'ı bulunamadı!");
+        return;
+      }
+      
+      // Pasif tab kapatılıyorsa aktif tab ID'sini kaydet
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      // GitHub çözümü: setTimeout ile remove() çağrısını ertele
+      setTimeout(function() {
+        try {
+          console.log("Kredi Kartı tab'ı kapatılıyor... Index:", krediKartiTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(krediKartiTabIndex);
+          
+          // Pasif tab kapatıldıysa aktif tab'ı manuel olarak tekrar seç
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(krediKartiTabIndex, wasActiveTab);
+          }
+        } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+    
+    // Banka tab'ını aç - Operasyon kodlarının birebir aynısı
+    function openBankaTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var bankaTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "banka" || tabText.indexOf("Banka") >= 0) {
+          bankaTabIndex = i;
+          break;
+        }
+      }
+      
+      if (bankaTabIndex >= 0) {
+        console.log("Banka tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(bankaTabIndex);
+        showPageOnly('banka');
+        return;
+      }
+      
+      console.log("Yeni banka tab'ı ekleniyor...");
+      showPageOnly('banka');
+      
+      var tabContent = '🏦 Banka <span class="tab-close-banka" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "banka");
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+    
+    // Banka tab'ını kapat - Operasyon kodlarının birebir aynısı
+    function closeBankaTab() {
+      console.log("closeBankaTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var bankaTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "banka" || tabText.indexOf("Banka") >= 0) {
+          bankaTabIndex = i;
+          break;
+        }
+      }
+      
+      // Kapatılmadan önce aktif tab mı kontrol et ve aktif tab ID'sini kaydet
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (bankaTabIndex >= 0 && bankaTabIndex === activeTabIndex);
+      
+      if (bankaTabIndex < 0) {
+        console.log("Banka tab'ı bulunamadı!");
+        return;
+      }
+      
+      // Pasif tab kapatılıyorsa aktif tab ID'sini kaydet
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      // GitHub çözümü: setTimeout ile remove() çağrısını ertele
+      setTimeout(function() {
+        try {
+          console.log("Banka tab'ı kapatılıyor... Index:", bankaTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(bankaTabIndex);
+          
+          // Pasif tab kapatıldıysa aktif tab'ı manuel olarak tekrar seç
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(bankaTabIndex, wasActiveTab);
+          }
+        } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+    
+    // Tanker tab'ını aç - Operasyon kodlarının birebir aynısı
+    function openTankerTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var tankerTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "tanker" || tabText.indexOf("Tanker") >= 0) {
+          tankerTabIndex = i;
+          break;
+        }
+      }
+      
+      if (tankerTabIndex >= 0) {
+        console.log("Tanker tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(tankerTabIndex);
+        showPageOnly('tanker');
+        return;
+      }
+      
+      console.log("Yeni tanker tab'ı ekleniyor...");
+      showPageOnly('tanker');
+      
+      var tabContent = '🚛 Tanker <span class="tab-close-tanker" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "tanker");
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+    
+    // Tanker tab'ını kapat - Operasyon kodlarının birebir aynısı
+    function closeTankerTab() {
+      console.log("closeTankerTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var tankerTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "tanker" || tabText.indexOf("Tanker") >= 0) {
+          tankerTabIndex = i;
+          break;
+        }
+      }
+      
+      // Kapatılmadan önce aktif tab mı kontrol et ve aktif tab ID'sini kaydet
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (tankerTabIndex >= 0 && tankerTabIndex === activeTabIndex);
+      
+      if (tankerTabIndex < 0) {
+        console.log("Tanker tab'ı bulunamadı!");
+        return;
+      }
+      
+      // Pasif tab kapatılıyorsa aktif tab ID'sini kaydet
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      // GitHub çözümü: setTimeout ile remove() çağrısını ertele
+      setTimeout(function() {
+        try {
+          console.log("Tanker tab'ı kapatılıyor... Index:", tankerTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(tankerTabIndex);
+          
+          // Pasif tab kapatıldıysa aktif tab'ı manuel olarak tekrar seç
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(tankerTabIndex, wasActiveTab);
+          }
+        } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+    
+    // Fiyat değişimi tab'ını aç - Operasyon kodlarının birebir aynısı
+    function openFiyatDegisimiTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var fiyatDegisimiTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "fiyat-degisimi" || tabText.indexOf("Fiyat") >= 0) {
+          fiyatDegisimiTabIndex = i;
+          break;
+        }
+      }
+      
+      if (fiyatDegisimiTabIndex >= 0) {
+        console.log("Fiyat Değişimi tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(fiyatDegisimiTabIndex);
+        showPageOnly('fiyat-degisimi');
+        return;
+      }
+      
+      console.log("Yeni fiyat değişimi tab'ı ekleniyor...");
+      showPageOnly('fiyat-degisimi');
+      
+      var tabContent = '💰 Fiyat Değişimi <span class="tab-close-fiyat-degisimi" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      setTimeout(function() {
+        var addedTab = tabStrip.items().last();
+        $(addedTab).attr("data-tab-id", "fiyat-degisimi");
+        var tabIndex = tabStrip.items().index(addedTab);
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+    
+    // Fiyat değişimi tab'ını kapat - Operasyon kodlarının birebir aynısı
+    function closeFiyatDegisimiTab() {
+      console.log("closeFiyatDegisimiTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var fiyatDegisimiTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "fiyat-degisimi" || tabText.indexOf("Fiyat") >= 0) {
+          fiyatDegisimiTabIndex = i;
+          break;
+        }
+      }
+      
+      // Kapatılmadan önce aktif tab mı kontrol et ve aktif tab ID'sini kaydet
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (fiyatDegisimiTabIndex >= 0 && fiyatDegisimiTabIndex === activeTabIndex);
+      
+      if (fiyatDegisimiTabIndex < 0) {
+        console.log("Fiyat Değişimi tab'ı bulunamadı!");
+        return;
+      }
+      
+      // Pasif tab kapatılıyorsa aktif tab ID'sini kaydet
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      // GitHub çözümü: setTimeout ile remove() çağrısını ertele
+      setTimeout(function() {
+        try {
+          console.log("Fiyat Değişimi tab'ı kapatılıyor... Index:", fiyatDegisimiTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(fiyatDegisimiTabIndex);
+          
+          // Pasif tab kapatıldıysa aktif tab'ı manuel olarak tekrar seç
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(fiyatDegisimiTabIndex, wasActiveTab);
+          }
+        } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+    
+    // Ribbon butonlarına tıklama - Tüm sayfalar için
+    $(document).on("click", ".ribbon-button", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      var pageName = $(this).data('page');
+      console.log("Ribbon buton tıklandı, pageName:", pageName);
+      
+      // Operasyon sayfası
+      if (pageName === 'operasyon_sayfasi' || pageName === 'operasyon') {
+        console.log("Operasyon sayfası açılıyor...");
+        openOperasyonTab();
+        setActiveRibbonButton(pageName);
+      }
+      // Kredi Kartı sayfası
+      else if (pageName === 'kredi_karti' || pageName === 'kredi-karti' || pageName === 'kredi_kart') {
+        console.log("Kredi Kartı sayfası açılıyor...");
+        openKrediKartiTab();
+        setActiveRibbonButton(pageName);
+      }
+      // Banka sayfası
+      else if (pageName === 'banka') {
+        console.log("Banka sayfası açılıyor...");
+        openBankaTab();
+        setActiveRibbonButton(pageName);
+      }
+      // Tanker sayfası
+      else if (pageName === 'tanker') {
+        console.log("Tanker sayfası açılıyor...");
+        openTankerTab();
+        setActiveRibbonButton(pageName);
+      }
+      // Fiyat Değişimi sayfası
+      else if (pageName === 'fiyat_degisimi' || pageName === 'fiyat-degisimi') {
+        console.log("Fiyat Değişimi sayfası açılıyor...");
+        openFiyatDegisimiTab();
+        setActiveRibbonButton(pageName);
+      } else {
+        // Diğer sayfalar için şimdilik bir şey yapma
+        console.log("Diğer sayfa:", pageName, "- Şimdilik çalışmıyor");
+      }
+    });
   </script>
   
   {% block extra_scripts %}{% endblock %}
