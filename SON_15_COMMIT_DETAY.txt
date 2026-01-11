@@ -1,0 +1,72 @@
+SON 15 COMMIT DETAYLI LİSTESİ (ESKİDEN YENİYE)
+==============================================
+
+1. 0300449 - ALAN 2 cakisma sorunu duzeltildi - ALAN 2 yazisi arka plana alindi, ribbon butonlari artik gorunuyor
+   📌 Ne yapıldı: ALAN 2'deki yazı ile ribbon butonları çakışıyordu, yazı arka plana alındı
+   💬 Konuşma: ALAN 2'de butonlar görünmüyordu, çakışma sorunu vardı
+
+2. 3ee8175 - Cift tanimli tab yonetimi kodlari kaldirildi - telerik_yeni_proje.html'deki tab yonetimi kodlari silindi, base.html'deki kodlar kullaniliyor
+   📌 Ne yapıldı: Tab yönetimi kodları hem base.html hem telerik_yeni_proje.html'de vardı, çift tanımlıydı, temizlendi
+   💬 Konuşma: Tab sistemi çift çalışıyordu, kod tekrarı vardı, base.html'deki kodlar kullanıldı
+
+3. 6096605 - Cift tab sorunu duzeltildi - DOM kontrolu eklendi, ayni tab iki kez acilmiyor
+   📌 Ne yapıldı: Aynı tab iki kez açılıyordu, DOM kontrolü eklendi, tab zaten açıksa tekrar açılmıyor
+   💬 Konuşma: Tab'a tıklayınca aynı tab iki kez açılıyordu, kontrol eklendi
+
+4. 6fa3f94 - Kredi karti sayfasindaki cift tanimli tab yonetimi kodlari kaldirildi - base.html'deki kodlar kullaniliyor
+   📌 Ne yapıldı: Kredi kartı sayfasında da çift tanımlı tab kodları vardı, temizlendi
+   💬 Konuşma: Kredi kartı sayfasında da aynı sorun vardı, temizlendi
+
+5. 3cdcbb0 - Tanker sayfasi eklendi - bos sayfa, ALAN 2'de ikonlu buton, ALAN 3'te tab aciliyor
+   📌 Ne yapıldı: Yeni Tanker sayfası eklendi, ALAN 2'de buton, ALAN 3'te tab açılıyor
+   💬 Konuşma: Tanker sayfası eklendi, menüye buton eklendi
+
+6. d3ebd41 - Menu ogelerini yukle script'i guncellendi - Tanker eklendi
+   📌 Ne yapıldı: Menü yükleme script'ine Tanker eklendi
+   💬 Konuşma: Tanker menüye eklendi
+
+7. 1caca58 - Tanker ekleme script'leri duzeltildi - py komutu ve venv kullanimi
+   📌 Ne yapıldı: Tanker ekleme script'leri düzeltildi, Python ve venv kullanımı
+   💬 Konuşma: Script çalışmıyordu, düzeltildi
+
+8. 7759e03 - ALAN 2 Telerik Button click event duzeltildi - e.sender.element() kullanimi
+   📌 Ne yapıldı: ALAN 2'deki Telerik Button'lara tıklanınca çalışmıyordu, click event düzeltildi
+   💬 Konuşma: ALAN 2 butonlarına tıklayınca sayfa açılmıyordu, event düzeltildi
+
+9. be27c58 - Tab close butonu ve select event duzeltildi - setTimeout ve fallback eklendi
+   📌 Ne yapıldı: Tab kapatma butonu çalışmıyordu, select event sorunluydu, setTimeout ve fallback eklendi
+   💬 Konuşma: Tab'ları kapatınca çalışmıyordu, ALAN 3 tab kapanma kuralları düzeltildi
+   ⭐ ŞU AN BURADAYIZ - ALAN 1-2-3 sayfa açılımları ve ALAN 3 tab kapanma kuralları çalışıyor
+
+10. e4b744e - ALAN 3 z-index sorunu duzeltildi - Tab Container artik ALAN 3'un altinda
+    📌 Ne yapıldı: Tab Container ALAN 3'ün üstündeydi, z-index düzeltildi, artık altında
+    💬 Konuşma: Tab'lar ALAN 3'ün üstünde görünüyordu, z-index sorunu vardı
+
+11. b6ca32e - ALAN 3 TabStrip sorunu - tab'lar görünmüyor
+    📌 Ne yapıldı: Tab'lar görünmüyordu, sorun tespit edildi
+    💬 Konuşma: ALAN 3'te tab'lar hiç görünmüyordu, sorun vardı
+
+12. 12923d7 - Tab sistemi Telerik TabStrip ile yeniden yazildi: GitHub Copilot kodundan uyarlandi, basit ve temiz sistem
+    📌 Ne yapıldı: Tab sistemi tamamen yeniden yazıldı, Telerik TabStrip kullanıldı
+    💬 Konuşma: Tab sistemi çalışmıyordu, GitHub Copilot'dan kod alındı, yeniden yazıldı
+
+13. 9f9805b - Cift tab acilma sorunu tamamen duzeltildi: loadTabsFromStorage, createTabElement ve openTab fonksiyonlarinda DOM kontrolu eklendi
+    📌 Ne yapıldı: Çift tab açılma sorunu tamamen çözüldü, tüm fonksiyonlara DOM kontrolü eklendi
+    💬 Konuşma: Tab'lar iki kez açılıyordu, tüm fonksiyonlara kontrol eklendi
+
+14. 76cde6a - Cift tab acilma sorunu duzeltildi: openTab ve loadTabsFromStorage DOM'da zaten var olan tab'lari kontrol ediyor
+    📌 Ne yapıldı: Çift tab sorunu çözümü başladı, DOM kontrolü eklendi
+    💬 Konuşma: Tab'lar iki kez açılıyordu, kontrol eklendi
+
+15. 1136ac3 - Banka sayfasina Kendo Grid eklendi: 20 satir, 12 kolon (banka adi, hesap numarasi, iban, bakiye, vb.)
+    📌 Ne yapıldı: Banka sayfasına Telerik Kendo Grid eklendi, 20 satır 12 kolon
+    💬 Konuşma: Banka sayfasına tablo eklendi
+
+
+ÖZET:
+=====
+⭐ Tek sayfa düzeni kuruldu: 01fd01b (daha önce)
+⭐ Tab sistemi Telerik: 12923d7
+📌 ALAN sorunları çözüldü: 0300449 → e4b744e → b6ca32e
+📌 Çift tab sorunları çözüldü: 76cde6a → 9f9805b → 6096605
+⭐ Son çalışan: be27c58 (ŞU AN BURADAYIZ)

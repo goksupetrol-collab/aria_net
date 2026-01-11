@@ -1,0 +1,17 @@
+SON ÇALIŞAN COMMIT BİLGİLERİ
+=============================
+
+Son Çalışan Commit: ad68d84
+Commit Mesajı: "Profesyonel renk paleti uygulandi - acik mavi basliklar, temiz gri tonlar, modern kenarliklar, ALAN 1 koyu ALAN 2-3 acik gri"
+
+Tarih: [Git log'dan kontrol edilebilir]
+
+NOT: Bu commit'ten sonra yapılan değişiklikler projeyi bozdu.
+Bu commit'e geri dönmek için: git reset --hard 52ad326
+
+NOT: Bu commit sohbete başladığımız commit. Profesyonel renk paleti uygulandı. ALAN 1-2-3 sayfa açılımları ve tab sistemi çalışıyor olmalı.
+
+Önceki Commit'ler (geriye doğru):
+- 52ad326 - Cevaplari kisa ve net ozet olarak verme kurali eklendi
+- e1ce09e - JavaScript kodundaki gereksiz buton referanslarÄ± temizlendi
+- 7759e03 - ALAN 2 Telerik Button click event duzeltildi
