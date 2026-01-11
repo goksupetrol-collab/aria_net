@@ -216,28 +216,66 @@
       box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1) !important;
     }
     
-    /* Special row styling - Başlık satırları */
-    .k-grid .header-row {
+    /* Special row styling - Başlık satırları (KAPASİTE, ANLIK, SATIŞ, TARİH) - ÇOK GÜÇLÜ */
+    .k-grid .header-row,
+    .k-grid tbody tr.header-row,
+    .k-grid-content tbody tr.header-row,
+    .k-grid tbody tr.header-row td,
+    .k-grid-content tbody tr.header-row td {
       background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      background-image: linear-gradient(to bottom, #4a5568, #2d3748) !important;
       color: #ffffff !important;
       font-weight: 600 !important;
     }
     
-    .k-grid .header-row td {
+    .k-grid .header-row td,
+    .k-grid tbody tr.header-row td,
+    .k-grid-content tbody tr.header-row td {
       color: #ffffff !important;
       border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+      background: transparent !important;
     }
     
-    /* Sub-header row styling - Tarih satırları */
-    .k-grid .sub-header-row {
+    /* Telerik override - header-row için */
+    .k-grid tbody tr.header-row.k-alt,
+    .k-grid tbody tr.header-row:hover {
+      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+    }
+    
+    .k-grid tbody tr.header-row:hover td {
+      background: transparent !important;
+      color: #ffffff !important;
+    }
+    
+    /* Sub-header row styling - Tarih satırları (Perşembe, Cuma, Cumartesi) - ÇOK GÜÇLÜ */
+    .k-grid .sub-header-row,
+    .k-grid tbody tr.sub-header-row,
+    .k-grid-content tbody tr.sub-header-row,
+    .k-grid tbody tr.sub-header-row td,
+    .k-grid-content tbody tr.sub-header-row td {
       background: linear-gradient(to bottom, #718096, #4a5568) !important;
+      background-image: linear-gradient(to bottom, #718096, #4a5568) !important;
       color: #ffffff !important;
       font-weight: 500 !important;
     }
     
-    .k-grid .sub-header-row td {
+    .k-grid .sub-header-row td,
+    .k-grid tbody tr.sub-header-row td,
+    .k-grid-content tbody tr.sub-header-row td {
       color: #ffffff !important;
       border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+      background: transparent !important;
+    }
+    
+    /* Telerik override - sub-header-row için */
+    .k-grid tbody tr.sub-header-row.k-alt,
+    .k-grid tbody tr.sub-header-row:hover {
+      background: linear-gradient(to bottom, #718096, #4a5568) !important;
+    }
+    
+    .k-grid tbody tr.sub-header-row:hover td {
+      background: transparent !important;
+      color: #ffffff !important;
     }
     
     /* Number alignment - Right align for numbers */
