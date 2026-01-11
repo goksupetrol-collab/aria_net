@@ -246,6 +246,14 @@
       var tab = openTabs[tabId];
       if (!tab) return;
       
+      // DOM'da zaten bu tab var mı kontrol et
+      var existingTabInDOM = $('#tabs-list').find('[data-tab-id="' + tabId + '"]');
+      if (existingTabInDOM.length > 0) {
+        // DOM'da zaten var, sadece referansı kaydet
+        openTabs[tabId].tabElement = existingTabInDOM;
+        return;
+      }
+      
       var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
         '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + tab.icon + '</div>' +
         '<span>' + tab.title + '</span>' +
@@ -278,7 +286,23 @@
     function openTab(title, pageId, icon) {
       var tabId = 'tab-' + pageId;
       
+      // Eğer tab zaten varsa sadece aktif yap
       if (openTabs[tabId]) {
+        setActiveTab(tabId);
+        saveTabsToStorage();
+        return;
+      }
+      
+      // DOM'da zaten bu tab var mı kontrol et
+      var existingTabInDOM = $('#tabs-list').find('[data-tab-id="' + tabId + '"]');
+      if (existingTabInDOM.length > 0) {
+        // DOM'da var ama openTabs'da yok, openTabs'a ekle
+        openTabs[tabId] = {
+          title: title,
+          pageId: pageId,
+          icon: icon,
+          tabElement: existingTabInDOM
+        };
         setActiveTab(tabId);
         saveTabsToStorage();
         return;
