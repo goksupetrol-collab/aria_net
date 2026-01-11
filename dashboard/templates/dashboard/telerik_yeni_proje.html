@@ -511,10 +511,259 @@
     <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
   </div>
 
-  <!-- TANKER SAYFASI -->
+  <!-- TANKER SAYFASI - TELERİK BİLEŞEN REFERANS SAYFASI -->
   <div class="container" id="main-content-tanker" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">TANKER</h1>
-    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">📚 TELERİK BİLEŞEN REFERANS SAYFASI</h1>
+    <p style="text-align:center;color:#666;margin:10px 0 30px 0;font-size:14px;">Proje düzenlerken ihtiyacın olan bileşeni burada bul, seç, bana söyle!</p>
+    
+    <!-- ============================================ -->
+    <!-- 📋 VERİ YÖNETİMİ BİLEŞENLERİ -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">📋 VERİ YÖNETİMİ</h2>
+    
+    <!-- 21. TREELIST -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">21. TREELIST (Ağaç Grid) 🌳📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Grid + TreeView karışımı - hem tablo hem ağaç yapısı</p>
+      <div id="treelist-tanker" style="width:100%;max-width:800px;height:300px;"></div>
+    </div>
+
+    <!-- 22. LISTVIEW -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">22. LISTVIEW (Liste Görünümü) 📋</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Instagram feed gibi - kartlar halinde liste</p>
+      <div id="listview-tanker" style="width:100%;max-width:600px;height:400px;"></div>
+    </div>
+
+    <!-- 23. SPREADSHEET -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">23. SPREADSHEET (Excel Benzeri) 📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Excel gibi - formüller, hesaplamalar, hücreler</p>
+      <div id="spreadsheet-tanker" style="width:100%;max-width:800px;height:400px;"></div>
+    </div>
+
+    <!-- 24. SORTABLE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">24. SORTABLE (Sürükleyip Bırakma) 🖱️</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Telefonda uygulamaları sıralarken gibi - sürükle, bırak</p>
+      <ul id="sortable-tanker" style="list-style:none;padding:0;width:100%;max-width:300px;">
+        <li style="padding:10px;margin:5px;background:#fff;border:1px solid #ddd;cursor:move;">Şube 1</li>
+        <li style="padding:10px;margin:5px;background:#fff;border:1px solid #ddd;cursor:move;">Şube 2</li>
+        <li style="padding:10px;margin:5px;background:#fff;border:1px solid #ddd;cursor:move;">Şube 3</li>
+        <li style="padding:10px;margin:5px;background:#fff;border:1px solid #ddd;cursor:move;">Şube 4</li>
+      </ul>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 📅 TAKVİM VE PLANLAMA -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">📅 TAKVİM VE PLANLAMA</h2>
+    
+    <!-- 25. SCHEDULER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">25. SCHEDULER (Planlayıcı) 📅</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Google Takvim gibi - günlük/haftalık/aylık görünüm</p>
+      <div id="scheduler-tanker" style="width:100%;max-width:900px;height:600px;"></div>
+    </div>
+
+    <!-- 26. GANTT -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">26. GANTT (Proje Çizelgesi) 📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Proje yönetim programı gibi - görevler çubuklar halinde</p>
+      <div id="gantt-tanker" style="width:100%;max-width:900px;height:400px;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 📊 GRAFİK VE GÖRSELLEŞTİRME -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">📊 GRAFİK VE GÖRSELLEŞTİRME</h2>
+    
+    <!-- 29. STOCKCHART -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">29. STOCKCHART (Hisse Senedi Grafiği) 📈</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Borsa grafiği gibi - mum grafikleri</p>
+      <div id="stockchart-tanker" style="width:100%;max-width:800px;height:400px;"></div>
+    </div>
+
+    <!-- 30. BARCHART -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">30. BARCHART (Çubuk Grafik) 📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Excel'deki çubuk grafik gibi</p>
+      <div id="barchart-tanker" style="width:100%;max-width:600px;height:300px;"></div>
+    </div>
+
+    <!-- 31. LINECHART -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">31. LINECHART (Çizgi Grafik) 📉</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Excel'deki çizgi grafik gibi - zaman içinde değişim</p>
+      <div id="linechart-tanker" style="width:100%;max-width:600px;height:300px;"></div>
+    </div>
+
+    <!-- 32. PIECHART -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">32. PIECHART (Pasta Grafik) 🥧</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Excel'deki pasta grafik gibi - yuvarlak, dilimler halinde</p>
+      <div id="piechart-tanker" style="width:100%;max-width:500px;height:300px;"></div>
+    </div>
+
+    <!-- 33. AREACHART -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">33. AREACHART (Alan Grafiği) 📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Çizgi grafik ama altı dolu - renkli alan</p>
+      <div id="areachart-tanker" style="width:100%;max-width:600px;height:300px;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 🔧 FORM VE GİRİŞ -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">🔧 FORM VE GİRİŞ</h2>
+    
+    <!-- 34. SWITCH -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">34. SWITCH (Aç/Kapa Düğmesi) 🔘</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Telefonda WiFi aç/kapa düğmesi gibi</p>
+      <input id="switch-tanker" style="width:100%;max-width:200px;" />
+      <p id="switch-value-tanker" style="margin-top:10px;font-weight:bold;color:#206d7d;">Durum: Kapalı</p>
+    </div>
+
+    <!-- 35. RANGESLIDER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">35. RANGESLIDER (Aralık Kaydırıcı) 🎚️</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Fiyat aralığı seçerken gibi - iki çubuk, arası seçim</p>
+      <div id="rangeslider-tanker" style="width:100%;max-width:400px;"></div>
+      <p id="rangeslider-value-tanker" style="margin-top:10px;font-weight:bold;color:#206d7d;">Aralık: 100 - 500</p>
+    </div>
+
+    <!-- 36. RATING -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">36. RATING (Yıldız Değerlendirme) ⭐</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Google'da yıldız verme gibi - 5 yıldız</p>
+      <div id="rating-tanker" style="width:100%;max-width:300px;"></div>
+    </div>
+
+    <!-- 37. COLORPALETTE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">37. COLORPALETTE (Renk Paleti) 🎨</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Paint'te renk paleti gibi - hazır renkler</p>
+      <div id="colorpalette-tanker" style="width:100%;max-width:300px;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 📱 MOBİL VE RESPONSIVE -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">📱 MOBİL VE RESPONSIVE</h2>
+    
+    <!-- 38. RESPONSIVEPANEL -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">38. RESPONSIVEPANEL (Responsive Panel) 📱</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Telefonda menü açılırken gibi - yan taraftan kayarak</p>
+      <button onclick="toggleResponsivePanel()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;margin-bottom:10px;">Panel Aç/Kapa</button>
+      <div id="responsivepanel-tanker" style="width:100%;max-width:400px;height:300px;position:relative;"></div>
+    </div>
+
+    <!-- 39. DRAWER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">39. DRAWER (Çekmece) 📂</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Telefonda alt taraftan çıkan menü gibi</p>
+      <button onclick="toggleDrawer()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">Çekmece Aç/Kapa</button>
+      <div id="drawer-tanker" style="width:100%;max-width:400px;height:200px;position:relative;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 🔍 ARAMA VE FİLTRELEME -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">🔍 ARAMA VE FİLTRELEME</h2>
+    
+    <!-- 40. SEARCHBOX -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">40. SEARCHBOX (Arama Kutusu) 🔍</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Google arama kutusu gibi</p>
+      <input id="searchbox-tanker" style="width:100%;max-width:400px;" placeholder="Ara..." />
+    </div>
+
+    <!-- 41. FILTERMENU -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">41. FILTERMENU (Filtre Menüsü) 🔎</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> E-ticaret sitesinde filtre gibi</p>
+      <div id="filtermenu-tanker" style="width:100%;max-width:600px;"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 📄 DOKÜMAN VE RAPOR -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">📄 DOKÜMAN VE RAPOR</h2>
+    
+    <!-- 42. PDFVIEWER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">42. PDFVIEWER (PDF Görüntüleyici) 📄</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> PDF okuyucu gibi - PDF aç, oku</p>
+      <div id="pdfviewer-tanker" style="width:100%;max-width:700px;height:500px;"></div>
+    </div>
+
+    <!-- 43. PDFEXPORT -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">43. PDFEXPORT (PDF Dışa Aktarma) 📥</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Excel'de PDF'ye çevir gibi</p>
+      <button onclick="exportToPDF()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">PDF'ye Aktar</button>
+      <p style="color:#666;font-size:12px;margin-top:10px;">Not: Grid'lerde PDF export özelliği kullanılabilir</p>
+    </div>
+
+    <!-- 44. EXCELEXPORT -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">44. EXCELEXPORT (Excel Dışa Aktarma) 📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Excel'e kopyala gibi</p>
+      <button onclick="exportToExcel()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">Excel'e Aktar</button>
+      <p style="color:#666;font-size:12px;margin-top:10px;">Not: Grid'lerde Excel export özelliği kullanılabilir</p>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 🎯 ÖZEL KULLANIM -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">🎯 ÖZEL KULLANIM</h2>
+    
+    <!-- 45. DIALOG -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">45. DIALOG (Dialog Kutusu) 💬</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Onay penceresi gibi - "Emin misin?" diye sorar</p>
+      <button onclick="showDialog()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">Dialog Göster</button>
+      <div id="dialog-tanker" style="display:none;">
+        <p>Kaydı silmek istediğinize emin misiniz?</p>
+        <button onclick="closeDialog()" style="padding:5px 15px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;margin-top:10px;">Tamam</button>
+        <button onclick="closeDialog()" style="padding:5px 15px;background:#999;color:white;border:none;border-radius:3px;cursor:pointer;margin-top:10px;margin-left:10px;">İptal</button>
+      </div>
+    </div>
+
+    <!-- 46-48. CONFIRM, ALERT, PROMPT -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">46-48. CONFIRM, ALERT, PROMPT ✅⚠️📝</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> JavaScript confirm/alert/prompt gibi</p>
+      <button onclick="showConfirm()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;margin-right:10px;">Confirm</button>
+      <button onclick="showAlert()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;margin-right:10px;">Alert</button>
+      <button onclick="showPrompt()" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">Prompt</button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 📊 VERİ İŞLEME -->
+    <!-- ============================================ -->
+    <h2 style="color:#206d7d;border-bottom:2px solid #206d7d;padding-bottom:5px;margin-top:30px;">📊 VERİ İŞLEME</h2>
+    
+    <!-- 51. DATASOURCE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">51. DATASOURCE (Veri Kaynağı) 📊</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Veri çekme motoru - veritabanından veri çek</p>
+      <p style="color:#666;font-size:12px;">Not: Tüm bileşenlerde kullanılır, örnek kod konsolda görülebilir</p>
+    </div>
+
+    <!-- 52. OBSERVABLE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">52. OBSERVABLE (Gözlemlenebilir) 👁️</h3>
+      <p style="color:#666;font-size:12px;margin:5px 0;"><strong>Sokak diliyle:</strong> Değişiklikleri izle - değer değişince haber ver</p>
+      <p style="color:#666;font-size:12px;">Not: Veri değişiklik takibi için kullanılır</p>
+    </div>
+
+    <p style="text-align:center;color:#999;margin-top:50px;padding:20px;font-size:12px;">
+      💡 <strong>İpucu:</strong> İhtiyacın olan bileşeni burada gör, numarasını veya adını bana söyle, projene ekleyeyim!
+    </p>
   </div>
 
   <!-- FİYAT DEĞİŞİMİ SAYFASI -->
@@ -2480,6 +2729,410 @@
           }
         }, 200);
       }
+    }
+
+    // ============================================
+    // TANKER SAYFASI - TELERİK BİLEŞEN REFERANS SAYFASI
+    // ============================================
+    
+    $(document).ready(function() {
+      // Tanker sayfası görünür olduğunda bileşenleri başlat
+      var checkTankerPage = setInterval(function() {
+        if ($('#main-content-tanker').is(':visible')) {
+          clearInterval(checkTankerPage);
+          initTankerBilesenleri();
+        }
+      }, 100);
+    });
+
+    function initTankerBilesenleri() {
+      console.log("✅ Tanker sayfası (Referans) bileşenleri başlatılıyor...");
+
+      // 21. TREELIST
+      try {
+        $('#treelist-tanker').kendoTreeList({
+          dataSource: {
+            data: [
+              { id: 1, parentId: null, name: 'Ana Şube', satis: 10000 },
+              { id: 2, parentId: 1, name: 'Alt Şube 1', satis: 5000 },
+              { id: 3, parentId: 1, name: 'Alt Şube 2', satis: 3000 },
+              { id: 4, parentId: 2, name: 'Alt-Alt Şube 1', satis: 2000 }
+            ],
+            schema: {
+              model: {
+                id: 'id',
+                parentId: 'parentId',
+                fields: {
+                  id: { type: 'number' },
+                  parentId: { field: 'parentId', nullable: true },
+                  name: { type: 'string' },
+                  satis: { type: 'number' }
+                }
+              }
+            }
+          },
+          columns: [
+            { field: 'name', title: 'Şube Adı', width: 200 },
+            { field: 'satis', title: 'Satış', width: 150, format: '{0:n0}' }
+          ]
+        });
+        console.log("✅ TreeList başlatıldı");
+      } catch(e) { console.error("❌ TreeList hatası:", e); }
+
+      // 22. LISTVIEW
+      try {
+        $('#listview-tanker').kendoListView({
+          dataSource: {
+            data: [
+              { id: 1, name: 'Motorin', fiyat: 25.50, aciklama: 'Yüksek kalite motorin' },
+              { id: 2, name: 'Benzin', fiyat: 30.00, aciklama: 'Premium benzin' },
+              { id: 3, name: 'LPG', fiyat: 15.75, aciklama: 'Otogaz' }
+            ]
+          },
+          template: '<div style="padding:15px;border:1px solid #ddd;margin:10px;background:#fff;border-radius:5px;"><h4 style="margin:0 0 5px 0;color:#206d7d;">#:name#</h4><p style="margin:5px 0;color:#666;">#:aciklama#</p><p style="margin:5px 0;font-weight:bold;color:#206d7d;">Fiyat: #:fiyat# TL</p></div>'
+        });
+        console.log("✅ ListView başlatıldı");
+      } catch(e) { console.error("❌ ListView hatası:", e); }
+
+      // 23. SPREADSHEET
+      try {
+        $('#spreadsheet-tanker').kendoSpreadsheet({
+          sheets: [{
+            name: 'Hesaplamalar',
+            rows: [{
+              cells: [
+                { value: 'Toplam', bold: true },
+                { value: 1000, format: '#,##0' }
+              ]
+            }]
+          }]
+        });
+        console.log("✅ Spreadsheet başlatıldı");
+      } catch(e) { console.error("❌ Spreadsheet hatası:", e); }
+
+      // 24. SORTABLE
+      try {
+        $('#sortable-tanker').kendoSortable({
+          hint: function(element) {
+            return element.clone().css('opacity', 0.5);
+          }
+        });
+        console.log("✅ Sortable başlatıldı");
+      } catch(e) { console.error("❌ Sortable hatası:", e); }
+
+      // 25. SCHEDULER
+      try {
+        $('#scheduler-tanker').kendoScheduler({
+          date: new Date(),
+          startTime: new Date('2024-01-15T08:00:00'),
+          height: 600,
+          views: ['day', 'week', 'month'],
+          dataSource: [{
+            id: 1,
+            start: new Date('2024-01-15T09:00:00'),
+            end: new Date('2024-01-15T10:00:00'),
+            title: 'Tanker Yükleme'
+          }]
+        });
+        console.log("✅ Scheduler başlatıldı");
+      } catch(e) { console.error("❌ Scheduler hatası:", e); }
+
+      // 26. GANTT
+      try {
+        $('#gantt-tanker').kendoGantt({
+          dataSource: [{
+            id: 1,
+            orderId: 0,
+            parentId: null,
+            title: 'Tanker Projesi',
+            start: new Date('2024-01-15'),
+            end: new Date('2024-01-20')
+          }],
+          dependencies: []
+        });
+        console.log("✅ Gantt başlatıldı");
+      } catch(e) { console.error("❌ Gantt hatası:", e); }
+
+      // 29. STOCKCHART
+      try {
+        $('#stockchart-tanker').kendoStockChart({
+          dataSource: {
+            data: [
+              { date: new Date('2024-01-01'), open: 25, high: 26, low: 24, close: 25.5 },
+              { date: new Date('2024-01-02'), open: 25.5, high: 27, low: 25, close: 26 },
+              { date: new Date('2024-01-03'), open: 26, high: 28, low: 25.5, close: 27.5 }
+            ]
+          },
+          dateField: 'date',
+          series: [{
+            type: 'candlestick',
+            openField: 'open',
+            highField: 'high',
+            lowField: 'low',
+            closeField: 'close'
+          }]
+        });
+        console.log("✅ StockChart başlatıldı");
+      } catch(e) { console.error("❌ StockChart hatası:", e); }
+
+      // 30. BARCHART
+      try {
+        $('#barchart-tanker').kendoChart({
+          dataSource: {
+            data: [
+              { sube: 'YAĞCILAR', satis: 1000 },
+              { sube: 'TEPEKUM', satis: 1500 },
+              { sube: 'NAMDAR', satis: 800 }
+            ]
+          },
+          series: [{
+            type: 'bar',
+            field: 'satis',
+            categoryField: 'sube'
+          }]
+        });
+        console.log("✅ BarChart başlatıldı");
+      } catch(e) { console.error("❌ BarChart hatası:", e); }
+
+      // 31. LINECHART
+      try {
+        $('#linechart-tanker').kendoChart({
+          dataSource: {
+            data: [
+              { ay: 'Ocak', satis: 1000 },
+              { ay: 'Şubat', satis: 1200 },
+              { ay: 'Mart', satis: 1500 },
+              { ay: 'Nisan', satis: 1300 }
+            ]
+          },
+          series: [{
+            type: 'line',
+            field: 'satis',
+            categoryField: 'ay'
+          }]
+        });
+        console.log("✅ LineChart başlatıldı");
+      } catch(e) { console.error("❌ LineChart hatası:", e); }
+
+      // 32. PIECHART
+      try {
+        $('#piechart-tanker').kendoChart({
+          dataSource: {
+            data: [
+              { urun: 'Motorin', yuzde: 40 },
+              { urun: 'Benzin', yuzde: 35 },
+              { urun: 'LPG', yuzde: 25 }
+            ]
+          },
+          series: [{
+            type: 'pie',
+            field: 'yuzde',
+            categoryField: 'urun'
+          }]
+        });
+        console.log("✅ PieChart başlatıldı");
+      } catch(e) { console.error("❌ PieChart hatası:", e); }
+
+      // 33. AREACHART
+      try {
+        $('#areachart-tanker').kendoChart({
+          dataSource: {
+            data: [
+              { ay: 'Ocak', toplam: 1000 },
+              { ay: 'Şubat', toplam: 2200 },
+              { ay: 'Mart', toplam: 3700 },
+              { ay: 'Nisan', toplam: 5000 }
+            ]
+          },
+          series: [{
+            type: 'area',
+            field: 'toplam',
+            categoryField: 'ay'
+          }]
+        });
+        console.log("✅ AreaChart başlatıldı");
+      } catch(e) { console.error("❌ AreaChart hatası:", e); }
+
+      // 34. SWITCH
+      try {
+        $('#switch-tanker').kendoSwitch({
+          checked: false,
+          change: function(e) {
+            $('#switch-value-tanker').text('Durum: ' + (e.checked ? 'Açık' : 'Kapalı'));
+          }
+        });
+        console.log("✅ Switch başlatıldı");
+      } catch(e) { console.error("❌ Switch hatası:", e); }
+
+      // 35. RANGESLIDER
+      try {
+        $('#rangeslider-tanker').kendoRangeSlider({
+          min: 0,
+          max: 1000,
+          smallStep: 10,
+          largeStep: 100,
+          tickPlacement: 'both',
+          values: [100, 500],
+          change: function(e) {
+            $('#rangeslider-value-tanker').text('Aralık: ' + e.value[0] + ' - ' + e.value[1]);
+          }
+        });
+        console.log("✅ RangeSlider başlatıldı");
+      } catch(e) { console.error("❌ RangeSlider hatası:", e); }
+
+      // 36. RATING
+      try {
+        $('#rating-tanker').kendoRating({
+          min: 1,
+          max: 5,
+          value: 3
+        });
+        console.log("✅ Rating başlatıldı");
+      } catch(e) { console.error("❌ Rating hatası:", e); }
+
+      // 37. COLORPALETTE
+      try {
+        $('#colorpalette-tanker').kendoColorPalette({
+          palette: 'basic',
+          value: '#206d7d'
+        });
+        console.log("✅ ColorPalette başlatıldı");
+      } catch(e) { console.error("❌ ColorPalette hatası:", e); }
+
+      // 38. RESPONSIVEPANEL
+      try {
+        $('#responsivepanel-tanker').kendoResponsivePanel({
+          breakpoint: 768,
+          autoClose: false,
+          toggleButton: '#responsivepanel-toggle-tanker'
+        });
+        console.log("✅ ResponsivePanel başlatıldı");
+      } catch(e) { console.error("❌ ResponsivePanel hatası:", e); }
+
+      // 39. DRAWER
+      try {
+        $('#drawer-tanker').kendoDrawer({
+          template: '<ul><li>Menü 1</li><li>Menü 2</li><li>Menü 3</li></ul>',
+          mode: 'overlay',
+          position: 'bottom'
+        });
+        console.log("✅ Drawer başlatıldı");
+      } catch(e) { console.error("❌ Drawer hatası:", e); }
+
+      // 40. SEARCHBOX
+      try {
+        $('#searchbox-tanker').kendoSearchBox({
+          placeholder: 'Ara...',
+          suggest: true,
+          dataSource: {
+            data: ['Motorin', 'Benzin', 'LPG', 'Yağ', 'Filtre']
+          }
+        });
+        console.log("✅ SearchBox başlatıldı");
+      } catch(e) { console.error("❌ SearchBox hatası:", e); }
+
+      // 41. FILTERMENU
+      try {
+        $('#filtermenu-tanker').kendoFilterMenu({
+          dataSource: {
+            data: [
+              { name: 'Motorin', price: 25.50, date: new Date('2024-01-15') },
+              { name: 'Benzin', price: 30.00, date: new Date('2024-01-16') }
+            ],
+            schema: {
+              model: {
+                fields: {
+                  name: { type: 'string' },
+                  price: { type: 'number' },
+                  date: { type: 'date' }
+                }
+              }
+            }
+          }
+        });
+        console.log("✅ FilterMenu başlatıldı");
+      } catch(e) { console.error("❌ FilterMenu hatası:", e); }
+
+      // 42. PDFVIEWER
+      try {
+        $('#pdfviewer-tanker').kendoPDFViewer({
+          pdfjsProcessing: {
+            file: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js'
+          },
+          toolbar: {
+            items: ['pager', 'spacer', 'zoom', 'spacer', 'toggleSelection', 'spacer', 'search', 'spacer', 'download']
+          }
+        });
+        console.log("✅ PDFViewer başlatıldı");
+      } catch(e) { console.error("❌ PDFViewer hatası:", e); }
+
+      console.log("✅ Tanker sayfası (Referans) tüm bileşenler başlatıldı!");
+    }
+
+    // Yardımcı fonksiyonlar
+    function toggleResponsivePanel() {
+      var panel = $('#responsivepanel-tanker').data('kendoResponsivePanel');
+      if (panel) {
+        panel.toggle();
+      }
+    }
+
+    function toggleDrawer() {
+      var drawer = $('#drawer-tanker').data('kendoDrawer');
+      if (drawer) {
+        drawer.toggle();
+      }
+    }
+
+    function showDialog() {
+      var dialog = $('#dialog-tanker').data('kendoDialog');
+      if (!dialog) {
+        $('#dialog-tanker').kendoDialog({
+          title: 'Onay',
+          width: '400px',
+          closable: true
+        });
+        dialog = $('#dialog-tanker').data('kendoDialog');
+      }
+      dialog.open();
+    }
+
+    function closeDialog() {
+      var dialog = $('#dialog-tanker').data('kendoDialog');
+      if (dialog) {
+        dialog.close();
+      }
+    }
+
+    function showConfirm() {
+      kendo.ui.Confirm({
+        title: 'Onay',
+        content: 'Kaydetmek istiyor musunuz?',
+        actions: [
+          { text: 'Evet', primary: true },
+          { text: 'Hayır' }
+        ]
+      });
+    }
+
+    function showAlert() {
+      kendo.alert('Bu bir bilgilendirme mesajıdır!');
+    }
+
+    function showPrompt() {
+      kendo.prompt('Lütfen bir değer girin:', 'Varsayılan değer').then(function(value) {
+        if (value) {
+          kendo.alert('Girdiğiniz değer: ' + value);
+        }
+      });
+    }
+
+    function exportToPDF() {
+      kendo.alert('PDF export özelliği Grid\'lerde kullanılabilir. Örnek: grid.saveAsPDF()');
+    }
+
+    function exportToExcel() {
+      kendo.alert('Excel export özelliği Grid\'lerde kullanılabilir. Örnek: grid.saveAsExcel()');
     }
   </script>
 {% endblock %}
