@@ -663,11 +663,16 @@
             // Tüm tab'lar kapandı, lobiye dön (boş ekran)
             activeTabId = null;
             // Operasyon sayfası zaten lobi sayfası (/), sadece içeriği değiştir
-            $('#main-content-operasyon').css('display', 'none');
-            $('#title-bar').css('display', 'flex'); // Başlığı göster (lobi ekranı)
+            $('#main-content-operasyon').css({'display': 'none', 'visibility': 'hidden'});
+            $('#title-bar').css({'display': 'flex', 'visibility': 'visible'}); // Başlığı göster (lobi ekranı)
             // Eğer başka sayfadaysak lobiye yönlendir
             if (window.location.pathname !== '/') {
               window.location.href = "/";
+            } else {
+              // Aynı sayfadaysak sayfayı yenile ki içerik değişsin
+              setTimeout(function() {
+                window.location.reload();
+              }, 100);
             }
             // Ribbon butonlarını pasif yap
             setActiveRibbonButton(null);
