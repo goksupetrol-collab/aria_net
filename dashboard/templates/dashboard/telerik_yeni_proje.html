@@ -85,9 +85,14 @@
       letter-spacing: 0.01em !important;
     }
     
-    /* Grid Header - Subtle gradient, professional styling */
-    .k-grid-header th {
+    /* Grid Header - Subtle gradient, professional styling - ÇOK GÜÇLÜ SELECTOR */
+    .k-grid .k-grid-header th,
+    .k-grid-header th,
+    .k-grid-header-wrap th,
+    .k-grid-header-wrap table th,
+    .k-grid table th.k-header {
       background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      background-image: linear-gradient(to bottom, #4a5568, #2d3748) !important;
       color: #ffffff !important;
       font-weight: 600 !important;
       font-size: 12px !important;
@@ -100,12 +105,23 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
     }
     
-    .k-grid-header th:last-child {
+    .k-grid .k-grid-header th:last-child,
+    .k-grid-header th:last-child,
+    .k-grid-header-wrap th:last-child {
       border-right: none !important;
     }
     
-    /* Grid Cells - Professional padding, spacing */
-    .k-grid td {
+    /* Telerik'in header background override */
+    .k-grid .k-grid-header,
+    .k-grid-header-wrap {
+      background: transparent !important;
+    }
+    
+    /* Grid Cells - Professional padding, spacing - ÇOK GÜÇLÜ SELECTOR */
+    .k-grid td,
+    .k-grid tbody td,
+    .k-grid-content td,
+    .k-grid-content table td {
       padding: 12px 15px !important;
       border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
       border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
@@ -115,30 +131,55 @@
       transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     
-    .k-grid td:last-child {
+    .k-grid td:last-child,
+    .k-grid tbody td:last-child {
       border-right: none !important;
     }
     
-    /* Row hover effect - Subtle, professional */
-    .k-grid tbody tr {
+    /* Row hover effect - Subtle, professional - ÇOK GÜÇLÜ */
+    .k-grid tbody tr,
+    .k-grid-content tbody tr {
       transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     
-    .k-grid tbody tr:hover {
+    .k-grid tbody tr:hover,
+    .k-grid-content tbody tr:hover {
       background-color: #f0f4f8 !important;
     }
     
-    /* Zebra striping - Subtle colors */
-    .k-grid tbody tr:nth-child(even) {
+    /* Telerik'in hover override */
+    .k-grid tbody tr:hover td,
+    .k-grid-content tbody tr:hover td {
+      background-color: #f0f4f8 !important;
+    }
+    
+    /* Zebra striping - Subtle colors - ÇOK GÜÇLÜ */
+    .k-grid tbody tr:nth-child(even),
+    .k-grid-content tbody tr:nth-child(even) {
       background-color: #fafbfc !important;
     }
     
-    .k-grid tbody tr:nth-child(odd) {
+    .k-grid tbody tr:nth-child(odd),
+    .k-grid-content tbody tr:nth-child(odd) {
       background-color: #ffffff !important;
     }
     
-    /* Grid border radius - Modern look */
-    .k-grid {
+    /* Telerik'in default background'larını override et */
+    .k-grid tbody tr.k-alt,
+    .k-grid tbody tr.k-state-selected {
+      background-color: inherit !important;
+    }
+    
+    /* Grid border radius - Modern look - ÇOK GÜÇLÜ */
+    .k-grid,
+    #motorin-grid,
+    #benzin-grid,
+    #tahsilat-grid,
+    #odeme-grid,
+    #hypco-grid,
+    #aygaz-grid,
+    #yakit-alimlari-grid,
+    #araclar-grid {
       border-radius: 8px !important;
       overflow: hidden !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
@@ -146,7 +187,8 @@
     }
     
     /* Grid header border radius */
-    .k-grid-header {
+    .k-grid-header,
+    .k-grid .k-grid-header {
       border-radius: 8px 8px 0 0 !important;
     }
     
@@ -207,6 +249,69 @@
     /* Center alignment */
     .k-grid .center-cell {
       text-align: center !important;
+    }
+    
+    /* Panel Başlıkları - Profesyonel Gradient */
+    #motorin-toolbar > div,
+    #benzin-toolbar > div,
+    #tahsilat-toolbar > div,
+    #odeme-toolbar > div,
+    #hypco-toolbar > div,
+    #aygaz-toolbar > div,
+    #yakit-toolbar > div,
+    #nakliye-toolbar > div {
+      width: 100% !important;
+      height: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-family: 'Roboto', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      color: #ffffff !important;
+      border-radius: 8px 8px 0 0 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    /* Toplam çubukları */
+    #tahsilat-total > div,
+    #odeme-total > div,
+    #genel-total > div {
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-family: 'Roboto', sans-serif !important;
+      font-weight: 600 !important;
+      border-radius: 4px !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    #tahsilat-total > div {
+      height: 24px !important;
+      font-size: 12px !important;
+      background: linear-gradient(to bottom, #48bb78, #38a169) !important;
+      color: #ffffff !important;
+    }
+    
+    #odeme-total > div {
+      height: 24px !important;
+      font-size: 12px !important;
+      background: linear-gradient(to bottom, #f56565, #e53e3e) !important;
+      color: #ffffff !important;
+    }
+    
+    #genel-total > div {
+      height: 28px !important;
+      font-size: 13px !important;
+      background: linear-gradient(to bottom, #4299e1, #3182ce) !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
     }
   </style>
 {% endblock %}
