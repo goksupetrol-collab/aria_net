@@ -50,7 +50,20 @@
     
     /* İçerik alanı margin ayarı - base.html'deki main-content margin-top:169px var */
     #main-content-operasyon{margin-top:0 !important;padding-top:0 !important;display:block;}
+    #main-content-kredi-karti{margin-top:0 !important;padding-top:0 !important;display:none;}
+    #main-content-banka{margin-top:0 !important;padding-top:0 !important;display:none;}
+    #main-content-tanker{margin-top:0 !important;padding-top:0 !important;display:none;}
+    #main-content-fiyat-degisimi{margin-top:0 !important;padding-top:0 !important;display:none;}
     .container{padding:0 !important;margin:0 !important;}
+    
+    /* Kredi kartı ve banka sayfaları için overflow kontrolü */
+    #kredi-karti-grid, #kredi-karti-grid .k-grid, #kredi-karti-grid .k-grid-content,
+    #kredi-karti-grid .k-grid-header, #kredi-karti-grid .k-grid-header-wrap,
+    #kredi-karti-grid .k-grid-content-wrap, #kredi-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
+    
+    #banka-grid, #banka-grid .k-grid, #banka-grid .k-grid-content,
+    #banka-grid .k-grid-header, #banka-grid .k-grid-header-wrap,
+    #banka-grid .k-grid-content-wrap, #banka-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
     
     /* main-content içindeki tüm margin/padding sıfırla */
     #main-content > * {margin-top:0 !important;padding-top:0 !important;}
@@ -59,6 +72,142 @@
     #main-content .menu-container {margin:0 !important;padding:0 !important;}
     
     /* title-bar JavaScript ile kontrol ediliyor, CSS'de !important kullanmayalım */
+    
+    /* PROFESYONEL TABLO STİLLERİ - Material Design + Modern Best Practices */
+    
+    /* Global Typography - Roboto font ailesi */
+    .k-grid {
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+      letter-spacing: 0.01em !important;
+    }
+    
+    /* Grid Header - Subtle gradient, professional styling */
+    .k-grid-header th {
+      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      font-size: 12px !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      padding: 12px 15px !important;
+      border: none !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+      text-align: center !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    }
+    
+    .k-grid-header th:last-child {
+      border-right: none !important;
+    }
+    
+    /* Grid Cells - Professional padding, spacing */
+    .k-grid td {
+      padding: 12px 15px !important;
+      border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+      color: #2d3748 !important;
+      transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .k-grid td:last-child {
+      border-right: none !important;
+    }
+    
+    /* Row hover effect - Subtle, professional */
+    .k-grid tbody tr {
+      transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .k-grid tbody tr:hover {
+      background-color: #f0f4f8 !important;
+    }
+    
+    /* Zebra striping - Subtle colors */
+    .k-grid tbody tr:nth-child(even) {
+      background-color: #fafbfc !important;
+    }
+    
+    .k-grid tbody tr:nth-child(odd) {
+      background-color: #ffffff !important;
+    }
+    
+    /* Grid border radius - Modern look */
+    .k-grid {
+      border-radius: 8px !important;
+      overflow: hidden !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+    
+    /* Grid header border radius */
+    .k-grid-header {
+      border-radius: 8px 8px 0 0 !important;
+    }
+    
+    /* Focus state - Professional */
+    .k-grid td:focus,
+    .k-grid td.k-state-focused {
+      outline: 2px solid #4299e1 !important;
+      outline-offset: -2px !important;
+      background-color: #ebf8ff !important;
+    }
+    
+    /* Editable cell styling */
+    .k-grid td input {
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif !important;
+      font-size: 13px !important;
+      padding: 8px 12px !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      border-radius: 4px !important;
+      transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .k-grid td input:focus {
+      border-color: #4299e1 !important;
+      outline: none !important;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1) !important;
+    }
+    
+    /* Special row styling - Başlık satırları */
+    .k-grid .header-row {
+      background: linear-gradient(to bottom, #4a5568, #2d3748) !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+    }
+    
+    .k-grid .header-row td {
+      color: #ffffff !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Sub-header row styling - Tarih satırları */
+    .k-grid .sub-header-row {
+      background: linear-gradient(to bottom, #718096, #4a5568) !important;
+      color: #ffffff !important;
+      font-weight: 500 !important;
+    }
+    
+    .k-grid .sub-header-row td {
+      color: #ffffff !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Number alignment - Right align for numbers */
+    .k-grid .number-cell {
+      text-align: right !important;
+      font-variant-numeric: tabular-nums !important;
+    }
+    
+    /* Center alignment */
+    .k-grid .center-cell {
+      text-align: center !important;
+    }
   </style>
 {% endblock %}
 
@@ -160,6 +309,48 @@
       </div>
     </div>
     </div>
+  </div>
+
+  <!-- KREDİ KARTI SAYFASI -->
+  <div class="container" id="main-content-kredi-karti" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">KREDİ KARTI TAKİP</h1>
+    <div id="kredi-karti-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+  </div>
+
+  <!-- BANKA SAYFASI -->
+  <div class="container" id="main-content-banka" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">BANKA HESAP TAKİP</h1>
+    <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+  </div>
+
+  <!-- TANKER SAYFASI -->
+  <div class="container" id="main-content-tanker" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">TANKER</h1>
+    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
+  </div>
+
+  <!-- KREDİ KARTI SAYFASI -->
+  <div class="container" id="main-content-kredi-karti" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">KREDİ KARTI TAKİP</h1>
+    <div id="kredi-karti-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+  </div>
+
+  <!-- BANKA SAYFASI -->
+  <div class="container" id="main-content-banka" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">BANKA HESAP TAKİP</h1>
+    <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+  </div>
+
+  <!-- TANKER SAYFASI -->
+  <div class="container" id="main-content-tanker" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">TANKER</h1>
+    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
+  </div>
+
+  <!-- FİYAT DEĞİŞİMİ SAYFASI -->
+  <div class="container" id="main-content-fiyat-degisimi" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİYAT DEĞİŞİMİ</h1>
+    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
   </div>
 
   <!-- FIRMA YÖNETİMİ WINDOW -->
@@ -602,24 +793,25 @@
         });
       }
       
-      // Panel Başlıkları - Telerik CSS sınıfları ile (lisanslı tema kullanımı)
-      // Telerik'in kendi CSS sınıflarını kullanarak HTML yapıyoruz
-      $("#motorin-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">MOTORİN</div>');
-      $("#benzin-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">BENZİN</div>');
-      $("#tahsilat-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">TAHSİLAT</div>');
-      $("#odeme-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">ÖDEME</div>');
-      $("#hypco-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">HYPCO</div>');
-      $("#aygaz-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">AYGAZ</div>');
-      $("#yakit-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">YAKIT ALIMLARI</div>');
-      $("#nakliye-toolbar").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:32px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:0;">NAKLİYE</div>');
+      // Panel Başlıkları - Profesyonel Gradient Stil
+      var headerStyle = 'width:100%;height:36px;display:flex;align-items:center;justify-content:center;font-family:"Roboto",sans-serif;font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;background:linear-gradient(to bottom, #4a5568, #2d3748);color:#ffffff;border-radius:8px 8px 0 0;box-shadow:0 2px 4px rgba(0,0,0,0.1);transition:all 0.2s cubic-bezier(0.4,0,0.2,1);';
+      $("#motorin-toolbar").html('<div style="' + headerStyle + '">MOTORİN</div>');
+      $("#benzin-toolbar").html('<div style="' + headerStyle + '">BENZİN</div>');
+      $("#tahsilat-toolbar").html('<div style="' + headerStyle + '">TAHSİLAT</div>');
+      $("#odeme-toolbar").html('<div style="' + headerStyle + '">ÖDEME</div>');
+      $("#hypco-toolbar").html('<div style="' + headerStyle + '">HYPCO</div>');
+      $("#aygaz-toolbar").html('<div style="' + headerStyle + '">AYGAZ</div>');
+      $("#yakit-toolbar").html('<div style="' + headerStyle + '">YAKIT ALIMLARI</div>');
+      $("#nakliye-toolbar").html('<div style="' + headerStyle + '">NAKLİYE</div>');
       
-      // Header - Telerik CSS sınıfları ile
-      $("#header-toolbar").html('<h1 class="k-h1" style="margin:0;color:var(--kendo-color-on-app-surface, #3d3d3d);font-size:24px;font-weight:600;">Yeni Bir Proje</h1>');
+      // Header - Profesyonel Typography
+      $("#header-toolbar").html('<h1 style="margin:0;font-family:\'Roboto\',sans-serif;color:#2d3748;font-size:24px;font-weight:600;letter-spacing:0.01em;line-height:1.3;">Yeni Bir Proje</h1>');
       
-      // Toplam çubukları - Telerik CSS sınıfları ile
-      $("#tahsilat-total").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border-radius:2px;">₺0</div>');
-      $("#odeme-total").html('<div class="k-button k-button-md k-button-solid k-button-solid-base" style="width:100%;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border-radius:2px;">₺0</div>');
-      $("#genel-total").html('<div class="k-button k-button-md k-button-solid k-button-solid-secondary" style="width:100%;height:25px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:2px;color:#fff;">₺0</div>');
+      // Toplam çubukları - Profesyonel Stil
+      var totalStyle = 'width:100%;height:24px;display:flex;align-items:center;justify-content:center;font-family:"Roboto",sans-serif;font-size:12px;font-weight:600;border-radius:4px;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);';
+      $("#tahsilat-total").html('<div style="' + totalStyle + 'background:linear-gradient(to bottom, #48bb78, #38a169);color:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.1);">₺0</div>');
+      $("#odeme-total").html('<div style="' + totalStyle + 'background:linear-gradient(to bottom, #f56565, #e53e3e);color:#ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.1);">₺0</div>');
+      $("#genel-total").html('<div style="' + totalStyle + 'height:28px;font-size:13px;background:linear-gradient(to bottom, #4299e1, #3182ce);color:#ffffff;box-shadow:0 2px 4px rgba(0,0,0,0.15);">₺0</div>');
     });
     
     $(document).ready(function() {
@@ -669,7 +861,7 @@
         motorinData.push(row);
       }
       
-      // MOTORİN Grid'i oluştur
+      // MOTORİN Grid'i oluştur - Profesyonel Stil
       $("#motorin-grid").kendoGrid({
         dataSource: { data: motorinData, pageSize: 100 },
         height: 420,
@@ -684,9 +876,18 @@
         selectable: false,
         pageable: false,
         resizable: true,
-        columns: motorinColumns,
+        columns: motorinColumns.map(function(col) {
+          if (col.field === "mtr") {
+            return col;
+          }
+          return {
+            field: col.field,
+            title: col.title,
+            width: col.width,
+            attributes: { class: "number-cell", style: "text-align: right;" }
+          };
+        }),
         edit: function(e) {
-          // KAPASİTE, ANLIK, TARİH satırlarını düzenlenemez yap
           var dataItem = e.model;
           var mtrValue = dataItem.mtr;
           if (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "TARİH") {
@@ -694,21 +895,17 @@
           }
         },
         dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
+          var grid = this;
+          grid.tbody.find("tr").each(function(index) {
             var row = $(this);
-            if (index % 2 === 0) {
-              row.css("background", "#fafafa");
-            } else {
-              row.css("background", "#ffffff");
-            }
-            // MTR sütunu için özel Telerik renkleri
             var mtrCell = row.find("td:first");
             var mtrValue = mtrCell.text().trim();
+            
+            // Başlık satırları için özel stil
             if (mtrValue && (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "SATIŞ" || mtrValue === "TARİH")) {
-              mtrCell.css("background", "#666666").css("color", "#ffffff").css("font-weight", "600");
+              row.addClass("header-row");
             } else if (mtrValue && (mtrValue === "Perşembe" || mtrValue === "Cuma" || mtrValue === "Cumartesi")) {
-              mtrCell.css("background", "#525252").css("color", "#ffffff").css("font-weight", "600");
+              row.addClass("sub-header-row");
             }
           });
         }
@@ -761,9 +958,18 @@
         selectable: false,
         pageable: false,
         resizable: true,
-        columns: motorinColumns,
+        columns: motorinColumns.map(function(col) {
+          if (col.field === "mtr") {
+            return col;
+          }
+          return {
+            field: col.field,
+            title: col.title,
+            width: col.width,
+            attributes: { class: "number-cell", style: "text-align: right;" }
+          };
+        }),
         edit: function(e) {
-          // KAPASİTE, ANLIK, TARİH satırlarını düzenlenemez yap
           var dataItem = e.model;
           var mtrValue = dataItem.mtr;
           if (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "TARİH") {
@@ -771,21 +977,16 @@
           }
         },
         dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
+          var grid = this;
+          grid.tbody.find("tr").each(function(index) {
             var row = $(this);
-            if (index % 2 === 0) {
-              row.css("background", "#fafafa");
-            } else {
-              row.css("background", "#ffffff");
-            }
-            // MTR sütunu için özel Telerik renkleri
             var mtrCell = row.find("td:first");
             var mtrValue = mtrCell.text().trim();
+            
             if (mtrValue && (mtrValue === "KAPASİTE" || mtrValue === "ANLIK" || mtrValue === "SATIŞ" || mtrValue === "TARİH")) {
-              mtrCell.css("background", "#666666").css("color", "#ffffff").css("font-weight", "600");
+              row.addClass("header-row");
             } else if (mtrValue && (mtrValue === "Perşembe" || mtrValue === "Cuma" || mtrValue === "Cumartesi")) {
-              mtrCell.css("background", "#525252").css("color", "#ffffff").css("font-weight", "600");
+              row.addClass("sub-header-row");
             }
           });
         }
@@ -813,19 +1014,9 @@
         resizable: true,
         columns: [
           { field: "aciklama", title: "AÇIKLAMA", width: "auto" },
-          { field: "tl", title: "TL", width: 80, attributes: { style: "text-align:right;" } },
-          { field: "onay", title: "ONAY", width: 80, attributes: { style: "text-align:center;" } }
-        ],
-        dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
-            if (index % 2 === 0) {
-              $(this).css("background", "#fafafa");
-            } else {
-              $(this).css("background", "#ffffff");
-            }
-          });
-        }
+          { field: "tl", title: "TL", width: 80, attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "onay", title: "ONAY", width: 80, attributes: { class: "center-cell", style: "text-align: center;" } }
+        ]
       });
 
       // ÖDEME Tablosu - 3 sütun, 35 satır
@@ -850,19 +1041,9 @@
         resizable: true,
         columns: [
           { field: "aciklama", title: "AÇIKLAMA", width: "auto" },
-          { field: "tl", title: "TL", width: 80, attributes: { style: "text-align:right;" } },
-          { field: "onay", title: "ONAY", width: 80, attributes: { style: "text-align:center;" } }
-        ],
-        dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
-            if (index % 2 === 0) {
-              $(this).css("background", "#fafafa");
-            } else {
-              $(this).css("background", "#ffffff");
-            }
-          });
-        }
+          { field: "tl", title: "TL", width: 80, attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "onay", title: "ONAY", width: 80, attributes: { class: "center-cell", style: "text-align: center;" } }
+        ]
       });
 
       // HYPCO Tablosu - 4 sütun, 3 satır
@@ -888,20 +1069,10 @@
         resizable: true,
         columns: [
           { field: "firma", title: "Firma", width: "25%" },
-          { field: "nakit_limit", title: "Nakit Limit", width: "25%", attributes: { style: "text-align:right;" } },
-          { field: "dbs_limit", title: "DBS Limit", width: "25%", attributes: { style: "text-align:right;" } },
-          { field: "top_borc", title: "Top. Borç", width: "25%", attributes: { style: "text-align:right;" } }
-        ],
-        dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
-            if (index % 2 === 0) {
-              $(this).css("background", "#fafafa");
-            } else {
-              $(this).css("background", "#ffffff");
-            }
-          });
-        }
+          { field: "nakit_limit", title: "Nakit Limit", width: "25%", attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "dbs_limit", title: "DBS Limit", width: "25%", attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "top_borc", title: "Top. Borç", width: "25%", attributes: { class: "number-cell", style: "text-align: right;" } }
+        ]
       });
 
       // AYGAZ Tablosu - 4 sütun, 3 satır
@@ -927,20 +1098,10 @@
         resizable: true,
         columns: [
           { field: "firma", title: "Firma", width: "25%" },
-          { field: "nakit_limit", title: "Nakit Limit", width: "25%", attributes: { style: "text-align:right;" } },
-          { field: "dbs_limit", title: "DBS Limit", width: "25%", attributes: { style: "text-align:right;" } },
-          { field: "top_borc", title: "Top. Borç", width: "25%", attributes: { style: "text-align:right;" } }
-        ],
-        dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
-            if (index % 2 === 0) {
-              $(this).css("background", "#fafafa");
-            } else {
-              $(this).css("background", "#ffffff");
-            }
-          });
-        }
+          { field: "nakit_limit", title: "Nakit Limit", width: "25%", attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "dbs_limit", title: "DBS Limit", width: "25%", attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "top_borc", title: "Top. Borç", width: "25%", attributes: { class: "number-cell", style: "text-align: right;" } }
+        ]
       });
 
       // YAKIT ALIMLARI Tablosu - 6 sütun, 30 satır
@@ -966,21 +1127,11 @@
         columns: [
           { field: "firma", title: "FİRMA", width: "16.66%" },
           { field: "urun", title: "ÜRÜN", width: "16.66%" },
-          { field: "litre", title: "LİTRE", width: "16.66%", attributes: { style: "text-align:right;" } },
-          { field: "tl", title: "TL", width: "16.66%", attributes: { style: "text-align:right;" } },
+          { field: "litre", title: "LİTRE", width: "16.66%", attributes: { class: "number-cell", style: "text-align: right;" } },
+          { field: "tl", title: "TL", width: "16.66%", attributes: { class: "number-cell", style: "text-align: right;" } },
           { field: "odeme_tur", title: "ÖDEME TÜR", width: "16.66%" },
-          { field: "onay", title: "ONAY", width: "16.66%", attributes: { style: "text-align:center;" } }
-        ],
-        dataBound: function(e) {
-          // Telerik'in gerçek renkleri
-          this.tbody.find("tr").each(function(index) {
-            if (index % 2 === 0) {
-              $(this).css("background", "#fafafa");
-            } else {
-              $(this).css("background", "#ffffff");
-            }
-          });
-        }
+          { field: "onay", title: "ONAY", width: "16.66%", attributes: { class: "center-cell", style: "text-align: center;" } }
+        ]
       });
 
       // ARAÇLAR Tablosu - 20 araç kartı, her biri 4 sütun, 8 satır
@@ -1019,23 +1170,164 @@
           { field: "d", title: "D", width: "25%" }
         ],
         dataBound: function(e) {
-          this.tbody.find("tr").each(function(index) {
+          var grid = this;
+          grid.tbody.find("tr").each(function(index) {
             var row = $(this);
             var aracCell = row.find("td:first");
             var aracValue = aracCell.text().trim();
-            // Araç başlık satırları için Telerik renkleri
+            
+            // Araç başlık satırları için özel stil
             if (aracValue && aracValue.match(/\d+\s+ARAÇ/)) {
-              aracCell.css("background", "#666666").css("color", "#ffffff").css("font-weight", "600");
-            }
-            // Zebra striping - Telerik uyumlu
-            if (index % 2 === 0) {
-              row.css("background", "#fafafa");
-            } else {
-              row.css("background", "#ffffff");
+              row.addClass("header-row");
             }
           });
         }
       });
+      
+      // KREDİ KARTI GRID
+      setTimeout(function() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
+          var emptyRows = [];
+          for (var i = 0; i < 20; i++) {
+            emptyRows.push({
+              son_odeme: null,
+              kalan_gun: null,
+              tutar: "",
+              banka: "",
+              kime_ait: "",
+              kart_numarasi: "",
+              son_kullanim_tarihi: "",
+              cv: "",
+              iban: "",
+              sifre: "",
+              sutun1: "",
+              sutun2: "",
+              sutun3: ""
+            });
+          }
+          
+          var containerWidth = $("#kredi-karti-grid").parent().width() || $(window).width();
+          var gridWidth = Math.min(containerWidth, 1920);
+          
+          $("#kredi-karti-grid").kendoGrid({
+            dataSource: {
+              data: emptyRows,
+              schema: {
+                model: {
+                  fields: {
+                    son_odeme: { type: "date" },
+                    kalan_gun: { type: "number" },
+                    tutar: { type: "string" },
+                    banka: { type: "string" },
+                    kime_ait: { type: "string" },
+                    kart_numarasi: { type: "string" },
+                    son_kullanim_tarihi: { type: "string" },
+                    cv: { type: "string" },
+                    iban: { type: "string" },
+                    sifre: { type: "string" },
+                    sutun1: { type: "string" },
+                    sutun2: { type: "string" },
+                    sutun3: { type: "string" }
+                  }
+                }
+              }
+            },
+            width: gridWidth,
+            height: "100%",
+            scrollable: false,
+            sortable: true,
+            filterable: true,
+            resizable: false,
+            pageable: false,
+            columns: [
+              { field: "son_odeme", title: "SON ÖDEME", width: 125, format: "{0:dd.MM.yyyy}" },
+              { field: "kalan_gun", title: "KALAN GÜN", width: 95, attributes: { class: "center-cell", style: "text-align: center;" } },
+              { field: "tutar", title: "TUTAR", width: 115, attributes: { class: "number-cell", style: "text-align: right;" } },
+              { field: "banka", title: "BANKA", width: 135 },
+              { field: "kime_ait", title: "KİME AİT", width: 115 },
+              { field: "kart_numarasi", title: "KART NUMARASI", width: 175 },
+              { field: "son_kullanim_tarihi", title: "SON KULLANMA TARİHİ", width: 135 },
+              { field: "cv", title: "CV", width: 65, attributes: { class: "center-cell", style: "text-align: center;" } },
+              { field: "iban", title: "İBAN", width: 195 },
+              { field: "sifre", title: "ŞİFRE", width: 75, attributes: { class: "center-cell", style: "text-align: center;" } },
+              { field: "sutun1", title: "Sütun1", width: 115 },
+              { field: "sutun2", title: "Sütun2", width: 145 },
+              { field: "sutun3", title: "Sütun3", width: 115 }
+            ]
+          });
+        }
+      }, 200);
+      
+      // BANKA GRID
+      setTimeout(function() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
+          var emptyRows = [];
+          for (var i = 0; i < 20; i++) {
+            emptyRows.push({
+              banka_adi: "",
+              hesap_numarasi: "",
+              iban: "",
+              bakiye: "",
+              para_birimi: "",
+              hesap_turu: "",
+              sube: "",
+              acilis_tarihi: null,
+              durum: "",
+              sutun1: "",
+              sutun2: "",
+              sutun3: ""
+            });
+          }
+          
+          var containerWidth = $("#banka-grid").parent().width() || $(window).width();
+          var gridWidth = Math.min(containerWidth, 1920);
+          
+          $("#banka-grid").kendoGrid({
+            dataSource: {
+              data: emptyRows,
+              schema: {
+                model: {
+                  fields: {
+                    banka_adi: { type: "string" },
+                    hesap_numarasi: { type: "string" },
+                    iban: { type: "string" },
+                    bakiye: { type: "string" },
+                    para_birimi: { type: "string" },
+                    hesap_turu: { type: "string" },
+                    sube: { type: "string" },
+                    acilis_tarihi: { type: "date" },
+                    durum: { type: "string" },
+                    sutun1: { type: "string" },
+                    sutun2: { type: "string" },
+                    sutun3: { type: "string" }
+                  }
+                }
+              }
+            },
+            width: gridWidth,
+            height: "100%",
+            scrollable: false,
+            sortable: true,
+            filterable: true,
+            resizable: false,
+            pageable: false,
+            columns: [
+              { field: "banka_adi", title: "BANKA ADI", width: 150 },
+              { field: "hesap_numarasi", title: "HESAP NUMARASI", width: 150 },
+              { field: "iban", title: "İBAN", width: 250 },
+              { field: "bakiye", title: "BAKİYE", width: 130, attributes: { class: "number-cell", style: "text-align: right;" } },
+              { field: "para_birimi", title: "PARA BİRİMİ", width: 110, attributes: { class: "center-cell", style: "text-align: center;" } },
+              { field: "hesap_turu", title: "HESAP TÜRÜ", width: 120 },
+              { field: "sube", title: "ŞUBE", width: 120 },
+              { field: "acilis_tarihi", title: "AÇILIŞ TARİHİ", width: 130, format: "{0:dd.MM.yyyy}" },
+              { field: "durum", title: "DURUM", width: 100, attributes: { class: "center-cell", style: "text-align: center;" } },
+              { field: "sutun1", title: "Sütun1", width: 140 },
+              { field: "sutun2", title: "Sütun2", width: 140 },
+              { field: "sutun3", title: "Sütun3", width: 140 }
+            ]
+          });
+        }
+      }, 200);
     });
   </script>
 {% endblock %}
