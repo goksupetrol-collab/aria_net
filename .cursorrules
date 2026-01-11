@@ -58,11 +58,21 @@ Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için t
 - 📄 **WPF Bilgileri:** `TELERIK_WPF_BILGILERI.md` (referans için)
 
 ## PROJE YAPISI
-- **Base Template:** `base.html` - ALAN 1, ALAN 2, ALAN 3 sabit alanlar, ribbon butonları, tab sistemi
-- **Operasyon Sayfası:** `telerik_yeni_proje.html` - base.html'i extend ediyor, içerik burada
+
+### HTML Dosyaları (Django Templates):
+- **`base.html`** - Ana template (ALAN 1, ALAN 2, ALAN 3 sabit alanlar, ribbon butonları, tab sistemi)
+- **`telerik_yeni_proje.html`** - Ana sayfa (base.html'i extend ediyor, tüm sayfa içerikleri burada `<div>` olarak)
+- ❌ **`dashboard.html`** - Artık kullanılmıyor (eski proje)
+- ❌ **`banka.html`, `kredi_karti.html`, `fiyat_degisimi.html`, `tanker.html`** - Artık kullanılmıyor (içerikleri `telerik_yeni_proje.html` içine taşındı)
+
+### Python Dosyaları:
 - **Models:** `dashboard/models.py` - MenuItem, Firma, Urun, vb.
-- **Views:** `dashboard/views.py` - API endpoints
+- **Views:** `dashboard/views.py` - API endpoints ve view fonksiyonları
 - **URLs:** `dashboard/urls.py`, `aria_net/urls.py`
+
+### Not:
+- **HTML + Telerik:** Django template sistemi ile HTML kullanılıyor, içinde Telerik JavaScript bileşenleri çağrılıyor
+- **Tek sayfa mantığı:** Tüm sayfa içerikleri `telerik_yeni_proje.html` içinde `<div>` olarak tanımlı, `show()`/`hide()` ile gösterilip gizleniyor
 
 ## ÇALIŞMA ŞEKLİ
 1. Kullanıcı mantığı söyler
@@ -71,18 +81,125 @@ Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için t
 4. **MUTLAKA Git'e kaydederim** (`git add -A` ve `git commit -m "açıklama"`)
 5. Kullanıcıya Türkçe bilgi veririm
 
+## CEVAP VERME KURALLARI - MUTLAKA UYULMALI
+**KULLANICI KOD YAZMAYI BİLMİYOR - BASİT DİLLE ANLAT!**
+
+### Temel Kurallar:
+- ✅ **KISA VE NET ÖZET:** Uzun açıklamalar yapma, öz ve net ol
+- ✅ **YAZILIMCI DİLİ YOK:** Teknik terimler kullanma, bilmeyen birine anlatır gibi konuş
+- ✅ **ÖRNEKLERLE ANLAT:** Gerekirse günlük hayattan örnekler ver
+- ❌ **Kod örnekleri gösterme:** Kullanıcı kod bilmiyor, sadece ne yaptığını anlat
+
+### Örnek İyi Cevaplar:
+
+**✅ İYİ:**
+```
+"Tamam, MOTORİN tablosuna TOPLAM satırını ekledim. 
+Şimdi tablonun en altında yeni bir satır var, 
+orada tüm satışların toplamını göreceksiniz."
+```
+
+**❌ KÖTÜ:**
+```
+"HTML template'e yeni bir <tr> elementi ekledim, 
+JavaScript'te calculateTotal() fonksiyonunu güncelledim, 
+ve CSS'te .total-row sınıfını tanımladım."
+```
+
+### Ne Yapıldığını Anlatırken:
+- **"Şunu ekledim"** → "MOTORİN tablosuna yeni bir satır ekledim"
+- **"Şunu değiştirdim"** → "Banka sayfasındaki butonun rengini değiştirdim"
+- **"Şunu düzelttim"** → "Tab kapatılınca sayfa kaybolma sorununu düzelttim"
+
+### Özet Formatı:
+1. **Ne yaptım?** (Kısa ve net)
+2. **Nerede?** (Hangi sayfa/tablo)
+3. **Nasıl görünecek?** (Kullanıcı ne görecek)
+4. **Git'e kaydedildi mi?** (Evet/Hayır)
+
 ## ÖNEMLİ NOTLAR
-- Eski program (`dashboard.html`) silindi, sadece Telerik projesi kullanılıyor
-- Tüm geliştirmeler `telerik_yeni_proje.html` ve `base.html` üzerinde yapılıyor
-- Tab sistemi sessionStorage ile çalışıyor
-- Ribbon butonları veritabanından (MenuItem) yükleniyor
-- ALAN 1, ALAN 2, ALAN 3 sabit alanlar base.html'de tanımlı
+- ✅ **HTML kullanılıyor:** Django template sistemi ile HTML dosyaları kullanılıyor
+- ✅ **Telerik bileşenleri:** Tüm UI bileşenleri Telerik Kendo UI ile yapılıyor (HTML içinde Telerik JavaScript bileşenleri)
+- ✅ **Ana dosyalar:** `base.html` (template) ve `telerik_yeni_proje.html` (ana sayfa)
+- ❌ **Eski dosyalar:** `dashboard.html` artık kullanılmıyor (eski proje)
+- ❌ **Ayrı sayfa dosyaları:** `banka.html`, `kredi_karti.html`, `fiyat_degisimi.html`, `tanker.html` artık kullanılmıyor - içerikleri `telerik_yeni_proje.html` içine taşındı
+- ✅ **Tab sistemi:** Telerik TabStrip ile çalışıyor (sessionStorage değil)
+- ✅ **Ribbon butonları:** Veritabanından (MenuItem) yükleniyor
+- ✅ **ALAN 1, ALAN 2, ALAN 3:** Sabit alanlar base.html'de tanımlı
+
+## TAB SİSTEMİ MANTIĞI (ALAN 3)
+
+### Temel Mantık: "Salonda Aynı Oda"
+- **Lobi = Salon:** Ana sayfa (`#title-bar` gösterilir)
+- **Tüm sayfalar = Aynı evin odaları:** Tüm sayfa içerikleri `telerik_yeni_proje.html` içinde `<div>` olarak tanımlı
+- **Tab açılınca:** İlgili `<div>` gösterilir (`show()`), diğerleri gizlenir (`hide()`)
+- **Tab kapanınca:** Lobiye dönülür (`#title-bar` gösterilir)
+
+### Sayfa İçerikleri (telerik_yeni_proje.html içinde):
+- `#main-content-operasyon` - Operasyon sayfası
+- `#main-content-kredi-karti` - Kredi Kartı sayfası
+- `#main-content-banka` - Banka sayfası
+- `#main-content-tanker` - Tanker sayfası
+- `#main-content-fiyat-degisimi` - Fiyat Değişimi sayfası
+- `#title-bar` - Lobi (ana sayfa)
+
+### Tab Açılma Kuralları:
+1. **ALAN 2'deki ribbon butonuna tıklanınca:**
+   - ALAN 3'te (TabStrip) ilgili tab açılır veya aktif yapılır
+   - İlgili sayfa içeriği gösterilir (`showPageOnly()` fonksiyonu)
+   - Diğer tüm sayfa içerikleri gizlenir
+
+2. **Tab zaten açıksa:**
+   - Yeni tab açılmaz, mevcut tab aktif yapılır
+   - İlgili sayfa içeriği gösterilir
+
+3. **Tab kapatılınca (X butonuna tıklanınca):**
+   - Tab kaldırılır (`tabStrip.remove()`)
+   - Eğer aktif tab kapatıldıysa → Solundaki tab'a geçilir
+   - Eğer pasif tab kapatıldıysa → Aktif tab korunur (sayfa değişmez)
+   - Hiç tab kalmadıysa → Lobiye dönülür (`#title-bar` gösterilir)
+
+### Tab Yönetimi Fonksiyonları (base.html):
+- `openOperasyonTab()` - Operasyon tab'ını açar
+- `openKrediKartiTab()` - Kredi Kartı tab'ını açar
+- `openBankaTab()` - Banka tab'ını açar
+- `openTankerTab()` - Tanker tab'ını açar
+- `openFiyatDegisimiTab()` - Fiyat Değişimi tab'ını açar
+- `closeOperasyonTab()` - Operasyon tab'ını kapatır
+- `closeKrediKartiTab()` - Kredi Kartı tab'ını kapatır
+- `closeBankaTab()` - Banka tab'ını kapatır
+- `closeTankerTab()` - Tanker tab'ını kapatır
+- `closeFiyatDegisimiTab()` - Fiyat Değişimi tab'ını kapatır
+- `showPageOnly(pageId)` - Sadece belirtilen sayfayı gösterir, diğerlerini gizler
+- `getActiveTabId()` - Aktif tab'ın ID'sini döndürür
+- `getTabIndexById(tabId)` - Tab ID'sine göre index bulur
+
+### Önemli:
+- **Tüm sayfalar aynı HTML dosyasında:** `telerik_yeni_proje.html`
+- **Sayfa geçişleri JavaScript ile:** `show()` / `hide()` kullanılır, sayfa yenilenmez
+- **Tab yönetimi:** Telerik Kendo TabStrip kullanılır (`#tabs` elementi)
+- **Event delegation:** X butonları için `$(document).on("click", ...)` kullanılır (dinamik elementler için)
 
 ## YENİ SOHBET BAŞLARKEN
 Bu dosyayı okuyun ve şu bilgileri hatırlayın:
-1. Git kullanılıyor, **HER İŞLEMDEN SONRA commit yapılacak - ASLA UNUTMA!**
-2. Telerik lisanslı, **TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!**
-3. Kullanıcı kod yazmayı bilmiyor, sadece mantık söylüyor
-4. Ana dosyalar: `base.html` ve `telerik_yeni_proje.html`
-5. Proje: D:\tayfun klasöründe
-6. Django 5.2.9, Telerik Kendo UI for jQuery kullanılıyor
+
+### Temel Kurallar:
+1. **Git:** HER İŞLEMDEN SONRA commit yapılacak - ASLA UNUTMA!
+2. **Telerik:** Lisanslı, TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!
+3. **Kullanıcı:** Kod yazmayı bilmiyor, sadece mantık söylüyor
+4. **HTML:** Django template sistemi kullanılıyor (HTML + Telerik JavaScript bileşenleri)
+
+### Ana Dosyalar:
+- **`base.html`** - Template (ALAN 1, 2, 3, ribbon, tab sistemi)
+- **`telerik_yeni_proje.html`** - Ana sayfa (tüm sayfa içerikleri burada)
+
+### Proje Bilgileri:
+- **Klasör:** D:\tayfun
+- **Framework:** Django 5.2.9
+- **UI:** Telerik Kendo UI for jQuery
+- **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
+
+### Önemli:
+- ❌ **Eski dosyalar:** `dashboard.html` ve ayrı sayfa dosyaları (`banka.html`, vb.) artık kullanılmıyor
+- ✅ **Tek sayfa:** Tüm sayfalar `telerik_yeni_proje.html` içinde `<div>` olarak, `show()`/`hide()` ile yönetiliyor
+- ✅ **Tab sistemi:** Telerik TabStrip ile çalışıyor, "salonda aynı oda" mantığı
