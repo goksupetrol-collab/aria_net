@@ -26,47 +26,64 @@
       font-family: 'Segoe UI', Arial, sans-serif;
     }
     
-    /* TabStrip Stilleri - GitHub Copilot önerisi */
+    /* Tab Container - Basit HTML Tab Sistemi */
     #tabs-container {
       width: 100%;
       margin: 0;
       padding: 0;
-      height: auto; /* TabStrip'in kendi yüksekliğini hesaplamasına izin ver */
-    }
-    #tabs {
-      width: 100%;
-      height: auto; /* TabStrip'in kendi yüksekliğini hesaplamasına izin ver */
-    }
-    /* TabStrip'in kendi CSS'ine müdahale etme - sadece border kaldır */
-    #tabs .k-tabstrip {
-      border: none !important;
-    }
-    /* TabStrip içerik alanını gizle - sadece tab başlıklarını göster */
-    #tabs .k-tabstrip-content {
-      display: none !important;
-    }
-    /* Tab başlıklarının görünür olması için */
-    #tabs .k-tabstrip-items {
       display: flex !important;
       visibility: visible !important;
+      overflow-x: auto;
     }
-    #tabs .k-tabstrip-item {
-      display: inline-block !important;
-      visibility: visible !important;
+    #tabs-list {
+      display: flex !important;
+      align-items: center;
+      gap: 2px;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      list-style: none;
     }
-    .close-tab-btn {
-      border: none;
-      background: transparent;
-      color: red;
+    /* Tab item stilleri */
+    .tab-item {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 15px;
       cursor: pointer;
-      margin-left: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 0 5px;
+      border-radius: 4px 4px 0 0;
+      margin-right: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .close-tab-btn:hover {
+    .tab-item.active {
+      background: linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150)) !important;
+      border: 1px solid #CC9966 !important;
+      border-bottom: none !important;
+    }
+    .tab-item:not(.active) {
+      background: #FFFFFF !important;
+      border: 1px solid #CCCCCC !important;
+      border-bottom: 1px solid #E0E0E0 !important;
+      height: 30px;
+    }
+    .tab-close {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #666666;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .tab-close:hover {
       background: rgba(255,0,0,0.2);
-      border-radius: 3px;
     }
   </style>
   
@@ -108,14 +125,12 @@
   </div>
   
   <!-- 3. SABİT ALAN: ALAN 3 (Tab'ların Üstü) - Açık Şeftali/Bej Tonu -->
-  <div id="fixed-area-3-container" style="position:fixed;top:114px;left:0;right:0;z-index:9997;background:linear-gradient(to bottom, #FFF8E1, #FFECB3);height:23px;border-bottom:1px solid #E0D0B0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
+  <div id="fixed-area-3-container" style="position:fixed;top:114px;left:0;right:0;z-index:9998;background:linear-gradient(to bottom, #FFF8E1, #FFECB3);height:23px;border-bottom:1px solid #E0D0B0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
     <span style="color:#FF0000;font-size:11pt;font-weight:500;">ALAN 3</span>
   </div>
-  <!-- Tab Container - Telerik TabStrip kullanılacak -->
-  <div id="tabs-container" style="position:fixed;top:137px;left:0;right:0;z-index:9998;height:auto;background:#FFFFFF;border-bottom:1px solid #E0E0E0;padding:0;">
-    <div id="tabs">
-      <ul></ul>
-    </div>
+  <!-- Tab Container - Basit HTML Tab Sistemi -->
+  <div id="tabs-container" style="position:fixed;top:137px;left:0;right:0;z-index:9997;height:32px;background:#FFFFFF;border-bottom:1px solid #E0E0E0;padding:0;display:flex;align-items:center;overflow-x:auto;">
+    <div id="tabs-list" style="display:flex;align-items:center;gap:2px;padding:0;margin:0;height:100%;"></div>
   </div>
   
   <!-- TANIMLAR ALT MENÜ -->
@@ -147,16 +162,17 @@
     // Menü öğelerini veritabanından yükle
     var menuItems = {{ menu_items|safe }};
     
-    // Tab yönetimi - Telerik TabStrip ile Basit Sistem
-    var tabStrip = null;
+    // Tab yönetimi - Basit HTML Tab Sistemi
+    var openTabs = {};
+    var activeTabId = null;
     
     // Ribbon butonlarını başlat
     $(document).ready(function() {
       // Ribbon butonlarını oluştur
       loadRibbonButtons();
       
-      // Telerik TabStrip'i başlat
-      initTabStrip();
+      // Tab'ları yükle
+      loadTabsFromStorage();
     });
     
     // Ribbon butonlarını oluştur (tüm sayfalarda kullanılabilir)
@@ -176,175 +192,210 @@
       $("#ribbon-buttons").html(html);
     }
     
-    // Telerik TabStrip'i başlat
-    function initTabStrip() {
-      // Telerik yüklenmiş mi kontrol et
-      if (typeof kendo === 'undefined' || typeof $.fn.kendoTabStrip === 'undefined') {
-        console.log("Telerik TabStrip yükleniyor, bekleniyor...");
-        setTimeout(initTabStrip, 100);
-        return;
+    // Tab'ları sessionStorage'a kaydetme fonksiyonu
+    function saveTabsToStorage() {
+      var tabsArray = [];
+      for (var tabId in openTabs) {
+        tabsArray.push({
+          tabId: tabId,
+          title: openTabs[tabId].title,
+          pageId: openTabs[tabId].pageId,
+          icon: openTabs[tabId].icon
+        });
       }
-      
-      // #tabs elementi var mı kontrol et
-      if ($("#tabs").length === 0) {
-        console.error("#tabs elementi bulunamadı!");
-        return;
-      }
+      sessionStorage.setItem('openTabs', JSON.stringify({
+        tabs: tabsArray,
+        activeTabId: activeTabId
+      }));
+    }
+    
+    // Tab'ları sessionStorage'dan yükleme fonksiyonu
+    function loadTabsFromStorage() {
+      var stored = sessionStorage.getItem('openTabs');
+      if (!stored) return;
       
       try {
-        tabStrip = $("#tabs").kendoTabStrip({
-          animation: false,
-          tabPosition: "top",
-          select: function(e) {
-            // Tab değiştiğinde sayfa yönlendirmesi
-            var tabId = $(e.item).attr("data-id");
-            if (tabId) {
-              var pageId = tabId.replace('tab-', '');
-              handleTabNavigation(pageId);
-            }
-            saveTabs();
-          }
-        }).data("kendoTabStrip");
-        
-        if (!tabStrip) {
-          console.error("TabStrip başlatılamadı!");
-          return;
-        }
-        
-        console.log("TabStrip başarıyla başlatıldı");
-        
-        // TabStrip wrapper'ını kontrol et - GitHub Copilot önerisi
-        if (tabStrip.wrapper) {
-          tabStrip.wrapper.css({
-            'border': 'none'
+        var data = JSON.parse(stored);
+        if (data.tabs && data.tabs.length > 0) {
+          data.tabs.forEach(function(tabData) {
+            openTabs[tabData.tabId] = {
+              title: tabData.title,
+              pageId: tabData.pageId,
+              icon: tabData.icon,
+              tabElement: null
+            };
           });
+          
+          for (var tabId in openTabs) {
+            if (!openTabs[tabId].tabElement) {
+              createTabElement(tabId);
+            }
+          }
+          
+          if (data.activeTabId && openTabs[data.activeTabId]) {
+            setActiveTab(data.activeTabId);
+          }
         }
-        
-        // Kaydedilmiş tab'ları yükle
-        loadTabsFromStorage();
-      } catch (error) {
-        console.error("TabStrip başlatma hatası:", error);
-        console.error("Hata detayı:", error.message, error.stack);
+      } catch (e) {
+        console.error('Tab yükleme hatası:', e);
       }
     }
     
-    // Tab'ları sessionStorage'dan yükle
-    function loadTabsFromStorage() {
-      var savedTabs = JSON.parse(sessionStorage.getItem("tabs")) || [];
-      savedTabs.forEach(function(tab) {
-        if (!tabExists(tab.id)) {
-          openTab(tab.id, tab.title, tab.content, false);
+    // Tab DOM elementi oluşturma fonksiyonu
+    function createTabElement(tabId) {
+      var tab = openTabs[tabId];
+      if (!tab) return;
+      
+      var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
+        '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + tab.icon + '</div>' +
+        '<span>' + tab.title + '</span>' +
+        '<div class="tab-close">×</div>' +
+        '</div>');
+      
+      tabElement.on('click', function(e) {
+        if (!$(e.target).hasClass('tab-close')) {
+          setActiveTab(tabId);
+          var pageId = tab.pageId;
+          handleTabNavigation(pageId);
         }
       });
+      
+      tabElement.find('.tab-close').on('click', function(e) {
+        e.stopPropagation();
+        closeTab(tabId);
+      });
+      
+      tabElement.find('.tab-close').hover(
+        function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
+        function() { $(this).css('background', 'transparent'); }
+      );
+      
+      $('#tabs-list').append(tabElement);
+      openTabs[tabId].tabElement = tabElement;
     }
     
     // Tab açma fonksiyonu
-    function openTab(id, title, content, select) {
-      if (!tabStrip) {
-        console.error("openTab: TabStrip başlatılmamış, başlatılıyor...");
-        initTabStrip();
-        // Kısa bekleme sonrası tekrar dene
-        setTimeout(function() {
-          if (tabStrip) {
-            openTab(id, title, content, select);
-          } else {
-            console.error("openTab: TabStrip başlatılamadı!");
-          }
-        }, 200);
+    function openTab(title, pageId, icon) {
+      var tabId = 'tab-' + pageId;
+      
+      if (openTabs[tabId]) {
+        setActiveTab(tabId);
+        saveTabsToStorage();
         return;
       }
       
-      try {
-        // Tab zaten varsa aktif yap
-        if (tabExists(id)) {
-          var tabIndex = tabStrip.items().index('[data-id="' + id + '"]');
-          if (tabIndex >= 0) {
-            tabStrip.select(tabIndex);
-          }
-          return;
+      var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
+        '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + icon + '</div>' +
+        '<span>' + title + '</span>' +
+        '<div class="tab-close">×</div>' +
+        '</div>');
+      
+      tabElement.on('click', function(e) {
+        if (!$(e.target).hasClass('tab-close')) {
+          setActiveTab(tabId);
+          handleTabNavigation(pageId);
         }
-        
-        var newTab = {
-          text: title + ' <button class="close-tab-btn" data-id="' + id + '">×</button>',
-          content: '<div id="tab-content-' + id + '">' + content + '</div>',
-          encoded: false
-        };
-        
-        tabStrip.append(newTab);
-        var lastIndex = tabStrip.items().length - 1;
-        var newTabItem = tabStrip.items().eq(lastIndex);
-        newTabItem.attr("data-id", id);
-        
-        if (select) {
-          tabStrip.select(lastIndex);
+      });
+      
+      tabElement.find('.tab-close').on('click', function(e) {
+        e.stopPropagation();
+        closeTab(tabId);
+      });
+      
+      tabElement.find('.tab-close').hover(
+        function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
+        function() { $(this).css('background', 'transparent'); }
+      );
+      
+      $('#tabs-list').append(tabElement);
+      
+      openTabs[tabId] = {
+        title: title,
+        pageId: pageId,
+        icon: icon,
+        tabElement: tabElement
+      };
+      
+      setActiveTab(tabId);
+      saveTabsToStorage();
+    }
+    
+    // Aktif tab değiştirme
+    function setActiveTab(tabId) {
+      $('.tab-item').each(function() {
+        var id = $(this).data('tab-id');
+        if (id !== tabId) {
+          $(this).removeClass('active');
+          $(this).css({
+            'background': '#FFFFFF',
+            'border': '1px solid #CCCCCC',
+            'border-bottom': '1px solid #E0E0E0',
+            'height': '30px'
+          });
+          $(this).find('div:first').css({
+            'width': '14px',
+            'height': '14px',
+            'background': '#FFFFFF',
+            'border': '1px solid #4A90E2',
+            'border-radius': '2px',
+            'font-size': '12px'
+          });
         }
+      });
+      
+      if (openTabs[tabId]) {
+        openTabs[tabId].tabElement.addClass('active');
+        openTabs[tabId].tabElement.css({
+          'background': 'linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150))',
+          'border': '1px solid #CC9966',
+          'border-bottom': 'none',
+          'height': '32px'
+        });
+        openTabs[tabId].tabElement.find('div:first').css({
+          'width': '16px',
+          'height': '16px',
+          'background': '#4A90E2',
+          'border-radius': '50%',
+          'border': 'none',
+          'font-size': '14px'
+        });
         
-        bindCloseEvents();
-        saveTabs();
-        
-        console.log("Tab eklendi:", id, "Toplam tab sayısı:", tabStrip.items().length);
-      } catch (error) {
-        console.error("openTab hatası:", error);
+        activeTabId = tabId;
+        setActiveRibbonButton(openTabs[tabId].pageId);
+        saveTabsToStorage();
       }
+    }
+    
+    // Tab kapatma
+    function closeTab(tabId) {
+      if (!openTabs[tabId]) return;
+      
+      var wasActive = (activeTabId === tabId);
+      var pageId = openTabs[tabId].pageId;
+      
+      if (openTabs[tabId].tabElement) {
+        openTabs[tabId].tabElement.remove();
+      }
+      delete openTabs[tabId];
+      
+      var remainingTabs = Object.keys(openTabs);
+      if (remainingTabs.length === 0) {
+        activeTabId = null;
+        handleAllTabsClosed();
+      } else {
+        if (wasActive) {
+          var firstRemainingTabId = remainingTabs[0];
+          setActiveTab(firstRemainingTabId);
+          handleTabNavigation(openTabs[firstRemainingTabId].pageId);
+        }
+      }
+      
+      saveTabsToStorage();
     }
     
     // Tab var mı kontrol et
     function tabExists(tabId) {
-      if (!tabStrip) {
-        console.warn("tabExists: TabStrip başlatılmamış");
-        return false;
-      }
-      try {
-        return tabStrip.items().filter('[data-id="' + tabId + '"]').length > 0;
-      } catch (error) {
-        console.error("tabExists hatası:", error);
-        return false;
-      }
-    }
-    
-    // Kapat butonlarını bağla
-    function bindCloseEvents() {
-      $(".close-tab-btn").off("click").on("click", function(e) {
-        e.stopPropagation();
-        var tabId = $(this).data("id");
-        var tabIndex = tabStrip.items().index('[data-id="' + tabId + '"]');
-        
-        if (tabIndex >= 0) {
-          var wasActive = (tabStrip.select().index() === tabIndex);
-          tabStrip.remove(tabIndex);
-          saveTabs();
-          
-          // Eğer aktif tab kapatıldıysa veya tab kalmadıysa
-          var remainingTabs = tabStrip.items().length;
-          if (wasActive || remainingTabs === 0) {
-            if (remainingTabs > 0) {
-              // Son tab'ı aktif yap
-              tabStrip.select(remainingTabs - 1);
-            } else {
-              // Tüm tab'lar kapandı, lobiye dön
-              handleAllTabsClosed();
-            }
-          }
-        }
-      });
-    }
-    
-    // Tab'ları kaydet
-    function saveTabs() {
-      if (!tabStrip) return;
-      
-      var tabsData = [];
-      $.each(tabStrip.items(), function(index) {
-        var tabItem = $(this);
-        var id = tabItem.attr("data-id");
-        if (id) {
-          var title = tabItem.text().replace(/ ×$/, '').trim();
-          var content = $('#tab-content-' + id).html() || '';
-          tabsData.push({ id: id, title: title, content: content });
-        }
-      });
-      
-      sessionStorage.setItem("tabs", JSON.stringify(tabsData));
+      return openTabs.hasOwnProperty(tabId);
     }
     
     // Tab navigasyonu (sayfa yönlendirmesi)
@@ -417,61 +468,18 @@
         return;
       }
       
-      // TabStrip başlatılmamışsa başlat
-      if (!tabStrip) {
-        console.log("TabStrip başlatılıyor...");
-        initTabStrip();
-        // Kısa bir bekleme süresi
-        setTimeout(function() {
-          handleRibbonButtonClick(pageName, menuItem);
-        }, 100);
-        return;
-      }
+      var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
+      var tabIcon = menuItem.icon || '📄';
       
-      handleRibbonButtonClick(pageName, menuItem);
+      // Tab aç
+      openTab(tabTitle, pageName, tabIcon);
+      
+      // Aktif ribbon butonunu ayarla
+      setActiveRibbonButton(pageName);
+      
+      // Sayfa yönlendirmesi
+      handleTabNavigation(pageName);
     });
-    
-    // Ribbon buton tıklama işlemini yönet
-    function handleRibbonButtonClick(pageName, menuItem) {
-      if (!tabStrip) {
-        console.error("TabStrip hala başlatılmamış!");
-        return;
-      }
-      
-      var tabBaslik = menuItem.tab_baslik || menuItem.baslik;
-      var tabId = pageName;
-      
-      try {
-        // Tab zaten varsa aktif yap
-        if (tabExists(tabId)) {
-          var tabIndex = tabStrip.items().index('[data-id="' + tabId + '"]');
-          if (tabIndex >= 0) {
-            tabStrip.select(tabIndex);
-          }
-        } else {
-          // Yeni tab aç
-          var content = '<div>Sayfa içeriği yükleniyor...</div>';
-          openTab(tabId, tabBaslik, content, true);
-        }
-        
-        setActiveRibbonButton(pageName);
-        
-        // Sayfa yönlendirmesi
-        if (menuItem.page_url && menuItem.page_url !== window.location.pathname && menuItem.page_url !== '/') {
-          window.location.href = menuItem.page_url;
-        } else if (pageName === 'operasyon_sayfasi' || pageName === 'operasyon') {
-          if (window.location.pathname !== '/') {
-            window.location.href = "/";
-          }
-        }
-      } catch (error) {
-        console.error("Ribbon buton tıklama hatası:", error);
-        // Hata durumunda direkt sayfa yönlendirmesi yap
-        if (menuItem.page_url && menuItem.page_url !== window.location.pathname) {
-          window.location.href = menuItem.page_url;
-        }
-      }
-    }
     
     // Ribbon butonlarına hover efekti
     $(document).on("mouseenter", ".ribbon-button", function() {
