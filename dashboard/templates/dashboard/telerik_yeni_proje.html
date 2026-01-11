@@ -493,12 +493,6 @@
     <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
   </div>
 
-  <!-- TANKER SAYFASI -->
-  <div class="container" id="main-content-tanker" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">TANKER</h1>
-    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
-  </div>
-
   <!-- KREDİ KARTI SAYFASI -->
   <div class="container" id="main-content-kredi-karti" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">KREDİ KARTI TAKİP</h1>
@@ -3215,12 +3209,54 @@
       }
     }
     
-    // Tanker sayfası açıldığında bileşenleri başlat
+    // showPageOnly fonksiyonunu override et - Tanker sayfası gösterildiğinde bileşenleri başlat
+    var originalShowPageOnly = window.showPageOnly;
+    if (typeof originalShowPageOnly === 'function') {
+      window.showPageOnly = function(pageId) {
+        // Orijinal fonksiyonu çağır
+        originalShowPageOnly(pageId);
+        
+        // Tanker sayfası gösterildiyse bileşenleri başlat
+        if (pageId === 'tanker') {
+          setTimeout(function() {
+            if ($("#main-content-tanker").is(":visible")) {
+              console.log("🚀 Tanker sayfası gösterildi, bileşenler başlatılıyor...");
+              initTankerBilesenleri();
+            }
+          }, 300);
+        }
+      };
+    }
+    
+    // TabStrip select event'inde de kontrol et
+    if (typeof tabStrip !== 'undefined' && tabStrip) {
+      tabStrip.bind("select", function(e) {
+        var tabItem = $(e.item);
+        var tabId = tabItem.attr("data-tab-id");
+        var tabText = tabItem.text() || tabItem.html() || "";
+        
+        if (!tabId && tabText.indexOf("Tanker") >= 0) {
+          tabId = "tanker";
+        }
+        
+        if (tabId === "tanker") {
+          setTimeout(function() {
+            if ($("#main-content-tanker").is(":visible")) {
+              console.log("🚀 Tanker tab'ı seçildi, bileşenler başlatılıyor...");
+              initTankerBilesenleri();
+            }
+          }, 300);
+        }
+      });
+    }
+    
+    // Ribbon buton tıklamasında da kontrol et
     $(document).on("click", ".ribbon-button", function() {
       var buttonText = $(this).text().trim();
       if (buttonText === "Tanker" || buttonText.includes("Tanker")) {
         setTimeout(function() {
           if ($("#main-content-tanker").is(":visible")) {
+            console.log("🚀 Tanker butonuna tıklandı, bileşenler başlatılıyor...");
             initTankerBilesenleri();
           }
         }, 500);
@@ -3231,6 +3267,7 @@
     $(document).ready(function() {
       setTimeout(function() {
         if ($("#main-content-tanker").is(":visible")) {
+          console.log("🚀 Sayfa yüklendi, Tanker sayfası açık, bileşenler başlatılıyor...");
           initTankerBilesenleri();
         }
       }, 1000);
