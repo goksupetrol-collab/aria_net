@@ -336,29 +336,7 @@
     .arac-bilgi-table tbody tr.aktif:hover{
       background:#7dd87d !important;
     }
-    .arac-bilgi-sira-btn{
-      width:100%;
-      padding:8px 4px;
-      background:#1e3a8a;
-      color:#fff;
-      border:none;
-      border-radius:4px;
-      font-size:12px;
-      font-weight:700;
-      cursor:pointer;
-      text-align:center;
-      transition:all 0.2s;
-    }
-    .arac-bilgi-sira-btn:hover{
-      background:#1e5a9a;
-      transform:scale(1.05);
-    }
-    .arac-bilgi-sira-btn.aktif{
-      background:#1fa34a;
-    }
-    .arac-bilgi-sira-btn.aktif:hover{
-      background:#1d8f3f;
-    }
+    /* Araç sıra butonları kaldırıldı */
     .arac-bilgi-modal-header{
       display:flex;
       justify-content:space-between;
@@ -418,19 +396,7 @@
       padding-top:15px;
       border-top:1px solid #eee;
     }
-    .arac-bilgi-btn-save{
-      padding:12px 30px;
-      background:#1fa34a;
-      color:#fff;
-      border:none;
-      border-radius:4px;
-      font-size:14px;
-      font-weight:700;
-      cursor:pointer;
-    }
-    .arac-bilgi-btn-save:hover{
-      background:#1d8f3f;
-    }
+    /* Araç kaydet butonu kaldırıldı */
     .arac-bilgi-btn-cancel{
       padding:10px 20px;
       background:#ccc;
@@ -632,37 +598,7 @@
       min-width:80px;
       max-width:80px;
     }
-    .tahsilat-table .onay-toggle-btn, .odeme-table .onay-toggle-btn{
-      width:100%;
-      height:100%;
-      min-height:24px;
-      background:#9ca3af;
-      color:#fff;
-      border:none;
-      border-radius:3px;
-      cursor:pointer;
-      font-size:11px;
-      font-weight:700;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:4px;
-    }
-    .tahsilat-table .onay-toggle-btn:hover, .odeme-table .onay-toggle-btn:hover{
-      background:#6b7280;
-    }
-    .tahsilat-table .onay-toggle-btn.aktif{
-      background:#1fa34a;
-    }
-    .tahsilat-table .onay-toggle-btn.aktif:hover{
-      background:#1fa34a;
-    }
-    .odeme-table .onay-toggle-btn.aktif{
-      background:#dc3545;
-    }
-    .odeme-table .onay-toggle-btn.aktif:hover{
-      background:#dc3545;
-    }
+    /* Onay butonları kaldırıldı */
 
     /* HYPCO ve AYGAZ tabloları */
     .hypco-table-container, .aygaz-table-container{
@@ -1022,30 +958,7 @@
       padding:0 !important;
       text-align:center;
     }
-    .yakit-table .onay-yakit-btn{
-      width:100%;
-      min-height:24px;
-      background:#9ca3af;
-      color:#fff;
-      border:none;
-      border-radius:3px;
-      cursor:pointer;
-      font-size:11px;
-      font-weight:700;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:4px;
-    }
-    .yakit-table .onay-yakit-btn:hover{
-      background:#6b7280;
-    }
-    .yakit-table .onay-yakit-btn.aktif{
-      background:#1fa34a;
-    }
-    .yakit-table .onay-yakit-btn.aktif:hover{
-      background:#1d8f3f;
-    }
+    /* Yakıt onay butonları kaldırıldı */
     /* YAKIT ALIMLARI - ONAYLI satır stilleri */
     .yakit-table tbody tr.aktif{
       background:#1fa34a !important;
@@ -1371,7 +1284,6 @@
       <!-- MTR SOL -->
       <div class="panel mtr1">
         <div style="display:flex; gap:5px; margin-bottom:5px;">
-          <button class="stok-giris-btn" id="stok-giris-motorin">Stok Giriş</button>
           <a href="/" style="padding:6px 12px; background:#1e3a8a; color:#fff; text-decoration:none; border-radius:4px; font-size:11px; font-weight:700;">← Ana Sayfaya Dön</a>
         </div>
         <div class="title">MOTORİN - Telerik Grid (Sıralama, Filtreleme, Sayfalama Aktif)</div>
@@ -1446,9 +1358,7 @@
 
           <div class="panel" id="p-tahsilat">
             <div style="display:flex;justify-content:space-between;align-items:center;position:relative;">
-              <button class="tahsilat-temizle-btn" id="tahsilat-temizle-btn" style="position:absolute;left:5px;padding:4px 8px;background:#dc3545;color:#fff;border:none;border-radius:3px;font-size:10px;font-weight:700;cursor:pointer;z-index:5;">Temizle</button>
               <div class="title" style="flex:1;">TAHSİLAT</div>
-              <button class="tahsilat-aciklama-btn" id="tahsilat-aciklama-btn" style="position:absolute;right:5px;padding:4px 8px;background:#1e3a8a;color:#fff;border:none;border-radius:3px;font-size:10px;font-weight:700;cursor:pointer;z-index:5;">Açıklama</button>
             </div>
             <div class="sheet lines-white">
               <div class="tahsilat-table-container">
@@ -1470,9 +1380,7 @@
 
           <div class="panel" id="p-odeme">
             <div style="display:flex;justify-content:space-between;align-items:center;position:relative;">
-              <button class="odeme-temizle-btn" id="odeme-temizle-btn" style="position:absolute;left:5px;padding:4px 8px;background:#dc3545;color:#fff;border:none;border-radius:3px;font-size:10px;font-weight:700;cursor:pointer;z-index:5;">Temizle</button>
               <div class="title" style="flex:1;">ÖDEME</div>
-              <button class="odeme-aciklama-btn" id="odeme-aciklama-btn" style="position:absolute;right:5px;padding:4px 8px;background:#1e3a8a;color:#fff;border:none;border-radius:3px;font-size:10px;font-weight:700;cursor:pointer;z-index:5;">Açıklama</button>
             </div>
             <div class="sheet lines-white">
               <div class="odeme-table-container">
@@ -1544,11 +1452,8 @@
 
       <!-- ENTRY -->
       <div class="panel entry">
-        <button class="alis-fiyati-btn" id="alis-fiyati-btn">Alış Fiyatları</button>
         <div class="entry-title-container">
           <div class="title">YAKIT ALIMLARI</div>
-          <button class="otomatik-yakit-al-btn" id="otomatik-yakit-al-btn">Otomatik Yakıt Al</button>
-          <button class="yakit-temizle-btn" id="yakit-temizle-btn">TEMİZLE</button>
         </div>
         <div class="sheet">
           <div class="yakit-table-container">
@@ -1610,7 +1515,6 @@
         <div class="panel">
           <div class="title-container">
             <div class="title">NAKLİYE</div>
-            <button class="arac-bilgi-btn" id="arac-bilgi-btn">Araç Kart Bilgi</button>
           </div>
           <div class="carsGrid">
           <div class="panel carCard"><div class="title">1 ARAÇ</div><div class="sheet" style="overflow:auto;background:#fff;">
@@ -2065,7 +1969,6 @@
     <div class="arac-bilgi-modal-content">
       <div class="arac-bilgi-modal-header">
         <h2>Araç Kart Bilgi</h2>
-        <button class="arac-bilgi-modal-close" id="arac-bilgi-modal-close">&times;</button>
       </div>
       <form id="arac-bilgi-form">
         <div class="arac-bilgi-table-container">
@@ -2094,8 +1997,6 @@
           </table>
         </div>
         <div class="arac-bilgi-modal-actions">
-          <button type="button" class="arac-bilgi-btn-cancel" id="arac-bilgi-cancel">İptal</button>
-          <button type="submit" class="arac-bilgi-btn-save">KAYDET</button>
         </div>
       </form>
     </div>
@@ -2106,7 +2007,6 @@
     <div class="tahsilat-aciklama-modal-content">
       <div class="tahsilat-aciklama-modal-header">
         <h2>Açıklama Seçenekleri</h2>
-        <button class="tahsilat-aciklama-modal-close" id="tahsilat-aciklama-modal-close">&times;</button>
       </div>
       <div class="tahsilat-aciklama-modal-body">
         <div style="margin-bottom:15px;font-size:12px;color:#666;">Aşağıdaki 15 satıra yazdığınız değerler, Tahsilat tablosundaki AÇIKLAMA hücrelerinde seçim olarak görünecektir.</div>
@@ -2115,8 +2015,6 @@
         </div>
       </div>
       <div class="tahsilat-aciklama-modal-actions">
-        <button type="button" class="tahsilat-aciklama-btn-cancel" id="tahsilat-aciklama-cancel">İptal</button>
-        <button type="button" class="tahsilat-aciklama-btn-save" id="tahsilat-aciklama-save">Kaydet</button>
       </div>
     </div>
   </div>
@@ -2125,7 +2023,6 @@
     <div class="odeme-aciklama-modal-content">
       <div class="odeme-aciklama-modal-header">
         <h2>Açıklama Seçenekleri</h2>
-        <button class="odeme-aciklama-modal-close" id="odeme-aciklama-modal-close">&times;</button>
       </div>
       <div class="odeme-aciklama-modal-body">
         <div style="margin-bottom:15px;font-size:12px;color:#666;">Aşağıdaki 15 satıra yazdığınız değerler, Ödeme tablosundaki AÇIKLAMA hücrelerinde seçim olarak görünecektir.</div>
@@ -2134,200 +2031,12 @@
         </div>
       </div>
       <div class="odeme-aciklama-modal-actions">
-        <button type="button" class="odeme-aciklama-btn-cancel" id="odeme-aciklama-cancel">İptal</button>
-        <button type="button" class="odeme-aciklama-btn-save" id="odeme-aciklama-save">Kaydet</button>
       </div>
     </div>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Stok Giriş Butonu - MOTORİN
-      const stokGirisBtn = document.getElementById("stok-giris-motorin");
-      if (stokGirisBtn) {
-        stokGirisBtn.addEventListener("click", () => {
-          const input = document.createElement("input");
-          input.type = "file";
-          input.accept = ".xlsx,.xls";
-          input.style.display = "none";
-          
-          input.click();
-          
-          input.addEventListener("change", async (e) => {
-            const file = e.target.files[0];
-            if (file) {
-              // Dosyayı backend'e yükle
-              const formData = new FormData();
-              formData.append('file', file);
-              
-              try {
-                const response = await fetch('/api/upload-excel/', {
-                  method: 'POST',
-                  body: formData
-                });
-                
-                const data = await response.json();
-                
-                if (data.success && data.data) {
-                  // Hesaplanan verileri ilk tarih satırına yaz (hem MOTORİN hem BENZİN)
-                  await writeStockToTable(data.data, 'motorin');
-                  await writeStockToTable(data.data, 'benzin');
-                  
-                  const motorinCount = Object.keys(data.data.motorin || {}).length;
-                  const benzinCount = Object.keys(data.data.benzin || {}).length;
-                  
-                  alert("✅ Dosya başarıyla yüklendi ve veriler tablolara yazıldı!\n\n" +
-                        "Dosya: " + data.filename + "\n" +
-                        "MOTORİN: " + motorinCount + " firma\n" +
-                        "BENZİN: " + benzinCount + " firma");
-                  console.log("Stok verileri:", data.data);
-                  if (data.debug) {
-                    console.log("Debug bilgileri:", data.debug);
-                  }
-                } else {
-                  const errorMsg = data.error || "Dosya işlenemedi";
-                  alert("❌ Excel Yükleme Hatası\n\n" + errorMsg + "\n\n" +
-                        "Lütfen kontrol edin:\n" +
-                        "• Dosya formatı .xlsx veya .xls olmalı\n" +
-                        "• Dosyada 'İstasyon Kodu', 'Ürün' ve 'Yakıt (Net Lt)' sütunları olmalı\n" +
-                        "• Başlık satırı 4. satırda olmalı\n" +
-                        "• Veriler 5. satırdan itibaren başlamalı\n\n" +
-                        "Detaylar için konsolu açın (F12)");
-                  console.error("Excel yükleme hatası:", data);
-                }
-              } catch (error) {
-                console.error("Yükleme hatası:", error);
-                alert("❌ Dosya yüklenirken hata oluştu: " + error.message);
-              }
-            }
-          });
-          
-          // Stok verilerini tabloya yaz
-          async function writeStockToTable(stockData, tableType) {
-            const table = document.querySelector(`.mtr${tableType === 'motorin' ? '1' : '2'} .mtr-table`);
-            if (!table) return;
-            
-            const rows = Array.from(table.querySelectorAll("tbody tr"));
-            
-            // TARİH satırını bul
-            const idxTarih = rows.findIndex(r => {
-              const firstCell = r.querySelector("td");
-              return firstCell && firstCell.textContent.trim().toUpperCase() === "TARİH";
-            });
-            
-            if (idxTarih < 0) {
-              console.error("TARİH satırı bulunamadı");
-              return;
-            }
-            
-            // İlk tarih satırı (TARİH'ten sonraki ilk satır)
-            const firstDateRow = rows[idxTarih + 1];
-            if (!firstDateRow) {
-              console.error("İlk tarih satırı bulunamadı");
-              return;
-            }
-            
-            // Şube sütunlarının indekslerini bul
-            const theadRow = table.querySelector("thead tr");
-            const headers = Array.from(theadRow.querySelectorAll("th"));
-            const subeListesi = ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER", "AKOVA", "KOOP.", "NAZİLLİ"];
-            const subeIndeksleri = {};
-            
-            subeListesi.forEach(sube => {
-              const idx = headers.findIndex(h => {
-                const text = (h.textContent || "").trim();
-                return text === sube;
-              });
-              if (idx >= 0) {
-                subeIndeksleri[sube] = idx;
-              }
-            });
-            
-            // Stok verilerini yaz
-            const tableData = stockData[tableType] || {};
-            const cells = Array.from(firstDateRow.querySelectorAll("td"));
-            
-            // Firma adı eşleştirmesi (backend'den gelen key'ler)
-            const firmaMap = {
-              'YAĞCILAR': 'YAGCILAR',
-              'TEPEKUM': 'TEPEKUM',
-              'NAMDAR': 'NAMDAR',
-              'ŞEKER': 'SEKER',
-              'AKOVA': 'AKOVA',
-              'KOOP.': 'KOOP',
-              'NAZİLLİ': 'NAZILLI'
-            };
-            
-            Object.keys(subeIndeksleri).forEach(sube => {
-              const colIdx = subeIndeksleri[sube];
-              if (colIdx >= 0 && colIdx < cells.length) {
-                const cell = cells[colIdx];
-                const input = cell.querySelector("input.cell-inp");
-                
-                if (!input) {
-                  console.warn(`${sube} için input bulunamadı`);
-                  return;
-                }
-                
-                // Backend'den gelen key'i kullan
-                const firmaKey = firmaMap[sube];
-                const deger = tableData[firmaKey];
-                
-                if (deger !== undefined) {
-                  // Sayıyı formatla (binlik ayırıcı ile)
-                  const formatted = Math.round(deger).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                  input.value = formatted;
-                  
-                  // Renk kontrolü (6000'den küçükse kırmızı, 6000 ve üzeri yeşil)
-                  input.classList.remove("warning", "success");
-                  if (deger < 6000) {
-                    input.classList.add("warning");  // Koyu kırmızı
-                  } else if (deger >= 6000) {
-                    input.classList.add("success");  // Yeşil
-                  }
-                  
-                  // Hücreyi kaydet
-                  const row = input.closest("tr");
-                  const rowIdx = rows.indexOf(row);
-                  if (rowIdx >= 0) {
-                    const rowCells = Array.from(row.querySelectorAll("td"));
-                    const cellIdx = rowCells.indexOf(input.closest("td"));
-                    if (cellIdx >= 0) {
-                      const key = `mtr${tableType === 'motorin' ? '1' : '2'}_sales_${rowIdx}_${cellIdx}`;
-                      localStorage.setItem(key, formatted);
-                    }
-                  }
-                  
-                  console.log(`${sube} (${firmaKey}): ${formatted} lt yazıldı`);
-                  
-                  // Excel'den veri yazıldıktan sonra, SATIŞ satırı varsa tarih satırlarını hesapla
-                  const satisRowIdx = rows.findIndex(r => {
-                    const firstCell = r.querySelector("td");
-                    return firstCell && firstCell.textContent.trim().toUpperCase() === "SATIŞ";
-                  });
-                  
-                  if (satisRowIdx >= 0) {
-                    const satisRow = rows[satisRowIdx];
-                    const satisCell = satisRow.querySelectorAll("td")[colIdx];
-                    if (satisCell) {
-                      const satisInput = satisCell.querySelector("input.cell-inp");
-                      if (satisInput && satisInput.value) {
-                        // Tarih satırlarını hesapla için event tetikle
-                        setTimeout(() => {
-                          const event = new Event('input', { bubbles: true });
-                          satisInput.dispatchEvent(event);
-                        }, 100);
-                      }
-                    }
-                  }
-                } else {
-                  console.warn(`${sube} (${firmaKey}) için veri bulunamadı`);
-                }
-              }
-            });
-          }
-        });
-      }
+    $(document).ready(function() {
       
       const table = document.querySelector(".mtr1 .mtr-table");
       if (!table) return;
@@ -5653,79 +5362,13 @@
           // ONAY hücresini hazırla
           onayCell.classList.add("onay-cell");
           
-          // Buton var mı kontrol et
-          let onayBtn = onayCell.querySelector(".onay-yakit-btn");
-          
+          // Onay butonları kaldırıldı
           if (tumDolu) {
-            // Tüm değerler dolu, butonu göster
-            if (!onayBtn) {
-              onayBtn = document.createElement("button");
-              onayBtn.type = "button";
-              onayBtn.className = "onay-yakit-btn";
-              onayBtn.textContent = "ONAYSIZ";
-              onayCell.innerHTML = "";
-              onayCell.appendChild(onayBtn);
-              
-              // Aktif durumu localStorage'dan yükle
-                  const aktifDurum = localStorage.getItem(`yakit_onay_aktif_${rowIdx}`);
-                  if (aktifDurum === "true") {
-                    onayBtn.classList.add("aktif");
-                    onayBtn.textContent = "ONAYLI";
-                    row.classList.add("aktif");
-                    
-                    // Sayfa yüklendiğinde ONAYLI ise FİRMA, ÜRÜN, LİTRE, ÖDEME TÜRÜ alanlarını değiştirilemez yap
-                    const firmaCell = row.querySelector("td:first-child");
-                    const urunCell = row.querySelector("td:nth-child(2)");
-                    const litreCell = row.querySelector("td:nth-child(3)");
-                    const odemeTurCell = row.querySelector("td:nth-child(5)");
-                    
-                    // FİRMA dropdown'ını devre dışı bırak
-                    if (firmaCell) {
-                      const firmaDropdown = firmaCell.querySelector(".firma-dropdown");
-                      if (firmaDropdown) {
-                        firmaDropdown.style.pointerEvents = "none";
-                        firmaDropdown.style.opacity = "0.5";
-                      }
-                      firmaCell.style.pointerEvents = "none";
-                    }
-                    
-                    // ÜRÜN dropdown'ını devre dışı bırak
-                    if (urunCell) {
-                      const urunDropdown = urunCell.querySelector(".urun-dropdown");
-                      if (urunDropdown) {
-                        urunDropdown.style.pointerEvents = "none";
-                        urunDropdown.style.opacity = "0.5";
-                      }
-                      urunCell.style.pointerEvents = "none";
-                    }
-                    
-                    // LİTRE input'unu readonly yap
-                    if (litreCell) {
-                      const litreInput = litreCell.querySelector(".litre-input");
-                      if (litreInput) {
-                        litreInput.readOnly = true;
-                      }
-                    }
-                    
-                    // ÖDEME TÜRÜ dropdown'ını devre dışı bırak
-                    if (odemeTurCell) {
-                      const odemeTurDropdown = odemeTurCell.querySelector(".odeme-tur-dropdown");
-                      if (odemeTurDropdown) {
-                        odemeTurDropdown.style.pointerEvents = "none";
-                        odemeTurDropdown.style.opacity = "0.5";
-                      }
-                      odemeTurCell.style.pointerEvents = "none";
-                    }
-                  }
-              
-              // Buton tıklama eventi
-              onayBtn.addEventListener("click", () => {
-                if (onayBtn.classList.contains("aktif")) {
-                  // ONAYLI → ONAYSIZ: Ödeme tablosundan çıkar
-                  onayBtn.classList.remove("aktif");
-                  onayBtn.textContent = "ONAYSIZ";
-                  row.classList.remove("aktif");
-                  localStorage.removeItem(`yakit_onay_aktif_${rowIdx}`);
+            // Onay butonu kaldırıldı - aktif durumu satır class'ından kontrol ediliyor
+            if (row.classList.contains("aktif")) {
+              // ONAYLI → ONAYSIZ: Ödeme tablosundan çıkar
+              row.classList.remove("aktif");
+              localStorage.removeItem(`yakit_onay_aktif_${rowIdx}`);
                   
                   // NAMDAR DBS ise Ödeme tablosundan çıkar
                   const firmaCell = row.querySelector("td:first-child");
@@ -5781,12 +5424,7 @@
                               localStorage.removeItem(`odeme_tl_${odemeSira}`);
                               aciklamaInput.value = "";
                               localStorage.removeItem(`odeme_aciklama_${odemeSira}`);
-                              const odemeOnayBtn = odemeRow.querySelector(".onay-toggle-btn");
-                              if (odemeOnayBtn) {
-                                odemeOnayBtn.style.display = "none";
-                                odemeOnayBtn.classList.remove("aktif");
-                                odemeOnayBtn.textContent = "ONAYSIZ";
-                              }
+                              // Onay butonu kaldırıldı
                               odemeRow.classList.remove("aktif");
                               localStorage.removeItem(`odeme_aktif_${odemeSira}`);
                               
@@ -5847,12 +5485,7 @@
                               aciklamaInput.value = "";
                               aciklamaInput.readOnly = false;
                               localStorage.removeItem(`odeme_aciklama_${odemeSira}`);
-                              const odemeOnayBtn = odemeRow.querySelector(".onay-toggle-btn");
-                              if (odemeOnayBtn) {
-                                odemeOnayBtn.style.display = "none";
-                                odemeOnayBtn.classList.remove("aktif");
-                                odemeOnayBtn.textContent = "ONAYSIZ";
-                              }
+                              // Onay butonu kaldırıldı
                               odemeRow.classList.remove("aktif");
                               localStorage.removeItem(`odeme_aktif_${odemeSira}`);
                               
@@ -5913,12 +5546,7 @@
                               aciklamaInput.value = "";
                               aciklamaInput.readOnly = false;
                               localStorage.removeItem(`odeme_aciklama_${odemeSira}`);
-                              const odemeOnayBtn = odemeRow.querySelector(".onay-toggle-btn");
-                              if (odemeOnayBtn) {
-                                odemeOnayBtn.style.display = "none";
-                                odemeOnayBtn.classList.remove("aktif");
-                                odemeOnayBtn.textContent = "ONAYSIZ";
-                              }
+                              // Onay butonu kaldırıldı
                               odemeRow.classList.remove("aktif");
                               localStorage.removeItem(`odeme_aktif_${odemeSira}`);
                               
@@ -5979,12 +5607,7 @@
                               aciklamaInput.value = "";
                               aciklamaInput.readOnly = false;
                               localStorage.removeItem(`odeme_aciklama_${odemeSira}`);
-                              const odemeOnayBtn = odemeRow.querySelector(".onay-toggle-btn");
-                              if (odemeOnayBtn) {
-                                odemeOnayBtn.style.display = "none";
-                                odemeOnayBtn.classList.remove("aktif");
-                                odemeOnayBtn.textContent = "ONAYSIZ";
-                              }
+                              // Onay butonu kaldırıldı
                               odemeRow.classList.remove("aktif");
                               localStorage.removeItem(`odeme_aktif_${odemeSira}`);
                               
@@ -6045,12 +5668,7 @@
                               aciklamaInput.value = "";
                               aciklamaInput.readOnly = false;
                               localStorage.removeItem(`odeme_aciklama_${odemeSira}`);
-                              const odemeOnayBtn = odemeRow.querySelector(".onay-toggle-btn");
-                              if (odemeOnayBtn) {
-                                odemeOnayBtn.style.display = "none";
-                                odemeOnayBtn.classList.remove("aktif");
-                                odemeOnayBtn.textContent = "ONAYSIZ";
-                              }
+                              // Onay butonu kaldırıldı
                               odemeRow.classList.remove("aktif");
                               localStorage.removeItem(`odeme_aktif_${odemeSira}`);
                               
@@ -6111,12 +5729,7 @@
                               aciklamaInput.value = "";
                               aciklamaInput.readOnly = false;
                               localStorage.removeItem(`odeme_aciklama_${odemeSira}`);
-                              const odemeOnayBtn = odemeRow.querySelector(".onay-toggle-btn");
-                              if (odemeOnayBtn) {
-                                odemeOnayBtn.style.display = "none";
-                                odemeOnayBtn.classList.remove("aktif");
-                                odemeOnayBtn.textContent = "ONAYSIZ";
-                              }
+                              // Onay butonu kaldırıldı
                               odemeRow.classList.remove("aktif");
                               localStorage.removeItem(`odeme_aktif_${odemeSira}`);
                               
@@ -6248,17 +5861,13 @@
                   // NAMDAR K.K kontrolü ve Ödeme tablosuna yazma
                   kontrolNamdarKKVeOdemeTablosunaYaz();
                 }
-              });
+              }); */
             } else {
-              onayBtn.style.display = "flex";
+              // Buton kaldırıldı
             }
           } else {
-            // Tüm değerler dolu değil, butonu gizle
-            if (onayBtn) {
-              onayBtn.style.display = "none";
-            } else {
-              onayCell.innerHTML = "";
-            }
+            // Tüm değerler dolu değil, buton kaldırıldı
+            onayCell.innerHTML = "";
             // Aktif class'ını kaldır
             row.classList.remove("aktif");
           }
@@ -6275,14 +5884,14 @@
             const firmaCell = yakitRow.querySelector("td:first-child");
             const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
             const tlCell = yakitRow.querySelector("td:nth-child(4)");
-            const onayBtn = yakitRow.querySelector(".onay-yakit-btn");
+            // const onayBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
             
             if (!firmaCell || !odemeTurCell || !tlCell) return;
             
             const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
             const odemeTurValue = odemeTurCell.querySelector(".odeme-tur-value")?.textContent?.trim();
             const tlInput = tlCell.querySelector(".tl-input");
-            const isOnayli = onayBtn && onayBtn.classList.contains("aktif");
+            const isOnayli = yakitRow.classList.contains("aktif"); // Buton kaldırıldı, satır class'ından kontrol ediliyor
             
             // SADECE NAMDAR, SADECE DBS ve ONAYLI kontrolü (NAKİT ve K.K hariç)
             if (firmaValue === "NAMDAR" && odemeTurValue === "DBS" && isOnayli && tlInput && tlInput.value.trim()) {
@@ -6313,7 +5922,7 @@
             // Eğer "NAMDAR DBS" satırı varsa, TL değerini güncelle
             if (mevcutNamdarDBSSatir) {
               const tlInput = mevcutNamdarDBSSatir.querySelector("input[data-field='tl']");
-              const onayBtn = mevcutNamdarDBSSatir.querySelector(".onay-toggle-btn");
+              // const onayBtn = mevcutNamdarDBSSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
               const sira = mevcutNamdarDBSSatir.getAttribute("data-sira");
               
               if (tlInput) {
@@ -6331,9 +5940,7 @@
                 
                 // ONAY butonunu göster (yeşil ONAYLI)
                 if (onayBtn) {
-                  onayBtn.style.display = "flex";
-                  onayBtn.textContent = "ONAYLI";
-                  onayBtn.classList.add("aktif");
+                  // Onay butonu kaldırıldı
                   mevcutNamdarDBSSatir.classList.add("aktif");
                   localStorage.setItem(`odeme_aktif_${sira}`, "true");
                 }
@@ -6367,7 +5974,7 @@
               if (ilkBosSatir) {
                 const aciklamaInput = ilkBosSatir.querySelector("input[data-field='aciklama']");
                 const tlInput = ilkBosSatir.querySelector("input[data-field='tl']");
-                const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn");
+                // const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                 const sira = ilkBosSatir.getAttribute("data-sira");
                 
                 if (aciklamaInput && tlInput) {
@@ -6387,9 +5994,7 @@
                   
                   // ONAY butonunu göster (yeşil ONAYLI)
                   if (onayBtn) {
-                    onayBtn.style.display = "flex";
-                    onayBtn.textContent = "ONAYLI";
-                    onayBtn.classList.add("aktif");
+                    // Onay butonu kaldırıldı
                     ilkBosSatir.classList.add("aktif");
                     localStorage.setItem(`odeme_aktif_${sira}`, "true");
                   }
@@ -6419,14 +6024,14 @@
             const firmaCell = yakitRow.querySelector("td:first-child");
             const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
             const tlCell = yakitRow.querySelector("td:nth-child(4)");
-            const onayBtn = yakitRow.querySelector(".onay-yakit-btn");
+            // const onayBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
             
             if (!firmaCell || !odemeTurCell || !tlCell) return;
             
             const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
             const odemeTurValue = odemeTurCell.querySelector(".odeme-tur-value")?.textContent?.trim();
             const tlInput = tlCell.querySelector(".tl-input");
-            const isOnayli = onayBtn && onayBtn.classList.contains("aktif");
+            const isOnayli = yakitRow.classList.contains("aktif"); // Buton kaldırıldı, satır class'ından kontrol ediliyor
             
             // NAMDAR HARİCİ TÜM FİRMALAR, SADECE DBS ve ONAYLI kontrolü
             if (firmaValue && firmaValue !== "NAMDAR" && odemeTurValue === "DBS" && isOnayli && tlInput && tlInput.value.trim()) {
@@ -6457,7 +6062,7 @@
             // Eğer "ARIA HYPCO DBS" satırı varsa, TL değerini güncelle
             if (mevcutAriaDBSSatir) {
               const tlInput = mevcutAriaDBSSatir.querySelector("input[data-field='tl']");
-              const onayBtn = mevcutAriaDBSSatir.querySelector(".onay-toggle-btn");
+              // const onayBtn = mevcutAriaDBSSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
               const sira = mevcutAriaDBSSatir.getAttribute("data-sira");
               
               if (tlInput) {
@@ -6511,7 +6116,7 @@
               if (ilkBosSatir) {
                 const aciklamaInput = ilkBosSatir.querySelector("input[data-field='aciklama']");
                 const tlInput = ilkBosSatir.querySelector("input[data-field='tl']");
-                const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn");
+                // const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                 const sira = ilkBosSatir.getAttribute("data-sira");
                 
                 if (aciklamaInput && tlInput) {
@@ -6531,9 +6136,7 @@
                   
                   // ONAY butonunu göster (yeşil ONAYLI)
                   if (onayBtn) {
-                    onayBtn.style.display = "flex";
-                    onayBtn.textContent = "ONAYLI";
-                    onayBtn.classList.add("aktif");
+                    // Onay butonu kaldırıldı
                     ilkBosSatir.classList.add("aktif");
                     localStorage.setItem(`odeme_aktif_${sira}`, "true");
                   }
@@ -6563,14 +6166,14 @@
             const firmaCell = yakitRow.querySelector("td:first-child");
             const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
             const tlCell = yakitRow.querySelector("td:nth-child(4)");
-            const onayBtn = yakitRow.querySelector(".onay-yakit-btn");
+            // const onayBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
             
             if (!firmaCell || !odemeTurCell || !tlCell) return;
             
             const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
             const odemeTurValue = odemeTurCell.querySelector(".odeme-tur-value")?.textContent?.trim();
             const tlInput = tlCell.querySelector(".tl-input");
-            const isOnayli = onayBtn && onayBtn.classList.contains("aktif");
+            const isOnayli = yakitRow.classList.contains("aktif"); // Buton kaldırıldı, satır class'ından kontrol ediliyor
             
             // NAMDAR HARİCİ TÜM FİRMALAR, SADECE NAKİT ve ONAYLI kontrolü
             if (firmaValue && firmaValue !== "NAMDAR" && odemeTurValue === "NAKİT" && isOnayli && tlInput && tlInput.value.trim()) {
@@ -6602,7 +6205,7 @@
             if (mevcutAriaNakitSatir) {
               const aciklamaInputMevcut = mevcutAriaNakitSatir.querySelector("input[data-field='aciklama']");
               const tlInput = mevcutAriaNakitSatir.querySelector("input[data-field='tl']");
-              const onayBtn = mevcutAriaNakitSatir.querySelector(".onay-toggle-btn");
+              // const onayBtn = mevcutAriaNakitSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
               const sira = mevcutAriaNakitSatir.getAttribute("data-sira");
               
               // AÇIKLAMA ve TL input'larını readonly yap
@@ -6661,7 +6264,7 @@
               if (ilkBosSatir) {
                 const aciklamaInput = ilkBosSatir.querySelector("input[data-field='aciklama']");
                 const tlInput = ilkBosSatir.querySelector("input[data-field='tl']");
-                const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn");
+                // const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                 const sira = ilkBosSatir.getAttribute("data-sira");
                 
                 if (aciklamaInput && tlInput) {
@@ -6681,9 +6284,7 @@
                   
                   // ONAY butonunu göster (yeşil ONAYLI)
                   if (onayBtn) {
-                    onayBtn.style.display = "flex";
-                    onayBtn.textContent = "ONAYLI";
-                    onayBtn.classList.add("aktif");
+                    // Onay butonu kaldırıldı
                     ilkBosSatir.classList.add("aktif");
                     localStorage.setItem(`odeme_aktif_${sira}`, "true");
                   }
@@ -6713,14 +6314,14 @@
             const firmaCell = yakitRow.querySelector("td:first-child");
             const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
             const tlCell = yakitRow.querySelector("td:nth-child(4)");
-            const onayBtn = yakitRow.querySelector(".onay-yakit-btn");
+            // const onayBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
             
             if (!firmaCell || !odemeTurCell || !tlCell) return;
             
             const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
             const odemeTurValue = odemeTurCell.querySelector(".odeme-tur-value")?.textContent?.trim();
             const tlInput = tlCell.querySelector(".tl-input");
-            const isOnayli = onayBtn && onayBtn.classList.contains("aktif");
+            const isOnayli = yakitRow.classList.contains("aktif"); // Buton kaldırıldı, satır class'ından kontrol ediliyor
             
             // SADECE NAMDAR, SADECE NAKİT ve ONAYLI kontrolü
             if (firmaValue === "NAMDAR" && odemeTurValue === "NAKİT" && isOnayli && tlInput && tlInput.value.trim()) {
@@ -6752,7 +6353,7 @@
             if (mevcutNamdarNakitSatir) {
               const aciklamaInputMevcut = mevcutNamdarNakitSatir.querySelector("input[data-field='aciklama']");
               const tlInput = mevcutNamdarNakitSatir.querySelector("input[data-field='tl']");
-              const onayBtn = mevcutNamdarNakitSatir.querySelector(".onay-toggle-btn");
+              // const onayBtn = mevcutNamdarNakitSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
               const sira = mevcutNamdarNakitSatir.getAttribute("data-sira");
               
               // AÇIKLAMA ve TL input'larını readonly yap
@@ -6811,7 +6412,7 @@
               if (ilkBosSatir) {
                 const aciklamaInput = ilkBosSatir.querySelector("input[data-field='aciklama']");
                 const tlInput = ilkBosSatir.querySelector("input[data-field='tl']");
-                const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn");
+                // const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                 const sira = ilkBosSatir.getAttribute("data-sira");
                 
                 if (aciklamaInput && tlInput) {
@@ -6831,9 +6432,7 @@
                   
                   // ONAY butonunu göster (yeşil ONAYLI)
                   if (onayBtn) {
-                    onayBtn.style.display = "flex";
-                    onayBtn.textContent = "ONAYLI";
-                    onayBtn.classList.add("aktif");
+                    // Onay butonu kaldırıldı
                     ilkBosSatir.classList.add("aktif");
                     localStorage.setItem(`odeme_aktif_${sira}`, "true");
                   }
@@ -6863,14 +6462,14 @@
             const firmaCell = yakitRow.querySelector("td:first-child");
             const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
             const tlCell = yakitRow.querySelector("td:nth-child(4)");
-            const onayBtn = yakitRow.querySelector(".onay-yakit-btn");
+            // const onayBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
             
             if (!firmaCell || !odemeTurCell || !tlCell) return;
             
             const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
             const odemeTurValue = odemeTurCell.querySelector(".odeme-tur-value")?.textContent?.trim();
             const tlInput = tlCell.querySelector(".tl-input");
-            const isOnayli = onayBtn && onayBtn.classList.contains("aktif");
+            const isOnayli = yakitRow.classList.contains("aktif"); // Buton kaldırıldı, satır class'ından kontrol ediliyor
             
             // NAMDAR HARİCİ TÜM FİRMALAR, SADECE K.K ve ONAYLI kontrolü
             if (firmaValue && firmaValue !== "NAMDAR" && odemeTurValue === "K.K" && isOnayli && tlInput && tlInput.value.trim()) {
@@ -6902,7 +6501,7 @@
             if (mevcutAriaKKSatir) {
               const aciklamaInputMevcut = mevcutAriaKKSatir.querySelector("input[data-field='aciklama']");
               const tlInput = mevcutAriaKKSatir.querySelector("input[data-field='tl']");
-              const onayBtn = mevcutAriaKKSatir.querySelector(".onay-toggle-btn");
+              // const onayBtn = mevcutAriaKKSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
               const sira = mevcutAriaKKSatir.getAttribute("data-sira");
               
               // AÇIKLAMA ve TL input'larını readonly yap
@@ -6961,7 +6560,7 @@
               if (ilkBosSatir) {
                 const aciklamaInput = ilkBosSatir.querySelector("input[data-field='aciklama']");
                 const tlInput = ilkBosSatir.querySelector("input[data-field='tl']");
-                const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn");
+                // const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                 const sira = ilkBosSatir.getAttribute("data-sira");
                 
                 if (aciklamaInput && tlInput) {
@@ -6981,9 +6580,7 @@
                   
                   // ONAY butonunu göster (yeşil ONAYLI)
                   if (onayBtn) {
-                    onayBtn.style.display = "flex";
-                    onayBtn.textContent = "ONAYLI";
-                    onayBtn.classList.add("aktif");
+                    // Onay butonu kaldırıldı
                     ilkBosSatir.classList.add("aktif");
                     localStorage.setItem(`odeme_aktif_${sira}`, "true");
                   }
@@ -7013,14 +6610,14 @@
             const firmaCell = yakitRow.querySelector("td:first-child");
             const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
             const tlCell = yakitRow.querySelector("td:nth-child(4)");
-            const onayBtn = yakitRow.querySelector(".onay-yakit-btn");
+            // const onayBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
             
             if (!firmaCell || !odemeTurCell || !tlCell) return;
             
             const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
             const odemeTurValue = odemeTurCell.querySelector(".odeme-tur-value")?.textContent?.trim();
             const tlInput = tlCell.querySelector(".tl-input");
-            const isOnayli = onayBtn && onayBtn.classList.contains("aktif");
+            const isOnayli = yakitRow.classList.contains("aktif"); // Buton kaldırıldı, satır class'ından kontrol ediliyor
             
             // SADECE NAMDAR, SADECE K.K ve ONAYLI kontrolü
             if (firmaValue === "NAMDAR" && odemeTurValue === "K.K" && isOnayli && tlInput && tlInput.value.trim()) {
@@ -7052,7 +6649,7 @@
             if (mevcutNamdarKKSatir) {
               const aciklamaInputMevcut = mevcutNamdarKKSatir.querySelector("input[data-field='aciklama']");
               const tlInput = mevcutNamdarKKSatir.querySelector("input[data-field='tl']");
-              const onayBtn = mevcutNamdarKKSatir.querySelector(".onay-toggle-btn");
+              // const onayBtn = mevcutNamdarKKSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
               const sira = mevcutNamdarKKSatir.getAttribute("data-sira");
               
               // AÇIKLAMA ve TL input'larını readonly yap
@@ -7111,7 +6708,7 @@
               if (ilkBosSatir) {
                 const aciklamaInput = ilkBosSatir.querySelector("input[data-field='aciklama']");
                 const tlInput = ilkBosSatir.querySelector("input[data-field='tl']");
-                const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn");
+                // const onayBtn = ilkBosSatir.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                 const sira = ilkBosSatir.getAttribute("data-sira");
                 
                 if (aciklamaInput && tlInput) {
@@ -7131,9 +6728,7 @@
                   
                   // ONAY butonunu göster (yeşil ONAYLI)
                   if (onayBtn) {
-                    onayBtn.style.display = "flex";
-                    onayBtn.textContent = "ONAYLI";
-                    onayBtn.classList.add("aktif");
+                    // Onay butonu kaldırıldı
                     ilkBosSatir.classList.add("aktif");
                     localStorage.setItem(`odeme_aktif_${sira}`, "true");
                   }
@@ -7294,10 +6889,9 @@
             input.addEventListener("dblclick", (e) => {
               e.stopPropagation();
               
-              // ONAYLI ise silme yapılamaz
-              const onayBtn = row.querySelector(".onay-yakit-btn");
-              if (onayBtn && onayBtn.classList.contains("aktif")) {
-                return; // ONAYLI ise çift tıklama ile silme yapılmaz
+              // ONAYLI ise silme yapılamaz (buton kaldırıldı, satır class'ından kontrol ediliyor)
+              if (row.classList.contains("aktif")) {
+                return; // Aktif ise çift tıklama ile silme yapılmaz
               }
               
               input.value = "";
@@ -7574,10 +7168,7 @@
           }, 1000);
         }, 300);
         
-        // TEMİZLE butonu - Tüm YAKIT ALIMLARI verilerini temizle
-        const temizleBtn = document.getElementById("yakit-temizle-btn");
-        if (temizleBtn) {
-          temizleBtn.addEventListener("click", () => {
+        // TEMİZLE butonu kaldırıldı
             // Tüm satırları temizle
             rows.forEach((row, rowIdx) => {
               // FIRMA hücresini temizle
@@ -7630,15 +7221,9 @@
                 localStorage.removeItem(`yakit_odeme_tur_${rowIdx}`);
               }
 
-              // ONAY hücresini temizle
+              // ONAY hücresini temizle (buton kaldırıldı)
               const onayCell = row.querySelector("td:nth-child(6)");
               if (onayCell) {
-                const onayBtn = onayCell.querySelector(".onay-yakit-btn");
-                if (onayBtn) {
-                  onayBtn.classList.remove("aktif");
-                  onayBtn.textContent = "ONAYSIZ";
-                  onayBtn.style.display = "none";
-                }
                 // Satırdan aktif class'ını kaldır
                 row.classList.remove("aktif");
                 localStorage.removeItem(`yakit_onay_aktif_${rowIdx}`);
@@ -7714,7 +7299,7 @@
                 if (temizlenecekAciklamalar.includes(aciklamaDegeri)) {
                   const sira = odemeRow.getAttribute("data-sira");
                   const tlInput = odemeRow.querySelector("input[data-field='tl']");
-                  const onayBtn = odemeRow.querySelector(".onay-toggle-btn");
+                  // const onayBtn = odemeRow.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
                   
                   // AÇIKLAMA hücresini temizle
                   aciklamaInput.value = "";
@@ -7750,8 +7335,7 @@
         }
       }
       
-      // ALIŞ FİYATLARI Modal
-      const alisFiyatiBtn = document.getElementById("alis-fiyati-btn");
+      // ALIŞ FİYATLARI Modal - Buton kaldırıldı
       const alisFiyatiModal = document.createElement("div");
       alisFiyatiModal.className = "alis-fiyati-modal";
       alisFiyatiModal.id = "alis-fiyati-modal";
@@ -7795,7 +7379,6 @@
         <div class="alis-fiyati-modal-content">
           <div class="alis-fiyati-modal-header">
             <h2>ALIŞ FİYATLARI</h2>
-            <button class="alis-fiyati-modal-close" id="alis-fiyati-close">&times;</button>
           </div>
           <table class="alis-fiyati-table">
             <thead>
@@ -7835,70 +7418,15 @@
       modalContent += `
             </tbody>
           </table>
-          <button class="alis-fiyati-save-btn" id="alis-fiyati-save">Kaydet</button>
         </div>
       `;
       
       alisFiyatiModal.innerHTML = modalContent;
       document.body.appendChild(alisFiyatiModal);
       
-      // Buton tıklama - Modal aç
-      if (alisFiyatiBtn) {
-        alisFiyatiBtn.addEventListener("click", async () => {
-          // Fiyatları yükle
-          try {
-            const response = await fetch('/api/alis-fiyati/');
-            const data = await response.json();
-            
-            // Input alanlarını doldur
-            document.querySelectorAll('.alis-fiyati-input').forEach(input => {
-              const firma = input.getAttribute('data-firma');
-              const urun = input.getAttribute('data-urun');
-              // FİRMA ismini normalize et ve API formatına çevir
-              const normalizedFirma = normalizeFirmaNameForModal(firma);
-              const firmaAPI = firmaMapToAPI[normalizedFirma] || normalizedFirma;
-              const key = `${firmaAPI}_${urun}`;
-              if (data[key] !== undefined) {
-                input.value = data[key].toFixed(2);
-              } else {
-                input.value = '';
-              }
-            });
-            
-            alisFiyatiModal.classList.add("show");
-          } catch (error) {
-            console.error("Fiyatlar yüklenirken hata:", error);
-            alisFiyatiModal.classList.add("show");
-          }
-        });
-      }
-      
-      // Modal kapat
-      const closeBtn = document.getElementById("alis-fiyati-close");
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-          alisFiyatiModal.classList.remove("show");
-        });
-      }
-      
-      // Modal dışına tıklanınca kapat
-      alisFiyatiModal.addEventListener("click", (e) => {
-        if (e.target === alisFiyatiModal) {
-          alisFiyatiModal.classList.remove("show");
-        }
-      });
-      
-      // Kaydet butonu
-      const saveBtn = document.getElementById("alis-fiyati-save");
-      if (saveBtn) {
-        saveBtn.addEventListener("click", async () => {
-          const inputs = document.querySelectorAll('.alis-fiyati-input');
-          const updates = [];
-          
-          inputs.forEach(input => {
-            const firma = input.getAttribute('data-firma');
-            const urun = input.getAttribute('data-urun');
-            const value = parseFloat(input.value) || 0;
+      // Butonlar kaldırıldı
+      // Modal kapat ve kaydet butonları kaldırıldı
+          // Kaydet butonu kaldırıldı
             
             // FİRMA ismini normalize et ve API formatına çevir
             const normalizedFirma = normalizeFirmaNameForModal(firma);
@@ -7942,11 +7470,8 @@
       }
   });
 
-  // Arac Bilgi Modal
-  const aracBilgiBtn = document.getElementById("arac-bilgi-btn");
+  // Arac Bilgi Modal - Butonlar kaldırıldı
   const aracBilgiModal = document.getElementById("arac-bilgi-modal");
-  const aracBilgiModalClose = document.getElementById("arac-bilgi-modal-close");
-  const aracBilgiCancel = document.getElementById("arac-bilgi-cancel");
   const aracBilgiForm = document.getElementById("arac-bilgi-form");
   const aracBilgiTbody = document.getElementById("arac-bilgi-tbody");
 
@@ -7959,7 +7484,7 @@
       row.setAttribute("data-sira-row", i);
       row.innerHTML = `
         <td>
-          <button type="button" class="arac-bilgi-sira-btn" data-sira="${i}">${i}</button>
+          <span>${i}</span>
         </td>
         <td><input type="text" name="firma_${i}" data-sira="${i}" data-field="firma" value=""></td>
         <td><input type="text" name="sofor_${i}" data-sira="${i}" data-field="sofor" value=""></td>
@@ -7977,10 +7502,10 @@
       `;
       aracBilgiTbody.appendChild(row);
       
-      // Sıra butonuna tıklama event'i ekle
-      const siraBtn = row.querySelector(`.arac-bilgi-sira-btn[data-sira="${i}"]`);
-      if (siraBtn) {
-        siraBtn.addEventListener("click", async () => {
+      // Sıra butonuna tıklama event'i kaldırıldı
+      // const siraBtn = row.querySelector(`.arac-bilgi-sira-btn[data-sira="${i}"]`);
+      // if (siraBtn) {
+      //   siraBtn.addEventListener("click", async () => {
           // Satırı aktif/pasif yap (toggle)
           const isAktif = row.classList.contains("aktif");
           if (isAktif) {
@@ -8021,9 +7546,9 @@
           } catch (error) {
             console.error(`Araç ${i} aktif durum kayıt hatası:`, error);
           }
-        });
-      }
-    }
+        }); */
+      // }
+    // }
   }
 
   // Tüm araç verilerini yükle
@@ -8047,10 +7572,7 @@
           // Aktif durumunu yükle
           if (arac.aktif) {
             row.classList.add("aktif");
-            const siraBtn = row.querySelector(`.arac-bilgi-sira-btn[data-sira="${sira}"]`);
-            if (siraBtn) {
-              siraBtn.classList.add("aktif");
-            }
+            // Sıra butonu kaldırıldı
           }
         });
       }
@@ -8059,26 +7581,9 @@
     }
   }
 
-  // Modal aç
-  if (aracBilgiBtn) {
-    aracBilgiBtn.addEventListener("click", async () => {
-      createAracBilgiTable();
-      await loadAllAracBilgi();
-      aracBilgiModal.classList.add("show");
-    });
-  }
-
-  // Modal kapat
+  // Modal aç/kapat butonları kaldırıldı
   function closeAracBilgiModal() {
     aracBilgiModal.classList.remove("show");
-  }
-
-  if (aracBilgiModalClose) {
-    aracBilgiModalClose.addEventListener("click", closeAracBilgiModal);
-  }
-
-  if (aracBilgiCancel) {
-    aracBilgiCancel.addEventListener("click", closeAracBilgiModal);
   }
 
   // Modal dışına tıklayınca kapat
@@ -8161,7 +7666,7 @@
       row.innerHTML = `
         <td><input type="text" name="tahsilat_aciklama_${i}" data-sira="${i}" data-field="aciklama" value=""></td>
         <td><input type="text" name="tahsilat_tl_${i}" data-sira="${i}" data-field="tl" inputmode="numeric" value=""></td>
-        <td class="onay-cell"><button type="button" class="onay-toggle-btn" data-sira="${i}" style="display:none;" title="Satırı aktif/pasif yap">ONAYSIZ</button></td>
+        <td class="onay-cell"></td>
       `;
       tbody.appendChild(row);
       
@@ -8205,12 +7710,7 @@
             localStorage.removeItem(`tahsilat_${field}_${sira}`);
             // TL input'u temizlenince ONAY butonunu gizle
             if (field === "tl") {
-              const onayBtn = row.querySelector(".onay-toggle-btn");
-              if (onayBtn) {
-                onayBtn.style.display = "none";
-                onayBtn.classList.remove("aktif");
-                onayBtn.textContent = "ONAYSIZ";
-              }
+              // Onay butonu kaldırıldı
               row.classList.remove("aktif");
             }
           }
@@ -8226,14 +7726,10 @@
           onayBtn.style.display = "flex";
         }
         
-        // Aktif durumu localStorage'dan yükle
+        // Aktif durumu localStorage'dan yükle (buton kaldırıldı)
         const aktifDurum = localStorage.getItem(`tahsilat_aktif_${i}`);
         if (aktifDurum === "true") {
           row.classList.add("aktif");
-          onayBtn.classList.add("aktif");
-          onayBtn.textContent = "ONAYLI";
-        } else {
-          onayBtn.textContent = "ONAYSIZ";
         }
         
         tlInput.addEventListener("input", (e) => {
@@ -8248,14 +7744,9 @@
             
             // localStorage'a kaydet (formatlanmış değeri)
             localStorage.setItem(`tahsilat_tl_${i}`, formatted);
-            
-            onayBtn.style.display = "flex";
           } else {
             e.target.value = "";
             localStorage.removeItem(`tahsilat_tl_${i}`);
-            onayBtn.style.display = "none";
-            onayBtn.classList.remove("aktif");
-            onayBtn.textContent = "ONAYSIZ";
             row.classList.remove("aktif");
             localStorage.removeItem(`tahsilat_aktif_${i}`);
           }
@@ -8271,7 +7762,7 @@
         let lastClickTime = 0;
         let clickTimer = null;
         
-        onayBtn.addEventListener("click", (e) => {
+        // onayBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           const currentTime = Date.now();
           const timeDiff = currentTime - lastClickTime;
@@ -8427,13 +7918,7 @@
         input.value = "";
         localStorage.removeItem(`tahsilat_${field}_${sira}`);
       });
-      // ONAY butonlarını ve aktif durumları temizle
-      const onayBtn = row.querySelector(".onay-toggle-btn");
-      if (onayBtn) {
-        onayBtn.style.display = "none";
-        onayBtn.classList.remove("aktif");
-        onayBtn.textContent = "ONAYSIZ";
-      }
+      // Onay butonu kaldırıldı - aktif durumu temizle
       row.classList.remove("aktif");
       localStorage.removeItem(`tahsilat_aktif_${sira}`);
     });
@@ -8453,13 +7938,7 @@
         input.readOnly = false; // readOnly özelliğini kaldır
         localStorage.removeItem(`odeme_${field}_${sira}`);
       });
-      // ONAY butonlarını ve aktif durumları temizle
-      const onayBtn = row.querySelector(".onay-toggle-btn");
-      if (onayBtn) {
-        onayBtn.style.display = "none";
-        onayBtn.classList.remove("aktif");
-        onayBtn.textContent = "ONAYSIZ";
-      }
+      // Onay butonu kaldırıldı - aktif durumu temizle
       row.classList.remove("aktif");
       localStorage.removeItem(`odeme_aktif_${sira}`);
       
@@ -8477,7 +7956,7 @@
   function kontrolOdemeNamdarDBSSilindi(odemeRow) {
     const aciklamaInput = odemeRow.querySelector("input[data-field='aciklama']");
     const tlInput = odemeRow.querySelector("input[data-field='tl']");
-    const onayBtn = odemeRow.querySelector(".onay-toggle-btn");
+    // const onayBtn = odemeRow.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
     
     // Eğer AÇIKLAMA boşsa veya "NAMDAR HYPCO DBS" değilse, veya TL boşsa, veya ONAY butonu görünmüyorsa
     const aciklamaDegeri = aciklamaInput ? aciklamaInput.value.trim() : "";
@@ -8535,7 +8014,7 @@
   function kontrolOdemeAriaDBSSilindi(odemeRow) {
     const aciklamaInput = odemeRow.querySelector("input[data-field='aciklama']");
     const tlInput = odemeRow.querySelector("input[data-field='tl']");
-    const onayBtn = odemeRow.querySelector(".onay-toggle-btn");
+    // const onayBtn = odemeRow.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
     
     const aciklamaDegeri = aciklamaInput ? aciklamaInput.value.trim() : "";
     const tlDegeri = tlInput ? tlInput.value.trim() : "";
@@ -8580,7 +8059,7 @@
   function kontrolOdemeAriaNakitSilindi(odemeRow) {
     const aciklamaInput = odemeRow.querySelector("input[data-field='aciklama']");
     const tlInput = odemeRow.querySelector("input[data-field='tl']");
-    const onayBtn = odemeRow.querySelector(".onay-toggle-btn");
+    // const onayBtn = odemeRow.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
     
     const aciklamaDegeri = aciklamaInput ? aciklamaInput.value.trim() : "";
     const tlDegeri = tlInput ? tlInput.value.trim() : "";
@@ -8625,7 +8104,7 @@
   function kontrolOdemeAriaKKSilindi(odemeRow) {
     const aciklamaInput = odemeRow.querySelector("input[data-field='aciklama']");
     const tlInput = odemeRow.querySelector("input[data-field='tl']");
-    const onayBtn = odemeRow.querySelector(".onay-toggle-btn");
+    // const onayBtn = odemeRow.querySelector(".onay-toggle-btn"); // Buton kaldırıldı
     
     const aciklamaDegeri = aciklamaInput ? aciklamaInput.value.trim() : "";
     const tlDegeri = tlInput ? tlInput.value.trim() : "";
@@ -8676,7 +8155,7 @@
       row.innerHTML = `
         <td><input type="text" name="odeme_aciklama_${i}" data-sira="${i}" data-field="aciklama" value=""></td>
         <td><input type="text" name="odeme_tl_${i}" data-sira="${i}" data-field="tl" inputmode="numeric" value=""></td>
-        <td class="onay-cell"><button type="button" class="onay-toggle-btn" data-sira="${i}" style="display:none;" title="Satırı aktif/pasif yap">ONAYSIZ</button></td>
+        <td class="onay-cell"></td>
       `;
       tbody.appendChild(row);
       
@@ -8759,12 +8238,7 @@
             localStorage.removeItem(`odeme_${field}_${sira}`);
             // TL input'u temizlenince ONAY butonunu gizle
             if (field === "tl") {
-              const onayBtn = row.querySelector(".onay-toggle-btn");
-              if (onayBtn) {
-                onayBtn.style.display = "none";
-                onayBtn.classList.remove("aktif");
-                onayBtn.textContent = "ONAYSIZ";
-              }
+              // Onay butonu kaldırıldı
               row.classList.remove("aktif");
             }
             // Eğer "NAMDAR HYPCO DBS", "ARIA HYPCO DBS" veya "ARIA HYPCO NAKİT" satırı siliniyorsa, Yakıt Alımları tablosundaki ilgili ONAYLI satırları ONAYSIZ'a çevir
@@ -8833,7 +8307,7 @@
         let lastClickTime = 0;
         let clickTimer = null;
         
-        onayBtn.addEventListener("click", (e) => {
+        // onayBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           const currentTime = Date.now();
           const timeDiff = currentTime - lastClickTime;
@@ -8900,7 +8374,7 @@
                   yakitRows.forEach((yakitRow, yakitIdx) => {
                     const firmaCell = yakitRow.querySelector("td:first-child");
                     const odemeTurCell = yakitRow.querySelector("td:nth-child(5)");
-                    const onayYakitBtn = yakitRow.querySelector(".onay-yakit-btn");
+                    // const onayYakitBtn = yakitRow.querySelector(".onay-yakit-btn"); // Buton kaldırıldı
                     
                     if (firmaCell && odemeTurCell && onayYakitBtn) {
                       const firmaValue = firmaCell.querySelector(".firma-value")?.textContent?.trim();
@@ -9055,12 +8529,8 @@
     tbody.appendChild(row3);
   }
 
-  // Tahsilat Açıklama Modal
-  const tahsilatAciklamaBtn = document.getElementById("tahsilat-aciklama-btn");
+  // Tahsilat Açıklama Modal - Butonlar kaldırıldı
   const tahsilatAciklamaModal = document.getElementById("tahsilat-aciklama-modal");
-  const tahsilatAciklamaModalClose = document.getElementById("tahsilat-aciklama-modal-close");
-  const tahsilatAciklamaCancel = document.getElementById("tahsilat-aciklama-cancel");
-  const tahsilatAciklamaSave = document.getElementById("tahsilat-aciklama-save");
   const tahsilatAciklamaInputs = document.getElementById("tahsilat-aciklama-inputs");
 
   // 15 satır input oluştur
@@ -9142,35 +8612,9 @@
     });
   }
 
-  // Modal aç
-  if (tahsilatAciklamaBtn) {
-    tahsilatAciklamaBtn.addEventListener("click", () => {
-      createTahsilatAciklamaInputs();
-      loadTahsilatAciklama();
-      tahsilatAciklamaModal.classList.add("show");
-    });
-  }
-
-  // Modal kapat
+  // Modal aç/kapat/kaydet butonları kaldırıldı
   function closeTahsilatAciklamaModal() {
     tahsilatAciklamaModal.classList.remove("show");
-  }
-
-  if (tahsilatAciklamaModalClose) {
-    tahsilatAciklamaModalClose.addEventListener("click", closeTahsilatAciklamaModal);
-  }
-
-  if (tahsilatAciklamaCancel) {
-    tahsilatAciklamaCancel.addEventListener("click", closeTahsilatAciklamaModal);
-  }
-
-  // Kaydet
-  if (tahsilatAciklamaSave) {
-    tahsilatAciklamaSave.addEventListener("click", () => {
-      saveTahsilatAciklama();
-      alert("Açıklamalar kaydedildi!");
-      closeTahsilatAciklamaModal();
-    });
   }
 
   // Modal dışına tıklayınca kapat
@@ -9182,12 +8626,8 @@
     });
   }
 
-  // Ödeme Açıklama Modal
-  const odemeAciklamaBtn = document.getElementById("odeme-aciklama-btn");
+  // Ödeme Açıklama Modal - Butonlar kaldırıldı
   const odemeAciklamaModal = document.getElementById("odeme-aciklama-modal");
-  const odemeAciklamaModalClose = document.getElementById("odeme-aciklama-modal-close");
-  const odemeAciklamaCancel = document.getElementById("odeme-aciklama-cancel");
-  const odemeAciklamaSave = document.getElementById("odeme-aciklama-save");
   const odemeAciklamaInputs = document.getElementById("odeme-aciklama-inputs");
 
   // 15 satır input oluştur
@@ -9269,35 +8709,9 @@
     });
   }
 
-  // Modal aç
-  if (odemeAciklamaBtn) {
-    odemeAciklamaBtn.addEventListener("click", () => {
-      createOdemeAciklamaInputs();
-      loadOdemeAciklama();
-      odemeAciklamaModal.classList.add("show");
-    });
-  }
-
-  // Modal kapat
+  // Modal aç/kapat/kaydet butonları kaldırıldı
   function closeOdemeAciklamaModal() {
     odemeAciklamaModal.classList.remove("show");
-  }
-
-  if (odemeAciklamaModalClose) {
-    odemeAciklamaModalClose.addEventListener("click", closeOdemeAciklamaModal);
-  }
-
-  if (odemeAciklamaCancel) {
-    odemeAciklamaCancel.addEventListener("click", closeOdemeAciklamaModal);
-  }
-
-  // Kaydet
-  if (odemeAciklamaSave) {
-    odemeAciklamaSave.addEventListener("click", () => {
-      saveOdemeAciklama();
-      alert("Açıklamalar kaydedildi!");
-      closeOdemeAciklamaModal();
-    });
   }
 
   // Modal dışına tıklayınca kapat
@@ -9309,21 +8723,7 @@
     });
   }
 
-  // Tahsilat Temizle butonu
-  const tahsilatTemizleBtn = document.getElementById("tahsilat-temizle-btn");
-  if (tahsilatTemizleBtn) {
-    tahsilatTemizleBtn.addEventListener("click", () => {
-      temizleTahsilatTable();
-    });
-  }
-
-  // Ödeme Temizle butonu
-  const odemeTemizleBtn = document.getElementById("odeme-temizle-btn");
-  if (odemeTemizleBtn) {
-    odemeTemizleBtn.addEventListener("click", () => {
-      temizleOdemeTable();
-    });
-  }
+  // Tahsilat ve Ödeme Temizle butonları kaldırıldı
 
   // Sayfa yüklendiğinde tabloları oluştur
   document.addEventListener("DOMContentLoaded", () => {
