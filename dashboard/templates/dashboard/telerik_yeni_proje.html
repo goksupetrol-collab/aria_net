@@ -607,9 +607,11 @@
         openTabs[tabId].tabElement.remove();
         delete openTabs[tabId];
         
-        // Eğer kapatılan tab aktifse, başka bir tab'ı aktif yap
-        if (wasActive) {
-          var remainingTabs = Object.keys(openTabs);
+        // Kalan tab sayısını kontrol et
+        var remainingTabs = Object.keys(openTabs);
+        
+        // Eğer kapatılan tab aktifse veya başka tab yoksa, içeriği güncelle
+        if (wasActive || remainingTabs.length === 0) {
           if (remainingTabs.length > 0) {
             // Başka tab varsa, en son açılan tab'ı aktif yap ve o sayfaya git
             var lastTabId = remainingTabs[remainingTabs.length - 1];
