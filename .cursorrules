@@ -15,6 +15,29 @@ Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için t
 - Her önemli değişiklikte, her gün sonunda, her özellik eklendiğinde commit yapılacak
 - **UNUTMA:** Git kaydetmeden işlem tamamlanmış sayılmaz!
 
+## KRİTİK KURAL: OTOMATİK GERİ DÖNME YOK!
+**ASLA OTOMATİK GERİ DÖNME YAPILMAYACAK - KULLANICI AÇIKÇA İSTEMEDİKÇE!**
+- ❌ **ASLA** otomatik `git reset --hard` yapılmayacak
+- ❌ **ASLA** otomatik `git checkout` yapılmayacak
+- ❌ **ASLA** kullanıcıya sormadan geri dönme yapılmayacak
+- ❌ **ASLA** "güvenli noktaya dönelim" gibi önerilerde bulunulmayacak
+- ✅ **SADECE** kullanıcı AÇIKÇA "geri dön" dediğinde yapılacak
+- ✅ **SADECE** kullanıcı AÇIKÇA "git reset" dediğinde yapılacak
+- ✅ **SADECE** kullanıcı AÇIKÇA onayladığında yapılacak
+- **ÖNEMLİ:** Daha önce 6 proje kaybolmuş otomatik geri dönme yüzünden! Bu yüzden ASLA otomatik yapılmayacak!
+
+## ÖZEL GÜVENLİ ALAN: 12/01/2026 GÜVENLİ ALAN
+**Tag:** `12-01-guvenli-alan` - Son çare için özel nokta
+- **Durum:** Çalışır halde proje, sadece 123 alan, birkaç sayfa var, iskelet oluşturuluyor, tab açma kapamaları yapıldı
+- **Bu noktaya dönmek isterse:**
+  - ⚠️ **İKİ KEZ UYARI VERİLECEK**
+  - ⚠️ **"Bu yarı programı silme" diye açıklama yapılacak**
+  - ⚠️ **"Bu noktadan sonra yapılan TÜM değişiklikler silinir" diye uyarılacak**
+  - ⚠️ **"Eklenen tüm özellikler kaybolur" diye uyarılacak**
+  - ⚠️ **Sadece kullanıcı İKİ KEZ onayladığında yapılacak**
+- **Normal Git işlemleri:** Devam edecek (her işlemden sonra commit)
+- **Normal Git geri dönüşler:** Yapılabilir (bu sadece son çare)
+
 ## TELERİK KULLANIMI - TÜM İMKANLAR KULLANILACAK
 **Telerik lisanslı - TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!**
 
