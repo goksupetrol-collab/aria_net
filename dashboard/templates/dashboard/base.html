@@ -159,26 +159,13 @@
       try {
         var data = JSON.parse(stored);
         if (data.tabs && data.tabs.length > 0) {
-          // Önce DOM'da zaten var olan tab'ları kontrol et ve openTabs'e ekle
-          $('.tab-item').each(function() {
-            var existingTabId = $(this).data('tab-id');
-            if (existingTabId && !openTabs[existingTabId]) {
-              // DOM'da var ama openTabs'de yok, ekle
-              var title = $(this).find('span').text();
-              var icon = $(this).find('div:first').text();
-              // pageId'yi tabId'den çıkar (tab-operasyon_sayfasi -> operasyon_sayfasi)
-              var pageId = existingTabId.replace('tab-', '');
-              openTabs[existingTabId] = {
-                title: title,
-                pageId: pageId,
-                icon: icon,
-                tabElement: $(this)
-              };
-            }
-          });
-          
           // SessionStorage'dan gelen tab'ları kontrol et
           data.tabs.forEach(function(tabData) {
+            // Eğer tab zaten openTabs'de varsa, atla (çift ekleme olmasın)
+            if (openTabs[tabData.tabId]) {
+              return; // Zaten var, atla
+            }
+            
             // Eğer tab zaten DOM'da varsa, sadece openTabs'e ekle (tabElement'i DOM'dan al)
             var existingElement = $('.tab-item[data-tab-id="' + tabData.tabId + '"]');
             if (existingElement.length > 0) {
@@ -220,6 +207,14 @@
     function createTabElement(tabId) {
       var tab = openTabs[tabId];
       if (!tab) return;
+      
+      // DOM'da zaten var mı kontrol et (çift oluşturma olmasın)
+      var existingElement = $('.tab-item[data-tab-id="' + tabId + '"]');
+      if (existingElement.length > 0) {
+        // DOM'da zaten var, sadece openTabs'e ekle
+        openTabs[tabId].tabElement = existingElement;
+        return;
+      }
       
       var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '" style="background:linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150));border:1px solid #CC9966;border-bottom:none;height:32px;padding:0 15px;display:flex;align-items:center;gap:8px;color:#333333;font-weight:normal;border-radius:4px 4px 0 0;margin-right:2px;cursor:pointer;">' +
         '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + tab.icon + '</div>' +
@@ -312,7 +307,14 @@
         function() { $(this).css('background', 'transparent'); }
       );
       
-      $('#tabs-list').append(tabElement);
+      // DOM'a eklemeden önce tekrar kontrol et (çift ekleme olmasın)
+      var checkExisting = $('.tab-item[data-tab-id="' + tabId + '"]');
+      if (checkExisting.length === 0) {
+        $('#tabs-list').append(tabElement);
+      } else {
+        // DOM'da zaten var, mevcut elementi kullan
+        tabElement = checkExisting;
+      }
       
       openTabs[tabId] = {
         title: title,
