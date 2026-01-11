@@ -26,11 +26,33 @@
       font-family: 'Segoe UI', Arial, sans-serif;
     }
     
-    /* TabStrip Stilleri */
+    /* TabStrip Stilleri - GitHub Copilot önerisi */
     #tabs-container {
       width: 100%;
       margin: 0;
       padding: 0;
+      height: auto; /* TabStrip'in kendi yüksekliğini hesaplamasına izin ver */
+    }
+    #tabs {
+      width: 100%;
+      height: auto; /* TabStrip'in kendi yüksekliğini hesaplamasına izin ver */
+    }
+    /* TabStrip'in kendi CSS'ine müdahale etme - sadece border kaldır */
+    #tabs .k-tabstrip {
+      border: none !important;
+    }
+    /* TabStrip içerik alanını gizle - sadece tab başlıklarını göster */
+    #tabs .k-tabstrip-content {
+      display: none !important;
+    }
+    /* Tab başlıklarının görünür olması için */
+    #tabs .k-tabstrip-items {
+      display: flex !important;
+      visibility: visible !important;
+    }
+    #tabs .k-tabstrip-item {
+      display: inline-block !important;
+      visibility: visible !important;
     }
     .close-tab-btn {
       border: none;
@@ -90,7 +112,7 @@
     <span style="color:#FF0000;font-size:11pt;font-weight:500;">ALAN 3</span>
   </div>
   <!-- Tab Container - Telerik TabStrip kullanılacak -->
-  <div id="tabs-container" style="position:fixed;top:137px;left:0;right:0;z-index:9996;height:32px;background:#FFFFFF;border-bottom:1px solid #E0E0E0;padding:0;font-family:'Segoe UI',Arial,sans-serif;font-size:11pt">
+  <div id="tabs-container" style="position:fixed;top:137px;left:0;right:0;z-index:9998;height:auto;background:#FFFFFF;border-bottom:1px solid #E0E0E0;padding:0;">
     <div id="tabs">
       <ul></ul>
     </div>
@@ -156,21 +178,54 @@
     
     // Telerik TabStrip'i başlat
     function initTabStrip() {
-      tabStrip = $("#tabs").kendoTabStrip({
-        animation: false,
-        select: function(e) {
-          // Tab değiştiğinde sayfa yönlendirmesi
-          var tabId = $(e.item).attr("data-id");
-          if (tabId) {
-            var pageId = tabId.replace('tab-', '');
-            handleTabNavigation(pageId);
-          }
-          saveTabs();
-        }
-      }).data("kendoTabStrip");
+      // Telerik yüklenmiş mi kontrol et
+      if (typeof kendo === 'undefined' || typeof $.fn.kendoTabStrip === 'undefined') {
+        console.log("Telerik TabStrip yükleniyor, bekleniyor...");
+        setTimeout(initTabStrip, 100);
+        return;
+      }
       
-      // Kaydedilmiş tab'ları yükle
-      loadTabsFromStorage();
+      // #tabs elementi var mı kontrol et
+      if ($("#tabs").length === 0) {
+        console.error("#tabs elementi bulunamadı!");
+        return;
+      }
+      
+      try {
+        tabStrip = $("#tabs").kendoTabStrip({
+          animation: false,
+          tabPosition: "top",
+          select: function(e) {
+            // Tab değiştiğinde sayfa yönlendirmesi
+            var tabId = $(e.item).attr("data-id");
+            if (tabId) {
+              var pageId = tabId.replace('tab-', '');
+              handleTabNavigation(pageId);
+            }
+            saveTabs();
+          }
+        }).data("kendoTabStrip");
+        
+        if (!tabStrip) {
+          console.error("TabStrip başlatılamadı!");
+          return;
+        }
+        
+        console.log("TabStrip başarıyla başlatıldı");
+        
+        // TabStrip wrapper'ını kontrol et - GitHub Copilot önerisi
+        if (tabStrip.wrapper) {
+          tabStrip.wrapper.css({
+            'border': 'none'
+          });
+        }
+        
+        // Kaydedilmiş tab'ları yükle
+        loadTabsFromStorage();
+      } catch (error) {
+        console.error("TabStrip başlatma hatası:", error);
+        console.error("Hata detayı:", error.message, error.stack);
+      }
     }
     
     // Tab'ları sessionStorage'dan yükle
@@ -185,39 +240,66 @@
     
     // Tab açma fonksiyonu
     function openTab(id, title, content, select) {
-      if (!tabStrip) return;
-      
-      // Tab zaten varsa aktif yap
-      if (tabExists(id)) {
-        var tabIndex = tabStrip.items().index('[data-id="' + id + '"]');
-        if (tabIndex >= 0) {
-          tabStrip.select(tabIndex);
-        }
+      if (!tabStrip) {
+        console.error("openTab: TabStrip başlatılmamış, başlatılıyor...");
+        initTabStrip();
+        // Kısa bekleme sonrası tekrar dene
+        setTimeout(function() {
+          if (tabStrip) {
+            openTab(id, title, content, select);
+          } else {
+            console.error("openTab: TabStrip başlatılamadı!");
+          }
+        }, 200);
         return;
       }
       
-      var newTab = {
-        text: title + ' <button class="close-tab-btn" data-id="' + id + '">×</button>',
-        content: '<div id="tab-content-' + id + '">' + content + '</div>',
-        encoded: false
-      };
-      
-      tabStrip.append(newTab);
-      var lastIndex = tabStrip.items().length - 1;
-      tabStrip.items().eq(lastIndex).attr("data-id", id);
-      
-      if (select) {
-        tabStrip.select(lastIndex);
+      try {
+        // Tab zaten varsa aktif yap
+        if (tabExists(id)) {
+          var tabIndex = tabStrip.items().index('[data-id="' + id + '"]');
+          if (tabIndex >= 0) {
+            tabStrip.select(tabIndex);
+          }
+          return;
+        }
+        
+        var newTab = {
+          text: title + ' <button class="close-tab-btn" data-id="' + id + '">×</button>',
+          content: '<div id="tab-content-' + id + '">' + content + '</div>',
+          encoded: false
+        };
+        
+        tabStrip.append(newTab);
+        var lastIndex = tabStrip.items().length - 1;
+        var newTabItem = tabStrip.items().eq(lastIndex);
+        newTabItem.attr("data-id", id);
+        
+        if (select) {
+          tabStrip.select(lastIndex);
+        }
+        
+        bindCloseEvents();
+        saveTabs();
+        
+        console.log("Tab eklendi:", id, "Toplam tab sayısı:", tabStrip.items().length);
+      } catch (error) {
+        console.error("openTab hatası:", error);
       }
-      
-      bindCloseEvents();
-      saveTabs();
     }
     
     // Tab var mı kontrol et
     function tabExists(tabId) {
-      if (!tabStrip) return false;
-      return tabStrip.items().filter('[data-id="' + tabId + '"]').length > 0;
+      if (!tabStrip) {
+        console.warn("tabExists: TabStrip başlatılmamış");
+        return false;
+      }
+      try {
+        return tabStrip.items().filter('[data-id="' + tabId + '"]').length > 0;
+      } catch (error) {
+        console.error("tabExists hatası:", error);
+        return false;
+      }
     }
     
     // Kapat butonlarını bağla
@@ -330,34 +412,66 @@
       var pageName = $(this).data('page');
       var menuItem = menuItems.find(function(item) { return item.name === pageName; });
       
-      if (!menuItem) return;
+      if (!menuItem) {
+        console.error("MenuItem bulunamadı:", pageName);
+        return;
+      }
+      
+      // TabStrip başlatılmamışsa başlat
+      if (!tabStrip) {
+        console.log("TabStrip başlatılıyor...");
+        initTabStrip();
+        // Kısa bir bekleme süresi
+        setTimeout(function() {
+          handleRibbonButtonClick(pageName, menuItem);
+        }, 100);
+        return;
+      }
+      
+      handleRibbonButtonClick(pageName, menuItem);
+    });
+    
+    // Ribbon buton tıklama işlemini yönet
+    function handleRibbonButtonClick(pageName, menuItem) {
+      if (!tabStrip) {
+        console.error("TabStrip hala başlatılmamış!");
+        return;
+      }
       
       var tabBaslik = menuItem.tab_baslik || menuItem.baslik;
       var tabId = pageName;
       
-      // Tab zaten varsa aktif yap
-      if (tabExists(tabId)) {
-        var tabIndex = tabStrip.items().index('[data-id="' + tabId + '"]');
-        if (tabIndex >= 0) {
-          tabStrip.select(tabIndex);
+      try {
+        // Tab zaten varsa aktif yap
+        if (tabExists(tabId)) {
+          var tabIndex = tabStrip.items().index('[data-id="' + tabId + '"]');
+          if (tabIndex >= 0) {
+            tabStrip.select(tabIndex);
+          }
+        } else {
+          // Yeni tab aç
+          var content = '<div>Sayfa içeriği yükleniyor...</div>';
+          openTab(tabId, tabBaslik, content, true);
         }
-      } else {
-        // Yeni tab aç
-        var content = '<div>Sayfa içeriği yükleniyor...</div>';
-        openTab(tabId, tabBaslik, content, true);
-      }
-      
-      setActiveRibbonButton(pageName);
-      
-      // Sayfa yönlendirmesi
-      if (menuItem.page_url && menuItem.page_url !== window.location.pathname && menuItem.page_url !== '/') {
-        window.location.href = menuItem.page_url;
-      } else if (pageName === 'operasyon_sayfasi' || pageName === 'operasyon') {
-        if (window.location.pathname !== '/') {
-          window.location.href = "/";
+        
+        setActiveRibbonButton(pageName);
+        
+        // Sayfa yönlendirmesi
+        if (menuItem.page_url && menuItem.page_url !== window.location.pathname && menuItem.page_url !== '/') {
+          window.location.href = menuItem.page_url;
+        } else if (pageName === 'operasyon_sayfasi' || pageName === 'operasyon') {
+          if (window.location.pathname !== '/') {
+            window.location.href = "/";
+          }
+        }
+      } catch (error) {
+        console.error("Ribbon buton tıklama hatası:", error);
+        // Hata durumunda direkt sayfa yönlendirmesi yap
+        if (menuItem.page_url && menuItem.page_url !== window.location.pathname) {
+          window.location.href = menuItem.page_url;
         }
       }
-    });
+    }
     
     // Ribbon butonlarına hover efekti
     $(document).on("mouseenter", ".ribbon-button", function() {
