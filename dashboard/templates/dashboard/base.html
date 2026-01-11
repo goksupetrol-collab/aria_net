@@ -260,10 +260,26 @@
           animation: false,
           tabPosition: "top",
           select: function(e) {
-            var tabId = $(e.item).data('tab-id');
+            var tabItem = $(e.item);
+            var tabId = tabItem.attr("data-tab-id");
+            
+            // Eğer data-tab-id yoksa, tab text'inden bul
+            if (!tabId) {
+              var tabText = tabItem.text().trim();
+              for (var tid in openTabs) {
+                var expectedText = openTabs[tid].icon + ' ' + openTabs[tid].title;
+                if (tabText.indexOf(expectedText) >= 0) {
+                  tabId = tid;
+                  break;
+                }
+              }
+            }
+            
             if (tabId && openTabs[tabId]) {
+              activeTabId = tabId;
               handleTabNavigation(openTabs[tabId].pageId);
               setActiveRibbonButton(openTabs[tabId].pageId);
+              saveTabsToStorage();
             }
           }
         }).data("kendoTabStrip");
@@ -288,29 +304,16 @@
           
           // Telerik Button için HTML oluştur
           var buttonId = 'ribbon-btn-' + item.name;
-          var buttonHtml = '<button id="' + buttonId + '" class="k-button k-button-md" data-page="' + item.name + '" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 6px;min-width:70px;max-width:70px;height:70px;">' +
+          var buttonHtml = '<button id="' + buttonId + '" class="k-button k-button-md ribbon-button" data-page="' + item.name + '" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 6px;min-width:70px;max-width:70px;height:70px;">' +
             '<span style="font-size:32px;margin-bottom:2px;line-height:1;">' + item.icon + '</span>' +
             '<span style="text-align:center;font-size:12px;line-height:1.1;max-width:65px;word-wrap:break-word;">' + baslik + '</span>' +
             '</button>';
           
           $("#ribbon-buttons").append(buttonHtml);
           
-          // Telerik Button'ı başlat
+          // Telerik Button'ı başlat (sadece görsel)
           if (typeof kendo !== 'undefined' && typeof $.fn.kendoButton !== 'undefined') {
-            $("#" + buttonId).kendoButton({
-              click: function(e) {
-                var buttonElement = e.sender.element();
-                var pageName = buttonElement.data('page');
-                var menuItem = menuItems.find(function(item) { return item.name === pageName; });
-                if (menuItem) {
-                  var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
-                  var tabIcon = menuItem.icon || '📄';
-                  openTab(tabTitle, pageName, tabIcon);
-                  setActiveRibbonButton(pageName);
-                  handleTabNavigation(pageName);
-                }
-              }
-            });
+            $("#" + buttonId).kendoButton();
           }
         }
       });
@@ -372,50 +375,39 @@
       if (!tab || !tabStrip) return;
       
       // Telerik TabStrip'te zaten bu tab var mı kontrol et
-      var tabIndex = getTabIndex(tabId);
-      if (tabIndex >= 0) {
+      if ($("#tabs").find('[data-tab-id="' + tabId + '"]').length > 0) {
         return; // Zaten var
       }
       
       // Telerik TabStrip'e tab ekle
-      var tabText = tab.icon + ' ' + tab.title + ' <span class="tab-close" data-tab-id="' + tabId + '" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:2px;display:inline-block;">×</span>';
-      var tabIndex = tabStrip.append({
-        text: tabText,
-        content: '<div></div>', // İçerik boş, sadece tab başlığı kullanılıyor
+      var tabContent = tab.icon + ' ' + tab.title + ' <span class="tab-close" data-tab-id="' + tabId + '" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;">×</span>';
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
         encoded: false
       });
       
-      // Tab index'ini kaydet
-      openTabs[tabId].tabIndex = tabIndex;
-      
-      // Close butonuna tıklama event'i ekle
+      // Tab elementine data-tab-id attribute ekle (setTimeout ile DOM hazır olana kadar bekle)
       setTimeout(function() {
-        $('#tabs .tab-close[data-tab-id="' + tabId + '"]').on('click', function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          closeTab(tabId);
-        });
+        var addedTab = tabStrip.items().last();
+        $(addedTab).attr("data-tab-id", tabId);
+        
+        // Close butonuna direkt click event bağla
+        var closeBtn = $("#tabs").find('.tab-close[data-tab-id="' + tabId + '"]');
+        if (closeBtn.length > 0) {
+          closeBtn.off("click").on("click", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            closeTab(tabId);
+          });
+        }
       }, 100);
     }
     
     // Tab index'ini bul - TabStrip'te tab'ları takip etmek için
     function getTabIndex(tabId) {
       if (!tabStrip || !openTabs[tabId]) return -1;
-      
-      // Tab'ları sırayla kontrol et
-      var items = tabStrip.items();
-      var tabText = openTabs[tabId].icon + ' ' + openTabs[tabId].title;
-      
-      for (var i = 0; i < items.length; i++) {
-        var item = $(items[i]);
-        var itemText = item.text().trim();
-        // Close butonunu kaldırarak karşılaştır
-        itemText = itemText.replace('×', '').trim();
-        if (itemText === tabText || item.find('[data-tab-id="' + tabId + '"]').length > 0) {
-          return i;
-        }
-      }
-      return -1;
+      return tabStrip.items().index($("#tabs").find('[data-tab-id="' + tabId + '"]'));
     }
     
     // Tab açma fonksiyonu - Telerik TabStrip için
@@ -448,7 +440,7 @@
     function setActiveTab(tabId) {
       if (!tabStrip || !openTabs[tabId]) return;
       
-      var tabIndex = openTabs[tabId].tabIndex !== undefined ? openTabs[tabId].tabIndex : getTabIndex(tabId);
+      var tabIndex = getTabIndex(tabId);
       if (tabIndex >= 0) {
         tabStrip.select(tabIndex);
         activeTabId = tabId;
@@ -461,33 +453,23 @@
     function closeTab(tabId) {
       if (!openTabs[tabId] || !tabStrip) return;
       
-      var wasActive = (activeTabId === tabId);
-      var pageId = openTabs[tabId].pageId;
-      var tabIndex = openTabs[tabId].tabIndex !== undefined ? openTabs[tabId].tabIndex : getTabIndex(tabId);
-      
+      var tabIndex = getTabIndex(tabId);
       if (tabIndex >= 0) {
         tabStrip.remove(tabIndex);
-        // Kalan tab'ların index'lerini güncelle
-        for (var tid in openTabs) {
-          if (openTabs[tid].tabIndex > tabIndex) {
-            openTabs[tid].tabIndex--;
-          }
-        }
       }
       
       delete openTabs[tabId];
       
+      // Kalan tab'ları kontrol et
       var remainingTabs = Object.keys(openTabs);
-      if (remainingTabs.length === 0) {
+      if (remainingTabs.length > 0) {
+        // İlk kalan tab'ı aktif yap
+        var nextTabId = remainingTabs[0];
+        setActiveTab(nextTabId);
+        handleTabNavigation(openTabs[nextTabId].pageId);
+      } else {
         activeTabId = null;
         handleAllTabsClosed();
-      } else {
-        if (wasActive) {
-          // En son açılan tab'ı aktif yap (son tab)
-          var lastRemainingTabId = remainingTabs[remainingTabs.length - 1];
-          setActiveTab(lastRemainingTabId);
-          handleTabNavigation(openTabs[lastRemainingTabId].pageId);
-        }
       }
       
       saveTabsToStorage();
@@ -551,8 +533,28 @@
       });
     }
     
-    // Ribbon butonlarına tıklama artık Telerik Button içinde handle ediliyor
-    // Eski ribbon-button class'ı kaldırıldı, artık Telerik Button kullanılıyor
+    // Ribbon butonlarına tıklama (Event delegation ile - Telerik Button görünümünde)
+    $(document).on("click", ".ribbon-button", function() {
+      var pageName = $(this).data('page');
+      var menuItem = menuItems.find(function(item) { return item.name === pageName; });
+      
+      if (!menuItem) {
+        console.error("MenuItem bulunamadı:", pageName);
+        return;
+      }
+      
+      var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
+      var tabIcon = menuItem.icon || '📄';
+      openTab(tabTitle, pageName, tabIcon);
+      
+      // Aktif ribbon butonunu ayarla
+      setActiveRibbonButton(pageName);
+      
+      // Sayfa yönlendirmesi
+      handleTabNavigation(pageName);
+    });
+    
+    // Tab close butonlarına tıklama artık createTabElement içinde direkt bağlanıyor
   </script>
   
   {% block extra_scripts %}{% endblock %}

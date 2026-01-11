@@ -1,0 +1,500 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Yeni Telerik Projesi{% endblock %}</title>
+  <link rel="icon" href="data:,">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;font-size:11px;overflow-x:hidden !important;overflow-y:auto;width:100%;max-width:100vw}
+    
+    /* main-content overflow kontrol├╝ - horizontal scroll olmas─▒n */
+    #main-content{overflow-x:hidden !important;overflow-y:auto;width:100% !important;max-width:100vw !important;position:relative;min-height:auto !important;height:auto !important}
+    #main-content > * {max-width:100% !important;overflow-x:hidden !important;width:100% !important}
+    
+    /* Telerik Grid overflow kontrol├╝ - t├╝m grid elementlerinde */
+    .k-grid, .k-grid-content, .k-grid-header, .k-grid-header-wrap, .k-grid-content-wrap,
+    .k-grid table, .k-grid-header table {overflow-x:hidden !important;max-width:100% !important}
+    .k-grid-content-locked, .k-grid-header-locked {overflow-x:hidden !important}
+    
+    /* 3 Sabit Alan - Basit HTML ile */
+    #fixed-area-1-container,
+    #fixed-area-2-container,
+    #fixed-area-3-container {
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    /* Tab Container - Basit HTML Tab Sistemi */
+    #tabs-container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex !important;
+      visibility: visible !important;
+      overflow-x: auto;
+    }
+    #tabs-list {
+      display: flex !important;
+      align-items: center;
+      gap: 2px;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      list-style: none;
+    }
+    /* Tab item stilleri */
+    .tab-item {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      height: 32px;
+      padding: 0 15px;
+      cursor: pointer;
+      border-radius: 4px 4px 0 0;
+      margin-right: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .tab-item.active {
+      background: linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150)) !important;
+      border: 1px solid #CC9966 !important;
+      border-bottom: none !important;
+    }
+    .tab-item:not(.active) {
+      background: #FFFFFF !important;
+      border: 1px solid #CCCCCC !important;
+      border-bottom: 1px solid #E0E0E0 !important;
+      height: 30px;
+    }
+    .tab-close {
+      width: 16px;
+      height: 16px;
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #666666;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .tab-close:hover {
+      background: rgba(255,0,0,0.2);
+    }
+  </style>
+  
+  <!-- Telerik Kendo UI CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/kendo/styles/default-main.css' %}" />
+  
+  <!-- jQuery (Telerik i├ğin gerekli) -->
+  <script src="{% static 'dashboard/js/jquery-3.6.0.min.js' %}"></script>
+  
+  <!-- Telerik Kendo UI JavaScript (T├╝m bile┼şenler) -->
+  <script src="{% static 'dashboard/js/kendo.all.min.js' %}"></script>
+  
+  <!-- Telerik T├╝rk├ğe K├╝lt├╝r -->
+  <script src="{% static 'dashboard/js/cultures/kendo.culture.tr-TR.min.js' %}"></script>
+  <script>
+    kendo.culture("tr-TR");
+  </script>
+  
+  <!-- Telerik Lisans -->
+  <script src="{% static 'dashboard/kendo/telerik-license.js' %}"></script>
+  
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <!-- 1. SAB─░T ALAN: ALAN 1 (En ├£st) - A├ğ─▒k Gri Tonu -->
+  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #F5F5F5, #E8E8E8);height:28px;border-bottom:1px solid #D0D0D0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
+    <span style="color:#FF0000;font-size:11pt;font-weight:500;">ALAN 1</span>
+  </div>
+  
+  <!-- 2. SAB─░T ALAN: ALAN 2 (Ribbon Butonlar─▒ ─░├ğinde) - A├ğ─▒k Ye┼şil Tonu -->
+  <div id="fixed-area-2-container" style="position:fixed;top:28px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #E8F5E9, #C8E6C9);height:86px;display:flex;align-items:center;justify-content:flex-start;padding:12px 8px;gap:8px;font-family:'Segoe UI',Arial,sans-serif;">
+    <!-- Ribbon Butonlar─▒ (ALAN 2'nin i├ğinde) -->
+    <div id="main-ribbon-container" style="display:flex;align-items:center;gap:8px;overflow-x:auto;flex:1;justify-content:flex-start;">
+      <div id="ribbon-buttons" style="display:flex;gap:8px;align-items:center;flex-wrap:nowrap"></div>
+    </div>
+    <!-- ALAN 2 Yaz─▒s─▒ (Arka planda, ribbon butonlar─▒n─▒n arkas─▒nda) -->
+    <span style="color:#FF0000;font-size:11pt;font-weight:500;position:absolute;left:50%;transform:translateX(-50%);z-index:-1;pointer-events:none;">ALAN 2</span>
+  </div>
+  
+  <!-- 3. SAB─░T ALAN: ALAN 3 (Tab'lar─▒n ├£st├╝) - A├ğ─▒k ┼Şeftali/Bej Tonu -->
+  <div id="fixed-area-3-container" style="position:fixed;top:114px;left:0;right:0;z-index:9998;background:linear-gradient(to bottom, #FFF8E1, #FFECB3);height:23px;border-bottom:1px solid #E0D0B0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
+    <span style="color:#FF0000;font-size:11pt;font-weight:500;">ALAN 3</span>
+  </div>
+  <!-- Tab Container - Basit HTML Tab Sistemi -->
+  <div id="tabs-container" style="position:fixed;top:137px;left:0;right:0;z-index:9997;height:32px;background:#FFFFFF;border-bottom:1px solid #E0E0E0;padding:0;display:flex;align-items:center;overflow-x:auto;">
+    <div id="tabs-list" style="display:flex;align-items:center;gap:2px;padding:0;margin:0;height:100%;"></div>
+  </div>
+  
+  <!-- TANIMLAR ALT MEN├£ -->
+  <div id="tanimlar-menu" style="position:fixed;top:28px;left:0;background:#FFFFFF;border:1px solid #E0E0E0;box-shadow:0 2px 4px rgba(0,0,0,0.1);z-index:10001;display:none;min-width:200px;">
+    <div id="tanimlar-firmalar" style="padding:5px 15px;cursor:pointer;border-bottom:1px solid #F0F0F0;">Firmalar</div>
+    <div id="tanimlar-urunler" style="padding:5px 15px;cursor:pointer;">├£r├╝nler</div>
+  </div>
+  
+  <!-- FIRMA Y├ûNET─░M─░ WINDOW -->
+  <div id="firma-window" style="display:none;">
+    <div id="firma-grid-container" style="padding:10px;height:100%;">
+      <div id="firma-grid" style="height:300px;"></div>
+    </div>
+  </div>
+  
+  <!-- ├£R├£N Y├ûNET─░M─░ WINDOW -->
+  <div id="urun-window" style="display:none;">
+    <div id="urun-grid-container" style="padding:10px;height:100%;">
+      <div id="urun-grid" style="height:300px;"></div>
+    </div>
+  </div>
+  
+  <!-- ─░├çER─░K ALANI -->
+  <div id="main-content" style="margin-top:169px;padding-top:0;">
+    {% block content %}{% endblock %}
+  </div>
+  
+  <script>
+    // Men├╝ ├Â─şelerini veritaban─▒ndan y├╝kle
+    var menuItems = {{ menu_items|safe }};
+    
+    // Tab y├Ânetimi - Basit HTML Tab Sistemi
+    var openTabs = {};
+    var activeTabId = null;
+    
+    // Ribbon butonlar─▒n─▒ ba┼şlat
+    $(document).ready(function() {
+      // Ribbon butonlar─▒n─▒ olu┼ştur
+      loadRibbonButtons();
+      
+      // Tab'lar─▒ y├╝kle
+      loadTabsFromStorage();
+    });
+    
+    // Ribbon butonlar─▒n─▒ olu┼ştur (t├╝m sayfalarda kullan─▒labilir)
+    function loadRibbonButtons() {
+      var html = '';
+      menuItems.forEach(function(item) {
+        if (item.aktif) {
+          var baslikHtml = item.baslik.replace(' ', '<br>');
+          html += `
+            <div class="ribbon-button" data-page="${item.name}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;min-width:90px;cursor:pointer;border-radius:3px;transition:all 0.2s;background:transparent;border:2px solid transparent;">
+              <div style="font-size:40px;margin-bottom:4px;">${item.icon}</div>
+              <div style="text-align:center;font-size:11pt;color:#333333;font-weight:500;line-height:1.2;max-width:85px;">${baslikHtml}</div>
+            </div>
+          `;
+        }
+      });
+      $("#ribbon-buttons").html(html);
+    }
+    
+    // Tab'lar─▒ sessionStorage'a kaydetme fonksiyonu
+    function saveTabsToStorage() {
+      var tabsArray = [];
+      for (var tabId in openTabs) {
+        tabsArray.push({
+          tabId: tabId,
+          title: openTabs[tabId].title,
+          pageId: openTabs[tabId].pageId,
+          icon: openTabs[tabId].icon
+        });
+      }
+      sessionStorage.setItem('openTabs', JSON.stringify({
+        tabs: tabsArray,
+        activeTabId: activeTabId
+      }));
+    }
+    
+    // Tab'lar─▒ sessionStorage'dan y├╝kleme fonksiyonu
+    function loadTabsFromStorage() {
+      var stored = sessionStorage.getItem('openTabs');
+      if (!stored) return;
+      
+      try {
+        var data = JSON.parse(stored);
+        if (data.tabs && data.tabs.length > 0) {
+          data.tabs.forEach(function(tabData) {
+            openTabs[tabData.tabId] = {
+              title: tabData.title,
+              pageId: tabData.pageId,
+              icon: tabData.icon,
+              tabElement: null
+            };
+          });
+          
+          for (var tabId in openTabs) {
+            if (!openTabs[tabId].tabElement) {
+              createTabElement(tabId);
+            }
+          }
+          
+          if (data.activeTabId && openTabs[data.activeTabId]) {
+            setActiveTab(data.activeTabId);
+          }
+        }
+      } catch (e) {
+        console.error('Tab y├╝kleme hatas─▒:', e);
+      }
+    }
+    
+    // Tab DOM elementi olu┼şturma fonksiyonu
+    function createTabElement(tabId) {
+      var tab = openTabs[tabId];
+      if (!tab) return;
+      
+      var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
+        '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + tab.icon + '</div>' +
+        '<span>' + tab.title + '</span>' +
+        '<div class="tab-close">├ù</div>' +
+        '</div>');
+      
+      tabElement.on('click', function(e) {
+        if (!$(e.target).hasClass('tab-close')) {
+          setActiveTab(tabId);
+          var pageId = tab.pageId;
+          handleTabNavigation(pageId);
+        }
+      });
+      
+      tabElement.find('.tab-close').on('click', function(e) {
+        e.stopPropagation();
+        closeTab(tabId);
+      });
+      
+      tabElement.find('.tab-close').hover(
+        function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
+        function() { $(this).css('background', 'transparent'); }
+      );
+      
+      $('#tabs-list').append(tabElement);
+      openTabs[tabId].tabElement = tabElement;
+    }
+    
+    // Tab a├ğma fonksiyonu
+    function openTab(title, pageId, icon) {
+      var tabId = 'tab-' + pageId;
+      
+      if (openTabs[tabId]) {
+        setActiveTab(tabId);
+        saveTabsToStorage();
+        return;
+      }
+      
+      var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
+        '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + icon + '</div>' +
+        '<span>' + title + '</span>' +
+        '<div class="tab-close">├ù</div>' +
+        '</div>');
+      
+      tabElement.on('click', function(e) {
+        if (!$(e.target).hasClass('tab-close')) {
+          setActiveTab(tabId);
+          handleTabNavigation(pageId);
+        }
+      });
+      
+      tabElement.find('.tab-close').on('click', function(e) {
+        e.stopPropagation();
+        closeTab(tabId);
+      });
+      
+      tabElement.find('.tab-close').hover(
+        function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
+        function() { $(this).css('background', 'transparent'); }
+      );
+      
+      $('#tabs-list').append(tabElement);
+      
+      openTabs[tabId] = {
+        title: title,
+        pageId: pageId,
+        icon: icon,
+        tabElement: tabElement
+      };
+      
+      setActiveTab(tabId);
+      saveTabsToStorage();
+    }
+    
+    // Aktif tab de─şi┼ştirme
+    function setActiveTab(tabId) {
+      $('.tab-item').each(function() {
+        var id = $(this).data('tab-id');
+        if (id !== tabId) {
+          $(this).removeClass('active');
+          $(this).css({
+            'background': '#FFFFFF',
+            'border': '1px solid #CCCCCC',
+            'border-bottom': '1px solid #E0E0E0',
+            'height': '30px'
+          });
+          $(this).find('div:first').css({
+            'width': '14px',
+            'height': '14px',
+            'background': '#FFFFFF',
+            'border': '1px solid #4A90E2',
+            'border-radius': '2px',
+            'font-size': '12px'
+          });
+        }
+      });
+      
+      if (openTabs[tabId]) {
+        openTabs[tabId].tabElement.addClass('active');
+        openTabs[tabId].tabElement.css({
+          'background': 'linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150))',
+          'border': '1px solid #CC9966',
+          'border-bottom': 'none',
+          'height': '32px'
+        });
+        openTabs[tabId].tabElement.find('div:first').css({
+          'width': '16px',
+          'height': '16px',
+          'background': '#4A90E2',
+          'border-radius': '50%',
+          'border': 'none',
+          'font-size': '14px'
+        });
+        
+        activeTabId = tabId;
+        setActiveRibbonButton(openTabs[tabId].pageId);
+        saveTabsToStorage();
+      }
+    }
+    
+    // Tab kapatma
+    function closeTab(tabId) {
+      if (!openTabs[tabId]) return;
+      
+      var wasActive = (activeTabId === tabId);
+      var pageId = openTabs[tabId].pageId;
+      
+      if (openTabs[tabId].tabElement) {
+        openTabs[tabId].tabElement.remove();
+      }
+      delete openTabs[tabId];
+      
+      var remainingTabs = Object.keys(openTabs);
+      if (remainingTabs.length === 0) {
+        activeTabId = null;
+        handleAllTabsClosed();
+      } else {
+        if (wasActive) {
+          var firstRemainingTabId = remainingTabs[0];
+          setActiveTab(firstRemainingTabId);
+          handleTabNavigation(openTabs[firstRemainingTabId].pageId);
+        }
+      }
+      
+      saveTabsToStorage();
+    }
+    
+    // Tab var m─▒ kontrol et
+    function tabExists(tabId) {
+      return openTabs.hasOwnProperty(tabId);
+    }
+    
+    // Tab navigasyonu (sayfa y├Ânlendirmesi)
+    function handleTabNavigation(pageId) {
+      if (pageId === 'operasyon_sayfasi' || pageId === 'operasyon') {
+        if (window.location.pathname !== '/') {
+          window.location.href = "/";
+        } else {
+          $('#main-content-operasyon').show();
+          $('#title-bar').hide();
+        }
+      } else {
+        var menuItem = menuItems.find(function(item) { return item.name === pageId; });
+        if (menuItem && menuItem.page_url) {
+          if (window.location.pathname !== menuItem.page_url) {
+            window.location.href = menuItem.page_url;
+          }
+        }
+      }
+      setActiveRibbonButton(pageId);
+    }
+    
+    // T├╝m tab'lar kapand─▒─ş─▒nda
+    function handleAllTabsClosed() {
+      $('#main-content-operasyon').hide();
+      $('#title-bar').show();
+      if (window.location.pathname !== '/') {
+        window.location.href = "/";
+      }
+      setActiveRibbonButton(null);
+    }
+    
+    // Aktif ribbon butonunu ayarlama fonksiyonu
+    function setActiveRibbonButton(pageName) {
+      $(".ribbon-button").each(function() {
+        var page = $(this).data('page');
+        if (pageName && page === pageName) {
+          $(this).addClass('active');
+          $(this).css({
+            'background': 'rgba(255,255,255,0.4)',
+            'border': '2px solid #4A90E2',
+            'box-shadow': '0 2px 4px rgba(74, 144, 226, 0.3)'
+          });
+          $(this).find('div:last').css({
+            'color': '#1e3a8a',
+            'font-weight': '600'
+          });
+        } else {
+          $(this).removeClass('active');
+          $(this).css({
+            'background': 'transparent',
+            'border': '2px solid transparent',
+            'box-shadow': 'none'
+          });
+          $(this).find('div:last').css({
+            'color': '#333333',
+            'font-weight': '500'
+          });
+        }
+      });
+    }
+    
+    // Ribbon butonlar─▒na t─▒klama (T├╝m sayfalarda ortak)
+    $(document).on("click", ".ribbon-button", function() {
+      var pageName = $(this).data('page');
+      var menuItem = menuItems.find(function(item) { return item.name === pageName; });
+      
+      if (!menuItem) {
+        console.error("MenuItem bulunamad─▒:", pageName);
+        return;
+      }
+      
+      var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
+      var tabIcon = menuItem.icon || '­şôä';
+      
+      // Tab a├ğ
+      openTab(tabTitle, pageName, tabIcon);
+      
+      // Aktif ribbon butonunu ayarla
+      setActiveRibbonButton(pageName);
+      
+      // Sayfa y├Ânlendirmesi
+      handleTabNavigation(pageName);
+    });
+    
+    // Ribbon butonlar─▒na hover efekti
+    $(document).on("mouseenter", ".ribbon-button", function() {
+      if (!$(this).hasClass('active')) {
+        $(this).css("background", "rgba(255,255,255,0.2)");
+      }
+    });
+    
+    $(document).on("mouseleave", ".ribbon-button", function() {
+      if (!$(this).hasClass('active')) {
+        $(this).css("background", "transparent");
+      }
+    });
+  </script>
+  
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
