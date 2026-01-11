@@ -28,9 +28,9 @@ banka_menu, created = MenuItem.objects.get_or_create(
 )
 
 if created:
-    print(f"✅ Banka menü öğesi eklendi! Sıra No: {new_sira}")
+    print(f"OK Banka menu ogesi eklendi! Sira No: {new_sira}")
 else:
-    print(f"ℹ️ Banka menü öğesi zaten var, güncellendi.")
+    print(f"INFO Banka menu ogesi zaten var, guncellendi.")
     banka_menu.sira_no = new_sira
     banka_menu.baslik = 'Banka'
     banka_menu.tab_baslik = 'Banka'
@@ -38,4 +38,4 @@ else:
     banka_menu.page_url = '/banka/'
     banka_menu.aktif = True
     banka_menu.save()
-    print(f"✅ Banka menü öğesi güncellendi! Sıra No: {new_sira}")
+    print(f"OK Banka menu ogesi guncellendi! Sira No: {new_sira}")
