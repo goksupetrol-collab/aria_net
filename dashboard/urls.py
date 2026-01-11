@@ -4,6 +4,7 @@ from .views import (
     telerik_yeni_proje,
     kredi_karti,
     banka,
+    tanker,
     api_motorin_satis,
     api_benzin_satis,
     api_tahsilat,
@@ -18,11 +19,12 @@ from .views import (
 )
 
 urlpatterns = [
-    path('', telerik_yeni_proje, name='home'),  # Varsayılan: Telerik sayfası
+    path('', telerik_yeni_proje, name='home'),  # Varsay?lan: Telerik sayfas?
     path('motorin-telerik-test/', motorin_telerik_test, name='motorin_telerik_test'),
     path('telerik-yeni-proje/', telerik_yeni_proje, name='telerik_yeni_proje'),
     path('kredi-karti/', kredi_karti, name='kredi_karti'),
     path('banka/', banka, name='banka'),
+    path('tanker/', tanker, name='tanker'),
     # API endpoints
     path('api/motorin-satis/', api_motorin_satis, name='api_motorin_satis'),
     path('api/benzin-satis/', api_benzin_satis, name='api_benzin_satis'),

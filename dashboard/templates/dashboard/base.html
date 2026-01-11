@@ -408,9 +408,10 @@
         handleAllTabsClosed();
       } else {
         if (wasActive) {
-          var firstRemainingTabId = remainingTabs[0];
-          setActiveTab(firstRemainingTabId);
-          handleTabNavigation(openTabs[firstRemainingTabId].pageId);
+          // En son açılan tab'ı aktif yap (son tab)
+          var lastRemainingTabId = remainingTabs[remainingTabs.length - 1];
+          setActiveTab(lastRemainingTabId);
+          handleTabNavigation(openTabs[lastRemainingTabId].pageId);
         }
       }
       
