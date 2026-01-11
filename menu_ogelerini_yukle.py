@@ -11,6 +11,9 @@ from dashboard.models import MenuItem
 
 menu_ogeleri = [
     (1, 'operasyon_sayfasi', 'Operasyon Sayfası', 'Operasyon Sayfası', '⛽', '/', True),
+    (2, 'kredi_karti', 'K.Kartı-Kredi', 'K.Kartı-Kredi', '💳', '/kredi-karti/', True),
+    (3, 'banka', 'Banka', 'Banka', '🏦', '/banka/', True),
+    (4, 'tanker', 'Tanker', 'Tanker', '🚛', '/tanker/', True),
 ]
 
 print("Menü öğeleri kaydediliyor...")
