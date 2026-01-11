@@ -446,6 +446,19 @@
               </div>
             </div>
           </div>
+          
+          <!-- EXCEL DOSYASI YÜKLEME -->
+          <div style="padding:15px;background:#fff;border-radius:8px;margin:10px 0;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+            <div style="font-weight:bold;margin-bottom:10px;font-size:14px;color:#2d3748;">EXCEL DOSYASI YÜKLEME</div>
+            <div id="upload-area" style="min-height:50px;"></div>
+            <div id="upload-progress" style="margin-top:10px;display:none;padding:5px;background:#f0f0f0;border-radius:4px;font-size:12px;color:#2d3748;"></div>
+          </div>
+          
+          <!-- ŞUBE BAZLI SATIŞ GRAFİĞİ -->
+          <div style="padding:10px;background:#fff;border-radius:8px;margin:10px 0;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+            <div style="font-weight:bold;margin-bottom:10px;font-size:14px;color:#2d3748;">ŞUBE BAZLI SATIŞ GRAFİĞİ</div>
+            <div id="satis-grafik" style="height:300px;"></div>
+          </div>
         </div>
       </div>
 
@@ -506,8 +519,150 @@
 
   <!-- FİYAT DEĞİŞİMİ SAYFASI -->
   <div class="container" id="main-content-fiyat-degisimi" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİYAT DEĞİŞİMİ</h1>
-    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİYAT DEĞİŞİMİ - TELERİK BİLEŞEN ÖRNEKLERİ</h1>
+    
+    <!-- 1. AUTOCOMPLETE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">1. AUTOCOMPLETE (Otomatik Tamamlama)</h3>
+      <p style="color:#666;font-size:12px;">Google arama gibi - "Aria" yazınca altında öneriler çıkar</p>
+      <input id="autocomplete-fiyat" style="width:100%;max-width:400px;" placeholder="Firma adı yazın..." />
+    </div>
+
+    <!-- 2. PROGRESSBAR -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">2. PROGRESSBAR (İlerleme Çubuğu)</h3>
+      <p style="color:#666;font-size:12px;">Dosya indirirken gördüğün çubuk gibi</p>
+      <div id="progressbar-fiyat" style="width:100%;max-width:400px;"></div>
+      <button onclick="testProgressBar()" style="margin-top:10px;padding:5px 15px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">İlerlemeyi Başlat</button>
+    </div>
+
+    <!-- 3. MULTISELECT -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">3. MULTISELECT (Çoklu Seçim)</h3>
+      <p style="color:#666;font-size:12px;">WhatsApp'ta grup seçerken gibi - birden fazla şeyi seçebilirsin</p>
+      <select id="multiselect-fiyat" multiple="multiple" style="width:100%;max-width:400px;"></select>
+    </div>
+
+    <!-- 4. DROPDOWNLIST -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">4. DROPDOWNLIST (Açılır Liste)</h3>
+      <p style="color:#666;font-size:12px;">Açılır kutu - tıklayınca liste açılır, birini seçersin</p>
+      <input id="dropdownlist-fiyat" style="width:100%;max-width:400px;" />
+    </div>
+
+    <!-- 5. MASKEDTEXTBOX -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">5. MASKEDTEXTBOX (Maskeli Metin)</h3>
+      <p style="color:#666;font-size:12px;">Telefon numarası yazarken otomatik tire koyar</p>
+      <input id="maskedtextbox-fiyat" style="width:100%;max-width:400px;" placeholder="Telefon: 555-123-4567" />
+    </div>
+
+    <!-- 6. GAUGE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">6. GAUGE (Gösterge)</h3>
+      <p style="color:#666;font-size:12px;">Araba göstergesi gibi - yuvarlak, içinde yüzde yazar</p>
+      <div id="gauge-fiyat" style="width:100%;max-width:300px;height:200px;"></div>
+    </div>
+
+    <!-- 7. SPARKLINE -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">7. SPARKLINE (Mini Grafik)</h3>
+      <p style="color:#666;font-size:12px;">Tabloda her satırın yanında küçük bir çizgi grafik</p>
+      <div id="sparkline-fiyat" style="width:100%;max-width:400px;height:100px;"></div>
+    </div>
+
+    <!-- 8. EDITOR -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">8. EDITOR (Zengin Metin Editörü)</h3>
+      <p style="color:#666;font-size:12px;">Word'de yazı yazarken gibi - kalın, italik, renkli yap</p>
+      <textarea id="editor-fiyat" style="width:100%;max-width:600px;height:200px;"></textarea>
+    </div>
+
+    <!-- 9. COLORPICKER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">9. COLORPICKER (Renk Seçici)</h3>
+      <p style="color:#666;font-size:12px;">Paint'te renk seçerken gibi - renk kutusu açılır</p>
+      <input id="colorpicker-fiyat" style="width:100%;max-width:200px;" />
+    </div>
+
+    <!-- 10. SLIDER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">10. SLIDER (Kaydırıcı)</h3>
+      <p style="color:#666;font-size:12px;">Ses açma/kapama çubuğu gibi - sağa sola kaydırırsın</p>
+      <div id="slider-fiyat" style="width:100%;max-width:400px;"></div>
+      <p id="slider-value-fiyat" style="margin-top:10px;font-weight:bold;color:#206d7d;">Değer: 50</p>
+    </div>
+
+    <!-- 11. FILTER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">11. FILTER (Filtre)</h3>
+      <p style="color:#666;font-size:12px;">Excel'de filtre yaparken gibi - tarih aralığı, miktar aralığı filtrele</p>
+      <div id="filter-fiyat" style="width:100%;max-width:600px;"></div>
+    </div>
+
+    <!-- 12. PIVOTGRID -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">12. PIVOTGRID (Pivot Tablo)</h3>
+      <p style="color:#666;font-size:12px;">Excel'de pivot tablo yaparken gibi - şubeleri sütunlara koy, ürünleri satırlara koy</p>
+      <div id="pivotgrid-fiyat" style="width:100%;max-width:800px;height:400px;"></div>
+    </div>
+
+    <!-- 13. DATETIMEPICKER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">13. DATETIMEPICKER (Tarih + Saat)</h3>
+      <p style="color:#666;font-size:12px;">Takvimden tarih seç, sonra saat seç - ikisi bir arada</p>
+      <input id="datetimepicker-fiyat" style="width:100%;max-width:300px;" />
+    </div>
+
+    <!-- 14. TIMEPICKER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">14. TIMEPICKER (Saat Seçici)</h3>
+      <p style="color:#666;font-size:12px;">Saat seçerken gibi - saat ve dakika seçersin</p>
+      <input id="timepicker-fiyat" style="width:100%;max-width:200px;" />
+    </div>
+
+    <!-- 15. LISTBOX -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">15. LISTBOX (Liste Kutusu)</h3>
+      <p style="color:#666;font-size:12px;">Yan yana iki kutu - solda tüm liste, sağda seçtiklerin</p>
+      <select id="listbox-fiyat" multiple="multiple" style="width:100%;max-width:400px;height:200px;"></select>
+    </div>
+
+    <!-- 16. TREEVIEW -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">16. TREEVIEW (Ağaç Görünümü)</h3>
+      <p style="color:#666;font-size:12px;">Windows'ta klasörler gibi - ana klasör var, tıklayınca alt klasörler açılır</p>
+      <div id="treeview-fiyat" style="width:100%;max-width:400px;"></div>
+    </div>
+
+    <!-- 17. TOOLTIP -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">17. TOOLTIP (İpucu)</h3>
+      <p style="color:#666;font-size:12px;">Butonun üzerine fareyi getirince küçük bir kutu çıkar, açıklama yazar</p>
+      <button id="tooltip-button-fiyat" style="padding:10px 20px;background:#206d7d;color:white;border:none;border-radius:3px;cursor:pointer;">Üzerime Gel</button>
+    </div>
+
+    <!-- 18. SPLITTER -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">18. SPLITTER (Bölücü)</h3>
+      <p style="color:#666;font-size:12px;">İki panel arasında ince bir çizgi var, sürükleyince panellerin boyutu değişir</p>
+      <div id="splitter-fiyat" style="width:100%;max-width:600px;height:300px;"></div>
+    </div>
+
+    <!-- 19. PANELBAR -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">19. PANELBAR (Panel Çubuğu)</h3>
+      <p style="color:#666;font-size:12px;">Başlığa tıklayınca içerik açılır/kapanır, accordion gibi</p>
+      <div id="panelbar-fiyat" style="width:100%;max-width:500px;"></div>
+    </div>
+
+    <!-- 20. MAP -->
+    <div style="margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:5px;background:#f9f9f9;">
+      <h3 style="color:#206d7d;margin-top:0;">20. MAP (Harita)</h3>
+      <p style="color:#666;font-size:12px;">Google Maps gibi - haritada şubelerin yerleri işaretli görünür</p>
+      <div id="map-fiyat" style="width:100%;max-width:600px;height:400px;"></div>
+    </div>
+
   </div>
 
   <!-- FIRMA YÖNETİMİ WINDOW -->
@@ -1189,7 +1344,23 @@
         resizable: true,
         columns: [
           { field: "aciklama", title: "AÇIKLAMA", width: "auto" },
-          { field: "tl", title: "TL", width: 80, attributes: { class: "number-cell", style: "text-align: right;" } },
+          { 
+            field: "tl", 
+            title: "TL", 
+            width: 80, 
+            attributes: { class: "number-cell", style: "text-align: right;" },
+            editor: function(container, options) {
+              $('<input name="' + options.field + '"/>')
+                .appendTo(container)
+                .kendoNumericTextBox({
+                  format: "n2",
+                  decimals: 2,
+                  culture: "tr-TR",
+                  value: options.model[options.field] || 0,
+                  min: 0
+                });
+            }
+          },
           { field: "onay", title: "ONAY", width: 80, attributes: { class: "center-cell", style: "text-align: center;" } }
         ]
       });
@@ -1216,7 +1387,23 @@
         resizable: true,
         columns: [
           { field: "aciklama", title: "AÇIKLAMA", width: "auto" },
-          { field: "tl", title: "TL", width: 80, attributes: { class: "number-cell", style: "text-align: right;" } },
+          { 
+            field: "tl", 
+            title: "TL", 
+            width: 80, 
+            attributes: { class: "number-cell", style: "text-align: right;" },
+            editor: function(container, options) {
+              $('<input name="' + options.field + '"/>')
+                .appendTo(container)
+                .kendoNumericTextBox({
+                  format: "n2",
+                  decimals: 2,
+                  culture: "tr-TR",
+                  value: options.model[options.field] || 0,
+                  min: 0
+                });
+            }
+          },
           { field: "onay", title: "ONAY", width: 80, attributes: { class: "center-cell", style: "text-align: center;" } }
         ]
       });
@@ -1359,6 +1546,26 @@
         }
       });
       
+      // COMBOBOX LİSTE VERİLERİ (Tüm Grid'lerde kullanılacak)
+      var bankaListesi = [
+        "Ziraat Bankası",
+        "İş Bankası",
+        "Garanti BBVA",
+        "Akbank",
+        "Yapı Kredi",
+        "Halkbank",
+        "Vakıfbank",
+        "QNB Finansbank",
+        "Denizbank",
+        "TEB"
+      ];
+      
+      var paraBirimiListesi = ["TL", "USD", "EUR", "GBP"];
+      
+      var hesapTuruListesi = ["Vadeli", "Vadesiz", "Tasarruf", "Cari"];
+      
+      var subeListesi = ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER", "AKOVA", "KOOP.", "NAZİLLİ"];
+      
       // KREDİ KARTI GRID
       setTimeout(function() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
@@ -1414,11 +1621,60 @@
             filterable: true,
             resizable: false,
             pageable: false,
+            editable: {
+              mode: "incell",
+              update: true
+            },
             columns: [
-              { field: "son_odeme", title: "SON ÖDEME", width: 125, format: "{0:dd.MM.yyyy}" },
+              { 
+                field: "son_odeme", 
+                title: "SON ÖDEME", 
+                width: 125, 
+                format: "{0:dd.MM.yyyy}",
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoDatePicker({
+                      culture: "tr-TR",
+                      format: "dd.MM.yyyy",
+                      value: options.model[options.field] || null
+                    });
+                }
+              },
               { field: "kalan_gun", title: "KALAN GÜN", width: 95, attributes: { class: "center-cell", style: "text-align: center;" } },
-              { field: "tutar", title: "TUTAR", width: 115, attributes: { class: "number-cell", style: "text-align: right;" } },
-              { field: "banka", title: "BANKA", width: 135 },
+              { 
+                field: "tutar", 
+                title: "TUTAR", 
+                width: 115, 
+                attributes: { class: "number-cell", style: "text-align: right;" },
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoNumericTextBox({
+                      format: "n2",
+                      decimals: 2,
+                      culture: "tr-TR",
+                      value: options.model[options.field] || 0,
+                      min: 0
+                    });
+                }
+              },
+              { 
+                field: "banka", 
+                title: "BANKA", 
+                width: 135,
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoComboBox({
+                      dataSource: bankaListesi,
+                      filter: "contains",
+                      placeholder: "Banka seçin...",
+                      suggest: true,
+                      value: options.model[options.field] || ""
+                    });
+                }
+              },
               { field: "kime_ait", title: "KİME AİT", width: 115 },
               { field: "kart_numarasi", title: "KART NUMARASI", width: 175 },
               { field: "son_kullanim_tarihi", title: "SON KULLANMA TARİHİ", width: 135 },
@@ -1486,15 +1742,110 @@
             filterable: true,
             resizable: false,
             pageable: false,
+            editable: {
+              mode: "incell",
+              update: true
+            },
             columns: [
-              { field: "banka_adi", title: "BANKA ADI", width: 150 },
+              { 
+                field: "banka_adi", 
+                title: "BANKA ADI", 
+                width: 150,
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoComboBox({
+                      dataSource: bankaListesi,
+                      filter: "contains",
+                      placeholder: "Banka seçin...",
+                      suggest: true,
+                      value: options.model[options.field] || ""
+                    });
+                }
+              },
               { field: "hesap_numarasi", title: "HESAP NUMARASI", width: 150 },
               { field: "iban", title: "İBAN", width: 250 },
-              { field: "bakiye", title: "BAKİYE", width: 130, attributes: { class: "number-cell", style: "text-align: right;" } },
-              { field: "para_birimi", title: "PARA BİRİMİ", width: 110, attributes: { class: "center-cell", style: "text-align: center;" } },
-              { field: "hesap_turu", title: "HESAP TÜRÜ", width: 120 },
-              { field: "sube", title: "ŞUBE", width: 120 },
-              { field: "acilis_tarihi", title: "AÇILIŞ TARİHİ", width: 130, format: "{0:dd.MM.yyyy}" },
+              { 
+                field: "bakiye", 
+                title: "BAKİYE", 
+                width: 130, 
+                attributes: { class: "number-cell", style: "text-align: right;" },
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoNumericTextBox({
+                      format: "n2",
+                      decimals: 2,
+                      culture: "tr-TR",
+                      value: options.model[options.field] || 0,
+                      min: 0
+                    });
+                }
+              },
+              { 
+                field: "para_birimi", 
+                title: "PARA BİRİMİ", 
+                width: 110, 
+                attributes: { class: "center-cell", style: "text-align: center;" },
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoComboBox({
+                      dataSource: paraBirimiListesi,
+                      filter: "contains",
+                      placeholder: "Para birimi seçin...",
+                      suggest: true,
+                      value: options.model[options.field] || ""
+                    });
+                }
+              },
+              { 
+                field: "hesap_turu", 
+                title: "HESAP TÜRÜ", 
+                width: 120,
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoComboBox({
+                      dataSource: hesapTuruListesi,
+                      filter: "contains",
+                      placeholder: "Hesap türü seçin...",
+                      suggest: true,
+                      value: options.model[options.field] || ""
+                    });
+                }
+              },
+              { 
+                field: "sube", 
+                title: "ŞUBE", 
+                width: 120,
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoComboBox({
+                      dataSource: subeListesi,
+                      filter: "contains",
+                      placeholder: "Şube seçin...",
+                      suggest: true,
+                      value: options.model[options.field] || ""
+                    });
+                }
+              },
+              { 
+                field: "acilis_tarihi", 
+                title: "AÇILIŞ TARİHİ", 
+                width: 130, 
+                format: "{0:dd.MM.yyyy}",
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoDatePicker({
+                      culture: "tr-TR",
+                      format: "dd.MM.yyyy",
+                      value: options.model[options.field] || null
+                    });
+                }
+              },
               { field: "durum", title: "DURUM", width: 100, attributes: { class: "center-cell", style: "text-align: center;" } },
               { field: "sutun1", title: "Sütun1", width: 140 },
               { field: "sutun2", title: "Sütun2", width: 140 },
@@ -1503,6 +1854,632 @@
           });
         }
       }, 200);
+      
+      // ŞUBE BAZLI SATIŞ GRAFİĞİ
+      setTimeout(function() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoChart !== 'undefined') {
+          $("#satis-grafik").kendoChart({
+            dataSource: {
+              data: [
+                { sube: "YAĞCILAR", motorin: 100000, benzin: 50000 },
+                { sube: "TEPEKUM", motorin: 100000, benzin: 45000 },
+                { sube: "NAMDAR", motorin: 29000, benzin: 25000 },
+                { sube: "ŞEKER", motorin: 60000, benzin: 40000 },
+                { sube: "AKOVA", motorin: 50000, benzin: 35000 },
+                { sube: "KOOP.", motorin: 60000, benzin: 30000 },
+                { sube: "NAZİLLİ", motorin: 70000, benzin: 40000 }
+              ]
+            },
+            title: {
+              text: "Şube Bazlı Satış Karşılaştırması",
+              font: "14px 'Segoe UI', Arial, sans-serif",
+              color: "#2d3748"
+            },
+            legend: {
+              position: "top",
+              labels: {
+                font: "12px 'Segoe UI', Arial, sans-serif"
+              }
+            },
+            seriesDefaults: {
+              type: "column",
+              gap: 0.5
+            },
+            series: [{
+              name: "Motorin",
+              field: "motorin",
+              color: "#4CAF50"
+            }, {
+              name: "Benzin",
+              field: "benzin",
+              color: "#2196F3"
+            }],
+            categoryAxis: {
+              field: "sube",
+              labels: {
+                rotation: -45,
+                font: "11px 'Segoe UI', Arial, sans-serif"
+              }
+            },
+            valueAxis: {
+              labels: {
+                format: "N0",
+                font: "11px 'Segoe UI', Arial, sans-serif"
+              },
+              title: {
+                text: "Satış (Litre)",
+                font: "12px 'Segoe UI', Arial, sans-serif"
+              }
+            },
+            tooltip: {
+              visible: true,
+              format: "{0}",
+              template: "#= series.name #: #= kendo.format('{0:N0}', value) # Litre"
+            }
+          });
+        }
+      }, 300);
+      
+      // EXCEL DOSYASI YÜKLEME
+      setTimeout(function() {
+        console.log("🔔 Upload başlatılıyor...");
+        console.log("kendo var mı?", typeof kendo !== 'undefined');
+        console.log("kendoUpload var mı?", typeof $.fn.kendoUpload !== 'undefined');
+        console.log("#upload-area elementi var mı?", $("#upload-area").length);
+        console.log("jQuery var mı?", typeof $ !== 'undefined');
+        
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoUpload !== 'undefined' && $("#upload-area").length > 0) {
+          try {
+            // Önce mevcut upload varsa yok et
+            var existingUpload = $("#upload-area").data("kendoUpload");
+            if (existingUpload) {
+              existingUpload.destroy();
+              console.log("Eski upload yok edildi");
+            }
+            
+            // Upload bileşenini başlat
+            var upload = $("#upload-area").kendoUpload({
+              async: {
+                saveUrl: "/api/upload-excel/",
+                autoUpload: true
+              },
+              multiple: false,
+              showFileList: false,  // Dosya listesini gizle, sadece buton göster
+              validation: {
+                allowedExtensions: [".xlsx", ".xls"],
+                maxFileSize: 10485760  // 10 MB
+              },
+              upload: function(e) {
+                // Yükleme başladı
+                console.log("📤 Yükleme başladı:", e.files[0].name);
+                $("#upload-progress").show().html("Yükleniyor...");
+              },
+              success: function(e) {
+                // Yükleme başarılı
+                console.log("✅ Yükleme başarılı:", e.response);
+                var response = e.response;
+                if (response && response.success) {
+                  var message = "Dosya başarıyla yüklendi: " + (response.filename || "Excel dosyası");
+                  if (typeof showSuccess === 'function') {
+                    showSuccess(message);
+                  } else {
+                    alert(message);
+                  }
+                } else {
+                  var errorMsg = response && response.error ? response.error : "Dosya yüklendi ancak işlenirken hata oluştu";
+                  if (typeof showError === 'function') {
+                    showError(errorMsg);
+                  } else {
+                    alert(errorMsg);
+                  }
+                }
+                $("#upload-progress").hide();
+              },
+              error: function(e) {
+                // Yükleme hatası
+                console.error("❌ Yükleme hatası:", e);
+                var response = e.response;
+                var errorMsg = "Dosya yüklenirken hata oluştu";
+                
+                if (response) {
+                  try {
+                    if (typeof response === 'string') {
+                      var parsed = JSON.parse(response);
+                      errorMsg = parsed.error || errorMsg;
+                    } else if (response.error) {
+                      errorMsg = response.error;
+                    }
+                  } catch(e) {
+                    console.error("JSON parse hatası:", e);
+                  }
+                }
+                
+                if (typeof showError === 'function') {
+                  showError(errorMsg);
+                } else {
+                  alert(errorMsg);
+                }
+                $("#upload-progress").hide();
+              },
+              progress: function(e) {
+                // İlerleme güncellemesi
+                var percentComplete = e.percentComplete || 0;
+                $("#upload-progress").html("Yükleniyor: %" + Math.round(percentComplete));
+              },
+              select: function(e) {
+                // Dosya seçildi
+                console.log("📁 Dosya seçildi:", e.files);
+                var files = e.files;
+                if (files.length > 0) {
+                  var file = files[0];
+                  var fileSize = (file.size / 1024 / 1024).toFixed(2);
+                  $("#upload-progress").show().html("Dosya seçildi: " + file.name + " (" + fileSize + " MB)");
+                }
+              }
+            }).data("kendoUpload");
+            
+            console.log("✅ Upload başarıyla başlatıldı!", upload);
+            
+            // Upload HTML'inin oluşmasını bekle ve buton metnini değiştir
+            var checkUploadReady = function(attempt) {
+              attempt = attempt || 0;
+              var maxAttempts = 15;
+              
+              // Buton #upload-area içinde değil, parent veya kardeş elementlerde olabilir
+              var $uploadArea = $("#upload-area");
+              var $uploadButton = $uploadArea.siblings(".k-upload-button").add($uploadArea.find(".k-upload-button")).add($uploadArea.parent().find(".k-upload-button"));
+              var $fileInput = $uploadArea.find("input[type='file']").add($uploadArea.siblings("input[type='file']")).add($uploadArea.parent().find("input[type='file']"));
+              
+              console.log("Kontrol " + attempt + ": Buton=" + $uploadButton.length + ", FileInput=" + $fileInput.length);
+              console.log("Upload area HTML:", $uploadArea.html().substring(0, 200));
+              console.log("Upload area parent:", $uploadArea.parent().html().substring(0, 300));
+              
+              if ($uploadButton.length > 0) {
+                // Buton metnini değiştir (Telerik'in handler'ına dokunmadan)
+                var $span = $uploadButton.find(".k-button-text, span");
+                if ($span.length > 0) {
+                  $span.text("Dosya Seç");
+                  console.log("✅ Buton metni değiştirildi: Dosya Seç");
+                } else {
+                  $uploadButton.text("Dosya Seç");
+                  console.log("✅ Buton metni direkt değiştirildi: Dosya Seç");
+                }
+                
+                // "Drop files here" metnini değiştir
+                $uploadArea.find(".k-dropzone, .k-upload-files").add($uploadArea.siblings(".k-dropzone")).each(function() {
+                  var $dropzone = $(this);
+                  var html = $dropzone.html();
+                  if (html) {
+                    html = html.replace(/Drop files here to upload/gi, "Dosyaları buraya sürükleyin");
+                    html = html.replace(/Select files\.\.\./gi, "Dosya Seç");
+                    $dropzone.html(html);
+                  }
+                });
+                
+                // File input'u bul ve ayarla
+                if ($fileInput.length > 0) {
+                  console.log("✅ File input bulundu!");
+                  $fileInput.css({
+                    position: "absolute",
+                    opacity: 0,
+                    width: "100%",
+                    height: "100%",
+                    cursor: "pointer",
+                    zIndex: 10
+                  });
+                  
+                  // Buton tıklanınca file input'u tetikle
+                  $uploadButton.off("click.upload-custom").on("click.upload-custom", function(e) {
+                    console.log("📁 Upload butonuna tıklandı!");
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $fileInput.first().trigger("click");
+                    return false;
+                  });
+                } else {
+                  // File input yoksa, Telerik'in kendi handler'ının çalışmasına izin ver
+                  console.log("⚠️ File input bulunamadı, Telerik'in kendi handler'ı kullanılacak");
+                  console.log("Upload bileşeni:", upload);
+                  console.log("Upload metodları:", Object.keys(upload || {}));
+                  
+                  // Telerik Upload'un kendi handler'ına dokunmuyoruz
+                  // Sadece buton metnini değiştirdik, handler çalışmaya devam edecek
+                  // Telerik Upload buton tıklandığında otomatik olarak file input oluşturur ve tetikler
+                  
+                  // Buton tıklanınca file input'un oluşup oluşmadığını kontrol et
+                  // Telerik Upload buton tıklandığında file input'u dinamik olarak oluşturur
+                  $uploadButton.on("click.upload-test", function(e) {
+                    console.log("📁 Upload butonuna tıklandı (test)!");
+                    
+                    // Telerik'in handler'ının çalışmasına izin ver (preventDefault yapmıyoruz)
+                    // Handler çalıştıktan sonra file input'u kontrol et
+                    setTimeout(function() {
+                      var $newFileInput = $(upload.wrapper).find("input[type='file']");
+                      console.log("Tıklamadan sonra file input sayısı:", $newFileInput.length);
+                      if ($newFileInput.length > 0) {
+                        console.log("✅ File input oluşturuldu!");
+                        console.log("File input:", $newFileInput[0]);
+                      } else {
+                        console.log("❌ File input hala oluşturulmadı!");
+                        console.log("Wrapper HTML:", $(upload.wrapper).html().substring(0, 500));
+                      }
+                    }, 100);
+                  });
+                  
+                  // Upload bileşeninin tüm metodlarını listele
+                  console.log("Upload bileşeni detayları:");
+                  console.log("- element:", upload.element);
+                  console.log("- options:", upload.options);
+                  console.log("- wrapper:", upload.wrapper);
+                  
+                  // Upload wrapper'ı kontrol et
+                  if (upload.wrapper) {
+                    console.log("Upload wrapper HTML:", $(upload.wrapper).html().substring(0, 500));
+                    var $wrapperFileInput = $(upload.wrapper).find("input[type='file']");
+                    console.log("Wrapper içinde file input:", $wrapperFileInput.length);
+                    
+                    // Dropzone hint metnini değiştir
+                    $(upload.wrapper).find(".k-dropzone-hint").text("Dosyaları buraya sürükleyin");
+                  }
+                }
+                
+                console.log("✅ Upload hazır! Buton metni Türkçe, Telerik'in handler'ı aktif.");
+              } else if (attempt < maxAttempts) {
+                // Henüz hazır değil, tekrar dene
+                setTimeout(function() {
+                  checkUploadReady(attempt + 1);
+                }, 200);
+              } else {
+                console.error("❌ Upload butonu bulunamadı!");
+                console.error("Upload area:", $uploadArea[0]);
+                console.error("Upload area parent:", $uploadArea.parent()[0]);
+              }
+            };
+            
+            // İlk kontrolü başlat
+            setTimeout(function() {
+              checkUploadReady(0);
+            }, 500);
+            
+          } catch(error) {
+            console.error("❌ Upload başlatılırken hata:", error);
+            console.error("Hata detayı:", error.stack);
+            $("#upload-progress").html("Upload başlatılamadı: " + error.message).show();
+          }
+        } else {
+          console.error("❌ Telerik Upload yüklenmemiş veya element bulunamadı!");
+          console.error("kendo:", typeof kendo);
+          console.error("kendoUpload:", typeof $.fn.kendoUpload);
+          console.error("upload-area:", $("#upload-area").length);
+          $("#upload-progress").html("Upload bileşeni yüklenemedi. Sayfayı yenileyin.").show();
+        }
+      }, 500);
     });
+
+    // ============================================
+    // FİYAT DEĞİŞİMİ SAYFASI - TÜM BİLEŞEN ÖRNEKLERİ
+    // ============================================
+    
+    $(document).ready(function() {
+      // Sayfa görünür olduğunda bileşenleri başlat
+      var checkFiyatPage = setInterval(function() {
+        if ($('#main-content-fiyat-degisimi').is(':visible')) {
+          clearInterval(checkFiyatPage);
+          initFiyatBilesenleri();
+        }
+      }, 100);
+    });
+
+    function initFiyatBilesenleri() {
+      console.log("✅ Fiyat Değişimi sayfası bileşenleri başlatılıyor...");
+
+      // 1. AUTOCOMPLETE
+      try {
+        $('#autocomplete-fiyat').kendoAutoComplete({
+          dataSource: ['Aria Petrol', 'Aria Net', 'Aria Lojistik', 'Petrol Ofisi', 'BP', 'Shell'],
+          filter: 'contains',
+          placeholder: 'Firma adı yazın...',
+          minLength: 1
+        });
+        console.log("✅ AutoComplete başlatıldı");
+      } catch(e) { console.error("❌ AutoComplete hatası:", e); }
+
+      // 2. PROGRESSBAR
+      try {
+        $('#progressbar-fiyat').kendoProgressBar({
+          value: 0,
+          min: 0,
+          max: 100
+        });
+        console.log("✅ ProgressBar başlatıldı");
+      } catch(e) { console.error("❌ ProgressBar hatası:", e); }
+
+      // 3. MULTISELECT
+      try {
+        $('#multiselect-fiyat').kendoMultiSelect({
+          dataSource: ['YAĞCILAR', 'TEPEKUM', 'NAMDAR', 'MERKEZ', 'ŞUBE 1', 'ŞUBE 2'],
+          placeholder: 'Şube seçin...',
+          value: []
+        });
+        console.log("✅ MultiSelect başlatıldı");
+      } catch(e) { console.error("❌ MultiSelect hatası:", e); }
+
+      // 4. DROPDOWNLIST
+      try {
+        $('#dropdownlist-fiyat').kendoDropDownList({
+          dataSource: ['Aktif', 'Pasif', 'Beklemede'],
+          optionLabel: 'Durum seçin...'
+        });
+        console.log("✅ DropDownList başlatıldı");
+      } catch(e) { console.error("❌ DropDownList hatası:", e); }
+
+      // 5. MASKEDTEXTBOX
+      try {
+        $('#maskedtextbox-fiyat').kendoMaskedTextBox({
+          mask: '000-000-0000',
+          value: ''
+        });
+        console.log("✅ MaskedTextBox başlatıldı");
+      } catch(e) { console.error("❌ MaskedTextBox hatası:", e); }
+
+      // 6. GAUGE
+      try {
+        $('#gauge-fiyat').kendoRadialGauge({
+          pointer: {
+            value: 75
+          },
+          scale: {
+            min: 0,
+            max: 100,
+            majorUnit: 20,
+            minorUnit: 5
+          }
+        });
+        console.log("✅ Gauge başlatıldı");
+      } catch(e) { console.error("❌ Gauge hatası:", e); }
+
+      // 7. SPARKLINE
+      try {
+        $('#sparkline-fiyat').kendoSparkline({
+          data: [10, 20, 15, 30, 25, 40, 35, 50, 45, 60],
+          type: 'line',
+          color: '#206d7d'
+        });
+        console.log("✅ Sparkline başlatıldı");
+      } catch(e) { console.error("❌ Sparkline hatası:", e); }
+
+      // 8. EDITOR
+      try {
+        $('#editor-fiyat').kendoEditor({
+          tools: ['bold', 'italic', 'underline', 'foreColor', 'backColor', 'createLink', 'insertImage'],
+          value: '<p>Buraya zengin metin yazabilirsiniz...</p>'
+        });
+        console.log("✅ Editor başlatıldı");
+      } catch(e) { console.error("❌ Editor hatası:", e); }
+
+      // 9. COLORPICKER
+      try {
+        $('#colorpicker-fiyat').kendoColorPicker({
+          value: '#206d7d',
+          buttons: true
+        });
+        console.log("✅ ColorPicker başlatıldı");
+      } catch(e) { console.error("❌ ColorPicker hatası:", e); }
+
+      // 10. SLIDER
+      try {
+        $('#slider-fiyat').kendoSlider({
+          min: 0,
+          max: 100,
+          value: 50,
+          change: function(e) {
+            $('#slider-value-fiyat').text('Değer: ' + e.value);
+          }
+        });
+        console.log("✅ Slider başlatıldı");
+      } catch(e) { console.error("❌ Slider hatası:", e); }
+
+      // 11. FILTER
+      try {
+        var filterData = [
+          { id: 1, name: 'Motorin', price: 25.50, date: new Date('2024-01-15') },
+          { id: 2, name: 'Benzin', price: 30.00, date: new Date('2024-01-16') },
+          { id: 3, name: 'LPG', price: 15.75, date: new Date('2024-01-17') }
+        ];
+        $('#filter-fiyat').kendoFilter({
+          dataSource: {
+            data: filterData,
+            schema: {
+              model: {
+                fields: {
+                  name: { type: 'string' },
+                  price: { type: 'number' },
+                  date: { type: 'date' }
+                }
+              }
+            }
+          },
+          expression: {
+            logic: 'and',
+            filters: []
+          }
+        });
+        console.log("✅ Filter başlatıldı");
+      } catch(e) { console.error("❌ Filter hatası:", e); }
+
+      // 12. PIVOTGRID
+      try {
+        var pivotData = [
+          { row: 'Motorin', column: 'YAĞCILAR', value: 1000 },
+          { row: 'Motorin', column: 'TEPEKUM', value: 1500 },
+          { row: 'Benzin', column: 'YAĞCILAR', value: 800 },
+          { row: 'Benzin', column: 'TEPEKUM', value: 1200 }
+        ];
+        $('#pivotgrid-fiyat').kendoPivotGrid({
+          dataSource: {
+            data: pivotData,
+            schema: {
+              model: {
+                fields: {
+                  row: { type: 'string' },
+                  column: { type: 'string' },
+                  value: { type: 'number' }
+                }
+              }
+            },
+            columns: [{ name: 'column', expand: true }],
+            rows: [{ name: 'row', expand: true }],
+            values: [{ name: 'value', aggregate: 'sum' }]
+          }
+        });
+        console.log("✅ PivotGrid başlatıldı");
+      } catch(e) { console.error("❌ PivotGrid hatası:", e); }
+
+      // 13. DATETIMEPICKER
+      try {
+        $('#datetimepicker-fiyat').kendoDateTimePicker({
+          value: new Date(),
+          format: 'dd.MM.yyyy HH:mm',
+          timeFormat: 'HH:mm'
+        });
+        console.log("✅ DateTimePicker başlatıldı");
+      } catch(e) { console.error("❌ DateTimePicker hatası:", e); }
+
+      // 14. TIMEPICKER
+      try {
+        $('#timepicker-fiyat').kendoTimePicker({
+          value: new Date(),
+          format: 'HH:mm'
+        });
+        console.log("✅ TimePicker başlatıldı");
+      } catch(e) { console.error("❌ TimePicker hatası:", e); }
+
+      // 15. LISTBOX
+      try {
+        $('#listbox-fiyat').kendoListBox({
+          dataSource: {
+            data: ['Şube 1', 'Şube 2', 'Şube 3', 'Şube 4', 'Şube 5']
+          },
+          selectable: 'multiple',
+          draggable: true,
+          connectWith: null
+        });
+        console.log("✅ ListBox başlatıldı");
+      } catch(e) { console.error("❌ ListBox hatası:", e); }
+
+      // 16. TREEVIEW
+      try {
+        $('#treeview-fiyat').kendoTreeView({
+          dataSource: [
+            {
+              text: 'Ana Şube',
+              expanded: true,
+              items: [
+                { text: 'Alt Şube 1' },
+                { text: 'Alt Şube 2' },
+                {
+                  text: 'Alt Şube 3',
+                  items: [
+                    { text: 'Alt-Alt Şube 1' },
+                    { text: 'Alt-Alt Şube 2' }
+                  ]
+                }
+              ]
+            },
+            {
+              text: 'Diğer Şube',
+              items: [
+                { text: 'Alt Şube A' },
+                { text: 'Alt Şube B' }
+              ]
+            }
+          ]
+        });
+        console.log("✅ TreeView başlatıldı");
+      } catch(e) { console.error("❌ TreeView hatası:", e); }
+
+      // 17. TOOLTIP
+      try {
+        $('#tooltip-button-fiyat').kendoTooltip({
+          content: 'Bu buton bir örnek butondur. Üzerine geldiğinizde bu açıklama görünür.',
+          position: 'top'
+        });
+        console.log("✅ Tooltip başlatıldı");
+      } catch(e) { console.error("❌ Tooltip hatası:", e); }
+
+      // 18. SPLITTER
+      try {
+        $('#splitter-fiyat').kendoSplitter({
+          panes: [
+            { collapsible: true, size: '200px', content: '<div style="padding:10px;">Sol Panel<br/>Buraya içerik eklenebilir</div>' },
+            { collapsible: false, content: '<div style="padding:10px;">Sağ Panel<br/>Buraya içerik eklenebilir</div>' }
+          ]
+        });
+        console.log("✅ Splitter başlatıldı");
+      } catch(e) { console.error("❌ Splitter hatası:", e); }
+
+      // 19. PANELBAR
+      try {
+        $('#panelbar-fiyat').kendoPanelBar({
+          dataSource: [
+            {
+              text: 'Panel 1',
+              content: 'Panel 1 içeriği buraya gelir. Tıklayınca açılır/kapanır.',
+              expanded: true
+            },
+            {
+              text: 'Panel 2',
+              content: 'Panel 2 içeriği buraya gelir. Tıklayınca açılır/kapanır.'
+            },
+            {
+              text: 'Panel 3',
+              content: 'Panel 3 içeriği buraya gelir. Tıklayınca açılır/kapanır.'
+            }
+          ]
+        });
+        console.log("✅ PanelBar başlatıldı");
+      } catch(e) { console.error("❌ PanelBar hatası:", e); }
+
+      // 20. MAP
+      try {
+        $('#map-fiyat').kendoMap({
+          center: [41.0082, 28.9784], // İstanbul koordinatları
+          zoom: 10,
+          layers: [{
+            type: 'tile',
+            urlTemplate: 'https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png',
+            subdomains: ['a', 'b', 'c'],
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }],
+          markers: [{
+            location: [41.0082, 28.9784],
+            title: 'Şube 1'
+          }, {
+            location: [41.0123, 28.9856],
+            title: 'Şube 2'
+          }]
+        });
+        console.log("✅ Map başlatıldı");
+      } catch(e) { console.error("❌ Map hatası:", e); }
+
+      console.log("✅ Tüm bileşenler başlatıldı!");
+    }
+
+    // ProgressBar test fonksiyonu
+    function testProgressBar() {
+      var progressbar = $('#progressbar-fiyat').data('kendoProgressBar');
+      if (progressbar) {
+        progressbar.value(0);
+        var interval = setInterval(function() {
+          var current = progressbar.value();
+          if (current >= 100) {
+            clearInterval(interval);
+            showSuccess('İlerleme tamamlandı!');
+          } else {
+            progressbar.value(current + 10);
+          }
+        }, 200);
+      }
+    }
   </script>
 {% endblock %}
