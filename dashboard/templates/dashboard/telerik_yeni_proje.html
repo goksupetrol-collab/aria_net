@@ -734,7 +734,11 @@
             var gridContainer = $("#firma-grid");
             if (gridContainer.length === 0) {
               console.error("Grid container bulunamadı! #firma-grid");
-              alert("Grid container bulunamadı!");
+              if (typeof showWarning === 'function') {
+                showWarning("Grid container bulunamadı!");
+              } else {
+                alert("Grid container bulunamadı!");
+              }
               return;
             }
             console.log("Grid container bulundu:", gridContainer.length);
@@ -814,7 +818,12 @@
           },
           error: function(xhr, status, error) {
             console.error("API hatası:", status, error, xhr.responseText);
-            alert("Firmalar yüklenirken hata oluştu: " + error + "\n\nDetay: " + xhr.responseText);
+            var errorMessage = "Firmalar yüklenirken hata oluştu: " + error;
+            if (typeof showError === 'function') {
+              showError(errorMessage);
+            } else {
+              alert(errorMessage + "\n\nDetay: " + xhr.responseText);
+            }
           }
         });
       }
@@ -865,7 +874,11 @@
             var gridContainer = $("#urun-grid");
             if (gridContainer.length === 0) {
               console.error("Grid container bulunamadı! #urun-grid");
-              alert("Grid container bulunamadı!");
+              if (typeof showWarning === 'function') {
+                showWarning("Grid container bulunamadı!");
+              } else {
+                alert("Grid container bulunamadı!");
+              }
               return;
             }
             console.log("Grid container bulundu:", gridContainer.length);
@@ -945,7 +958,12 @@
           },
           error: function(xhr, status, error) {
             console.error("API hatası:", status, error, xhr.responseText);
-            alert("Ürünler yüklenirken hata oluştu: " + error + "\n\nDetay: " + xhr.responseText);
+            var errorMessage = "Ürünler yüklenirken hata oluştu: " + error;
+            if (typeof showError === 'function') {
+              showError(errorMessage);
+            } else {
+              alert(errorMessage + "\n\nDetay: " + xhr.responseText);
+            }
           }
         });
       }

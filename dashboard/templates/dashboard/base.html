@@ -172,6 +172,9 @@
     {% block content %}{% endblock %}
   </div>
   
+  <!-- TELERİK NOTIFICATION BİLEŞENİ -->
+  <div id="notification"></div>
+  
   <script>
     // Menü öğelerini veritabanından yükle
     var menuItems = {{ menu_items|safe }};
@@ -182,9 +185,104 @@
     var activeTabIdToKeep = null; // Pasif tab kapatıldığında aktif tab ID'sini korumak için
     
     // Ribbon butonlarını başlat
+    // TELERİK NOTIFICATION BİLEŞENİ - Tüm sayfalarda kullanılabilir
+    var notification = null;
+    
+    // Bildirim gösterme fonksiyonları
+    function showSuccess(message) {
+      if (notification) {
+        notification.show(message, "success");
+      } else {
+        // Fallback: Notification henüz hazır değilse alert kullan
+        setTimeout(function() {
+          if (notification) {
+            notification.show(message, "success");
+          } else {
+            alert(message);
+          }
+        }, 100);
+      }
+    }
+    
+    function showError(message) {
+      if (notification) {
+        // Hata mesajları için daha uzun süre göster (5 saniye)
+        var errorNotification = notification.show(message, "error");
+        setTimeout(function() {
+          if (errorNotification && notification) {
+            notification.hide(errorNotification);
+          }
+        }, 5000);
+      } else {
+        // Fallback: Notification henüz hazır değilse alert kullan
+        setTimeout(function() {
+          if (notification) {
+            var errorNotification = notification.show(message, "error");
+            setTimeout(function() {
+              if (errorNotification && notification) {
+                notification.hide(errorNotification);
+              }
+            }, 5000);
+          } else {
+            alert(message);
+          }
+        }, 100);
+      }
+    }
+    
+    function showInfo(message) {
+      if (notification) {
+        notification.show(message, "info");
+      } else {
+        // Fallback: Notification henüz hazır değilse alert kullan
+        setTimeout(function() {
+          if (notification) {
+            notification.show(message, "info");
+          } else {
+            alert(message);
+          }
+        }, 100);
+      }
+    }
+    
+    function showWarning(message) {
+      if (notification) {
+        // Uyarı mesajları için orta süre göster (4 saniye)
+        var warningNotification = notification.show(message, "warning");
+        setTimeout(function() {
+          if (warningNotification && notification) {
+            notification.hide(warningNotification);
+          }
+        }, 4000);
+      } else {
+        // Fallback: Notification henüz hazır değilse alert kullan
+        setTimeout(function() {
+          if (notification) {
+            var warningNotification = notification.show(message, "warning");
+            setTimeout(function() {
+              if (warningNotification && notification) {
+                notification.hide(warningNotification);
+              }
+            }, 4000);
+          } else {
+            alert(message);
+          }
+        }, 100);
+      }
+    }
+    
     $(document).ready(function() {
       // Flash sorunu çözümü: Sayfa yüklendiğinde body'ye 'loaded' class'ı ekle
       $('body').addClass('loaded');
+
+      // TELERİK NOTIFICATION BAŞLAT
+      if (typeof kendo !== 'undefined' && typeof $.fn.kendoNotification !== 'undefined') {
+        notification = $("#notification").kendoNotification({
+          position: { top: 50, right: 50 },
+          stacking: "down",
+          hideAfter: 3000  // Varsayılan 3 saniye
+        }).data("kendoNotification");
+      }
 
       // ALAN 1 - Boş, ileride eklenecek
 
