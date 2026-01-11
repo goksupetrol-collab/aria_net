@@ -159,15 +159,48 @@
       try {
         var data = JSON.parse(stored);
         if (data.tabs && data.tabs.length > 0) {
-          data.tabs.forEach(function(tabData) {
-            openTabs[tabData.tabId] = {
-              title: tabData.title,
-              pageId: tabData.pageId,
-              icon: tabData.icon,
-              tabElement: null
-            };
+          // Önce DOM'da zaten var olan tab'ları kontrol et ve openTabs'e ekle
+          $('.tab-item').each(function() {
+            var existingTabId = $(this).data('tab-id');
+            if (existingTabId && !openTabs[existingTabId]) {
+              // DOM'da var ama openTabs'de yok, ekle
+              var title = $(this).find('span').text();
+              var icon = $(this).find('div:first').text();
+              // pageId'yi tabId'den çıkar (tab-operasyon_sayfasi -> operasyon_sayfasi)
+              var pageId = existingTabId.replace('tab-', '');
+              openTabs[existingTabId] = {
+                title: title,
+                pageId: pageId,
+                icon: icon,
+                tabElement: $(this)
+              };
+            }
           });
           
+          // SessionStorage'dan gelen tab'ları kontrol et
+          data.tabs.forEach(function(tabData) {
+            // Eğer tab zaten DOM'da varsa, sadece openTabs'e ekle (tabElement'i DOM'dan al)
+            var existingElement = $('.tab-item[data-tab-id="' + tabData.tabId + '"]');
+            if (existingElement.length > 0) {
+              // DOM'da zaten var, sadece openTabs'e ekle
+              openTabs[tabData.tabId] = {
+                title: tabData.title,
+                pageId: tabData.pageId,
+                icon: tabData.icon,
+                tabElement: existingElement
+              };
+            } else {
+              // DOM'da yok, yeni oluştur
+              openTabs[tabData.tabId] = {
+                title: tabData.title,
+                pageId: tabData.pageId,
+                icon: tabData.icon,
+                tabElement: null
+              };
+            }
+          });
+          
+          // Sadece DOM'da olmayan tab'ları oluştur
           for (var tabId in openTabs) {
             if (!openTabs[tabId].tabElement) {
               createTabElement(tabId);
@@ -227,7 +260,23 @@
     function openTab(title, pageId, icon) {
       var tabId = 'tab-' + pageId;
       
+      // Eğer tab zaten openTabs'de varsa, aktif yap
       if (openTabs[tabId]) {
+        setActiveTab(tabId);
+        saveTabsToStorage();
+        return;
+      }
+      
+      // DOM'da zaten var olan tab'ı kontrol et
+      var existingTabElement = $('.tab-item[data-tab-id="' + tabId + '"]');
+      if (existingTabElement.length > 0) {
+        // DOM'da zaten var, sadece openTabs'e ekle ve aktif yap
+        openTabs[tabId] = {
+          title: title,
+          pageId: pageId,
+          icon: icon,
+          tabElement: existingTabElement
+        };
         setActiveTab(tabId);
         saveTabsToStorage();
         return;
