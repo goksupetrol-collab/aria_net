@@ -44,46 +44,105 @@
       height: 100%;
       list-style: none;
     }
-    /* Tab item stilleri */
+    /* Telerik Menu için font boyutu (ALAN 1) */
+    #top-menu-bar .k-menu-item {
+      font-size: 12px !important;
+    }
+    #top-menu-bar .k-menu-link {
+      font-size: 12px !important;
+      padding: 4px 12px !important;
+    }
+    /* Telerik TabStrip için font boyutu (ALAN 3) */
+    #tabs .k-tabstrip-item {
+      font-size: 12px !important;
+    }
+    #tabs .k-tabstrip-item .k-link {
+      font-size: 12px !important;
+      padding: 4px 12px !important;
+    }
+    /* Eski tab-item stilleri (artık kullanılmıyor ama CSS'te kaldı) */
     .tab-item {
       display: flex !important;
       align-items: center;
-      gap: 8px;
-      height: 32px;
-      padding: 0 15px;
+      gap: 6px;
+      height: 24px;
+      padding: 0 12px;
       cursor: pointer;
-      border-radius: 4px 4px 0 0;
-      margin-right: 2px;
+      border-radius: 0;
+      margin-right: 0;
       white-space: nowrap;
       flex-shrink: 0;
+      font-size: 12px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      border: 1px solid #A0A0A0;
+      border-bottom: none;
+      background: #D0D0D0;
+      color: #000000;
     }
     .tab-item.active {
-      background: linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150)) !important;
-      border: 1px solid #CC9966 !important;
-      border-bottom: none !important;
+      background: #FFFFFF !important;
+      border: 1px solid #A0A0A0 !important;
+      border-bottom: 1px solid #FFFFFF !important;
+      height: 26px;
+      font-weight: 500;
+      z-index: 1;
+      position: relative;
     }
     .tab-item:not(.active) {
-      background: #FFFFFF !important;
-      border: 1px solid #CCCCCC !important;
-      border-bottom: 1px solid #E0E0E0 !important;
-      height: 30px;
+      background: #D0D0D0 !important;
+      border: 1px solid #A0A0A0 !important;
+      border-bottom: 1px solid #A0A0A0 !important;
+      height: 24px;
+      font-weight: 400;
+    }
+    .tab-item:not(.active):hover {
+      background: #E0E0E0 !important;
     }
     .tab-close {
-      width: 16px;
-      height: 16px;
-      margin-left: 8px;
+      width: 14px;
+      height: 14px;
+      margin-left: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: #666666;
-      font-size: 12px;
+      color: #000000;
+      font-size: 11px;
       font-weight: bold;
-      border-radius: 50%;
-      transition: background 0.2s;
+      border-radius: 2px;
+      transition: background 0.15s;
     }
     .tab-close:hover {
-      background: rgba(255,0,0,0.2);
+      background: rgba(255,0,0,0.3);
+      color: #FFFFFF;
+    }
+    /* Menü öğeleri hover efekti */
+    .menu-item:hover {
+      background: linear-gradient(to bottom, #D0E0F0, #B0C0D0);
+    }
+    /* Ribbon buton stili - Resimdeki gibi kompakt */
+    .ribbon-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 6px;
+      min-width: 70px;
+      max-width: 70px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.15s;
+      background: transparent;
+      border: 1px solid transparent;
+    }
+    .ribbon-button:hover {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid #C0C0C0;
+    }
+    .ribbon-button.active {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid #808080;
+      box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
     }
   </style>
   
@@ -109,28 +168,38 @@
 </head>
 
 <body>
-    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) - Açık Gri Tonu -->
-  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #F5F5F5, #E8E8E8);height:28px;border-bottom:1px solid #D0D0D0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
-    <span style="color:#FF0000;font-size:11pt;font-weight:500;">ALAN 1</span>
+    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) - Telerik Menu -->
+  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #E8E8E8, #D0D0D0);height:24px;border-bottom:1px solid #A0A0A0;padding-left:8px;font-family:'Segoe UI',Arial,sans-serif;font-size:12px;">
+    <ul id="top-menu-bar" style="margin:0;padding:0;list-style:none;height:100%;display:flex;align-items:center;">
+      <li>Tanımlar</li>
+      <li>Kartlar</li>
+      <li>İşlemler</li>
+      <li>Vardiya</li>
+      <li>Market</li>
+      <li>Finans</li>
+      <li>Genel Muhasebe</li>
+      <li>Raporlar</li>
+      <li>Hakkında</li>
+    </ul>
+    <!-- ALAN 1 Etiketi (Proje anlatımı için) -->
+    <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;">ALAN 1</span>
   </div>
   
-  <!-- 2. SABİT ALAN: ALAN 2 (Ribbon Butonları İçinde) - Açık Yeşil Tonu -->
-  <div id="fixed-area-2-container" style="position:fixed;top:28px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #E8F5E9, #C8E6C9);height:86px;display:flex;align-items:center;justify-content:flex-start;padding:12px 8px;gap:8px;font-family:'Segoe UI',Arial,sans-serif;">
-    <!-- Ribbon Butonları (ALAN 2'nin içinde) -->
-    <div id="main-ribbon-container" style="display:flex;align-items:center;gap:8px;overflow-x:auto;flex:1;justify-content:flex-start;">
-      <div id="ribbon-buttons" style="display:flex;gap:8px;align-items:center;flex-wrap:nowrap"></div>
+  <!-- 2. SABİT ALAN: ALAN 2 (İkonlu Butonlar) - Gri/Bej Tonu -->
+  <div id="fixed-area-2-container" style="position:fixed;top:24px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #F5F5F5, #E8E8E8);height:80px;display:flex;align-items:center;justify-content:flex-start;padding:8px 6px;gap:4px;font-family:'Segoe UI',Arial,sans-serif;border-bottom:1px solid #C0C0C0;">
+    <!-- İkonlu Butonlar (ALAN 2'nin içinde) -->
+    <div id="main-ribbon-container" style="display:flex;align-items:center;gap:4px;overflow-x:auto;flex:1;justify-content:flex-start;">
+      <div id="ribbon-buttons" style="display:flex;gap:4px;align-items:center;flex-wrap:nowrap"></div>
     </div>
-    <!-- ALAN 2 Yazısı (Arka planda, ribbon butonlarının arkasında) -->
-    <span style="color:#FF0000;font-size:11pt;font-weight:500;position:absolute;left:50%;transform:translateX(-50%);z-index:-1;pointer-events:none;">ALAN 2</span>
+    <!-- ALAN 2 Etiketi (Proje anlatımı için) -->
+    <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;">ALAN 2</span>
   </div>
   
-  <!-- 3. SABİT ALAN: ALAN 3 (Tab'ların Üstü) - Açık Şeftali/Bej Tonu -->
-  <div id="fixed-area-3-container" style="position:fixed;top:114px;left:0;right:0;z-index:9998;background:linear-gradient(to bottom, #FFF8E1, #FFECB3);height:23px;border-bottom:1px solid #E0D0B0;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;">
-    <span style="color:#FF0000;font-size:11pt;font-weight:500;">ALAN 3</span>
-  </div>
-  <!-- Tab Container - Basit HTML Tab Sistemi -->
-  <div id="tabs-container" style="position:fixed;top:137px;left:0;right:0;z-index:9997;height:32px;background:#FFFFFF;border-bottom:1px solid #E0E0E0;padding:0;display:flex;align-items:center;overflow-x:auto;">
-    <div id="tabs-list" style="display:flex;align-items:center;gap:2px;padding:0;margin:0;height:100%;"></div>
+  <!-- 3. Tab Container - Telerik TabStrip -->
+  <div id="tabs-container" style="position:fixed;top:104px;left:0;right:0;z-index:9998;height:26px;background:#E8E8E8;border-bottom:1px solid #A0A0A0;padding:0;">
+    <div id="tabs"></div>
+    <!-- ALAN 3 Etiketi (Proje anlatımı için) -->
+    <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;">ALAN 3</span>
   </div>
   
   <!-- TANIMLAR ALT MENÜ -->
@@ -154,7 +223,7 @@
   </div>
   
   <!-- İÇERİK ALANI -->
-  <div id="main-content" style="margin-top:169px;padding-top:0;">
+  <div id="main-content" style="margin-top:130px;padding-top:0;">
     {% block content %}{% endblock %}
   </div>
   
@@ -162,34 +231,89 @@
     // Menü öğelerini veritabanından yükle
     var menuItems = {{ menu_items|safe }};
     
-    // Tab yönetimi - Basit HTML Tab Sistemi
+    // Tab yönetimi - Telerik TabStrip
     var openTabs = {};
     var activeTabId = null;
+    var tabStrip = null;
     
     // Ribbon butonlarını başlat
     $(document).ready(function() {
+      // Telerik Menu başlat (ALAN 1)
+      if (typeof kendo !== 'undefined' && typeof $.fn.kendoMenu !== 'undefined') {
+        $("#top-menu-bar").kendoMenu({
+          orientation: "horizontal",
+          openOnClick: false,
+          animation: false,
+          select: function(e) {
+            var itemText = $(e.item).text();
+            console.log("Menü seçildi:", itemText);
+          }
+        });
+      }
+      
       // Ribbon butonlarını oluştur
       loadRibbonButtons();
+      
+      // Telerik TabStrip başlat (ALAN 3)
+      if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
+        tabStrip = $("#tabs").kendoTabStrip({
+          animation: false,
+          tabPosition: "top",
+          select: function(e) {
+            var tabId = $(e.item).data('tab-id');
+            if (tabId && openTabs[tabId]) {
+              handleTabNavigation(openTabs[tabId].pageId);
+              setActiveRibbonButton(openTabs[tabId].pageId);
+            }
+          }
+        }).data("kendoTabStrip");
+      }
       
       // Tab'ları yükle
       loadTabsFromStorage();
     });
     
-    // Ribbon butonlarını oluştur (tüm sayfalarda kullanılabilir)
+    // Ribbon butonlarını oluştur (tüm sayfalarda kullanılabilir) - Telerik Button ile
     function loadRibbonButtons() {
-      var html = '';
+      // Önce mevcut butonları temizle
+      $("#ribbon-buttons").empty();
+      
       menuItems.forEach(function(item) {
         if (item.aktif) {
-          var baslikHtml = item.baslik.replace(' ', '<br>');
-          html += `
-            <div class="ribbon-button" data-page="${item.name}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;min-width:90px;cursor:pointer;border-radius:3px;transition:all 0.2s;background:transparent;border:2px solid transparent;">
-              <div style="font-size:40px;margin-bottom:4px;">${item.icon}</div>
-              <div style="text-align:center;font-size:11pt;color:#333333;font-weight:500;line-height:1.2;max-width:85px;">${baslikHtml}</div>
-            </div>
-          `;
+          // Yazıları kısa tut, uzunsa kısalt
+          var baslik = item.baslik;
+          if (baslik.length > 12) {
+            baslik = baslik.substring(0, 10) + '...';
+          }
+          
+          // Telerik Button için HTML oluştur
+          var buttonId = 'ribbon-btn-' + item.name;
+          var buttonHtml = '<button id="' + buttonId + '" class="k-button k-button-md" data-page="' + item.name + '" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 6px;min-width:70px;max-width:70px;height:70px;">' +
+            '<span style="font-size:32px;margin-bottom:2px;line-height:1;">' + item.icon + '</span>' +
+            '<span style="text-align:center;font-size:12px;line-height:1.1;max-width:65px;word-wrap:break-word;">' + baslik + '</span>' +
+            '</button>';
+          
+          $("#ribbon-buttons").append(buttonHtml);
+          
+          // Telerik Button'ı başlat
+          if (typeof kendo !== 'undefined' && typeof $.fn.kendoButton !== 'undefined') {
+            $("#" + buttonId).kendoButton({
+              click: function(e) {
+                var buttonElement = e.sender.element();
+                var pageName = buttonElement.data('page');
+                var menuItem = menuItems.find(function(item) { return item.name === pageName; });
+                if (menuItem) {
+                  var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
+                  var tabIcon = menuItem.icon || '📄';
+                  openTab(tabTitle, pageName, tabIcon);
+                  setActiveRibbonButton(pageName);
+                  handleTabNavigation(pageName);
+                }
+              }
+            });
+          }
         }
       });
-      $("#ribbon-buttons").html(html);
     }
     
     // Tab'ları sessionStorage'a kaydetme fonksiyonu
@@ -209,10 +333,10 @@
       }));
     }
     
-    // Tab'ları sessionStorage'dan yükleme fonksiyonu
+    // Tab'ları sessionStorage'dan yükleme fonksiyonu - Telerik TabStrip için
     function loadTabsFromStorage() {
       var stored = sessionStorage.getItem('openTabs');
-      if (!stored) return;
+      if (!stored || !tabStrip) return;
       
       try {
         var data = JSON.parse(stored);
@@ -221,19 +345,20 @@
             openTabs[tabData.tabId] = {
               title: tabData.title,
               pageId: tabData.pageId,
-              icon: tabData.icon,
-              tabElement: null
+              icon: tabData.icon
             };
           });
           
+          // Tüm tab'ları Telerik TabStrip'e ekle
           for (var tabId in openTabs) {
-            if (!openTabs[tabId].tabElement) {
-              createTabElement(tabId);
-            }
+            createTabElement(tabId);
           }
           
+          // Aktif tab'ı seç
           if (data.activeTabId && openTabs[data.activeTabId]) {
-            setActiveTab(data.activeTabId);
+            setTimeout(function() {
+              setActiveTab(data.activeTabId);
+            }, 200);
           }
         }
       } catch (e) {
@@ -241,48 +366,59 @@
       }
     }
     
-    // Tab DOM elementi oluşturma fonksiyonu
+    // Tab DOM elementi oluşturma fonksiyonu - Telerik TabStrip için
     function createTabElement(tabId) {
       var tab = openTabs[tabId];
-      if (!tab) return;
+      if (!tab || !tabStrip) return;
       
-      // DOM'da zaten bu tab var mı kontrol et
-      var existingTabInDOM = $('#tabs-list').find('[data-tab-id="' + tabId + '"]');
-      if (existingTabInDOM.length > 0) {
-        // DOM'da zaten var, sadece referansı kaydet
-        openTabs[tabId].tabElement = existingTabInDOM;
-        return;
+      // Telerik TabStrip'te zaten bu tab var mı kontrol et
+      var tabIndex = getTabIndex(tabId);
+      if (tabIndex >= 0) {
+        return; // Zaten var
       }
       
-      var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
-        '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + tab.icon + '</div>' +
-        '<span>' + tab.title + '</span>' +
-        '<div class="tab-close">×</div>' +
-        '</div>');
-      
-      tabElement.on('click', function(e) {
-        if (!$(e.target).hasClass('tab-close')) {
-          setActiveTab(tabId);
-          var pageId = tab.pageId;
-          handleTabNavigation(pageId);
-        }
+      // Telerik TabStrip'e tab ekle
+      var tabText = tab.icon + ' ' + tab.title + ' <span class="tab-close" data-tab-id="' + tabId + '" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:2px;display:inline-block;">×</span>';
+      var tabIndex = tabStrip.append({
+        text: tabText,
+        content: '<div></div>', // İçerik boş, sadece tab başlığı kullanılıyor
+        encoded: false
       });
       
-      tabElement.find('.tab-close').on('click', function(e) {
-        e.stopPropagation();
-        closeTab(tabId);
-      });
+      // Tab index'ini kaydet
+      openTabs[tabId].tabIndex = tabIndex;
       
-      tabElement.find('.tab-close').hover(
-        function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
-        function() { $(this).css('background', 'transparent'); }
-      );
-      
-      $('#tabs-list').append(tabElement);
-      openTabs[tabId].tabElement = tabElement;
+      // Close butonuna tıklama event'i ekle
+      setTimeout(function() {
+        $('#tabs .tab-close[data-tab-id="' + tabId + '"]').on('click', function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          closeTab(tabId);
+        });
+      }, 100);
     }
     
-    // Tab açma fonksiyonu
+    // Tab index'ini bul - TabStrip'te tab'ları takip etmek için
+    function getTabIndex(tabId) {
+      if (!tabStrip || !openTabs[tabId]) return -1;
+      
+      // Tab'ları sırayla kontrol et
+      var items = tabStrip.items();
+      var tabText = openTabs[tabId].icon + ' ' + openTabs[tabId].title;
+      
+      for (var i = 0; i < items.length; i++) {
+        var item = $(items[i]);
+        var itemText = item.text().trim();
+        // Close butonunu kaldırarak karşılaştır
+        itemText = itemText.replace('×', '').trim();
+        if (itemText === tabText || item.find('[data-tab-id="' + tabId + '"]').length > 0) {
+          return i;
+        }
+      }
+      return -1;
+    }
+    
+    // Tab açma fonksiyonu - Telerik TabStrip için
     function openTab(title, pageId, icon) {
       var tabId = 'tab-' + pageId;
       
@@ -293,113 +429,52 @@
         return;
       }
       
-      // DOM'da zaten bu tab var mı kontrol et
-      var existingTabInDOM = $('#tabs-list').find('[data-tab-id="' + tabId + '"]');
-      if (existingTabInDOM.length > 0) {
-        // DOM'da var ama openTabs'da yok, openTabs'a ekle
-        openTabs[tabId] = {
-          title: title,
-          pageId: pageId,
-          icon: icon,
-          tabElement: existingTabInDOM
-        };
-        setActiveTab(tabId);
-        saveTabsToStorage();
-        return;
-      }
-      
-      var tabElement = $('<div class="tab-item" data-tab-id="' + tabId + '">' +
-        '<div style="width:16px;height:16px;background:#4A90E2;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center;">' + icon + '</div>' +
-        '<span>' + title + '</span>' +
-        '<div class="tab-close">×</div>' +
-        '</div>');
-      
-      tabElement.on('click', function(e) {
-        if (!$(e.target).hasClass('tab-close')) {
-          setActiveTab(tabId);
-          handleTabNavigation(pageId);
-        }
-      });
-      
-      tabElement.find('.tab-close').on('click', function(e) {
-        e.stopPropagation();
-        closeTab(tabId);
-      });
-      
-      tabElement.find('.tab-close').hover(
-        function() { $(this).css('background', 'rgba(255,0,0,0.2)'); },
-        function() { $(this).css('background', 'transparent'); }
-      );
-      
-      $('#tabs-list').append(tabElement);
-      
+      // Yeni tab ekle
       openTabs[tabId] = {
         title: title,
         pageId: pageId,
-        icon: icon,
-        tabElement: tabElement
+        icon: icon
       };
       
+      // Telerik TabStrip'e tab ekle
+      createTabElement(tabId);
+      
+      // Aktif yap
       setActiveTab(tabId);
       saveTabsToStorage();
     }
     
-    // Aktif tab değiştirme
+    // Aktif tab değiştirme - Telerik TabStrip için
     function setActiveTab(tabId) {
-      $('.tab-item').each(function() {
-        var id = $(this).data('tab-id');
-        if (id !== tabId) {
-          $(this).removeClass('active');
-          $(this).css({
-            'background': '#FFFFFF',
-            'border': '1px solid #CCCCCC',
-            'border-bottom': '1px solid #E0E0E0',
-            'height': '30px'
-          });
-          $(this).find('div:first').css({
-            'width': '14px',
-            'height': '14px',
-            'background': '#FFFFFF',
-            'border': '1px solid #4A90E2',
-            'border-radius': '2px',
-            'font-size': '12px'
-          });
-        }
-      });
+      if (!tabStrip || !openTabs[tabId]) return;
       
-      if (openTabs[tabId]) {
-        openTabs[tabId].tabElement.addClass('active');
-        openTabs[tabId].tabElement.css({
-          'background': 'linear-gradient(to bottom, rgb(255, 235, 180), rgb(255, 220, 150))',
-          'border': '1px solid #CC9966',
-          'border-bottom': 'none',
-          'height': '32px'
-        });
-        openTabs[tabId].tabElement.find('div:first').css({
-          'width': '16px',
-          'height': '16px',
-          'background': '#4A90E2',
-          'border-radius': '50%',
-          'border': 'none',
-          'font-size': '14px'
-        });
-        
+      var tabIndex = openTabs[tabId].tabIndex !== undefined ? openTabs[tabId].tabIndex : getTabIndex(tabId);
+      if (tabIndex >= 0) {
+        tabStrip.select(tabIndex);
         activeTabId = tabId;
         setActiveRibbonButton(openTabs[tabId].pageId);
         saveTabsToStorage();
       }
     }
     
-    // Tab kapatma
+    // Tab kapatma - Telerik TabStrip için
     function closeTab(tabId) {
-      if (!openTabs[tabId]) return;
+      if (!openTabs[tabId] || !tabStrip) return;
       
       var wasActive = (activeTabId === tabId);
       var pageId = openTabs[tabId].pageId;
+      var tabIndex = openTabs[tabId].tabIndex !== undefined ? openTabs[tabId].tabIndex : getTabIndex(tabId);
       
-      if (openTabs[tabId].tabElement) {
-        openTabs[tabId].tabElement.remove();
+      if (tabIndex >= 0) {
+        tabStrip.remove(tabIndex);
+        // Kalan tab'ların index'lerini güncelle
+        for (var tid in openTabs) {
+          if (openTabs[tid].tabIndex > tabIndex) {
+            openTabs[tid].tabIndex--;
+          }
+        }
       }
+      
       delete openTabs[tabId];
       
       var remainingTabs = Object.keys(openTabs);
@@ -453,71 +528,31 @@
       setActiveRibbonButton(null);
     }
     
-    // Aktif ribbon butonunu ayarlama fonksiyonu
+    // Aktif ribbon butonunu ayarlama fonksiyonu - Telerik Button için
     function setActiveRibbonButton(pageName) {
-      $(".ribbon-button").each(function() {
+      $('button[data-page]').each(function() {
         var page = $(this).data('page');
+        var button = $(this).data('kendoButton');
         if (pageName && page === pageName) {
-          $(this).addClass('active');
+          $(this).addClass('k-state-active');
           $(this).css({
-            'background': 'rgba(255,255,255,0.4)',
-            'border': '2px solid #4A90E2',
-            'box-shadow': '0 2px 4px rgba(74, 144, 226, 0.3)'
-          });
-          $(this).find('div:last').css({
-            'color': '#1e3a8a',
-            'font-weight': '600'
+            'background': 'rgba(255,255,255,0.8)',
+            'border': '1px solid #808080',
+            'box-shadow': 'inset 0 0 2px rgba(0,0,0,0.1)'
           });
         } else {
-          $(this).removeClass('active');
+          $(this).removeClass('k-state-active');
           $(this).css({
-            'background': 'transparent',
-            'border': '2px solid transparent',
-            'box-shadow': 'none'
-          });
-          $(this).find('div:last').css({
-            'color': '#333333',
-            'font-weight': '500'
+            'background': '',
+            'border': '',
+            'box-shadow': ''
           });
         }
       });
     }
     
-    // Ribbon butonlarına tıklama (Tüm sayfalarda ortak)
-    $(document).on("click", ".ribbon-button", function() {
-      var pageName = $(this).data('page');
-      var menuItem = menuItems.find(function(item) { return item.name === pageName; });
-      
-      if (!menuItem) {
-        console.error("MenuItem bulunamadı:", pageName);
-        return;
-      }
-      
-      var tabTitle = menuItem.tab_baslik || menuItem.baslik || pageName;
-      var tabIcon = menuItem.icon || '📄';
-      
-      // Tab aç
-      openTab(tabTitle, pageName, tabIcon);
-      
-      // Aktif ribbon butonunu ayarla
-      setActiveRibbonButton(pageName);
-      
-      // Sayfa yönlendirmesi
-      handleTabNavigation(pageName);
-    });
-    
-    // Ribbon butonlarına hover efekti
-    $(document).on("mouseenter", ".ribbon-button", function() {
-      if (!$(this).hasClass('active')) {
-        $(this).css("background", "rgba(255,255,255,0.2)");
-      }
-    });
-    
-    $(document).on("mouseleave", ".ribbon-button", function() {
-      if (!$(this).hasClass('active')) {
-        $(this).css("background", "transparent");
-      }
-    });
+    // Ribbon butonlarına tıklama artık Telerik Button içinde handle ediliyor
+    // Eski ribbon-button class'ı kaldırıldı, artık Telerik Button kullanılıyor
   </script>
   
   {% block extra_scripts %}{% endblock %}

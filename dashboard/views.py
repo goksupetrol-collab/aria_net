@@ -127,6 +127,27 @@ def tanker(request):
     return render(request, "dashboard/tanker.html", context)
 
 
+def fiyat_degisimi(request):
+    """Fiyat Değişimi sayfası"""
+    # Menü öğelerini veritabanından çek
+    menu_items = MenuItem.objects.filter(aktif=True).order_by('sira_no')
+    menu_items_json = json.dumps([{
+        'sira_no': item.sira_no,
+        'name': item.name,
+        'baslik': item.baslik,
+        'tab_baslik': item.get_tab_baslik(),
+        'icon': item.icon,
+        'page_url': item.page_url or '',
+        'aktif': item.aktif
+    } for item in menu_items], ensure_ascii=False)
+    
+    context = {
+        "kendo_license": _load_license(),
+        "menu_items": menu_items_json,
+    }
+    return render(request, "dashboard/fiyat_degisimi.html", context)
+
+
 # API ENDPOINTS
 
 @csrf_exempt
