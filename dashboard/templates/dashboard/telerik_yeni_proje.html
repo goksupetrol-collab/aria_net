@@ -4072,11 +4072,27 @@
             });
             break;
           case "multiselect":
-            $("#" + containerId).html('<input id="ornek-multiselect-' + numara + '" style="width:300px;" />');
-            $("#ornek-multiselect-" + numara).kendoMultiSelect({
-              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
-              placeholder: "Şube seçin..."
-            });
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📋 MultiSelect Örneği</h3><p style="margin:0 0 10px 0;color:#666;font-weight:bold;">📌 MultiSelect = Çoklu Seçim Dropdown</p><p style="margin:0 0 20px 0;color:#666;line-height:1.6;"><strong>Mantık:</strong> Birden fazla seçenek seçebilirsiniz. Örnek: Birden fazla şube seçmek için kullanılır. Seçilenler üstte etiket olarak gösterilir.</p><div style="margin-bottom:20px;"><label style="display:block;margin-bottom:8px;font-weight:bold;color:#333;">Şubeler Seçin (Birden fazla seçebilirsiniz):</label><input id="ornek-multiselect-' + numara + '" style="width:300px;" /></div><div style="padding:15px;background:#e3f2fd;border-radius:5px;font-size:12px;"><strong>💡 Kullanım Senaryoları:</strong><ul style="margin:10px 0 0 20px;padding:0;"><li style="margin:5px 0;">Birden fazla şube seçimi</li><li style="margin:5px 0;">Birden fazla ürün seçimi</li><li style="margin:5px 0;">Birden fazla firma seçimi</li></ul><strong>Kod:</strong> <code>$("#multiselect").kendoMultiSelect({ dataSource: ["Seçenek1", "Seçenek2"], placeholder: "Seçin..." });</code></div></div>');
+            setTimeout(function() {
+              if (typeof kendo !== 'undefined' && typeof $.fn.kendoMultiSelect !== 'undefined') {
+                var multiselectEl = $("#ornek-multiselect-" + numara);
+                if (multiselectEl.length > 0) {
+                  // Eğer daha önce oluşturulmuşsa destroy et
+                  if (multiselectEl.data("kendoMultiSelect")) {
+                    multiselectEl.data("kendoMultiSelect").destroy();
+                  }
+                  multiselectEl.kendoMultiSelect({
+                    dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+                    placeholder: "Şube seçin (çoklu seçim)...",
+                    filter: "contains",
+                    autoClose: false // Seçim yapınca kapanmasın
+                  });
+                  console.log("✅ MultiSelect oluşturuldu:", numara);
+                }
+              } else {
+                console.error("❌ Telerik MultiSelect yüklenmedi");
+              }
+            }, 100);
             break;
           case "autocomplete":
             $("#" + containerId).html('<input id="ornek-autocomplete-' + numara + '" style="width:300px;" />');
