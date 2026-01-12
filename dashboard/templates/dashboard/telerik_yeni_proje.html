@@ -3182,6 +3182,12 @@
       try {
         console.log("🚀 Fiyat Değişimi referans tablosu başlatılıyor...");
         
+        // Eğer Grid zaten varsa destroy et
+        var existingGrid = $("#telerik-bilesenler-tablo").data("kendoGrid");
+        if (existingGrid) {
+          existingGrid.destroy();
+        }
+        
         // Tüm Telerik bileşenleri listesi
         var bilesenler = [
           // VERİ YÖNETİMİ (1-6)
@@ -3401,6 +3407,41 @@
         }
       };
     }
+    
+    // TabStrip select event'inde de kontrol et
+    if (typeof tabStrip !== 'undefined' && tabStrip) {
+      tabStrip.bind("select", function(e) {
+        var tabItem = $(e.item);
+        var tabId = tabItem.attr("data-tab-id");
+        var tabText = tabItem.text() || tabItem.html() || "";
+        
+        if (!tabId && tabText.indexOf("Fiyat") >= 0) {
+          tabId = "fiyat-degisimi";
+        }
+        
+        if (tabId === "fiyat-degisimi") {
+          setTimeout(function() {
+            if ($("#main-content-fiyat-degisimi").is(":visible")) {
+              console.log("🚀 Fiyat Değişimi tab'ı seçildi, referans tablosu başlatılıyor...");
+              initFiyatDegisimiBilesenlerTablosu();
+            }
+          }, 300);
+        }
+      });
+    }
+    
+    // Ribbon buton tıklamasında da kontrol et
+    $(document).on("click", ".ribbon-button", function() {
+      var buttonText = $(this).text().trim();
+      if (buttonText === "Fiyat Değişimi" || buttonText.includes("Fiyat")) {
+        setTimeout(function() {
+          if ($("#main-content-fiyat-degisimi").is(":visible")) {
+            console.log("🚀 Fiyat Değişimi butonuna tıklandı, referans tablosu başlatılıyor...");
+            initFiyatDegisimiBilesenlerTablosu();
+          }
+        }, 500);
+      }
+    });
     
     // Sayfa yüklendiğinde kontrol et
     $(document).ready(function() {
