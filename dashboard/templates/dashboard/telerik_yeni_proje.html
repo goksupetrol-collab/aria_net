@@ -1693,9 +1693,63 @@
       // OPERASYON SAYFASI - Telerik Grid Tablosu (8 sütun 10 satır)
       setTimeout(function() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
-          // 10 satır boş veri oluştur
+          // Bugünün tarihini formatla: "12.01. PAZARTESİ"
+          var today = new Date();
+          var day = today.getDate();
+          var month = today.getMonth() + 1;
+          var year = today.getFullYear();
+          var days = ["PAZAR", "PAZARTESİ", "SALI", "ÇARŞAMBA", "PERŞEMBE", "CUMA", "CUMARTESİ"];
+          var dayName = days[today.getDay()];
+          var formattedDate = day + "." + (month < 10 ? "0" + month : month) + ". " + dayName;
+          
+          // 10 satır veri oluştur - İlk sütun altına KAPASİTE, ANLIK DURUM, GÜNLÜK SATIŞ, TARİH
           var emptyRows = [];
-          for (var i = 0; i < 10; i++) {
+          // İlk satır: KAPASİTE (rakamlar ile)
+          emptyRows.push({
+            sutun1: "KAPASİTE",
+            sutun2: "100.000",
+            sutun3: "100.000",
+            sutun4: "29.000",
+            sutun5: "60.000",
+            sutun6: "50.000",
+            sutun7: "60.000",
+            sutun8: "70.000"
+          });
+          // İkinci satır: ANLIK DURUM
+          emptyRows.push({
+            sutun1: "ANLIK DURUM",
+            sutun2: "",
+            sutun3: "",
+            sutun4: "",
+            sutun5: "",
+            sutun6: "",
+            sutun7: "",
+            sutun8: ""
+          });
+          // Üçüncü satır: GÜNLÜK SATIŞ
+          emptyRows.push({
+            sutun1: "GÜNLÜK SATIŞ",
+            sutun2: "",
+            sutun3: "",
+            sutun4: "",
+            sutun5: "",
+            sutun6: "",
+            sutun7: "",
+            sutun8: ""
+          });
+          // Dördüncü satır: Bugünün tarihi (dinamik)
+          emptyRows.push({
+            sutun1: formattedDate,
+            sutun2: "",
+            sutun3: "",
+            sutun4: "",
+            sutun5: "",
+            sutun6: "",
+            sutun7: "",
+            sutun8: ""
+          });
+          // Diğer 6 satır boş
+          for (var i = 0; i < 6; i++) {
             emptyRows.push({
               sutun1: "",
               sutun2: "",
@@ -1735,7 +1789,7 @@
             columnResizeHandleWidth: 0,
             rowHeight: 30,
             columns: [
-              { field: "sutun1", title: "MOTORİN", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun1", title: "MOTORİN", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "height:30px !important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" } },
               { field: "sutun2", title: "YAĞCILAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
               { field: "sutun3", title: "TEPEKUM", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
               { field: "sutun4", title: "NAMDAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
