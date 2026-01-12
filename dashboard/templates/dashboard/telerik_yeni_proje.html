@@ -93,6 +93,19 @@
     #banka-grid .k-grid-header, #banka-grid .k-grid-header-wrap,
     #banka-grid .k-grid-content-wrap, #banka-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
     
+    /* GENEL TELERİK GRID BORDER/PADDING SORUNU ÇÖZÜMÜ - Tüm grid'ler için geçerli */
+    /* Telerik Grid'in border/padding sorununu çözmek için genel CSS kuralları */
+    .k-grid, .k-grid .k-widget {
+      box-sizing: border-box !important;
+    }
+    
+    /* Container içindeki grid'ler için border kontrolü */
+    [id*="-grid"], [id*="-grid"] .k-grid,
+    [id*="-grid"] .k-widget,
+    [id*="-grid"] table.k-grid-table {
+      box-sizing: border-box !important;
+    }
+    
     /* main-content içindeki tüm margin/padding sıfırla */
     #main-content > * {margin-top:0 !important;padding-top:0 !important;}
     #main-content .container {margin-top:0 !important;padding-top:0 !important;}
@@ -452,10 +465,10 @@
       <!-- BOŞ ALAN - SIFIRDAN TASARLANACAK -->
       
       <!-- OPERASYON TABLOSU - Kırmızı kare -->
-      <div id="operasyon-tablo-container" style="position:relative;width:650px;height:320px;margin:20px 0 20px 10px;border:2px solid #FF0000;background:transparent;box-sizing:border-box;">
+      <div id="operasyon-tablo-container" style="position:relative;width:684px;height:320px;margin:20px 0 20px 10px;border:2px solid #FF0000;background:transparent;box-sizing:border-box;">
         <!-- Üstte ortada genişlik bilgisi (üst kırmızı çizginin tam üzerinde) - 1920px mantığı -->
         <div class="tablo-olcu-genislik" style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;z-index:10000;background:#FFFFFF;padding:2px 8px;border-radius:3px;">
-          ↔ 650px
+          ↔ 684px
         </div>
         <!-- Sağda ortada yükseklik bilgisi (sağ kırmızı çizginin tam üzerinde, dikey) - 1920px mantığı -->
         <div class="tablo-olcu-yukseklik" style="position:absolute;right:-2px;top:50%;transform:translateY(-50%);color:#FF0000;font-size:14pt;font-weight:bold;z-index:10000;background:#FFFFFF;padding:4px 2px;border-radius:3px;line-height:1.2;">
@@ -464,7 +477,7 @@
         </div>
         
         <!-- Telerik Grid Tablosu - 8 sütun 10 satır -->
-        <div id="operasyon-grid" style="width:646px;height:312px;position:absolute;top:2px;left:2px;"></div>
+        <div id="operasyon-grid" style="width:680px;height:312px;position:absolute;top:2px;left:2px;"></div>
       </div>
       
     </div>
@@ -1780,7 +1793,7 @@
                 }
               }
             },
-            width: 646,
+            width: 680,
             height: 312,
             scrollable: false,
             sortable: false,
@@ -1789,99 +1802,68 @@
             columnResizeHandleWidth: 0,
             rowHeight: 30,
             columns: [
-              { field: "sutun1", title: "MOTORİN", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "height:30px !important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" } },
-              { field: "sutun2", title: "YAĞCILAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun3", title: "TEPEKUM", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun4", title: "NAMDAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun5", title: "ŞEKER", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun6", title: "AKOVA", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun7", title: "KOOP.", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun8", title: "NAZİLLİ", width: 80, minResizableWidth: 80, maxResizableWidth: 80 }
+              { field: "sutun1", title: "MOTORİN", width: 120, minResizableWidth: 120, maxResizableWidth: 120, attributes: { style: "height:30px !important;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" } },
+              { field: "sutun2", title: "YAĞCILAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } },
+              { field: "sutun3", title: "TEPEKUM", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } },
+              { field: "sutun4", title: "NAMDAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } },
+              { field: "sutun5", title: "ŞEKER", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } },
+              { field: "sutun6", title: "AKOVA", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } },
+              { field: "sutun7", title: "KOOP.", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } },
+              { field: "sutun8", title: "NAZİLLİ", width: 80, minResizableWidth: 80, maxResizableWidth: 80, attributes: { style: "min-width: 80px !important; max-width: 80px !important; width: 80px !important;" } }
             ],
             noRecords: {
               template: ""
             }
           });
           
-          // Grid oluşturulduktan sonra gerçek ölçüleri kontrol et ve düzelt
+          // Grid border sorununu genel fonksiyonla düzelt
+          duzeltGridBorderSorunu("#operasyon-grid", 680);
+          
+          // Sütun genişliklerini ayarla - İlk sütun 120px, diğerleri 80px
           setTimeout(function() {
             var grid = $("#operasyon-grid").data("kendoGrid");
             if (grid) {
-              var gridElement = $("#operasyon-grid");
-              var containerWidth = 646; // Container iç alanı (650px - 4px border)
-              
-              // Grid'in tüm border ve padding'lerini kaldır
-              gridElement.css({
-                "box-sizing": "border-box",
-                "border": "none !important",
-                "padding": "0 !important",
-                "margin": "0 !important",
-                "width": containerWidth + "px !important"
-              });
-              
-              // Grid wrapper'ın border'ını kaldır
-              var gridWrapper = gridElement.closest(".k-widget");
-              if (gridWrapper.length > 0) {
-                gridWrapper.css({
-                  "border": "none !important",
-                  "padding": "0 !important",
-                  "box-sizing": "border-box"
-                });
-              }
-              
-              // Grid tablosunun border'ını kaldır ve genişliği ayarla
-              var gridTable = gridElement.find("table.k-grid-table");
-              if (gridTable.length > 0) {
-                gridTable.css({
-                  "border-collapse": "collapse",
-                  "border-spacing": "0",
-                  "width": containerWidth + "px",
-                  "table-layout": "fixed",
-                  "border": "none"
-                });
-              }
-              
-              // Grid header ve content'in border'ını kaldır
-              gridElement.find(".k-grid-header, .k-grid-content").css({
-                "border": "none",
-                "padding": "0"
-              });
-              
-              // Sütun genişliklerini container'a tam sığdır (646px / 8 = 80.75px, ama tam sayı için 80px + kalanı son sütuna)
               var columns = grid.columns;
-              var columnWidth = Math.floor(containerWidth / 8); // 80px
-              var lastColumnWidth = containerWidth - (columnWidth * 7); // Kalan: 646 - 560 = 86px
-              
-              for (var i = 0; i < columns.length; i++) {
-                if (i === columns.length - 1) {
-                  columns[i].width = lastColumnWidth; // Son sütun: 86px
-                } else {
-                  columns[i].width = columnWidth; // Diğerleri: 80px
-                }
+              // İlk sütun 120px, diğerleri 80px
+              columns[0].width = 120;
+              for (var i = 1; i < columns.length; i++) {
+                columns[i].width = 80;
               }
+              
+              // Sütun genişliklerini zorla uygula - flex-shrink'i kapat
+              $("#operasyon-grid .k-grid-header th").each(function(index) {
+                if (index === 0) {
+                  $(this).css({ "min-width": "120px", "max-width": "120px", "width": "120px", "flex-shrink": "0" });
+                } else {
+                  $(this).css({ "min-width": "80px", "max-width": "80px", "width": "80px", "flex-shrink": "0" });
+                }
+              });
+              
+              $("#operasyon-grid .k-grid-content table th").each(function(index) {
+                if (index === 0) {
+                  $(this).css({ "min-width": "120px", "max-width": "120px", "width": "120px", "flex-shrink": "0" });
+                } else {
+                  $(this).css({ "min-width": "80px", "max-width": "80px", "width": "80px", "flex-shrink": "0" });
+                }
+              });
+              
+              $("#operasyon-grid .k-grid-content table td").each(function(index) {
+                var colIndex = $(this).index();
+                if (colIndex === 0) {
+                  $(this).css({ "min-width": "120px", "max-width": "120px", "width": "120px", "flex-shrink": "0" });
+                } else {
+                  $(this).css({ "min-width": "80px", "max-width": "80px", "width": "80px", "flex-shrink": "0" });
+                }
+              });
+              
+              // Grid genişliğini toplam sütun genişliğine göre ayarla
+              var totalWidth = 120 + (80 * 7); // 680px
+              grid.options.width = totalWidth;
+              $("#operasyon-grid").css("width", totalWidth + "px");
               
               grid.refresh();
-              
-              // Gerçek ölçüleri tekrar kontrol et
-              setTimeout(function() {
-                var actualWidth = gridElement.width();
-                var totalColumnWidth = 0;
-                for (var j = 0; j < columns.length; j++) {
-                  totalColumnWidth += columns[j].width || 80;
-                }
-                
-                console.log("📏 Grid Ölçüleri (Düzeltme Sonrası):", {
-                  "Container iç alanı": containerWidth + "px",
-                  "Grid genişliği (ayar)": grid.options.width + "px",
-                  "Grid gerçek genişliği": actualWidth + "px",
-                  "Sütun toplam genişliği": totalColumnWidth + "px",
-                  "Sütun sayısı": columns.length,
-                  "İlk 7 sütun": columnWidth + "px",
-                  "Son sütun (NAZİLLİ)": lastColumnWidth + "px"
-                });
-              }, 100);
             }
-          }, 500);
+          }, 600);
           
           // Sütun genişliklerini ve satır yüksekliklerini sabit tut - içerikle değişmesin
           setTimeout(function() {
