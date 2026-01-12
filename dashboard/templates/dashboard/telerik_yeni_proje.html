@@ -453,14 +453,18 @@
       
       <!-- OPERASYON TABLOSU - Kırmızı kare -->
       <div id="operasyon-tablo-container" style="position:relative;width:650px;height:320px;margin:20px 0 20px 10px;border:2px solid #FF0000;background:transparent;box-sizing:border-box;">
-        <!-- Üstte ortada genişlik bilgisi (üst kırmızı çizginin ortasında) -->
-        <div class="tablo-olcu-genislik" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;background:#FFFFFF;padding:4px 10px;border:2px solid #FF0000;z-index:10000;">
+        <!-- Üstte ortada genişlik bilgisi (üst kırmızı çizginin tam üzerinde) - 1920px mantığı -->
+        <div class="tablo-olcu-genislik" style="position:absolute;top:-2px;left:50%;transform:translateX(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;z-index:10000;background:#FFFFFF;padding:2px 8px;border-radius:3px;">
           ↔ 650px
         </div>
-        <!-- Sağda ortada yükseklik bilgisi (sağ kırmızı çizginin ortasında, dikey) -->
-        <div class="tablo-olcu-yukseklik" style="position:absolute;right:-80px;top:50%;transform:translateY(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;background:#FFFFFF;padding:10px 4px;border:2px solid #FF0000;z-index:10000;">
-          <div style="writing-mode:vertical-lr;text-orientation:mixed;">↕ 320px</div>
+        <!-- Sağda ortada yükseklik bilgisi (sağ kırmızı çizginin tam üzerinde, dikey) - 1920px mantığı -->
+        <div class="tablo-olcu-yukseklik" style="position:absolute;right:-2px;top:50%;transform:translateY(-50%);color:#FF0000;font-size:14pt;font-weight:bold;z-index:10000;background:#FFFFFF;padding:4px 2px;border-radius:3px;line-height:1.2;">
+          <div style="text-align:center;">↕</div>
+          <div style="text-align:center;font-size:12pt;margin-top:2px;">320px</div>
         </div>
+        
+        <!-- Telerik Grid Tablosu - 8 sütun 10 satır -->
+        <div id="operasyon-grid" style="width:642px;height:312px;position:absolute;top:2px;left:2px;"></div>
       </div>
       
     </div>
@@ -1609,7 +1613,78 @@
         };
       }
       
-      // OPERASYON SAYFASI BOŞ - SIFIRDAN TASARLANACAK
+      // OPERASYON SAYFASI - Telerik Grid Tablosu (8 sütun 10 satır)
+      setTimeout(function() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
+          // 10 satır boş veri oluştur
+          var emptyRows = [];
+          for (var i = 0; i < 10; i++) {
+            emptyRows.push({
+              sutun1: "",
+              sutun2: "",
+              sutun3: "",
+              sutun4: "",
+              sutun5: "",
+              sutun6: "",
+              sutun7: "",
+              sutun8: ""
+            });
+          }
+          
+          $("#operasyon-grid").kendoGrid({
+            dataSource: {
+              data: emptyRows,
+              schema: {
+                model: {
+                  fields: {
+                    sutun1: { type: "string" },
+                    sutun2: { type: "string" },
+                    sutun3: { type: "string" },
+                    sutun4: { type: "string" },
+                    sutun5: { type: "string" },
+                    sutun6: { type: "string" },
+                    sutun7: { type: "string" },
+                    sutun8: { type: "string" }
+                  }
+                }
+              }
+            },
+            width: 642,
+            height: 312,
+            scrollable: false,
+            sortable: false,
+            filterable: false,
+            resizable: false,
+            columnResizeHandleWidth: 0,
+            columns: [
+              { field: "sutun1", title: "S1", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun2", title: "S2", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun3", title: "S3", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun4", title: "S4", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun5", title: "S5", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun6", title: "S6", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun7", title: "S7", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun8", title: "S8", width: 80, minResizableWidth: 80, maxResizableWidth: 80 }
+            ],
+            noRecords: {
+              template: ""
+            }
+          });
+          
+          // Sütun genişliklerini sabit tut - içerikle değişmesin
+          setTimeout(function() {
+            var grid = $("#operasyon-grid").data("kendoGrid");
+            if (grid) {
+              // Tüm sütunları sabit genişlikte tut
+              var columns = grid.columns;
+              for (var i = 0; i < columns.length; i++) {
+                columns[i].width = 80;  // Doğru: property ataması
+              }
+              grid.refresh();
+            }
+          }, 300);
+        }
+      }, 200);
     });
     
     $(document).ready(function() {
