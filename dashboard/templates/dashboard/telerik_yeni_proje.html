@@ -1100,6 +1100,83 @@
     <!-- REFERANS TABLOSU -->
     <div id="telerik-bilesenler-tablo" style="width:100%;height:calc(100vh - 200px);margin:0;padding:0;"></div>
     
+    <!-- 8, 9, 10 NUMARALI ÖRNEKLER - DİREKT SAYFADA -->
+    <div style="margin-top:30px;padding:20px;background:#f9f9f9;border-top:3px solid #206d7d;">
+      <h2 style="margin:0 0 20px 0;color:#206d7d;font-size:18pt;">8, 9, 10 Numara Örnekleri</h2>
+      
+      <!-- 8 - TabStrip -->
+      <div style="margin-bottom:30px;padding:20px;background:white;border:2px solid #ddd;border-radius:5px;">
+        <h3 style="margin:0 0 15px 0;color:#206d7d;">#8 - TabStrip Örneği</h3>
+        <p style="color:#666;margin:0 0 15px 0;">Telerik TabStrip - Sekmeler (Tab sistemi). Telerik sitesindeki örnek formatı kullanılıyor.</p>
+        <!-- Telerik TabStrip HTML yapısı -->
+        <div id="fiyat-degisimi-tabstrip-8">
+          <ul>
+            <li>Şubeler</li>
+            <li>Ürünler</li>
+            <li>Firmalar</li>
+          </ul>
+          <div>
+            <div style="padding:20px;">
+              <h4>Şube Listesi</h4>
+              <ul><li>YAĞCILAR</li><li>TEPEKUM</li><li>NAMDAR</li><li>ŞEKER</li></ul>
+            </div>
+          </div>
+          <div>
+            <div style="padding:20px;">
+              <h4>Ürün Listesi</h4>
+              <ul><li>Motorin</li><li>Benzin</li><li>Mazot</li></ul>
+            </div>
+          </div>
+          <div>
+            <div style="padding:20px;">
+              <h4>Firma Listesi</h4>
+              <ul><li>Firma 1</li><li>Firma 2</li><li>Firma 3</li></ul>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:15px;padding:15px;background:#e3f2fd;border-radius:5px;font-size:12px;">
+          <strong>📚 Telerik Dokümantasyon:</strong><br>
+          <strong>HTML:</strong> <code>&lt;div id="tabstrip"&gt;&lt;ul&gt;&lt;li&gt;Tab 1&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;Content&lt;/div&gt;&lt;/div&gt;</code><br>
+          <strong>JavaScript:</strong> <code>$("#tabstrip").kendoTabStrip();</code>
+        </div>
+      </div>
+      
+      <!-- 9 - TreeView -->
+      <div style="margin-bottom:30px;padding:20px;background:white;border:2px solid #ddd;border-radius:5px;">
+        <h3 style="margin:0 0 15px 0;color:#206d7d;">#9 - TreeView Örneği</h3>
+        <div id="fiyat-degisimi-treeview-9" style="width:100%;min-height:300px;"></div>
+      </div>
+      
+      <!-- 10 - PanelBar -->
+      <div style="margin-bottom:30px;padding:20px;background:white;border:2px solid #ddd;border-radius:5px;">
+        <h3 style="margin:0 0 15px 0;color:#206d7d;">#10 - PanelBar Örneği</h3>
+        <p style="color:#666;margin:0 0 15px 0;">Telerik PanelBar - Açılır paneller. Her panel içinde tablo gösteriliyor.</p>
+        <!-- Telerik PanelBar HTML yapısı -->
+        <ul id="fiyat-degisimi-panelbar-10">
+          <li>Şube Bilgileri
+            <div style="padding:20px;">
+              <div id="panelbar-subeler-tablo"></div>
+            </div>
+          </li>
+          <li>Ürün Bilgileri
+            <div style="padding:20px;">
+              <div id="panelbar-urunler-tablo"></div>
+            </div>
+          </li>
+          <li>Firma Bilgileri
+            <div style="padding:20px;">
+              <div id="panelbar-firmalar-tablo"></div>
+            </div>
+          </li>
+        </ul>
+        <div style="margin-top:15px;padding:15px;background:#e3f2fd;border-radius:5px;font-size:12px;">
+          <strong>📚 Telerik Dokümantasyon:</strong><br>
+          <strong>HTML:</strong> <code>&lt;ul id="panelbar"&gt;&lt;li&gt;Item 1&lt;div&gt;Content&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;</code><br>
+          <strong>JavaScript:</strong> <code>$("#panelbar").kendoPanelBar();</code>
+        </div>
+      </div>
+    </div>
+    
     <!-- BİLEŞEN ÖRNEKLERİ İÇİN MODAL WINDOW -->
     <div id="bilesen-ornek-window" style="display:none;">
       <div id="bilesen-ornek-content" style="padding:20px;min-height:400px;">
@@ -3482,6 +3559,10 @@
               title: "İşlem", 
               width: 120,
               template: function(dataItem) {
+                // 8, 9, 10 numaralı satırlar için buton gösterme (örnekler sayfada)
+                if (dataItem.numara === 8 || dataItem.numara === 9 || dataItem.numara === 10) {
+                  return '<span style="color:#999;font-size:12px;">Sayfada gösteriliyor</span>';
+                }
                 return '<button class="k-button k-button-md k-button-solid k-button-solid-primary" onclick="gosterBilesenOrnegi(' + dataItem.numara + ', \'' + dataItem.ad + '\', \'' + dataItem.ornek + '\')">Örnek Göster</button>';
               }
             }
@@ -3716,59 +3797,59 @@
             }, 200);
             break;
           case "tabstrip":
-            // TabStrip örneği - CALISAN VERSIYON
-            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📑 TabStrip Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Sekmelere tıklayarak içerikleri değiştirebilirsiniz.</p><div id="tabstrip-' + numara + '" style="width:100%;min-height:300px;"></div></div>');
-            
-            // TabStrip'i oluştur - DOM hazır olana kadar bekle
-            function initTabStrip() {
-              var tabstripElement = $("#tabstrip-" + numara);
-              if (tabstripElement.length === 0) {
-                console.log("TabStrip elementi bulunamadı, bekleniyor...");
-                setTimeout(initTabStrip, 50);
-                return;
-              }
-              
-              if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
-                try {
-                  // Eğer daha önce oluşturulmuşsa destroy et
-                  if (tabstripElement.data("kendoTabStrip")) {
-                    tabstripElement.data("kendoTabStrip").destroy();
-                  }
-                  
-                  tabstripElement.kendoTabStrip({
-                    animation: {
-                      open: { effects: "fadeIn", duration: 200 }
-                    },
-                    select: function(e) {
-                      var tabText = $(e.item).text();
-                      console.log("TabStrip tab tıklandı:", tabText);
-                    },
-                    items: [
-                      {
-                        text: "Şubeler",
-                        content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">📋 Şubeler</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">YAĞCILAR</li><li style="margin:8px 0;">TEPEKUM</li><li style="margin:8px 0;">NAMDAR</li><li style="margin:8px 0;">ŞEKER</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'subeler\');</code></p></div>'
-                      },
-                      {
-                        text: "Ürünler",
-                        content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">📦 Ürünler</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Motorin</li><li style="margin:8px 0;">Benzin</li><li style="margin:8px 0;">Mazot</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'urunler\');</code></p></div>'
-                      },
-                      {
-                        text: "Firmalar",
-                        content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">🏢 Firmalar</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Firma 1</li><li style="margin:8px 0;">Firma 2</li><li style="margin:8px 0;">Firma 3</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'firmalar\');</code></p></div>'
-                      }
-                    ]
-                  });
-                  console.log("✅ TabStrip başarıyla oluşturuldu:", numara);
-                } catch(error) {
-                  console.error("❌ TabStrip oluşturulurken hata:", error);
-                }
-              } else {
-                console.log("Telerik TabStrip bekleniyor...");
-                setTimeout(initTabStrip, 100);
-              }
+            // TabStrip örneği - CALISAN VERSIYON (HEMEN OLUSTUR)
+            var containerElement = $("#" + containerId);
+            if (containerElement.length === 0) {
+              console.error("❌ Container elementi bulunamadı:", containerId);
+              break;
             }
             
-            setTimeout(initTabStrip, 100);
+            containerElement.html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📑 TabStrip Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Sekmelere tıklayarak içerikleri değiştirebilirsiniz.</p><div id="tabstrip-' + numara + '" style="width:100%;min-height:300px;"></div></div>');
+            
+            // TabStrip'i hemen oluştur (setTimeout yok)
+            if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
+              try {
+                var tabstripElement = $("#tabstrip-" + numara);
+                if (tabstripElement.length === 0) {
+                  console.error("❌ TabStrip elementi bulunamadı:", "tabstrip-" + numara);
+                  break;
+                }
+                
+                // Eğer daha önce oluşturulmuşsa destroy et
+                if (tabstripElement.data("kendoTabStrip")) {
+                  tabstripElement.data("kendoTabStrip").destroy();
+                }
+                
+                tabstripElement.kendoTabStrip({
+                  animation: {
+                    open: { effects: "fadeIn", duration: 200 }
+                  },
+                  select: function(e) {
+                    var tabText = $(e.item).text();
+                    console.log("TabStrip tab tıklandı:", tabText);
+                  },
+                  items: [
+                    {
+                      text: "Şubeler",
+                      content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">📋 Şubeler</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">YAĞCILAR</li><li style="margin:8px 0;">TEPEKUM</li><li style="margin:8px 0;">NAMDAR</li><li style="margin:8px 0;">ŞEKER</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'subeler\');</code></p></div>'
+                    },
+                    {
+                      text: "Ürünler",
+                      content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">📦 Ürünler</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Motorin</li><li style="margin:8px 0;">Benzin</li><li style="margin:8px 0;">Mazot</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'urunler\');</code></p></div>'
+                    },
+                    {
+                      text: "Firmalar",
+                      content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">🏢 Firmalar</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Firma 1</li><li style="margin:8px 0;">Firma 2</li><li style="margin:8px 0;">Firma 3</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'firmalar\');</code></p></div>'
+                    }
+                  ]
+                });
+                console.log("✅ TabStrip başarıyla oluşturuldu:", numara);
+              } catch(error) {
+                console.error("❌ TabStrip oluşturulurken hata:", error);
+              }
+            } else {
+              console.error("❌ Telerik TabStrip yüklenmedi");
+            }
             break;
           case "treeview":
             $("#" + containerId).kendoTreeView({
@@ -3779,53 +3860,53 @@
             });
             break;
           case "panelbar":
-            // PanelBar örneği - CALISAN VERSIYON
-            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📋 PanelBar Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Panellere tıklayarak açıp kapatabilirsiniz.</p><div id="panelbar-' + numara + '" style="width:100%;"></div></div>');
-            
-            // PanelBar'i oluştur - DOM hazır olana kadar bekle
-            function initPanelBar() {
-              var panelbarElement = $("#panelbar-" + numara);
-              if (panelbarElement.length === 0) {
-                console.log("PanelBar elementi bulunamadı, bekleniyor...");
-                setTimeout(initPanelBar, 50);
-                return;
-              }
-              
-              if (typeof kendo !== 'undefined' && typeof $.fn.kendoPanelBar !== 'undefined') {
-                try {
-                  // Eğer daha önce oluşturulmuşsa destroy et
-                  if (panelbarElement.data("kendoPanelBar")) {
-                    panelbarElement.data("kendoPanelBar").destroy();
-                  }
-                  
-                  panelbarElement.kendoPanelBar({
-                    expandMode: "multiple",
-                    items: [
-                      {
-                        text: "📋 Şubeler",
-                        content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">Şube Listesi</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">YAĞCILAR</li><li style="margin:8px 0;">TEPEKUM</li><li style="margin:8px 0;">NAMDAR</li><li style="margin:8px 0;">ŞEKER</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'subeler\');</code></p></div>'
-                      },
-                      {
-                        text: "📦 Ürünler",
-                        content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">Ürün Listesi</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Motorin</li><li style="margin:8px 0;">Benzin</li><li style="margin:8px 0;">Mazot</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'urunler\');</code></p></div>'
-                      },
-                      {
-                        text: "🏢 Firmalar",
-                        content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">Firma Listesi</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Firma 1</li><li style="margin:8px 0;">Firma 2</li><li style="margin:8px 0;">Firma 3</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'firmalar\');</code></p></div>'
-                      }
-                    ]
-                  });
-                  console.log("✅ PanelBar başarıyla oluşturuldu:", numara);
-                } catch(error) {
-                  console.error("❌ PanelBar oluşturulurken hata:", error);
-                }
-              } else {
-                console.log("Telerik PanelBar bekleniyor...");
-                setTimeout(initPanelBar, 100);
-              }
+            // PanelBar örneği - CALISAN VERSIYON (HEMEN OLUSTUR)
+            var containerElement = $("#" + containerId);
+            if (containerElement.length === 0) {
+              console.error("❌ Container elementi bulunamadı:", containerId);
+              break;
             }
             
-            setTimeout(initPanelBar, 100);
+            containerElement.html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📋 PanelBar Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Panellere tıklayarak açıp kapatabilirsiniz.</p><div id="panelbar-' + numara + '" style="width:100%;"></div></div>');
+            
+            // PanelBar'i hemen oluştur (setTimeout yok)
+            if (typeof kendo !== 'undefined' && typeof $.fn.kendoPanelBar !== 'undefined') {
+              try {
+                var panelbarElement = $("#panelbar-" + numara);
+                if (panelbarElement.length === 0) {
+                  console.error("❌ PanelBar elementi bulunamadı:", "panelbar-" + numara);
+                  break;
+                }
+                
+                // Eğer daha önce oluşturulmuşsa destroy et
+                if (panelbarElement.data("kendoPanelBar")) {
+                  panelbarElement.data("kendoPanelBar").destroy();
+                }
+                
+                panelbarElement.kendoPanelBar({
+                  expandMode: "multiple",
+                  items: [
+                    {
+                      text: "📋 Şubeler",
+                      content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">Şube Listesi</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">YAĞCILAR</li><li style="margin:8px 0;">TEPEKUM</li><li style="margin:8px 0;">NAMDAR</li><li style="margin:8px 0;">ŞEKER</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'subeler\');</code></p></div>'
+                    },
+                    {
+                      text: "📦 Ürünler",
+                      content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">Ürün Listesi</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Motorin</li><li style="margin:8px 0;">Benzin</li><li style="margin:8px 0;">Mazot</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'urunler\');</code></p></div>'
+                    },
+                    {
+                      text: "🏢 Firmalar",
+                      content: '<div style="padding:20px;"><h4 style="margin:0 0 15px 0;color:#206d7d;">Firma Listesi</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Firma 1</li><li style="margin:8px 0;">Firma 2</li><li style="margin:8px 0;">Firma 3</li></ul><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-radius:4px;"><strong>💡 Projede kullanım:</strong><br><code>showPageOnly(\'firmalar\');</code></p></div>'
+                    }
+                  ]
+                });
+                console.log("✅ PanelBar başarıyla oluşturuldu:", numara);
+              } catch(error) {
+                console.error("❌ PanelBar oluşturulurken hata:", error);
+              }
+            } else {
+              console.error("❌ Telerik PanelBar yüklenmedi");
+            }
             break;
           case "breadcrumb":
             $("#" + containerId).kendoBreadcrumb({
@@ -3973,11 +4054,15 @@
             });
             break;
           case "combobox":
-            $("#" + containerId).html('<input id="ornek-combobox-' + numara + '" style="width:300px;" />');
-            $("#ornek-combobox-" + numara).kendoComboBox({
-              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
-              placeholder: "Şube seçin..."
-            });
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📋 ComboBox Örneği</h3><p style="margin:0 0 10px 0;color:#666;font-weight:bold;">📌 ComboBox = Dropdown + Arama Kutusu</p><p style="margin:0 0 20px 0;color:#666;line-height:1.6;"><strong>Mantık:</strong> Hem listeden seçebilirsiniz, hem de yazarken otomatik filtreleme yapar. Örnek: Şube seçimi yaparken "YAĞ" yazarsanız sadece "YAĞCILAR" gösterir.</p><div style="margin-bottom:20px;"><label style="display:block;margin-bottom:8px;font-weight:bold;color:#333;">Şube Seçin (Yazarken filtreleme yapar):</label><input id="ornek-combobox-' + numara + '" style="width:300px;" /></div><div style="padding:15px;background:#e3f2fd;border-radius:5px;font-size:12px;"><strong>💡 Kullanım Senaryoları:</strong><ul style="margin:10px 0 0 20px;padding:0;"><li style="margin:5px 0;">Şube seçimi (çok şube varsa yazarken filtreleme)</li><li style="margin:5px 0;">Firma seçimi (firma adı yazarken arama)</li><li style="margin:5px 0;">Ürün seçimi (ürün adı yazarken filtreleme)</li></ul><strong>Kod:</strong> <code>$("#combobox").kendoComboBox({ dataSource: ["Seçenek1", "Seçenek2"], placeholder: "Seçin..." });</code></div></div>');
+            setTimeout(function() {
+              $("#ornek-combobox-" + numara).kendoComboBox({
+                dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+                placeholder: "Şube seçin veya yazın...",
+                filter: "contains", // Yazarken içinde geçenleri bul
+                suggest: true // Yazarken öneri göster
+              });
+            }, 100);
             break;
           case "dropdownlist":
             $("#" + containerId).html('<input id="ornek-dropdownlist-' + numara + '" style="width:300px;" />');
@@ -4717,8 +4802,8 @@
         
         // Window'u göster - BILEŞENLER OLUŞTURULDUKTAN SONRA
         // setTimeout kullanan bileşenler için bekle (TabStrip, PanelBar, vb.)
-        var needsDelay = (ornekTip === "tabstrip" || ornekTip === "panelbar" || ornekTip === "treeview");
-        var delayTime = needsDelay ? 300 : 0;
+        var needsDelay = (ornekTip === "tabstrip" || ornekTip === "panelbar" || ornekTip === "treeview" || ornekTip === "menu");
+        var delayTime = needsDelay ? 500 : 100;
         
         setTimeout(function() {
           var windowWidth = 900;
@@ -4730,24 +4815,52 @@
             windowHeight = 600;
           }
           
-          // Eğer daha önce oluşturulmuşsa destroy et
-          var existingWindow = $("#bilesen-ornek-window").data("kendoWindow");
-          if (existingWindow) {
-            existingWindow.destroy();
+          // Modal element kontrolü
+          var windowElement = $("#bilesen-ornek-window");
+          if (windowElement.length === 0) {
+            console.error("❌ Modal elementi bulunamadı: #bilesen-ornek-window");
+            return;
           }
           
-          var window = $("#bilesen-ornek-window").kendoWindow({
-            title: "#" + numara + " - " + ad + " Örneği",
-            width: windowWidth,
-            height: windowHeight,
-            modal: true,
-            resizable: true,
-            draggable: true,
-            visible: false
-          }).data("kendoWindow");
+          // Eğer daha önce oluşturulmuşsa destroy et
+          var existingWindow = windowElement.data("kendoWindow");
+          if (existingWindow) {
+            try {
+              existingWindow.destroy();
+            } catch(e) {
+              console.warn("⚠️ Mevcut window destroy edilirken hata:", e);
+            }
+          }
           
-          window.center().open();
-          console.log("✅ Modal açıldı:", numara, ad);
+          // kendoWindow oluştur
+          if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
+            try {
+              var window = windowElement.kendoWindow({
+                title: "#" + numara + " - " + ad + " Örneği",
+                width: windowWidth,
+                height: windowHeight,
+                modal: true,
+                resizable: true,
+                draggable: true,
+                visible: false
+              }).data("kendoWindow");
+              
+              if (window) {
+                window.center().open();
+                console.log("✅ Modal açıldı:", numara, ad);
+              } else {
+                console.error("❌ Modal oluşturulamadı - window undefined");
+                // Alternatif: Basit alert göster
+                alert("#" + numara + " - " + ad + " örneği hazırlanıyor...");
+              }
+            } catch(e) {
+              console.error("❌ Modal oluşturma hatası:", e);
+              alert("Modal açılırken hata: " + e.message);
+            }
+          } else {
+            console.error("❌ Telerik Window yüklenmedi");
+            alert("Telerik Window kütüphanesi yüklenmedi!");
+          }
         }, delayTime);
       } catch(error) {
         console.error("Bileşen örneği gösterilirken hata:", error);
@@ -4787,6 +4900,7 @@
             if ($("#main-content-fiyat-degisimi").is(":visible")) {
               console.log("🚀 Fiyat Değişimi tab'ı seçildi, referans tablosu başlatılıyor...");
               initFiyatDegisimiBilesenlerTablosu();
+              initFiyatDegisimiOrnekleri();
             }
           }, 300);
         }
@@ -4798,10 +4912,11 @@
       var buttonText = $(this).text().trim();
       if (buttonText === "Fiyat Değişimi" || buttonText.includes("Fiyat")) {
         setTimeout(function() {
-          if ($("#main-content-fiyat-degisimi").is(":visible")) {
-            console.log("🚀 Fiyat Değişimi butonuna tıklandı, referans tablosu başlatılıyor...");
-            initFiyatDegisimiBilesenlerTablosu();
-          }
+        if ($("#main-content-fiyat-degisimi").is(":visible")) {
+          console.log("🚀 Fiyat Değişimi butonuna tıklandı, referans tablosu başlatılıyor...");
+          initFiyatDegisimiBilesenlerTablosu();
+          initFiyatDegisimiOrnekleri();
+        }
         }, 500);
       }
     });
@@ -4812,8 +4927,157 @@
         if ($("#main-content-fiyat-degisimi").is(":visible")) {
           console.log("🚀 Sayfa yüklendi, Fiyat Değişimi açık, referans tablosu başlatılıyor...");
           initFiyatDegisimiBilesenlerTablosu();
+          initFiyatDegisimiOrnekleri();
         }
       }, 1000);
     });
+    
+    // 8, 9, 10 NUMARALI ÖRNEKLERİ OLUŞTUR - TELERİK SİTESİNDEKİ FORMAT
+    function initFiyatDegisimiOrnekleri() {
+      console.log("🚀 Fiyat Değişimi örnekleri oluşturuluyor (Telerik formatı)...");
+      
+      setTimeout(function() {
+        // 8 - TabStrip (Telerik HTML formatı)
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
+          var tabstrip8 = $("#fiyat-degisimi-tabstrip-8");
+          if (tabstrip8.length > 0) {
+            try {
+              if (tabstrip8.data("kendoTabStrip")) {
+                tabstrip8.data("kendoTabStrip").destroy();
+              }
+              tabstrip8.kendoTabStrip();
+              console.log("✅ #8 TabStrip oluşturuldu (Telerik HTML formatı)");
+            } catch(e) {
+              console.error("❌ #8 TabStrip hatası:", e);
+            }
+          }
+        }
+        
+        // 9 - TreeView
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoTreeView !== 'undefined') {
+          var treeview9 = $("#fiyat-degisimi-treeview-9");
+          if (treeview9.length > 0) {
+            try {
+              if (treeview9.data("kendoTreeView")) {
+                treeview9.data("kendoTreeView").destroy();
+              }
+              treeview9.kendoTreeView({
+                dataSource: [
+                  {text: "YAĞCILAR", items: [{text: "Motorin"}, {text: "Benzin"}]},
+                  {text: "TEPEKUM", items: [{text: "Motorin"}, {text: "Benzin"}]},
+                  {text: "NAMDAR"}
+                ]
+              });
+              console.log("✅ #9 TreeView oluşturuldu");
+            } catch(e) {
+              console.error("❌ #9 TreeView hatası:", e);
+            }
+          }
+        }
+        
+        // 10 - PanelBar (Telerik HTML formatı) - İçinde tablolar var
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoPanelBar !== 'undefined') {
+          var panelbar10 = $("#fiyat-degisimi-panelbar-10");
+          if (panelbar10.length > 0) {
+            try {
+              if (panelbar10.data("kendoPanelBar")) {
+                panelbar10.data("kendoPanelBar").destroy();
+              }
+              // Önce PanelBar'ı oluştur
+              panelbar10.kendoPanelBar({
+                expandMode: "multiple" // Birden fazla panel aynı anda açık olabilsin
+              });
+              console.log("✅ #10 PanelBar oluşturuldu (Telerik HTML formatı)");
+              
+              // PanelBar oluşturulduktan sonra tabloları oluştur
+              setTimeout(function() {
+                initPanelBarSubelerTablo();
+                initPanelBarUrunlerTablo();
+                initPanelBarFirmalarTablo();
+              }, 300);
+            } catch(e) {
+              console.error("❌ #10 PanelBar hatası:", e);
+            }
+          }
+        }
+      }, 500);
+    }
+    
+    // PanelBar içindeki tabloları oluştur
+    function initPanelBarSubelerTablo() {
+      var grid = $("#panelbar-subeler-tablo");
+      if (grid.length > 0 && !grid.data("kendoGrid")) {
+        grid.kendoGrid({
+          dataSource: {
+            data: [
+              {id: 1, ad: "YAĞCILAR", kod: "YGC", durum: "Aktif"},
+              {id: 2, ad: "TEPEKUM", kod: "TPK", durum: "Aktif"},
+              {id: 3, ad: "NAMDAR", kod: "NMD", durum: "Aktif"},
+              {id: 4, ad: "ŞEKER", kod: "SKR", durum: "Pasif"}
+            ],
+            pageSize: 10
+          },
+          columns: [
+            {field: "id", title: "#", width: 60},
+            {field: "ad", title: "Şube Adı", width: 150},
+            {field: "kod", title: "Kod", width: 100},
+            {field: "durum", title: "Durum", width: 100}
+          ],
+          height: 250,
+          scrollable: true,
+          pageable: true
+        });
+      }
+    }
+    
+    function initPanelBarUrunlerTablo() {
+      var grid = $("#panelbar-urunler-tablo");
+      if (grid.length > 0 && !grid.data("kendoGrid")) {
+        grid.kendoGrid({
+          dataSource: {
+            data: [
+              {id: 1, ad: "Motorin", birim: "Litre", fiyat: 45.50},
+              {id: 2, ad: "Benzin", birim: "Litre", fiyat: 52.30},
+              {id: 3, ad: "Mazot", birim: "Litre", fiyat: 48.75}
+            ],
+            pageSize: 10
+          },
+          columns: [
+            {field: "id", title: "#", width: 60},
+            {field: "ad", title: "Ürün Adı", width: 150},
+            {field: "birim", title: "Birim", width: 100},
+            {field: "fiyat", title: "Fiyat (TL)", width: 120, format: "{0:n2}"}
+          ],
+          height: 250,
+          scrollable: true,
+          pageable: true
+        });
+      }
+    }
+    
+    function initPanelBarFirmalarTablo() {
+      var grid = $("#panelbar-firmalar-tablo");
+      if (grid.length > 0 && !grid.data("kendoGrid")) {
+        grid.kendoGrid({
+          dataSource: {
+            data: [
+              {id: 1, ad: "ABC Petrol", telefon: "0212 555 0001", sehir: "İstanbul"},
+              {id: 2, ad: "XYZ Enerji", telefon: "0216 555 0002", sehir: "Ankara"},
+              {id: 3, ad: "DEF Yakıt", telefon: "0232 555 0003", sehir: "İzmir"}
+            ],
+            pageSize: 10
+          },
+          columns: [
+            {field: "id", title: "#", width: 60},
+            {field: "ad", title: "Firma Adı", width: 200},
+            {field: "telefon", title: "Telefon", width: 150},
+            {field: "sehir", title: "Şehir", width: 120}
+          ],
+          height: 250,
+          scrollable: true,
+          pageable: true
+        });
+      }
+    }
   </script>
 {% endblock %}
