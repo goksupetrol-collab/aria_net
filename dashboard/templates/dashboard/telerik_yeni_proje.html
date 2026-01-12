@@ -1830,22 +1830,64 @@
                 columns[i].width = 80;
               }
               
-              // Sütun genişliklerini zorla uygula - sadece header ve td'lere, satır yüksekliğini bozmadan
+              // Sütun genişliklerini zorla uygula - header ve td'lerin tam hizalı olması için
               $("#operasyon-grid .k-grid-header th").each(function(index) {
                 if (index === 0) {
-                  $(this).css({ "min-width": "120px", "max-width": "120px", "width": "120px", "flex-shrink": "0", "flex-grow": "0" });
+                  $(this).css({ 
+                    "min-width": "120px", 
+                    "max-width": "120px", 
+                    "width": "120px", 
+                    "flex-shrink": "0", 
+                    "flex-grow": "0",
+                    "box-sizing": "border-box",
+                    "padding-left": "15px",
+                    "padding-right": "15px"
+                  });
                 } else {
-                  $(this).css({ "min-width": "80px", "max-width": "80px", "width": "80px", "flex-shrink": "0", "flex-grow": "0" });
+                  $(this).css({ 
+                    "min-width": "80px", 
+                    "max-width": "80px", 
+                    "width": "80px", 
+                    "flex-shrink": "0", 
+                    "flex-grow": "0",
+                    "box-sizing": "border-box",
+                    "padding-left": "15px",
+                    "padding-right": "15px"
+                  });
                 }
               });
               
               $("#operasyon-grid .k-grid-content table td").each(function() {
                 var colIndex = $(this).index();
                 if (colIndex === 0) {
-                  $(this).css({ "min-width": "120px", "max-width": "120px", "width": "120px", "flex-shrink": "0", "flex-grow": "0" });
+                  $(this).css({ 
+                    "min-width": "120px", 
+                    "max-width": "120px", 
+                    "width": "120px", 
+                    "flex-shrink": "0", 
+                    "flex-grow": "0",
+                    "box-sizing": "border-box",
+                    "padding-left": "15px",
+                    "padding-right": "15px"
+                  });
                 } else {
-                  $(this).css({ "min-width": "80px", "max-width": "80px", "width": "80px", "flex-shrink": "0", "flex-grow": "0" });
+                  $(this).css({ 
+                    "min-width": "80px", 
+                    "max-width": "80px", 
+                    "width": "80px", 
+                    "flex-shrink": "0", 
+                    "flex-grow": "0",
+                    "box-sizing": "border-box",
+                    "padding-left": "15px",
+                    "padding-right": "15px"
+                  });
                 }
+              });
+              
+              // Header ve data cell'lerin aynı hizada olması için tablo genişliğini sabitle
+              $("#operasyon-grid table.k-grid-table").css({
+                "table-layout": "fixed",
+                "width": "680px"
               });
               
               // Satır yüksekliklerini koru
