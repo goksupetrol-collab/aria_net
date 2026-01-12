@@ -1656,22 +1656,23 @@
             filterable: false,
             resizable: false,
             columnResizeHandleWidth: 0,
+            rowHeight: 30,
             columns: [
-              { field: "sutun1", title: "S1", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun2", title: "S2", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun3", title: "S3", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun4", title: "S4", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun5", title: "S5", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun6", title: "S6", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun7", title: "S7", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
-              { field: "sutun8", title: "S8", width: 80, minResizableWidth: 80, maxResizableWidth: 80 }
+              { field: "sutun1", title: "MOTORİN", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun2", title: "YAĞCILAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun3", title: "TEPEKUM", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun4", title: "NAMDAR", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun5", title: "ŞEKER", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun6", title: "AKOVA", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun7", title: "KOOP.", width: 80, minResizableWidth: 80, maxResizableWidth: 80 },
+              { field: "sutun8", title: "NAZİLLİ", width: 80, minResizableWidth: 80, maxResizableWidth: 80 }
             ],
             noRecords: {
               template: ""
             }
           });
           
-          // Sütun genişliklerini sabit tut - içerikle değişmesin
+          // Sütun genişliklerini ve satır yüksekliklerini sabit tut - içerikle değişmesin
           setTimeout(function() {
             var grid = $("#operasyon-grid").data("kendoGrid");
             if (grid) {
@@ -1680,6 +1681,8 @@
               for (var i = 0; i < columns.length; i++) {
                 columns[i].width = 80;  // Doğru: property ataması
               }
+              // Tüm satırları sabit yükseklikte tut
+              $("#operasyon-grid").find(".k-grid tr").css("height", "30px");
               grid.refresh();
             }
           }, 300);
@@ -3483,7 +3486,8 @@
               }
             }
           ],
-          height: "100%",
+          height: 600,
+          scrollable: true,
           sortable: true,
           filterable: true,
           pageable: {
@@ -3600,8 +3604,91 @@
             });
             break;
           case "menu":
-            $("#" + containerId).html('<ul id="ornek-menu-' + numara + '"><li>Tanımlar<ul><li>Şubeler</li><li>Ürünler</li></ul></li><li>Raporlar</li></ul>');
-            $("#ornek-menu-" + numara).kendoMenu();
+            // Menu örneği - SIFIRDAN BASIT VE CALISAN MENU
+            var menuId = "ornek-menu-" + numara;
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📋 Menu Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Menü öğelerine tıklayın, her tıklamada bildirim göreceksiniz. Mantığı anlamak için tıklayın!</p><ul id="' + menuId + '"><li>Tanımlar<ul><li>Şubeler</li><li>Ürünler</li><li>Firmalar</li></ul></li><li>Raporlar<ul><li>Satış Raporu</li><li>Stok Raporu</li><li>Gelir Raporu</li></ul></li><li>İşlemler<ul><li>Satış</li><li>Alış</li><li>Transfer</li></ul></li><li>Ayarlar</li></ul></div>');
+            
+            // Telerik yüklenene kadar bekle
+            function initMenu() {
+              if (typeof kendo === 'undefined' || typeof $.fn.kendoMenu === 'undefined') {
+                setTimeout(initMenu, 100);
+                return;
+              }
+              
+              var menuElement = $("#" + menuId);
+              if (menuElement.length === 0) {
+                return;
+              }
+              
+              try {
+                // Eğer daha önce oluşturulmuşsa destroy et
+                if (menuElement.data("kendoMenu")) {
+                  menuElement.data("kendoMenu").destroy();
+                }
+                
+                // Menu'yu oluştur - BASIT VE CALISAN
+                menuElement.kendoMenu({
+                  orientation: "vertical",
+                  select: function(e) {
+                    e.preventDefault();
+                    // Tıklanan menü öğesinin metnini al
+                    var menuText = $(e.item).find(".k-link").text() || $(e.item).text();
+                    menuText = menuText.trim();
+                    
+                    // Alt menü öğesi değilse (yani tıklanabilir bir öğe ise)
+                    if (menuText && !$(e.item).has("ul").length) {
+                      console.log("Select event çalıştı:", menuText);
+                      // Bildirim göster
+                      if (typeof showInfo !== 'undefined') {
+                        showInfo("Menü Tıklandı", "Seçilen menü: <strong>" + menuText + "</strong><br>Bu menü öğesine tıklandığında burada istediğiniz işlemi yapabilirsiniz.<br><br><small>Örnek: if (menuText === 'Şubeler') { window.location.href = '/subeler'; }</small>");
+                      } else {
+                        alert("Menü Tıklandı: " + menuText);
+                      }
+                    }
+                  }
+                });
+                
+                console.log("✅ Menu başarıyla oluşturuldu:", menuId);
+                
+                // Menu oluşturulduktan sonra click event'lerini direkt ekle
+                setTimeout(function() {
+                  var menuWidget = menuElement.data("kendoMenu");
+                  if (menuWidget) {
+                    // Menu içindeki tüm linklere direkt click event'i ekle
+                    menuElement.on("click", ".k-link", function(e) {
+                      var menuText = $(this).text().trim();
+                      var menuItem = $(this).closest("li.k-item");
+                      
+                      // Eğer alt menüsü yoksa (yani tıklanabilir bir öğe ise)
+                      if (menuText && menuItem.length > 0 && !menuItem.has("ul").length) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log("Menu öğesi tıklandı (click event):", menuText);
+                        
+                        // Bildirim göster
+                        if (typeof showInfo !== 'undefined') {
+                          showInfo("Menü Tıklandı", "Seçilen menü: <strong>" + menuText + "</strong><br>Bu menü öğesine tıklandığında burada istediğiniz işlemi yapabilirsiniz.<br><br><small>Örnek: if (menuText === 'Şubeler') { window.location.href = '/subeler'; }</small>");
+                        } else {
+                          alert("Menü Tıklandı: " + menuText);
+                        }
+                      }
+                    });
+                    
+                    // Menu linklerini kontrol et
+                    var menuLinks = menuElement.find(".k-link");
+                    console.log("Menu link sayısı:", menuLinks.length);
+                    console.log("Menu widget:", menuWidget);
+                  } else {
+                    console.error("❌ Menu widget bulunamadı!");
+                  }
+                }, 500);
+              } catch(error) {
+                console.error("❌ Menu oluşturulurken hata:", error);
+              }
+            }
+            
+            // Menu'yu oluştur
+            setTimeout(initMenu, 300);
             break;
           case "tabstrip":
             $("#" + containerId).kendoTabStrip({
@@ -4469,7 +4556,47 @@
             }, 100);
             break;
           case "datasource":
-            $("#" + containerId).html('<p style="color:#666;padding:20px;">DataSource JavaScript yardımcı bileşendir. Diğer bileşenlerin verilerini yönetmek için kullanılır. Görsel bir bileşen değildir.</p>');
+            // DataSource örneği - Grid ile veri yükleme
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📊 DataSource Örneği</h3><p style="margin:0 0 20px 0;color:#666;">DataSource ile veri yüklenen Grid örneği. DataSource verileri yönetir, Grid gösterir.</p><div id="datasource-grid-' + numara + '" style="height:300px;"></div></div>');
+            
+            // DataSource oluştur
+            var dataSource = new kendo.data.DataSource({
+              data: [
+                {id: 1, sube: "YAĞCILAR", urun: "Motorin", miktar: 125000, fiyat: 25.50, tutar: 3187500},
+                {id: 2, sube: "TEPEKUM", urun: "Benzin", miktar: 85000, fiyat: 28.75, tutar: 2443750},
+                {id: 3, sube: "NAMDAR", urun: "Motorin", miktar: 45000, fiyat: 25.50, tutar: 1147500},
+                {id: 4, sube: "ŞEKER", urun: "Benzin", miktar: 60000, fiyat: 28.75, tutar: 1725000}
+              ],
+              schema: {
+                model: {
+                  fields: {
+                    id: { type: "number" },
+                    sube: { type: "string" },
+                    urun: { type: "string" },
+                    miktar: { type: "number" },
+                    fiyat: { type: "number" },
+                    tutar: { type: "number" }
+                  }
+                }
+              }
+            });
+            
+            // Grid'i DataSource ile oluştur
+            $("#datasource-grid-" + numara).kendoGrid({
+              dataSource: dataSource,
+              columns: [
+                {field: "id", title: "ID", width: 60},
+                {field: "sube", title: "Şube", width: 120},
+                {field: "urun", title: "Ürün", width: 100},
+                {field: "miktar", title: "Miktar", width: 100, format: "{0:n0} L"},
+                {field: "fiyat", title: "Fiyat", width: 100, format: "{0:n2} TL"},
+                {field: "tutar", title: "Tutar", width: 120, format: "{0:n2} TL"}
+              ],
+              height: 300,
+              sortable: true,
+              filterable: true,
+              pageable: {pageSize: 5}
+            });
             break;
           default:
             $("#" + containerId).html('<p style="color:#666;padding:20px;">Bu bileşen için örnek hazırlanıyor...<br>Bileşen: ' + ad + '</p>');
