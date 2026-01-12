@@ -277,11 +277,22 @@
 
       // TELERİK NOTIFICATION BAŞLAT
       if (typeof kendo !== 'undefined' && typeof $.fn.kendoNotification !== 'undefined') {
-        notification = $("#notification").kendoNotification({
-          position: { top: 50, right: 50 },
-          stacking: "down",
-          hideAfter: 3000  // Varsayılan 3 saniye
-        }).data("kendoNotification");
+        try {
+          notification = $("#notification").kendoNotification({
+            position: { top: 50, right: 50 },
+            stacking: "down",
+            hideAfter: 3000  // Varsayılan 3 saniye
+          }).data("kendoNotification");
+          
+          // TEST İÇİN: Konsoldan test edebilmek için global fonksiyonlar
+          // Tarayıcı konsolunda (F12) şunları yazabilirsiniz:
+          // showSuccess("Test başarı mesajı")
+          // showError("Test hata mesajı")
+          // showWarning("Test uyarı mesajı")
+          // showInfo("Test bilgi mesajı")
+        } catch(error) {
+          console.error("Notification başlatılırken hata:", error);
+        }
       }
 
       // ALAN 1 - Boş, ileride eklenecek
