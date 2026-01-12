@@ -14,6 +14,12 @@
     #top-menu-bar .k-menu{display:block !important;width:100% !important;background:#fff !important}
     #top-menu-bar .k-menu-item{display:inline-block !important;visibility:visible !important}
     .content-area{width:100%;height:auto;margin-top:0;display:grid;grid-template-columns:620px 620px 640px;grid-template-rows:448px 438px;gap:5px;padding:0;max-width:100vw;overflow-x:hidden !important}
+    /* Operasyon sayfası için content-area özel ayar */
+    #main-content-operasyon .content-area {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
     .panel{position:relative;display:flex;flex-direction:column;overflow:hidden}
     .panel-content{flex:1;overflow:auto;position:relative}
     .mtr1-section{grid-column:1;grid-row:1}
@@ -29,6 +35,10 @@
     .genel-total{grid-column:1 / span 2;grid-row:3;display:flex;align-items:center;justify-content:center;height:25px}
     .limits-area{grid-column:1 / span 2;grid-row:4;display:grid;grid-template-columns:1fr 1fr;gap:3px}
     .content-wrapper{width:100%;height:auto;overflow-x:hidden !important;overflow-y:auto;margin-top:0}
+    /* Operasyon sayfası için content-wrapper kaydırmasını gizle */
+    body.operasyon-sayfasi-acik .content-wrapper {
+      overflow-y: hidden !important;
+    }
     
     /* Telerik Menu özelleştirmeleri - Resimdeki gibi */
     #top-menu-container{background:#e3f2fd !important}
@@ -49,12 +59,30 @@
     .content-wrapper{margin-top:0 !important;padding-top:0 !important;}
     
     /* İçerik alanı margin ayarı - base.html'deki main-content margin-top:169px var */
-    #main-content-operasyon{margin-top:0 !important;padding-top:0 !important;display:block;}
+    #main-content-operasyon{margin-top:0 !important;padding-top:0 !important;display:block;overflow-x:hidden !important;width:100% !important;max-width:100vw !important;}
     #main-content-kredi-karti{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-banka{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-tanker{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-fiyat-degisimi{margin-top:0 !important;padding-top:0 !important;display:none;}
     .container{padding:0 !important;margin:0 !important;}
+    
+    /* Operasyon sayfası için kaydırma kaldırma */
+    body.operasyon-sayfasi-acik,
+    body.operasyon-sayfasi-acik html {
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    #main-content-operasyon,
+    #main-content-operasyon .container,
+    #main-content-operasyon .content-wrapper,
+    #main-content-operasyon .content-area,
+    #main-content-operasyon * {
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
+      max-width: 100vw !important;
+    }
     
     /* Kredi kartı ve banka sayfaları için overflow kontrolü */
     #kredi-karti-grid, #kredi-karti-grid .k-grid, #kredi-karti-grid .k-grid-content,
@@ -374,7 +402,7 @@
     <div>LOBI</div>
   </div>
   
-  <div class="container" id="main-content-operasyon" style="display:block;">
+  <div class="container" id="main-content-operasyon" style="display:block;overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
     <div class="header">
       <div id="header-toolbar"></div>
     </div>
@@ -389,9 +417,52 @@
     </div>
     
     <!-- İçerik Alanı (Dinamik) - BOŞ -->
-    <div class="content-wrapper">
-    <div class="content-area">
+    <div class="content-wrapper" style="overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
+    <div class="content-area" style="overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
+      <!-- KULLANILABİLİR ALAN GÖSTERİMİ -->
+      <div id="kullanim-alani-gosterim" style="position:fixed;top:130px;left:0;right:0;bottom:0;border:5px solid #FF0000;background:transparent;z-index:9997;pointer-events:none;box-sizing:border-box;">
+        <!-- Üstte ortada genişlik bilgisi (üst kırmızı çizginin ortasında) -->
+        <div style="position:fixed;top:125px;left:50%;transform:translateX(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;z-index:9998;background:#FFFFFF;padding:2px 8px;border-radius:3px;">
+          ↔ <span id="kullanim-alani-genislik">100%</span>
+        </div>
+        <!-- Solda ortada yükseklik bilgisi (sol kırmızı çizginin ortasında, dikey) -->
+        <div style="position:fixed;left:2px;top:50%;transform:translateY(-50%);color:#FF0000;font-size:14pt;font-weight:bold;z-index:9998;background:#FFFFFF;padding:4px 2px;border-radius:3px;line-height:1.2;">
+          <div style="text-align:center;">↕</div>
+          <div id="kullanim-alani-yukseklik" style="text-align:center;font-size:12pt;margin-top:2px;">calc(100vh - 130px)</div>
+        </div>
+      </div>
+      
+      <script>
+        // Kullanılabilir alan boyutlarını dinamik hesapla
+        $(document).ready(function() {
+          function updateKullanimAlaniBoyutlari() {
+            var windowHeight = $(window).height();
+            var windowWidth = $(window).width();
+            var kullanilabilirYukseklik = windowHeight - 130;
+            var kullanilabilirGenislik = windowWidth;
+            
+            $('#kullanim-alani-yukseklik').text(kullanilabilirYukseklik + 'px');
+            $('#kullanim-alani-genislik').text(kullanilabilirGenislik + 'px');
+          }
+          
+          updateKullanimAlaniBoyutlari();
+          $(window).on('resize', updateKullanimAlaniBoyutlari);
+        });
+      </script>
       <!-- BOŞ ALAN - SIFIRDAN TASARLANACAK -->
+      
+      <!-- OPERASYON TABLOSU - Kırmızı kare -->
+      <div id="operasyon-tablo-container" style="position:relative;width:650px;height:320px;margin:20px 0 20px 10px;border:2px solid #FF0000;background:transparent;box-sizing:border-box;">
+        <!-- Üstte ortada genişlik bilgisi (üst kırmızı çizginin ortasında) -->
+        <div class="tablo-olcu-genislik" style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;background:#FFFFFF;padding:4px 10px;border:2px solid #FF0000;z-index:10000;">
+          ↔ 650px
+        </div>
+        <!-- Sağda ortada yükseklik bilgisi (sağ kırmızı çizginin ortasında, dikey) -->
+        <div class="tablo-olcu-yukseklik" style="position:absolute;right:-80px;top:50%;transform:translateY(-50%);color:#FF0000;font-size:14pt;font-weight:bold;white-space:nowrap;background:#FFFFFF;padding:10px 4px;border:2px solid #FF0000;z-index:10000;">
+          <div style="writing-mode:vertical-lr;text-orientation:mixed;">↕ 320px</div>
+        </div>
+      </div>
+      
     </div>
     </div>
   </div>
@@ -1497,6 +1568,47 @@
     });
     
     $(document).ready(function() {
+      // TUTARLI PX ÖLÇÜ SİSTEMİ - Tüm tablolar için standart
+      function initTabloOlcuSistemi(containerId, tabloGenislik, tabloYukseklik, sutunSayisi, satirSayisi) {
+        var $container = $("#" + containerId);
+        if (!$container.length) return;
+        
+        // Gerçek ölçüleri hesapla
+        var gercekGenislik = $container.outerWidth() || tabloGenislik;
+        var gercekYukseklik = $container.outerHeight() || tabloYukseklik;
+        var gercekSutunGenislik = Math.floor(gercekGenislik / sutunSayisi);
+        var gercekSatirYukseklik = Math.floor(gercekYukseklik / satirSayisi);
+        
+        // Konsol logları - gerçek px değerleri
+        console.log("📐 TABLO ÖLÇÜLERİ [" + containerId + "]:");
+        console.log("  ↔ Genişlik: " + gercekGenislik + "px (Hedef: " + tabloGenislik + "px)");
+        console.log("  ↕ Yükseklik: " + gercekYukseklik + "px (Hedef: " + tabloYukseklik + "px)");
+        console.log("  📊 Sütun sayısı: " + sutunSayisi + " (Her sütun: " + gercekSutunGenislik + "px)");
+        console.log("  📊 Satır sayısı: " + satirSayisi + " (Her satır: " + gercekSatirYukseklik + "px)");
+        
+        // Kırmızı ölçü yazılarını güncelle
+        var $genislikYazi = $container.find(".tablo-olcu-genislik");
+        var $yukseklikYazi = $container.find(".tablo-olcu-yukseklik");
+        
+        if ($genislikYazi.length) {
+          $genislikYazi.html("↔ " + gercekGenislik + "px");
+        } else {
+          console.warn("⚠️ Genişlik yazısı bulunamadı!");
+        }
+        if ($yukseklikYazi.length) {
+          $yukseklikYazi.find("div").html("↕ " + gercekYukseklik + "px");
+        } else {
+          console.warn("⚠️ Yükseklik yazısı bulunamadı!");
+        }
+        
+        return {
+          genislik: gercekGenislik,
+          yukseklik: gercekYukseklik,
+          sutunGenislik: gercekSutunGenislik,
+          satirYukseklik: gercekSatirYukseklik
+        };
+      }
+      
       // OPERASYON SAYFASI BOŞ - SIFIRDAN TASARLANACAK
     });
     
@@ -2102,11 +2214,17 @@
             $("#upload-progress").html("Upload başlatılamadı: " + error.message).show();
           }
         } else {
-          console.error("❌ Telerik Upload yüklenmemiş veya element bulunamadı!");
-          console.error("kendo:", typeof kendo);
-          console.error("kendoUpload:", typeof $.fn.kendoUpload);
-          console.error("upload-area:", $("#upload-area").length);
-          $("#upload-progress").html("Upload bileşeni yüklenemedi. Sayfayı yenileyin.").show();
+          // upload-area elementi yoksa sessizce geç (operasyon sayfası dışında)
+          if ($("#upload-area").length === 0) {
+            // Element yok, bu normal (başka sayfalarda)
+            return;
+          }
+          console.warn("⚠️ Telerik Upload yüklenmemiş!");
+          console.warn("kendo:", typeof kendo);
+          console.warn("kendoUpload:", typeof $.fn.kendoUpload);
+          if ($("#upload-progress").length > 0) {
+            $("#upload-progress").html("Upload bileşeni yüklenemedi. Sayfayı yenileyin.").show();
+          }
         }
       }, 500);
     });
@@ -3111,24 +3229,21 @@
       }
     }
     
-    // showPageOnly fonksiyonunu override et - Tanker sayfası gösterildiğinde bileşenleri başlat
-    var originalShowPageOnly = window.showPageOnly;
-    if (typeof originalShowPageOnly === 'function') {
-      window.showPageOnly = function(pageId) {
-        // Orijinal fonksiyonu çağır
-        originalShowPageOnly(pageId);
-        
-        // Tanker sayfası gösterildiyse bileşenleri başlat
-        if (pageId === 'tanker') {
-          setTimeout(function() {
-            if ($("#main-content-tanker").is(":visible")) {
-              console.log("🚀 Tanker sayfası gösterildi, bileşenler başlatılıyor...");
-              initTankerBilesenleri();
-            }
-          }, 300);
-        }
-      };
-    }
+    // TANKER OVERRIDE KALDIRILDI - Şu an kullanılmıyor, operasyon override'ını bozuyordu
+    // var originalShowPageOnlyTanker = window.showPageOnly;
+    // if (typeof originalShowPageOnlyTanker === 'function') {
+    //   window.showPageOnly = function(pageId) {
+    //     originalShowPageOnlyTanker(pageId);
+    //     if (pageId === 'tanker') {
+    //       setTimeout(function() {
+    //         if ($("#main-content-tanker").is(":visible")) {
+    //           console.log("🚀 Tanker sayfası gösterildi, bileşenler başlatılıyor...");
+    //           initTankerBilesenleri();
+    //         }
+    //       }, 300);
+    //     }
+    //   };
+    // }
     
     // TabStrip select event'inde de kontrol et
     if (typeof tabStrip !== 'undefined' && tabStrip) {
@@ -3270,8 +3385,8 @@
           {numara: 69, ad: "Validator", kategori: "Diğer", aciklama: "Doğrulayıcı - Form validasyonu", ornek: "validator"},
           {numara: 70, ad: "Popup", kategori: "Diğer", aciklama: "Açılır pencere - Küçük popup", ornek: "popup"},
           {numara: 71, ad: "Sortable", kategori: "Diğer", aciklama: "Sıralanabilir - Sürükle-bırak sıralama", ornek: "sortable"},
-          {numara: 72, ad: "Draggable", kategori: "Diğer", aciklama: "Sürüklenebilir - Öğe sürükleme", ornek: "draggable"},
-          {numara: 73, ad: "DropTarget", kategori: "Diğer", aciklama: "Bırakma hedefi - Sürükle-bırak hedefi", ornek: "droptarget"}
+          {numara: 72, ad: "Draggable", kategori: "Diğer", aciklama: "Sürüklenebilir öğe - Bir öğeyi fare ile tutup sürükleyebilirsiniz (72 ve 73 birlikte kullanılır)", ornek: "draggable"},
+          {numara: 73, ad: "DropTarget", kategori: "Diğer", aciklama: "Bırakma alanı - Sürüklenen öğelerin bırakılabileceği alanı tanımlar (72 ve 73 birlikte kullanılır)", ornek: "droptarget"}
         ];
         
         // Grid tablosu oluştur
@@ -3319,13 +3434,14 @@
     // Bileşen örneği gösterme fonksiyonu
     function gosterBilesenOrnegi(numara, ad, ornekTip) {
       try {
+        console.log("Bileşen örneği gösteriliyor:", numara, ad, ornekTip);
         $("#bilesen-ornek-baslik").text("#" + numara + " - " + ad + " Örneği");
         $("#bilesen-ornek-container").empty();
         
         var containerId = "ornek-" + ornekTip + "-" + numara;
-        $("#bilesen-ornek-container").html('<div id="' + containerId + '" style="min-height:300px;"></div>');
+        $("#bilesen-ornek-container").html('<div id="' + containerId + '" style="min-height:300px;width:100%;"></div>');
         
-        // Örnek oluştur (basit örnekler)
+        // Örnek oluştur (tüm bileşenler için)
         switch(ornekTip) {
           case "grid":
             $("#" + containerId).kendoGrid({
@@ -3349,6 +3465,213 @@
               pageable: {pageSize: 5}
             });
             break;
+          case "pivotgrid":
+            $("#" + containerId).kendoPivotGrid({
+              dataSource: {
+                data: [
+                  {sube: "YAĞCILAR", urun: "Motorin", ay: "Ocak", miktar: 125000, tutar: 3187500},
+                  {sube: "TEPEKUM", urun: "Benzin", ay: "Ocak", miktar: 85000, tutar: 2443750}
+                ],
+                columns: [{name: "urun", expand: true}],
+                rows: [{name: "sube", expand: true}],
+                measures: [{values: [{field: "miktar", aggregate: "sum"}], format: "{0:n0} L"}]
+              },
+              height: 300
+            });
+            break;
+          case "spreadsheet":
+            $("#" + containerId).kendoSpreadsheet({
+              sheets: [{
+                name: "Örnek",
+                rows: [{
+                  cells: [
+                    {value: "Şube"}, {value: "Miktar"}, {value: "Fiyat"}, {formula: "B1*C1"}
+                  ]
+                }, {
+                  cells: [
+                    {value: "YAĞCILAR"}, {value: 100000}, {value: 25.50}, {formula: "B2*C2"}
+                  ]
+                }]
+              }],
+              height: 300
+            });
+            break;
+          case "treelist":
+            $("#" + containerId).kendoTreeList({
+              dataSource: {
+                data: [
+                  {id: 1, sube: "YAĞCILAR", miktar: 210000, parentId: null},
+                  {id: 2, sube: "Motorin", miktar: 125000, parentId: 1}
+                ],
+                schema: {model: {id: "id", parentId: "parentId"}}
+              },
+              columns: [
+                {field: "sube", title: "Şube/Ürün", width: 200, expandable: true},
+                {field: "miktar", title: "Miktar", width: 120, format: "{0:n0}"}
+              ],
+              height: 300
+            });
+            break;
+          case "listview":
+            $("#" + containerId).kendoListView({
+              dataSource: {
+                data: [
+                  {id: 1, ad: "YAĞCILAR", miktar: 125000},
+                  {id: 2, ad: "TEPEKUM", miktar: 85000}
+                ]
+              },
+              template: "<div class=\"k-card\" style=\"padding:10px;margin:5px;border:1px solid #ddd;\">#:ad# - #:miktar# L</div>",
+              height: 300
+            });
+            break;
+          case "menu":
+            $("#" + containerId).html('<ul id="ornek-menu-' + numara + '"><li>Tanımlar<ul><li>Şubeler</li><li>Ürünler</li></ul></li><li>Raporlar</li></ul>');
+            $("#ornek-menu-" + numara).kendoMenu();
+            break;
+          case "tabstrip":
+            $("#" + containerId).kendoTabStrip({
+              items: [
+                {text: "Tab 1", content: "Tab 1 içeriği"},
+                {text: "Tab 2", content: "Tab 2 içeriği"}
+              ]
+            });
+            break;
+          case "treeview":
+            $("#" + containerId).kendoTreeView({
+              dataSource: [
+                {text: "YAĞCILAR", items: [{text: "Motorin"}, {text: "Benzin"}]},
+                {text: "TEPEKUM"}
+              ]
+            });
+            break;
+          case "panelbar":
+            $("#" + containerId).kendoPanelBar({
+              items: [
+                {text: "Şubeler", content: "YAĞCILAR, TEPEKUM, NAMDAR"},
+                {text: "Ürünler", content: "Motorin, Benzin"}
+              ]
+            });
+            break;
+          case "breadcrumb":
+            $("#" + containerId).kendoBreadcrumb({
+              items: [
+                {text: "Ana Sayfa", type: "rootItem"},
+                {text: "Şubeler", type: "item"},
+                {text: "YAĞCILAR", type: "item"}
+              ]
+            });
+            break;
+          case "toolbar":
+            try {
+              $("#" + containerId).kendoToolBar({
+                items: [
+                  {type: "button", text: "Kaydet"},
+                  {type: "button", text: "Sil"},
+                  {type: "button", text: "Yazdır"}
+                ]
+              });
+            } catch(e) {
+              // ToolBar yoksa alternatif göster
+              $("#" + containerId).html('<div style="padding:10px;"><button class="k-button">Kaydet</button> <button class="k-button">Sil</button> <button class="k-button">Yazdır</button></div>');
+            }
+            break;
+          case "splitter":
+            // Önce basit HTML göster, sonra Splitter başlat
+            $("#" + containerId).html('<div id="splitter-wrapper-' + numara + '" style="width:100%;height:500px;border:1px solid #ddd;background:#f9f9f9;"><div style="display:flex;height:100%;"><div id="splitter-left-' + numara + '" style="width:250px;background:#e3f2fd;padding:15px;border-right:3px solid #1976d2;overflow:auto;"><h3 style="margin:0 0 15px 0;color:#1976d2;">📋 SOL PANEL</h3><p style="margin:0 0 10px 0;font-weight:bold;">Şube Listesi:</p><ul style="margin:0;padding-left:20px;"><li style="margin:5px 0;">YAĞCILAR</li><li style="margin:5px 0;">TEPEKUM</li><li style="margin:5px 0;">NAMDAR</li><li style="margin:5px 0;">ŞEKER</li></ul><p style="margin-top:20px;padding:10px;background:#fff;border-radius:4px;font-size:12px;"><strong>💡 İpucu:</strong> Sağdaki gri çizgiyi sürükleyerek panel genişliğini değiştirebilirsiniz.</p></div><div id="splitter-divider-' + numara + '" style="width:5px;background:#ccc;cursor:col-resize;position:relative;" title="Sürükleyerek genişlik değiştirin"></div><div id="splitter-right-' + numara + '" style="flex:1;background:#fff;padding:15px;overflow:auto;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📊 SAĞ PANEL</h3><p style="margin:0 0 10px 0;">Seçilen şubenin detayları burada gösterilir.</p><div style="padding:15px;background:#f5f5f5;border-radius:4px;margin-top:20px;"><p style="margin:5px 0;"><strong>Şube:</strong> YAĞCILAR</p><p style="margin:5px 0;"><strong>Motorin Satışı:</strong> 125,000 L</p><p style="margin:5px 0;"><strong>Benzin Satışı:</strong> 85,000 L</p><p style="margin:5px 0;"><strong>Toplam:</strong> 210,000 L</p></div><p style="margin-top:20px;padding:10px;background:#fff3cd;border-left:4px solid #ffc107;font-size:12px;"><strong>✨ Nasıl Kullanılır:</strong> Splitter ekranı ikiye böler. Sol panelde liste, sağ panelde detay gösterilir. Kullanıcı paneller arasındaki çizgiyi sürükleyerek istediği genişliği ayarlayabilir.</p></div></div></div>');
+            
+            // Basit sürükle-bırak işlevselliği ekle
+            setTimeout(function() {
+              var $divider = $("#splitter-divider-" + numara);
+              var $left = $("#splitter-left-" + numara);
+              var $right = $("#splitter-right-" + numara);
+              var isDragging = false;
+              
+              $divider.on("mousedown", function(e) {
+                isDragging = true;
+                $("body").css("cursor", "col-resize");
+                e.preventDefault();
+              });
+              
+              $(document).on("mousemove", function(e) {
+                if (isDragging) {
+                  var containerWidth = $("#splitter-wrapper-" + numara).width();
+                  var newLeftWidth = e.pageX - $("#splitter-wrapper-" + numara).offset().left;
+                  if (newLeftWidth > 150 && newLeftWidth < containerWidth - 150) {
+                    $left.css("width", newLeftWidth + "px");
+                  }
+                }
+              });
+              
+              $(document).on("mouseup", function() {
+                if (isDragging) {
+                  isDragging = false;
+                  $("body").css("cursor", "");
+                }
+              });
+              
+              // Telerik Splitter'ı da dene
+              try {
+                $("#splitter-wrapper-" + numara).kendoSplitter({
+                  panes: [
+                    {size: "250px", collapsible: true, resizable: true},
+                    {collapsible: true, resizable: true}
+                  ],
+                  orientation: "horizontal"
+                });
+              } catch(e) {
+                console.log("Telerik Splitter yüklenemedi, basit versiyon kullanılıyor");
+              }
+            }, 200);
+            break;
+          case "responsivepanel":
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📱 ResponsivePanel Örneği</h3><p style="margin:0 0 20px 0;">Mobil cihazlarda otomatik açılıp kapanan panel. Butona tıklayarak paneli açıp kapatabilirsiniz.</p><button id="ornek-rp-toggle-' + numara + '" class="k-button k-button-md k-button-solid k-button-solid-primary" style="margin-bottom:15px;">📱 Panel Aç/Kapat</button><div id="ornek-rp-' + numara + '" style="min-height:300px;background:#e3f2fd;padding:20px;border:2px solid #1976d2;border-radius:4px;display:none;"><h4 style="margin:0 0 15px 0;color:#1976d2;">📋 Panel İçeriği</h4><ul style="margin:0;padding-left:20px;"><li style="margin:8px 0;">Menü Öğesi 1</li><li style="margin:8px 0;">Menü Öğesi 2</li><li style="margin:8px 0;">Menü Öğesi 3</li><li style="margin:8px 0;">Menü Öğesi 4</li></ul><p style="margin-top:20px;padding:10px;background:#fff;border-radius:4px;font-size:12px;"><strong>💡 Nasıl Kullanılır:</strong> ResponsivePanel mobil cihazlarda yan taraftan açılan menü paneli olarak kullanılır. Küçük ekranlarda otomatik olarak görünür.</p></div></div>');
+            
+            // Basit aç/kapat işlevselliği
+            $("#ornek-rp-toggle-" + numara).click(function() {
+              var $panel = $("#ornek-rp-" + numara);
+              if ($panel.is(":visible")) {
+                $panel.slideUp(300);
+                $(this).text("📱 Panel Aç");
+              } else {
+                $panel.slideDown(300);
+                $(this).text("📱 Panel Kapat");
+              }
+            });
+            
+            // Telerik ResponsivePanel'i de dene
+            setTimeout(function() {
+              try {
+                $("#ornek-rp-" + numara).kendoResponsivePanel({
+                  orientation: "left",
+                  toggleButton: "#ornek-rp-toggle-" + numara,
+                  breakpoint: 640
+                });
+              } catch(e) {
+                console.log("Telerik ResponsivePanel yüklenemedi, basit versiyon kullanılıyor");
+              }
+            }, 100);
+            break;
+          case "drawer":
+            $("#" + containerId).html('<button id="ornek-drawer-toggle-' + numara + '" class="k-button">Drawer Aç/Kapat</button><div id="ornek-drawer-' + numara + '"></div>');
+            $("#ornek-drawer-" + numara).kendoDrawer({
+              template: "<ul><li>Menü 1</li><li>Menü 2</li></ul>",
+              mode: "overlay",
+              mini: true
+            });
+            $("#ornek-drawer-toggle-" + numara).click(function() {
+              $("#ornek-drawer-" + numara).data("kendoDrawer").show();
+            });
+            break;
+          case "stepper":
+            $("#" + containerId).kendoStepper({
+              steps: [
+                {label: "Adım 1", selected: true},
+                {label: "Adım 2"},
+                {label: "Adım 3"}
+              ],
+              orientation: "horizontal"
+            });
+            break;
           case "datepicker":
             $("#" + containerId).html('<input id="ornek-datepicker-' + numara + '" style="width:300px;" />');
             $("#ornek-datepicker-" + numara).kendoDatePicker({
@@ -3356,11 +3679,305 @@
               format: "dd.MM.yyyy"
             });
             break;
+          case "datetimepicker":
+            $("#" + containerId).html('<input id="ornek-datetimepicker-' + numara + '" style="width:300px;" />');
+            $("#ornek-datetimepicker-" + numara).kendoDateTimePicker({
+              value: new Date(),
+              format: "dd.MM.yyyy HH:mm"
+            });
+            break;
+          case "timepicker":
+            $("#" + containerId).html('<input id="ornek-timepicker-' + numara + '" style="width:300px;" />');
+            $("#ornek-timepicker-" + numara).kendoTimePicker({
+              value: new Date()
+            });
+            break;
+          case "calendar":
+            $("#" + containerId).kendoCalendar({
+              value: new Date()
+            });
+            break;
           case "combobox":
             $("#" + containerId).html('<input id="ornek-combobox-' + numara + '" style="width:300px;" />');
             $("#ornek-combobox-" + numara).kendoComboBox({
               dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
               placeholder: "Şube seçin..."
+            });
+            break;
+          case "dropdownlist":
+            $("#" + containerId).html('<input id="ornek-dropdownlist-' + numara + '" style="width:300px;" />');
+            $("#ornek-dropdownlist-" + numara).kendoDropDownList({
+              dataSource: ["Aktif", "Pasif"],
+              value: "Aktif"
+            });
+            break;
+          case "multiselect":
+            $("#" + containerId).html('<input id="ornek-multiselect-' + numara + '" style="width:300px;" />');
+            $("#ornek-multiselect-" + numara).kendoMultiSelect({
+              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+              placeholder: "Şube seçin..."
+            });
+            break;
+          case "autocomplete":
+            $("#" + containerId).html('<input id="ornek-autocomplete-' + numara + '" style="width:300px;" />');
+            $("#ornek-autocomplete-" + numara).kendoAutoComplete({
+              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+              placeholder: "Firma ara..."
+            });
+            break;
+          case "numerictextbox":
+            $("#" + containerId).html('<input id="ornek-numerictextbox-' + numara + '" style="width:300px;" />');
+            setTimeout(function() {
+              try {
+                $("#ornek-numerictextbox-" + numara).kendoNumericTextBox({
+                  value: 1000,
+                  format: "n0",
+                  min: 0,
+                  culture: "tr-TR"
+                });
+              } catch(e) {
+                console.error("NumericTextBox hatası:", e);
+                $("#ornek-numerictextbox-" + numara).attr("type", "number").val(1000);
+              }
+            }, 100);
+            break;
+          case "maskedtextbox":
+            $("#" + containerId).html('<input id="ornek-maskedtextbox-' + numara + '" style="width:300px;" />');
+            setTimeout(function() {
+              try {
+                $("#ornek-maskedtextbox-" + numara).kendoMaskedTextBox({
+                  mask: "000-000-0000",
+                  value: "5551234567",
+                  culture: "tr-TR"
+                });
+              } catch(e) {
+                console.error("MaskedTextBox hatası:", e);
+                $("#ornek-maskedtextbox-" + numara).val("555-123-4567").attr("placeholder", "000-000-0000");
+              }
+            }, 100);
+            break;
+          case "editor":
+            $("#" + containerId).html('<textarea id="ornek-editor-' + numara + '" style="width:100%;height:300px;"></textarea>');
+            $("#ornek-editor-" + numara).kendoEditor({
+              value: "<p>Zengin metin editörü örneği</p>"
+            });
+            break;
+          case "colorpicker":
+            $("#" + containerId).html('<input id="ornek-colorpicker-' + numara + '" style="width:200px;" />');
+            $("#ornek-colorpicker-" + numara).kendoColorPicker({
+              value: "#ff0000"
+            });
+            break;
+          case "flatcolorpicker":
+            $("#" + containerId).html('<input id="ornek-flatcolorpicker-' + numara + '" style="width:200px;" />');
+            $("#ornek-flatcolorpicker-" + numara).kendoFlatColorPicker({
+              value: "#ff0000"
+            });
+            break;
+          case "colorpalette":
+            $("#" + containerId).kendoColorPalette({
+              palette: "basic"
+            });
+            break;
+          case "slider":
+            $("#" + containerId).html('<input id="ornek-slider-' + numara + '" style="width:400px;" />');
+            $("#ornek-slider-" + numara).kendoSlider({
+              min: 0,
+              max: 100,
+              value: 50
+            });
+            break;
+          case "rangeslider":
+            // RangeSlider için görsel örnek göster (Telerik RangeSlider sorunlu)
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📊 RangeSlider Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Aralık kaydırıcı - Min ve max değer seçimi için kullanılır.</p><div style="position:relative;width:400px;height:50px;background:#f5f5f5;border-radius:4px;padding:10px;"><div style="position:relative;width:100%;height:30px;background:#e0e0e0;border-radius:15px;margin-top:10px;"><div style="position:absolute;left:20%;width:60%;height:100%;background:linear-gradient(to right, #1976d2, #42a5f5);border-radius:15px;box-shadow:inset 0 1px 3px rgba(0,0,0,0.2);"></div><div style="position:absolute;left:20%;top:-5px;width:40px;height:40px;background:#fff;border:2px solid #1976d2;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.3);cursor:ew-resize;"></div><div style="position:absolute;left:80%;top:-5px;width:40px;height:40px;background:#fff;border:2px solid #1976d2;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,0.3);cursor:ew-resize;"></div></div><div style="margin-top:15px;display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>Min: 0</span><span>Seçim: 20 - 80</span><span>Max: 100</span></div><p style="margin-top:20px;padding:10px;background:#fff3cd;border-left:4px solid #ffc107;font-size:12px;"><strong>✨ Nasıl Kullanılır:</strong> RangeSlider iki kaydırıcı ile min ve max değer seçimi yapmanızı sağlar. Kaydırıcıları sürükleyerek aralığı ayarlayabilirsiniz.</p></div>');
+            break;
+          case "rating":
+            $("#" + containerId).kendoRating({
+              value: 3,
+              min: 1,
+              max: 5
+            });
+            break;
+          case "listbox":
+            $("#" + containerId).html('<select id="ornek-listbox-' + numara + '" multiple style="width:300px;height:150px;"></select>');
+            $("#ornek-listbox-" + numara).kendoListBox({
+              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+              selectable: "multiple"
+            });
+            break;
+          case "searchbox":
+            $("#" + containerId).html('<input id="ornek-searchbox-' + numara + '" style="width:300px;" />');
+            $("#ornek-searchbox-" + numara).kendoSearchBox({
+              placeholder: "Ara..."
+            });
+            break;
+          case "chart-column":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "column",
+                data: [125000, 85000, 98000, 72000]
+              }],
+              categoryAxis: {
+                categories: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"]
+              },
+              height: 300
+            });
+            break;
+          case "chart-line":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "line",
+                data: [125000, 132000, 98000, 105000]
+              }],
+              categoryAxis: {
+                categories: ["Ocak", "Şubat", "Mart", "Nisan"]
+              },
+              height: 300
+            });
+            break;
+          case "chart-pie":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "pie",
+                data: [
+                  {category: "YAĞCILAR", value: 125000},
+                  {category: "TEPEKUM", value: 85000},
+                  {category: "NAMDAR", value: 45000}
+                ]
+              }],
+              height: 300
+            });
+            break;
+          case "chart-area":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "area",
+                data: [125000, 132000, 98000, 105000]
+              }],
+              categoryAxis: {
+                categories: ["Ocak", "Şubat", "Mart", "Nisan"]
+              },
+              height: 300
+            });
+            break;
+          case "chart-bar":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "bar",
+                data: [125000, 85000, 98000, 72000]
+              }],
+              categoryAxis: {
+                categories: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"]
+              },
+              height: 300
+            });
+            break;
+          case "stockchart":
+            $("#" + containerId).kendoStockChart({
+              dataSource: {
+                data: [
+                  {date: new Date("2024-01-01"), open: 100, high: 110, low: 95, close: 105},
+                  {date: new Date("2024-01-02"), open: 105, high: 115, low: 100, close: 110}
+                ]
+              },
+              height: 300
+            });
+            break;
+          case "sparkline":
+            $("#" + containerId).html('<span id="ornek-sparkline-' + numara + '"></span>');
+            $("#ornek-sparkline-" + numara).kendoSparkline({
+              data: [125000, 132000, 98000, 105000, 110000],
+              type: "line"
+            });
+            break;
+          case "circulargauge":
+            $("#" + containerId).kendoCircularGauge({
+              value: 75,
+              scale: {
+                min: 0,
+                max: 100
+              },
+              height: 250
+            });
+            break;
+          case "lineargauge":
+            $("#" + containerId).kendoLinearGauge({
+              value: 75,
+              scale: {
+                min: 0,
+                max: 100
+              },
+              height: 150
+            });
+            break;
+          case "arcgauge":
+            $("#" + containerId).kendoArcGauge({
+              value: 75,
+              scale: {
+                min: 0,
+                max: 100
+              },
+              height: 200
+            });
+            break;
+          case "radialgauge":
+            $("#" + containerId).kendoRadialGauge({
+              value: 75,
+              scale: {
+                min: 0,
+                max: 100
+              },
+              height: 200
+            });
+            break;
+          case "chart-donut":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "donut",
+                data: [
+                  {category: "YAĞCILAR", value: 125000},
+                  {category: "TEPEKUM", value: 85000},
+                  {category: "NAMDAR", value: 45000}
+                ]
+              }],
+              height: 300
+            });
+            break;
+          case "chart-bubble":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "bubble",
+                data: [
+                  {x: 10, y: 20, size: 30},
+                  {x: 15, y: 25, size: 40}
+                ]
+              }],
+              height: 300
+            });
+            break;
+          case "chart-scatter":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "scatter",
+                data: [
+                  {x: 10, y: 20},
+                  {x: 15, y: 25},
+                  {x: 20, y: 30}
+                ]
+              }],
+              height: 300
+            });
+            break;
+          case "chart-radar":
+            $("#" + containerId).kendoChart({
+              series: [{
+                type: "radar",
+                data: [125000, 85000, 98000, 72000]
+              }],
+              categoryAxis: {
+                categories: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"]
+              },
+              height: 300
             });
             break;
           case "button":
@@ -3371,15 +3988,432 @@
               }
             });
             break;
+          case "window":
+            $("#" + containerId).html('<button id="ornek-window-btn-' + numara + '" class="k-button">Pencere Aç</button>');
+            $("#ornek-window-btn-" + numara).click(function() {
+              $("<div id='ornek-window-" + numara + "'>Pencere içeriği</div>").kendoWindow({
+                title: "Örnek Pencere",
+                width: 400,
+                height: 300,
+                modal: true
+              }).data("kendoWindow").center().open();
+            });
+            break;
+          case "notification":
+            $("#" + containerId).html('<button id="ornek-notification-btn-' + numara + '" class="k-button">Bildirim Göster</button>');
+            var notification = $("#" + containerId).kendoNotification({
+              position: {top: 20, right: 20}
+            }).data("kendoNotification");
+            $("#ornek-notification-btn-" + numara).click(function() {
+              notification.show("Başarılı işlem!", "success");
+            });
+            break;
+          case "tooltip":
+            $("#" + containerId).html('<span id="ornek-tooltip-' + numara + '" style="padding:10px;background:#f0f0f0;cursor:pointer;">Hover yapın</span>');
+            $("#ornek-tooltip-" + numara).kendoTooltip({
+              content: "Bu bir tooltip örneğidir"
+            });
+            break;
+          case "upload":
+            $("#" + containerId).html('<input id="ornek-upload-' + numara + '" name="files" type="file" />');
+            setTimeout(function() {
+              if ($("#ornek-upload-" + numara).length > 0) {
+                try {
+                  $("#ornek-upload-" + numara).kendoUpload({
+                    async: {
+                      saveUrl: "/api/upload-excel/",
+                      removeUrl: "/api/upload-excel/"
+                    }
+                  });
+                } catch(e) {
+                  $("#" + containerId).html('<p style="color:#666;padding:20px;">Upload bileşeni yüklenemedi. Sayfayı yenileyin.</p>');
+                }
+              }
+            }, 100);
+            break;
+          case "progressbar":
+            $("#" + containerId).kendoProgressBar({
+              value: 50,
+              type: "percent"
+            });
+            break;
+          case "scheduler":
+            $("#" + containerId).kendoScheduler({
+              date: new Date(),
+              startTime: new Date("2024-01-15T08:00"),
+              height: 400,
+              views: ["day", "week"],
+              dataSource: []
+            });
+            break;
+          case "gantt":
+            $("#" + containerId).kendoGantt({
+              dataSource: [{
+                id: 1,
+                orderId: 0,
+                parentId: null,
+                title: "Proje",
+                start: new Date("2024-01-15"),
+                end: new Date("2024-01-20"),
+                percentComplete: 50
+              }],
+              dependencies: [],
+              height: 300
+            });
+            break;
+          case "diagram":
+            $("#" + containerId).kendoDiagram({
+              dataSource: {
+                data: [
+                  {id: 1, text: "Başlangıç"},
+                  {id: 2, text: "Bitiş"}
+                ],
+                schema: {
+                  model: {
+                    children: "items"
+                  }
+                }
+              },
+              layout: {
+                type: "tree",
+                subtype: "right"
+              },
+              height: 300
+            });
+            break;
+          case "map":
+            $("#" + containerId).kendoMap({
+              center: [41.0082, 28.9784],
+              zoom: 10,
+              layers: [{
+                type: "tile",
+                urlTemplate: "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png",
+                subdomains: ["a", "b", "c"]
+              }],
+              height: 300
+            });
+            break;
+          case "barcode":
+            $("#" + containerId).kendoBarcode({
+              value: "123456789",
+              type: "code128",
+              height: 100
+            });
+            break;
+          case "qrcode":
+            $("#" + containerId).kendoQRCode({
+              value: "https://www.telerik.com",
+              size: 200
+            });
+            break;
+          case "signature":
+            $("#" + containerId).kendoSignature({
+              width: 400,
+              height: 200
+            });
+            break;
+          case "badge":
+            $("#" + containerId).html('<span class="k-badge k-badge-solid k-badge-solid-primary" style="font-size:20px;">5</span>');
+            break;
+          case "avatar":
+            $("#" + containerId).html('<div class="k-avatar k-avatar-circle k-avatar-md" style="background:#206d7d;color:white;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;">AB</div>');
+            break;
+          case "loader":
+            $("#" + containerId).html('<div style="padding:40px;text-align:center;"><h3 style="margin:0 0 20px 0;color:#206d7d;">⏳ Loader Örneği</h3><p style="margin:0 0 30px 0;color:#666;">Yükleme animasyonu gösteriliyor...</p><div class="k-loader k-loader-md k-loader-primary" style="margin:0 auto;"></div><div style="margin-top:30px;padding:15px;background:#e3f2fd;border-radius:4px;"><p style="margin:0;font-size:12px;"><strong>💡 Nasıl Kullanılır:</strong> Loader, veri yüklenirken veya işlem yapılırken kullanıcıya bekleme göstergesi sunar. Sayfa yüklenirken, API çağrısı yapılırken kullanılabilir.</p></div></div>');
+            break;
+          case "skeleton":
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">💀 Skeleton Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Yükleme sırasında placeholder gösterimi. İçerik yüklenene kadar gösterilir.</p><div style="border:1px solid #ddd;border-radius:4px;padding:20px;background:#fafafa;"><div class="k-skeleton" style="width:100%;height:20px;margin-bottom:15px;border-radius:4px;"></div><div class="k-skeleton" style="width:80%;height:20px;margin-bottom:15px;border-radius:4px;"></div><div class="k-skeleton" style="width:100%;height:100px;margin-bottom:15px;border-radius:4px;"></div><div class="k-skeleton" style="width:60%;height:20px;border-radius:4px;"></div></div><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-left:4px solid #1976d2;font-size:12px;"><strong>💡 Nasıl Kullanılır:</strong> Skeleton, veri yüklenirken içeriğin yerini tutan placeholder gösterir. Kullanıcıya içeriğin yüklendiğini gösterir ve daha iyi bir kullanıcı deneyimi sunar.</p></div>');
+            break;
+          case "pager":
+            $("#" + containerId).kendoPager({
+              dataSource: new kendo.data.DataSource({
+                data: new Array(100),
+                pageSize: 10
+              }),
+              total: 100
+            });
+            break;
+          case "validator":
+            $("#" + containerId).html('<form id="ornek-validator-form-' + numara + '"><input name="email" required style="width:300px;" placeholder="E-posta" /><br><br><button type="submit" class="k-button">Gönder</button></form>');
+            $("#ornek-validator-form-" + numara).kendoValidator();
+            break;
+          case "popup":
+            // Tamamen basit ve garantili çözüm - jQuery event kullan
+            var popupHtml = '<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">🔔 Popup Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Küçük açılır pencere. Butona tıklayarak açıp kapatabilirsiniz.</p><button id="popup-btn-' + numara + '" class="k-button k-button-md k-button-solid k-button-solid-primary" style="margin-bottom:15px;">🔔 Popup Aç</button><div id="popup-content-' + numara + '" style="display:none;padding:20px;background:white;border:2px solid #1976d2;border-radius:4px;box-shadow:0 4px 8px rgba(0,0,0,0.2);min-width:250px;margin-top:10px;"><h4 style="margin:0 0 10px 0;color:#1976d2;">📋 Popup Başlık</h4><p style="margin:0 0 10px 0;color:#666;">Bu bir popup penceresidir. İçerik burada gösterilir.</p><ul style="margin:10px 0 0 0;padding-left:20px;"><li style="margin:5px 0;">Öğe 1</li><li style="margin:5px 0;">Öğe 2</li><li style="margin:5px 0;">Öğe 3</li></ul><p style="margin-top:15px;padding:10px;background:#e3f2fd;border-radius:4px;font-size:12px;"><strong>💡 Nasıl Kullanılır:</strong> Popup küçük açılır pencereler için kullanılır.</p></div><p style="margin-top:20px;padding:10px;background:#fff3cd;border-left:4px solid #ffc107;font-size:12px;"><strong>✨ Test:</strong> Yukarıdaki butona tıklayın.</p></div>';
+            $("#" + containerId).html(popupHtml);
+            
+            // jQuery event ile aç/kapat
+            setTimeout(function() {
+              $("#popup-btn-" + numara).on("click", function() {
+                var $popup = $("#popup-content-" + numara);
+                var $btn = $(this);
+                if ($popup.is(":visible")) {
+                  $popup.slideUp(300);
+                  $btn.text("🔔 Popup Aç");
+                } else {
+                  $popup.slideDown(300);
+                  $btn.text("🔔 Popup Kapat");
+                }
+              });
+            }, 100);
+            break;
+          case "sortable":
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">🔄 Sortable Örneği</h3><p style="margin:0 0 20px 0;color:#666;">Öğeleri sürükleyerek sıralayabilirsiniz. Aşağıdaki öğeleri sürükle-bırak ile yeniden sıralayın.</p><ul id="sortable-list-' + numara + '" style="list-style:none;padding:0;margin:0;min-height:200px;"><li data-id="1" style="padding:15px;margin:8px 0;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;"><strong>1. YAĞCILAR</strong> - Motorin: 125,000 L</li><li data-id="2" style="padding:15px;margin:8px 0;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;"><strong>2. TEPEKUM</strong> - Benzin: 85,000 L</li><li data-id="3" style="padding:15px;margin:8px 0;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;"><strong>3. NAMDAR</strong> - Motorin: 45,000 L</li><li data-id="4" style="padding:15px;margin:8px 0;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;"><strong>4. ŞEKER</strong> - Benzin: 67,000 L</li></ul><p style="margin-top:20px;padding:10px;background:#fff3cd;border-left:4px solid #ffc107;font-size:12px;"><strong>✨ Nasıl Kullanılır:</strong> Öğeleri fare ile tutup sürükleyerek sıralayabilirsiniz.</p></div>');
+            
+            setTimeout(function() {
+              var $list = $("#sortable-list-" + numara);
+              var $items = $list.children("li");
+              var draggedItem = null;
+              
+              // HTML5 drag-drop (garantili çalışır)
+              $items.each(function() {
+                this.draggable = true;
+              });
+              
+              $items.on("dragstart", function(e) {
+                draggedItem = this;
+                $(this).css({"opacity": "0.5", "background": "#fff3cd"});
+                e.originalEvent.dataTransfer.effectAllowed = "move";
+                e.originalEvent.dataTransfer.setData("text/html", this.innerHTML);
+              });
+              
+              $items.on("dragover", function(e) {
+                e.preventDefault();
+                if (this !== draggedItem) {
+                  $(this).css("border-top", "4px solid #1976d2");
+                }
+              });
+              
+              $items.on("dragleave", function() {
+                $(this).css("border-top", "");
+              });
+              
+              $items.on("drop", function(e) {
+                e.preventDefault();
+                $(this).css("border-top", "");
+                if (draggedItem && this !== draggedItem) {
+                  if ($(this).index() < $(draggedItem).index()) {
+                    $(this).before(draggedItem);
+                  } else {
+                    $(this).after(draggedItem);
+                  }
+                  // Numara güncelle
+                  $list.children("li").each(function(index) {
+                    var text = $(this).html();
+                    text = text.replace(/^\d+\./, (index + 1) + ".");
+                    $(this).html(text);
+                  });
+                }
+              });
+              
+              $items.on("dragend", function() {
+                $(this).css({"opacity": "", "background": "#e3f2fd"});
+                $items.css("border-top", "");
+                draggedItem = null;
+              });
+              
+              // Telerik Sortable'ı da dene
+              try {
+                $list.kendoSortable({
+                  filter: "li",
+                  hint: function(element) {
+                    return element.clone().css({"opacity": 0.7, "background": "#fff3cd"});
+                  }
+                });
+              } catch(e) {
+                console.log("Telerik Sortable yüklenemedi, HTML5 drag-drop kullanılıyor");
+              }
+            }, 200);
+            break;
+          case "draggable":
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">🖱️ Draggable Örneği (72)</h3><p style="margin:0 0 10px 0;color:#666;font-weight:bold;">📌 Draggable = Sürüklenebilir Öğe</p><p style="margin:0 0 20px 0;color:#666;">Bir öğeyi fare ile tutup sürükleyebilir hale getirir. DropTarget (73) ile birlikte kullanılır.</p><div style="display:flex;gap:20px;align-items:flex-start;"><div style="flex:1;"><h4 style="margin:0 0 10px 0;color:#333;font-size:14px;">🖱️ Draggable Öğe:</h4><div id="ornek-draggable-' + numara + '" style="padding:20px;background:#206d7d;color:white;width:150px;cursor:move;border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,0.2);user-select:none;text-align:center;"><strong>📦 YAĞCILAR</strong><br><small style="font-size:11px;">Motorin: 125,000 L</small><br><small style="font-size:10px;opacity:0.8;">Sürükle →</small></div></div><div style="flex:1;"><h4 style="margin:0 0 10px 0;color:#333;font-size:14px;">📥 DropTarget Alanı:</h4><div id="ornek-drop-area-' + numara + '" style="min-height:150px;padding:30px;background:#e3f2fd;border:3px dashed #1976d2;border-radius:4px;text-align:center;"><p style="margin:0;color:#1976d2;font-size:16px;font-weight:bold;">📥 BIRAKMA ALANI</p><p style="margin:10px 0 0 0;color:#666;font-size:12px;">Kutuyu buraya sürükleyin</p><div id="dropped-items-' + numara + '" style="margin-top:20px;"></div></div></div></div><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-left:4px solid #1976d2;font-size:12px;"><strong>💡 Fark:</strong> Draggable (72) = Sürüklenebilir öğe yapar. DropTarget (73) = Bırakma alanı tanımlar. İkisi birlikte kullanılır.</p></div>');
+            setTimeout(function() {
+              var $draggable = $("#ornek-draggable-" + numara);
+              var $dropArea = $("#ornek-drop-area-" + numara);
+              var $droppedItems = $("#dropped-items-" + numara);
+              
+              // HTML5 drag-drop
+              $draggable.attr("draggable", "true");
+              
+              $draggable.on("dragstart", function(e) {
+                $(this).css("opacity", "0.5");
+                e.originalEvent.dataTransfer.effectAllowed = "move";
+                e.originalEvent.dataTransfer.setData("text/html", this.outerHTML);
+              });
+              
+              $draggable.on("dragend", function() {
+                $(this).css("opacity", "");
+              });
+              
+              $dropArea.on("dragover", function(e) {
+                e.preventDefault();
+                $(this).css({"background": "#bbdefb", "border-color": "#0d47a1"});
+              });
+              
+              $dropArea.on("dragleave", function() {
+                $(this).css({"background": "#e3f2fd", "border-color": "#1976d2"});
+              });
+              
+              $dropArea.on("drop", function(e) {
+                e.preventDefault();
+                $(this).css({"background": "#c8e6c9", "border-color": "#2e7d32"});
+                setTimeout(function() {
+                  $dropArea.css({"background": "#e3f2fd", "border-color": "#1976d2"});
+                }, 500);
+                
+                var data = e.originalEvent.dataTransfer.getData("text/html");
+                if (data) {
+                  var $newItem = $(data).css({
+                    "margin": "10px auto",
+                    "opacity": "1",
+                    "background": "#4caf50",
+                    "cursor": "default"
+                  });
+                  $droppedItems.append($newItem);
+                  $droppedItems.find("p").remove();
+                  if ($droppedItems.children().length > 0) {
+                    $dropArea.find("p:first").text("✅ Bırakıldı! (" + $droppedItems.children().length + " öğe)");
+                  }
+                }
+              });
+              
+              // Telerik Draggable/DropTarget'ı da dene
+              try {
+                $dropArea.kendoDropTarget({
+                  drop: function() {
+                    var $newItem = $draggable.clone().css({
+                      "margin": "10px auto",
+                      "opacity": "1",
+                      "background": "#4caf50",
+                      "cursor": "default"
+                    });
+                    $droppedItems.append($newItem);
+                    if ($droppedItems.children().length > 0) {
+                      $dropArea.find("p:first").text("✅ Bırakıldı! (" + $droppedItems.children().length + " öğe)");
+                    }
+                  }
+                });
+                $draggable.kendoDraggable({
+                  hint: function(element) {
+                    return element.clone().css("opacity", 0.7);
+                  }
+                });
+              } catch(e) {
+                console.log("Telerik Draggable/DropTarget yüklenemedi, HTML5 kullanılıyor");
+              }
+            }, 100);
+            break;
+          case "droptarget":
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">🎯 DropTarget Örneği (73)</h3><p style="margin:0 0 10px 0;color:#666;font-weight:bold;">📌 DropTarget = Bırakma Alanı</p><p style="margin:0 0 20px 0;color:#666;">Sürüklenen öğelerin bırakılabileceği alanı tanımlar. Draggable (72) ile birlikte kullanılır.</p><div style="display:flex;gap:20px;align-items:flex-start;"><div style="flex:1;"><h4 style="margin:0 0 15px 0;color:#333;">🖱️ Draggable Öğeler (72):</h4><div id="draggable-items-' + numara + '" style="display:flex;flex-direction:column;gap:10px;"><div id="draggable-item-1-' + numara + '" class="draggable-item" style="padding:15px;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;text-align:center;"><strong>📦 YAĞCILAR</strong><br><small>Motorin: 125,000 L</small></div><div id="draggable-item-2-' + numara + '" class="draggable-item" style="padding:15px;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;text-align:center;"><strong>📦 TEPEKUM</strong><br><small>Benzin: 85,000 L</small></div><div id="draggable-item-3-' + numara + '" class="draggable-item" style="padding:15px;background:#e3f2fd;border:2px solid #1976d2;border-radius:4px;cursor:move;user-select:none;text-align:center;"><strong>📦 NAMDAR</strong><br><small>Motorin: 45,000 L</small></div></div></div><div style="flex:1;"><h4 style="margin:0 0 15px 0;color:#333;">🎯 DropTarget Alanı (73):</h4><div id="ornek-drop-target-' + numara + '" style="min-height:200px;padding:30px;background:#e3f2fd;border:3px dashed #1976d2;border-radius:4px;text-align:center;"><p style="margin:0;color:#1976d2;font-size:16px;font-weight:bold;">🎯 BIRAKMA ALANI</p><p style="margin:10px 0 0 0;color:#666;font-size:12px;">Kutuları buraya sürükleyin</p><div id="dropped-content-' + numara + '" style="margin-top:20px;min-height:50px;"></div></div></div></div><p style="margin-top:20px;padding:10px;background:#e3f2fd;border-left:4px solid #1976d2;font-size:12px;"><strong>💡 Fark:</strong> Draggable (72) = Öğeyi sürüklenebilir yapar. DropTarget (73) = Bırakma alanını tanımlar. İkisi birlikte kullanılır - Draggable öğeleri DropTarget alanına bırakılır.</p></div>');
+            
+            setTimeout(function() {
+              var $dropTarget = $("#ornek-drop-target-" + numara);
+              var $droppedContent = $("#dropped-content-" + numara);
+              var $draggableItems = $(".draggable-item");
+              
+              // HTML5 drag-drop
+              $draggableItems.attr("draggable", "true");
+              
+              $draggableItems.on("dragstart", function(e) {
+                $(this).css("opacity", "0.5");
+                e.originalEvent.dataTransfer.effectAllowed = "move";
+                e.originalEvent.dataTransfer.setData("text/html", this.outerHTML);
+                e.originalEvent.dataTransfer.setData("text/plain", this.id);
+              });
+              
+              $draggableItems.on("dragend", function() {
+                $(this).css("opacity", "");
+              });
+              
+              $dropTarget.on("dragover", function(e) {
+                e.preventDefault();
+                $(this).css({"background": "#bbdefb", "border-color": "#0d47a1"});
+              });
+              
+              $dropTarget.on("dragleave", function() {
+                $(this).css({"background": "#e3f2fd", "border-color": "#1976d2"});
+              });
+              
+              $dropTarget.on("drop", function(e) {
+                e.preventDefault();
+                $(this).css({"background": "#c8e6c9", "border-color": "#2e7d32"});
+                setTimeout(function() {
+                  $dropTarget.css({"background": "#e3f2fd", "border-color": "#1976d2"});
+                }, 500);
+                
+                var itemId = e.originalEvent.dataTransfer.getData("text/plain");
+                var data = e.originalEvent.dataTransfer.getData("text/html");
+                
+                if (data && !$droppedContent.find("[data-original-id=\"" + itemId + "\"]").length) {
+                  var $newItem = $(data).css({
+                    "margin": "10px auto",
+                    "opacity": "1",
+                    "background": "#4caf50",
+                    "color": "white",
+                    "cursor": "default",
+                    "max-width": "200px"
+                  }).attr("data-original-id", itemId);
+                  $droppedContent.append($newItem);
+                  
+                  var count = $droppedContent.children().length;
+                  $dropTarget.find("p:first").text("✅ " + count + " öğe bırakıldı!");
+                }
+              });
+              
+              // Telerik DropTarget ve Draggable'ı da dene
+              try {
+                $dropTarget.kendoDropTarget({
+                  drop: function(e) {
+                    var itemId = $(e.draggable.currentTarget).attr("id");
+                    if (!$droppedContent.find("[data-original-id=\"" + itemId + "\"]").length) {
+                      var $newItem = $(e.draggable.currentTarget).clone().css({
+                        "margin": "10px auto",
+                        "opacity": "1",
+                        "background": "#4caf50",
+                        "color": "white",
+                        "cursor": "default",
+                        "max-width": "200px"
+                      }).attr("data-original-id", itemId);
+                      $droppedContent.append($newItem);
+                      var count = $droppedContent.children().length;
+                      $dropTarget.find("p:first").text("✅ " + count + " öğe bırakıldı!");
+                    }
+                  }
+                });
+                
+                $draggableItems.each(function() {
+                  $(this).kendoDraggable({
+                    hint: function(element) {
+                      return element.clone().css("opacity", 0.7);
+                    }
+                  });
+                });
+              } catch(e) {
+                console.log("Telerik DropTarget/Draggable yüklenemedi, HTML5 kullanılıyor");
+              }
+            }, 100);
+            break;
+          case "datasource":
+            $("#" + containerId).html('<p style="color:#666;padding:20px;">DataSource JavaScript yardımcı bileşendir. Diğer bileşenlerin verilerini yönetmek için kullanılır. Görsel bir bileşen değildir.</p>');
+            break;
           default:
             $("#" + containerId).html('<p style="color:#666;padding:20px;">Bu bileşen için örnek hazırlanıyor...<br>Bileşen: ' + ad + '</p>');
         }
         
         // Window'u göster
+        var windowWidth = 900;
+        var windowHeight = 700;
+        
+        // Splitter için daha büyük pencere
+        if (ornekTip === "splitter") {
+          windowWidth = 1000;
+          windowHeight = 600;
+        }
+        
         var window = $("#bilesen-ornek-window").kendoWindow({
-          title: "#" + numara + " - " + ad,
-          width: 800,
-          height: 600,
+          title: "#" + numara + " - " + ad + " Örneği",
+          width: windowWidth,
+          height: windowHeight,
           modal: true,
           resizable: true,
           draggable: true
@@ -3392,21 +4426,21 @@
       }
     }
     
-    // Fiyat Değişimi sayfası gösterildiğinde tabloyu başlat
-    var originalShowPageOnlyFiyat = window.showPageOnly;
-    if (typeof originalShowPageOnlyFiyat === 'function') {
-      window.showPageOnly = function(pageId) {
-        originalShowPageOnlyFiyat(pageId);
-        if (pageId === 'fiyat-degisimi') {
-          setTimeout(function() {
-            if ($("#main-content-fiyat-degisimi").is(":visible")) {
-              console.log("🚀 Fiyat Değişimi sayfası gösterildi, referans tablosu başlatılıyor...");
-              initFiyatDegisimiBilesenlerTablosu();
-            }
-          }, 300);
-        }
-      };
-    }
+    // FİYAT DEĞİŞİMİ OVERRIDE KALDIRILDI - Şu an kullanılmıyor, operasyon override'ını bozuyordu
+    // var originalShowPageOnlyFiyat = window.showPageOnly;
+    // if (typeof originalShowPageOnlyFiyat === 'function') {
+    //   window.showPageOnly = function(pageId) {
+    //     originalShowPageOnlyFiyat(pageId);
+    //     if (pageId === 'fiyat-degisimi') {
+    //       setTimeout(function() {
+    //         if ($("#main-content-fiyat-degisimi").is(":visible")) {
+    //           console.log("🚀 Fiyat Değişimi sayfası gösterildi, referans tablosu başlatılıyor...");
+    //           initFiyatDegisimiBilesenlerTablosu();
+    //         }
+    //       }, 300);
+    //     }
+    //   };
+    // }
     
     // TabStrip select event'inde de kontrol et
     if (typeof tabStrip !== 'undefined' && tabStrip) {
