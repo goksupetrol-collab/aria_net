@@ -226,3 +226,43 @@ Bu dosyayı okuyun ve şu bilgileri hatırlayın:
 - ❌ **Eski dosyalar:** `dashboard.html` ve ayrı sayfa dosyaları (`banka.html`, vb.) artık kullanılmıyor
 - ✅ **Tek sayfa:** Tüm sayfalar `telerik_yeni_proje.html` içinde `<div>` olarak, `show()`/`hide()` ile yönetiliyor
 - ✅ **Tab sistemi:** Telerik TabStrip ile çalışıyor, "salonda aynı oda" mantığı
+
+## OPERASYON GRID - SÜTUN GENİŞLİKLERİ DEĞİŞTİRME
+
+### Grid Bilgileri:
+- **Grid ID:** `#operasyon-grid`
+- **Dosya:** `dashboard/templates/dashboard/telerik_yeni_proje.html`
+- **Satır:** ~1805-1812 (columns tanımı), ~1820 (duzeltGridBorderSorunu), ~1823-1840 (setTimeout ile genişlik ayarlama)
+
+### Mevcut Sütun Genişlikleri:
+- **MOTORİN** (sutun1): 120px
+- **YAĞCILAR** (sutun2): 80px
+- **TEPEKUM** (sutun3): 80px
+- **NAMDAR** (sutun4): 80px
+- **ŞEKER** (sutun5): 80px
+- **AKOVA** (sutun6): 80px
+- **KOOP.** (sutun7): 80px
+- **NAZİLLİ** (sutun8): 80px
+- **Toplam:** 680px (120 + 80*7)
+
+### Sütun Genişliği Değiştirme Talimatı:
+
+**Kullanıcı şöyle tarif edebilir:**
+- "YAĞCILAR sütunu X px yap, TEPEKUM sütunu Y px yap"
+- "İkinci sütunu X px yap, üçüncü sütunu Y px yap"
+- "Grid genişliğini de toplam sütun genişliğine göre güncelle"
+
+**Örnek:**
+- "YAĞCILAR sütunu 100px yap, TEPEKUM sütunu 90px yap, grid genişliğini de güncelle"
+
+### Yapılacaklar:
+1. **columns tanımında değiştir:** Satır ~1806-1807'de `width`, `minResizableWidth`, `maxResizableWidth` değerlerini güncelle
+2. **setTimeout içinde güncelle:** Satır ~1828-1830'da sütun genişliklerini güncelle
+3. **Toplam genişliği hesapla:** Satır ~1834'te `totalWidth` hesaplamasını güncelle
+4. **duzeltGridBorderSorunu güncelle:** Satır ~1820'de container genişliğini yeni toplam genişliğe göre güncelle
+5. **Grid CSS genişliğini güncelle:** Satır ~1836'da `$("#operasyon-grid").css("width", ...)` değerini güncelle
+
+### Önemli Notlar:
+- ✅ **Yapılabilir, bozmaz** - Sadece sütun genişliklerini değiştiriyoruz
+- ⚠️ **Toplam genişliği mutlaka güncelle** - Grid container genişliği de değişmeli
+- ⚠️ **duzeltGridBorderSorunu fonksiyonuna yeni genişliği ver** - Border sorununu önlemek için
