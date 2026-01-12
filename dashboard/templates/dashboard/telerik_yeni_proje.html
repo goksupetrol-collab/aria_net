@@ -388,7 +388,7 @@
       <div id="bottom-fixed" style="display:flex;gap:5px;padding:5px 0;margin-top:5px"></div>
     </div>
     
-    <!-- İçerik Alanı (Dinamik) - BOŞ - SIFIRDAN TASARLANACAK -->
+    <!-- İçerik Alanı (Dinamik) - BOŞ -->
     <div class="content-wrapper">
     <div class="content-area">
       <!-- BOŞ ALAN - SIFIRDAN TASARLANACAK -->
@@ -1017,10 +1017,21 @@
     </div>
   </div>
 
-  <!-- FİYAT DEĞİŞİMİ SAYFASI -->
+  <!-- FİYAT DEĞİŞİMİ SAYFASI - TELERİK BİLEŞENLER REFERANS TABLOSU -->
   <div class="container" id="main-content-fiyat-degisimi" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİYAT DEĞİŞİMİ</h1>
-    <p style="text-align:center;color:#666;margin:20px 0;">Boş sayfa</p>
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİYAT DEĞİŞİMİ - TELERİK BİLEŞENLER REFERANS TABLOSU</h1>
+    <p style="text-align:center;color:#666;margin:10px 0 20px 0;font-size:14px;">Tüm Telerik Kendo UI bileşenleri - Sayfa kurarken bu tabloya bakarak ihtiyacınız olan bileşeni seçebilirsiniz</p>
+    
+    <!-- REFERANS TABLOSU -->
+    <div id="telerik-bilesenler-tablo" style="width:100%;height:calc(100vh - 200px);margin:0;padding:0;"></div>
+    
+    <!-- BİLEŞEN ÖRNEKLERİ İÇİN MODAL WINDOW -->
+    <div id="bilesen-ornek-window" style="display:none;">
+      <div id="bilesen-ornek-content" style="padding:20px;min-height:400px;">
+        <h3 id="bilesen-ornek-baslik" style="margin:0 0 20px 0;color:#206d7d;"></h3>
+        <div id="bilesen-ornek-container"></div>
+      </div>
+    </div>
   </div>
 
   <!-- FIRMA YÖNETİMİ WINDOW -->
@@ -1486,8 +1497,7 @@
     });
     
     $(document).ready(function() {
-      // OPERASYON SAYFASI TEMİZLENDİ - SIFIRDAN TASARLANACAK
-      // Tüm tablolar kaldırıldı, boş sayfa hazır
+      // OPERASYON SAYFASI BOŞ - SIFIRDAN TASARLANACAK
     });
     
     $(document).ready(function() {
@@ -3161,6 +3171,243 @@
         if ($("#main-content-tanker").is(":visible")) {
           console.log("🚀 Sayfa yüklendi, Tanker sayfası açık, bileşenler başlatılıyor...");
           initTankerBilesenleri();
+        }
+      }, 1000);
+    });
+    
+    // ============================================
+    // FİYAT DEĞİŞİMİ SAYFASI - TELERİK BİLEŞENLER REFERANS TABLOSU
+    // ============================================
+    function initFiyatDegisimiBilesenlerTablosu() {
+      try {
+        console.log("🚀 Fiyat Değişimi referans tablosu başlatılıyor...");
+        
+        // Tüm Telerik bileşenleri listesi
+        var bilesenler = [
+          // VERİ YÖNETİMİ (1-6)
+          {numara: 1, ad: "Grid", kategori: "Veri Yönetimi", aciklama: "Veri tablosu - Sıralama, filtreleme, sayfalama, Excel/PDF export", ornek: "grid"},
+          {numara: 2, ad: "PivotGrid", kategori: "Veri Yönetimi", aciklama: "Özet tablo - Excel PivotTable gibi çok boyutlu analiz", ornek: "pivotgrid"},
+          {numara: 3, ad: "Spreadsheet", kategori: "Veri Yönetimi", aciklama: "Excel benzeri tablo - Formül yazma, hesaplama", ornek: "spreadsheet"},
+          {numara: 4, ad: "TreeList", kategori: "Veri Yönetimi", aciklama: "Hiyerarşik tablo - Kategori ve alt kategoriler", ornek: "treelist"},
+          {numara: 5, ad: "ListView", kategori: "Veri Yönetimi", aciklama: "Kart görünümü - Instagram/Facebook gibi liste", ornek: "listview"},
+          {numara: 6, ad: "DataSource", kategori: "Veri Yönetimi", aciklama: "Veri kaynağı yönetimi - JavaScript yardımcı", ornek: "datasource"},
+          
+          // NAVİGASYON (7-16)
+          {numara: 7, ad: "Menu", kategori: "Navigasyon", aciklama: "Açılır menü - Üst menü, alt menüler", ornek: "menu"},
+          {numara: 8, ad: "TabStrip", kategori: "Navigasyon", aciklama: "Sekmeler - Tab sistemi, sayfa geçişleri", ornek: "tabstrip"},
+          {numara: 9, ad: "TreeView", kategori: "Navigasyon", aciklama: "Ağaç görünümü - Klasör yapısı, hiyerarşi", ornek: "treeview"},
+          {numara: 10, ad: "PanelBar", kategori: "Navigasyon", aciklama: "Açılır paneller - Detay panelleri, ayarlar", ornek: "panelbar"},
+          {numara: 11, ad: "Breadcrumb", kategori: "Navigasyon", aciklama: "Sayfa yolu - Ana Sayfa > Şubeler > YAĞCILAR", ornek: "breadcrumb"},
+          {numara: 12, ad: "Toolbar", kategori: "Navigasyon", aciklama: "Araç çubuğu - Kaydet, Sil, Yazdır butonları", ornek: "toolbar"},
+          {numara: 13, ad: "Splitter", kategori: "Navigasyon", aciklama: "Ekran bölücü - Sol liste, sağ detay", ornek: "splitter"},
+          {numara: 14, ad: "ResponsivePanel", kategori: "Navigasyon", aciklama: "Duyarlı panel - Mobil menü paneli", ornek: "responsivepanel"},
+          {numara: 15, ad: "Drawer", kategori: "Navigasyon", aciklama: "Yan çekmece - Mobil çekmece menü", ornek: "drawer"},
+          {numara: 16, ad: "Stepper", kategori: "Navigasyon", aciklama: "Adım göstergesi - Çok adımlı formlar", ornek: "stepper"},
+          
+          // DÜZENLEYİCİLER (17-35)
+          {numara: 17, ad: "DatePicker", kategori: "Düzenleyici", aciklama: "Tarih seçici - Takvimden tarih seçme", ornek: "datepicker"},
+          {numara: 18, ad: "DateTimePicker", kategori: "Düzenleyici", aciklama: "Tarih + Saat seçici - Randevu tarihi + saati", ornek: "datetimepicker"},
+          {numara: 19, ad: "TimePicker", kategori: "Düzenleyici", aciklama: "Saat seçici - Sadece saat seçimi", ornek: "timepicker"},
+          {numara: 20, ad: "Calendar", kategori: "Düzenleyici", aciklama: "Takvim - Tam takvim görünümü", ornek: "calendar"},
+          {numara: 21, ad: "ComboBox", kategori: "Düzenleyici", aciklama: "Dropdown + Arama - Şube seçimi, yazarken filtreleme", ornek: "combobox"},
+          {numara: 22, ad: "DropDownList", kategori: "Düzenleyici", aciklama: "Dropdown liste - Durum seçimi (Aktif/Pasif)", ornek: "dropdownlist"},
+          {numara: 23, ad: "MultiSelect", kategori: "Düzenleyici", aciklama: "Çoklu seçim - Birden fazla şube seçimi", ornek: "multiselect"},
+          {numara: 24, ad: "AutoComplete", kategori: "Düzenleyici", aciklama: "Otomatik tamamlama - Firma adı arama", ornek: "autocomplete"},
+          {numara: 25, ad: "NumericTextBox", kategori: "Düzenleyici", aciklama: "Sayı girişi - Miktar, fiyat (sadece sayı)", ornek: "numerictextbox"},
+          {numara: 26, ad: "MaskedTextBox", kategori: "Düzenleyici", aciklama: "Maskeli metin - Telefon, TC kimlik formatı", ornek: "maskedtextbox"},
+          {numara: 27, ad: "Editor", kategori: "Düzenleyici", aciklama: "Metin editörü - Word benzeri zengin metin", ornek: "editor"},
+          {numara: 28, ad: "ColorPicker", kategori: "Düzenleyici", aciklama: "Renk seçici - Renk paletinden seçim", ornek: "colorpicker"},
+          {numara: 29, ad: "FlatColorPicker", kategori: "Düzenleyici", aciklama: "Düz renk seçici - Basit renk seçimi", ornek: "flatcolorpicker"},
+          {numara: 30, ad: "ColorPalette", kategori: "Düzenleyici", aciklama: "Renk paleti - Önceden tanımlı renkler", ornek: "colorpalette"},
+          {numara: 31, ad: "Slider", kategori: "Düzenleyici", aciklama: "Kaydırıcı - Değer seçimi kaydırarak", ornek: "slider"},
+          {numara: 32, ad: "RangeSlider", kategori: "Düzenleyici", aciklama: "Aralık kaydırıcı - Min-max değer seçimi", ornek: "rangeslider"},
+          {numara: 33, ad: "Rating", kategori: "Düzenleyici", aciklama: "Yıldız puanlama - 1-5 yıldız değerlendirme", ornek: "rating"},
+          {numara: 34, ad: "ListBox", kategori: "Düzenleyici", aciklama: "Liste kutusu - Çoklu seçim listesi", ornek: "listbox"},
+          {numara: 35, ad: "SearchBox", kategori: "Düzenleyici", aciklama: "Arama kutusu - Metin arama", ornek: "searchbox"},
+          
+          // GRAFİKLER (36-50)
+          {numara: 36, ad: "Chart - Column", kategori: "Grafik", aciklama: "Sütun grafik - Karşılaştırma grafikleri", ornek: "chart-column"},
+          {numara: 37, ad: "Chart - Line", kategori: "Grafik", aciklama: "Çizgi grafik - Zaman serisi, trend", ornek: "chart-line"},
+          {numara: 38, ad: "Chart - Pie", kategori: "Grafik", aciklama: "Pasta grafik - Oran gösterimi", ornek: "chart-pie"},
+          {numara: 39, ad: "Chart - Area", kategori: "Grafik", aciklama: "Alan grafik - Doldurulmuş çizgi grafik", ornek: "chart-area"},
+          {numara: 40, ad: "Chart - Bar", kategori: "Grafik", aciklama: "Çubuk grafik - Yatay sütun grafik", ornek: "chart-bar"},
+          {numara: 41, ad: "StockChart", kategori: "Grafik", aciklama: "Hisse senedi grafik - Finansal grafikler", ornek: "stockchart"},
+          {numara: 42, ad: "Sparkline", kategori: "Grafik", aciklama: "Mini grafik - Küçük inline grafikler", ornek: "sparkline"},
+          {numara: 43, ad: "CircularGauge", kategori: "Grafik", aciklama: "Dairesel gösterge - Hız göstergesi gibi", ornek: "circulargauge"},
+          {numara: 44, ad: "LinearGauge", kategori: "Grafik", aciklama: "Doğrusal gösterge - Yatay gösterge", ornek: "lineargauge"},
+          {numara: 45, ad: "ArcGauge", kategori: "Grafik", aciklama: "Yay gösterge - Yarı dairesel gösterge", ornek: "arcgauge"},
+          {numara: 46, ad: "RadialGauge", kategori: "Grafik", aciklama: "Radyal gösterge - Merkezden dışa gösterge", ornek: "radialgauge"},
+          {numara: 47, ad: "Chart - Donut", kategori: "Grafik", aciklama: "Halka grafik - İçi boş pasta grafik", ornek: "chart-donut"},
+          {numara: 48, ad: "Chart - Bubble", kategori: "Grafik", aciklama: "Baloncuk grafik - 3 boyutlu veri", ornek: "chart-bubble"},
+          {numara: 49, ad: "Chart - Scatter", kategori: "Grafik", aciklama: "Dağılım grafik - İlişki analizi", ornek: "chart-scatter"},
+          {numara: 50, ad: "Chart - Radar", kategori: "Grafik", aciklama: "Radar grafik - Çoklu değişken analizi", ornek: "chart-radar"},
+          
+          // DİĞER BİLEŞENLER (51-70)
+          {numara: 51, ad: "Button", kategori: "Diğer", aciklama: "Buton - Tıklanabilir butonlar", ornek: "button"},
+          {numara: 52, ad: "Window", kategori: "Diğer", aciklama: "Pencere - Popup, modal pencereler", ornek: "window"},
+          {numara: 53, ad: "Notification", kategori: "Diğer", aciklama: "Bildirim - Başarı/hata mesajları", ornek: "notification"},
+          {numara: 54, ad: "Tooltip", kategori: "Diğer", aciklama: "İpucu - Hover'da açıklama", ornek: "tooltip"},
+          {numara: 55, ad: "Upload", kategori: "Diğer", aciklama: "Dosya yükleme - Excel, resim yükleme", ornek: "upload"},
+          {numara: 56, ad: "ProgressBar", kategori: "Diğer", aciklama: "İlerleme çubuğu - Yükleme göstergesi", ornek: "progressbar"},
+          {numara: 57, ad: "Scheduler", kategori: "Diğer", aciklama: "Planlayıcı - Takvim, randevu sistemi", ornek: "scheduler"},
+          {numara: 58, ad: "Gantt", kategori: "Diğer", aciklama: "Proje yönetimi - Görev zaman çizelgesi", ornek: "gantt"},
+          {numara: 59, ad: "Diagram", kategori: "Diğer", aciklama: "Diyagram - Akış şeması, şema çizimi", ornek: "diagram"},
+          {numara: 60, ad: "Map", kategori: "Diğer", aciklama: "Harita - Coğrafi veri gösterimi", ornek: "map"},
+          {numara: 61, ad: "Barcode", kategori: "Diğer", aciklama: "Barkod - Barkod oluşturma", ornek: "barcode"},
+          {numara: 62, ad: "QRCode", kategori: "Diğer", aciklama: "QR Kod - QR kod oluşturma", ornek: "qrcode"},
+          {numara: 63, ad: "Signature", kategori: "Diğer", aciklama: "İmza - İmza çizme", ornek: "signature"},
+          {numara: 64, ad: "Badge", kategori: "Diğer", aciklama: "Rozet - Bildirim sayısı, etiket", ornek: "badge"},
+          {numara: 65, ad: "Avatar", kategori: "Diğer", aciklama: "Avatar - Kullanıcı profil resmi", ornek: "avatar"},
+          {numara: 66, ad: "Loader", kategori: "Diğer", aciklama: "Yükleyici - Yükleme animasyonu", ornek: "loader"},
+          {numara: 67, ad: "Skeleton", kategori: "Diğer", aciklama: "İskelet - Yükleme placeholder", ornek: "skeleton"},
+          {numara: 68, ad: "Pager", kategori: "Diğer", aciklama: "Sayfalama - Sayfa numaraları", ornek: "pager"},
+          {numara: 69, ad: "Validator", kategori: "Diğer", aciklama: "Doğrulayıcı - Form validasyonu", ornek: "validator"},
+          {numara: 70, ad: "Popup", kategori: "Diğer", aciklama: "Açılır pencere - Küçük popup", ornek: "popup"},
+          {numara: 71, ad: "Sortable", kategori: "Diğer", aciklama: "Sıralanabilir - Sürükle-bırak sıralama", ornek: "sortable"},
+          {numara: 72, ad: "Draggable", kategori: "Diğer", aciklama: "Sürüklenebilir - Öğe sürükleme", ornek: "draggable"},
+          {numara: 73, ad: "DropTarget", kategori: "Diğer", aciklama: "Bırakma hedefi - Sürükle-bırak hedefi", ornek: "droptarget"}
+        ];
+        
+        // Grid tablosu oluştur
+        $("#telerik-bilesenler-tablo").kendoGrid({
+          dataSource: {
+            data: bilesenler,
+            pageSize: 20
+          },
+          columns: [
+            { field: "numara", title: "#", width: 60, attributes: { style: "text-align:center;font-weight:bold;" } },
+            { field: "ad", title: "Bileşen Adı", width: 200, attributes: { style: "font-weight:bold;color:#206d7d;" } },
+            { field: "kategori", title: "Kategori", width: 150 },
+            { field: "aciklama", title: "Açıklama", width: 400 },
+            { 
+              title: "İşlem", 
+              width: 120,
+              template: function(dataItem) {
+                return '<button class="k-button k-button-md k-button-solid k-button-solid-primary" onclick="gosterBilesenOrnegi(' + dataItem.numara + ', \'' + dataItem.ad + '\', \'' + dataItem.ornek + '\')">Örnek Göster</button>';
+              }
+            }
+          ],
+          height: "100%",
+          sortable: true,
+          filterable: true,
+          pageable: {
+            pageSizes: [10, 20, 50, 100],
+            buttonCount: 5
+          },
+          resizable: true,
+          selectable: "row",
+          change: function(e) {
+            var selectedRow = this.dataItem(this.select());
+            if (selectedRow) {
+              console.log("Seçilen bileşen:", selectedRow.ad);
+            }
+          }
+        });
+        
+        console.log("✅ Fiyat Değişimi referans tablosu başlatıldı - " + bilesenler.length + " bileşen");
+      } catch(error) {
+        console.error("❌ Fiyat Değişimi referans tablosu hatası:", error);
+      }
+    }
+    
+    // Bileşen örneği gösterme fonksiyonu
+    function gosterBilesenOrnegi(numara, ad, ornekTip) {
+      try {
+        $("#bilesen-ornek-baslik").text("#" + numara + " - " + ad + " Örneği");
+        $("#bilesen-ornek-container").empty();
+        
+        var containerId = "ornek-" + ornekTip + "-" + numara;
+        $("#bilesen-ornek-container").html('<div id="' + containerId + '" style="min-height:300px;"></div>');
+        
+        // Örnek oluştur (basit örnekler)
+        switch(ornekTip) {
+          case "grid":
+            $("#" + containerId).kendoGrid({
+              dataSource: {
+                data: [
+                  {id: 1, sube: "YAĞCILAR", urun: "Motorin", miktar: 125000, fiyat: 25.50, tutar: 3187500},
+                  {id: 2, sube: "TEPEKUM", urun: "Benzin", miktar: 85000, fiyat: 28.75, tutar: 2443750}
+                ]
+              },
+              columns: [
+                {field: "id", title: "ID", width: 60},
+                {field: "sube", title: "Şube", width: 120},
+                {field: "urun", title: "Ürün", width: 100},
+                {field: "miktar", title: "Miktar", width: 100, format: "{0:n0}"},
+                {field: "fiyat", title: "Fiyat", width: 100, format: "{0:n2} TL"},
+                {field: "tutar", title: "Tutar", width: 120, format: "{0:n2} TL"}
+              ],
+              height: 300,
+              sortable: true,
+              filterable: true,
+              pageable: {pageSize: 5}
+            });
+            break;
+          case "datepicker":
+            $("#" + containerId).html('<input id="ornek-datepicker-' + numara + '" style="width:300px;" />');
+            $("#ornek-datepicker-" + numara).kendoDatePicker({
+              value: new Date(),
+              format: "dd.MM.yyyy"
+            });
+            break;
+          case "combobox":
+            $("#" + containerId).html('<input id="ornek-combobox-' + numara + '" style="width:300px;" />');
+            $("#ornek-combobox-" + numara).kendoComboBox({
+              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+              placeholder: "Şube seçin..."
+            });
+            break;
+          case "button":
+            $("#" + containerId).html('<button id="ornek-button-' + numara + '" class="k-button k-button-md k-button-solid k-button-solid-primary">Örnek Buton</button>');
+            $("#ornek-button-" + numara).kendoButton({
+              click: function() {
+                alert("Buton tıklandı!");
+              }
+            });
+            break;
+          default:
+            $("#" + containerId).html('<p style="color:#666;padding:20px;">Bu bileşen için örnek hazırlanıyor...<br>Bileşen: ' + ad + '</p>');
+        }
+        
+        // Window'u göster
+        var window = $("#bilesen-ornek-window").kendoWindow({
+          title: "#" + numara + " - " + ad,
+          width: 800,
+          height: 600,
+          modal: true,
+          resizable: true,
+          draggable: true
+        }).data("kendoWindow");
+        
+        window.center().open();
+      } catch(error) {
+        console.error("Bileşen örneği gösterilirken hata:", error);
+        alert("Örnek gösterilirken hata oluştu: " + error.message);
+      }
+    }
+    
+    // Fiyat Değişimi sayfası gösterildiğinde tabloyu başlat
+    var originalShowPageOnlyFiyat = window.showPageOnly;
+    if (typeof originalShowPageOnlyFiyat === 'function') {
+      window.showPageOnly = function(pageId) {
+        originalShowPageOnlyFiyat(pageId);
+        if (pageId === 'fiyat-degisimi') {
+          setTimeout(function() {
+            if ($("#main-content-fiyat-degisimi").is(":visible")) {
+              console.log("🚀 Fiyat Değişimi sayfası gösterildi, referans tablosu başlatılıyor...");
+              initFiyatDegisimiBilesenlerTablosu();
+            }
+          }, 300);
+        }
+      };
+    }
+    
+    // Sayfa yüklendiğinde kontrol et
+    $(document).ready(function() {
+      setTimeout(function() {
+        if ($("#main-content-fiyat-degisimi").is(":visible")) {
+          console.log("🚀 Sayfa yüklendi, Fiyat Değişimi açık, referans tablosu başlatılıyor...");
+          initFiyatDegisimiBilesenlerTablosu();
         }
       }, 1000);
     });
