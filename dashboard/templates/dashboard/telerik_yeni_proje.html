@@ -4121,12 +4121,27 @@
             $("#" + containerId).html('<input id="ornek-numerictextbox-' + numara + '" style="width:300px;" />');
             setTimeout(function() {
               try {
-                $("#ornek-numerictextbox-" + numara).kendoNumericTextBox({
-                  value: 1000,
-                  format: "n0",
-                  min: 0,
-                  culture: "tr-TR"
-                });
+                if (typeof kendo !== 'undefined' && typeof $.fn.kendoNumericTextBox !== 'undefined') {
+                  var numericEl = $("#ornek-numerictextbox-" + numara);
+                  if (numericEl.length > 0) {
+                    // Eğer daha önce oluşturulmuşsa destroy et
+                    if (numericEl.data("kendoNumericTextBox")) {
+                      numericEl.data("kendoNumericTextBox").destroy();
+                    }
+                    // Culture kontrolü yap, yoksa varsayılan kullan
+                    var config = {
+                      value: 1000,
+                      format: "n0",
+                      min: 0
+                    };
+                    // Culture varsa ekle, yoksa ekleme
+                    if (typeof kendo.culture !== 'undefined' && kendo.culture("tr-TR")) {
+                      config.culture = "tr-TR";
+                    }
+                    numericEl.kendoNumericTextBox(config);
+                    console.log("✅ NumericTextBox oluşturuldu:", numara);
+                  }
+                }
               } catch(e) {
                 console.error("NumericTextBox hatası:", e);
                 $("#ornek-numerictextbox-" + numara).attr("type", "number").val(1000);
@@ -4137,11 +4152,26 @@
             $("#" + containerId).html('<input id="ornek-maskedtextbox-' + numara + '" style="width:300px;" />');
             setTimeout(function() {
               try {
-                $("#ornek-maskedtextbox-" + numara).kendoMaskedTextBox({
-                  mask: "000-000-0000",
-                  value: "5551234567",
-                  culture: "tr-TR"
-                });
+                if (typeof kendo !== 'undefined' && typeof $.fn.kendoMaskedTextBox !== 'undefined') {
+                  var maskedEl = $("#ornek-maskedtextbox-" + numara);
+                  if (maskedEl.length > 0) {
+                    // Eğer daha önce oluşturulmuşsa destroy et
+                    if (maskedEl.data("kendoMaskedTextBox")) {
+                      maskedEl.data("kendoMaskedTextBox").destroy();
+                    }
+                    // Culture kontrolü yap, yoksa varsayılan kullan
+                    var config = {
+                      mask: "000-000-0000",
+                      value: "5551234567"
+                    };
+                    // Culture varsa ekle, yoksa ekleme
+                    if (typeof kendo.culture !== 'undefined' && kendo.culture("tr-TR")) {
+                      config.culture = "tr-TR";
+                    }
+                    maskedEl.kendoMaskedTextBox(config);
+                    console.log("✅ MaskedTextBox oluşturuldu:", numara);
+                  }
+                }
               } catch(e) {
                 console.error("MaskedTextBox hatası:", e);
                 $("#ornek-maskedtextbox-" + numara).val("555-123-4567").attr("placeholder", "000-000-0000");
