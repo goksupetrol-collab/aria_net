@@ -464,7 +464,7 @@
         </div>
         
         <!-- Telerik Grid Tablosu - 8 sütun 10 satır -->
-        <div id="operasyon-grid" style="width:642px;height:312px;position:absolute;top:2px;left:2px;"></div>
+        <div id="operasyon-grid" style="width:646px;height:312px;position:absolute;top:2px;left:2px;"></div>
       </div>
       
     </div>
@@ -1780,7 +1780,7 @@
                 }
               }
             },
-            width: 642,
+            width: 646,
             height: 312,
             scrollable: false,
             sortable: false,
@@ -1803,20 +1803,84 @@
             }
           });
           
+          // Grid oluşturulduktan sonra gerçek ölçüleri kontrol et ve düzelt
+          setTimeout(function() {
+            var grid = $("#operasyon-grid").data("kendoGrid");
+            if (grid) {
+              // Grid'in gerçek genişliğini ölç
+              var gridElement = $("#operasyon-grid");
+              var actualWidth = gridElement.width();
+              var containerWidth = 646; // Container iç alanı (650px - 4px border)
+              
+              // Grid'in border/padding'ini hesapla
+              var gridTable = gridElement.find("table.k-grid-table");
+              if (gridTable.length > 0) {
+                // Sütun genişliklerinin toplamını kontrol et
+                var totalColumnWidth = 0;
+                var columns = grid.columns;
+                for (var i = 0; i < columns.length; i++) {
+                  totalColumnWidth += columns[i].width || 80;
+                }
+                
+                // Eğer sütunlar toplamı grid genişliğinden fazlaysa, grid genişliğini artır
+                // Veya sütun genişliklerini eşit dağıt
+                if (totalColumnWidth > containerWidth) {
+                  // Sütun genişliklerini container'a sığdır
+                  var newColumnWidth = Math.floor(containerWidth / 8);
+                  for (var j = 0; j < columns.length; j++) {
+                    columns[j].width = newColumnWidth;
+                  }
+                  grid.refresh();
+                }
+                
+                // Grid'in border'ını kaldır veya hesaba kat
+                gridElement.css({
+                  "box-sizing": "border-box",
+                  "border": "none",
+                  "padding": "0",
+                  "margin": "0"
+                });
+                
+                // Grid tablosunun border'ını kaldır
+                gridTable.css({
+                  "border-collapse": "collapse",
+                  "border-spacing": "0",
+                  "width": "100%",
+                  "table-layout": "fixed"
+                });
+                
+                console.log("📏 Grid Ölçüleri:", {
+                  "Container iç alanı": containerWidth + "px",
+                  "Grid genişliği (ayar)": grid.options.width + "px",
+                  "Grid gerçek genişliği": actualWidth + "px",
+                  "Sütun toplam genişliği": totalColumnWidth + "px",
+                  "Sütun sayısı": columns.length,
+                  "Sütun başına": (totalColumnWidth / columns.length) + "px"
+                });
+              }
+            }
+          }, 500);
+          
           // Sütun genişliklerini ve satır yüksekliklerini sabit tut - içerikle değişmesin
           setTimeout(function() {
             var grid = $("#operasyon-grid").data("kendoGrid");
             if (grid) {
-              // Tüm sütunları sabit genişlikte tut
-              var columns = grid.columns;
-              for (var i = 0; i < columns.length; i++) {
-                columns[i].width = 80;  // Doğru: property ataması
-              }
               // Tüm satırları sabit yükseklikte tut
               $("#operasyon-grid").find(".k-grid tr").css("height", "30px");
+              
+              // Grid'in CSS'ini düzelt - border/padding sorunlarını çöz
+              var gridWrapper = $("#operasyon-grid").closest(".k-widget");
+              if (gridWrapper.length > 0) {
+                gridWrapper.css({
+                  "border": "none",
+                  "padding": "0",
+                  "box-sizing": "border-box"
+                });
+              }
+              
               grid.refresh();
             }
-          }, 300);
+          }, 800);
         }
       }, 200);
     });
