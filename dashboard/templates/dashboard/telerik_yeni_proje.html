@@ -1807,57 +1807,79 @@
           setTimeout(function() {
             var grid = $("#operasyon-grid").data("kendoGrid");
             if (grid) {
-              // Grid'in gerçek genişliğini ölç
               var gridElement = $("#operasyon-grid");
-              var actualWidth = gridElement.width();
               var containerWidth = 646; // Container iç alanı (650px - 4px border)
               
-              // Grid'in border/padding'ini hesapla
+              // Grid'in tüm border ve padding'lerini kaldır
+              gridElement.css({
+                "box-sizing": "border-box",
+                "border": "none !important",
+                "padding": "0 !important",
+                "margin": "0 !important",
+                "width": containerWidth + "px !important"
+              });
+              
+              // Grid wrapper'ın border'ını kaldır
+              var gridWrapper = gridElement.closest(".k-widget");
+              if (gridWrapper.length > 0) {
+                gridWrapper.css({
+                  "border": "none !important",
+                  "padding": "0 !important",
+                  "box-sizing": "border-box"
+                });
+              }
+              
+              // Grid tablosunun border'ını kaldır ve genişliği ayarla
               var gridTable = gridElement.find("table.k-grid-table");
               if (gridTable.length > 0) {
-                // Sütun genişliklerinin toplamını kontrol et
-                var totalColumnWidth = 0;
-                var columns = grid.columns;
-                for (var i = 0; i < columns.length; i++) {
-                  totalColumnWidth += columns[i].width || 80;
-                }
-                
-                // Eğer sütunlar toplamı grid genişliğinden fazlaysa, grid genişliğini artır
-                // Veya sütun genişliklerini eşit dağıt
-                if (totalColumnWidth > containerWidth) {
-                  // Sütun genişliklerini container'a sığdır
-                  var newColumnWidth = Math.floor(containerWidth / 8);
-                  for (var j = 0; j < columns.length; j++) {
-                    columns[j].width = newColumnWidth;
-                  }
-                  grid.refresh();
-                }
-                
-                // Grid'in border'ını kaldır veya hesaba kat
-                gridElement.css({
-                  "box-sizing": "border-box",
-                  "border": "none",
-                  "padding": "0",
-                  "margin": "0"
-                });
-                
-                // Grid tablosunun border'ını kaldır
                 gridTable.css({
                   "border-collapse": "collapse",
                   "border-spacing": "0",
-                  "width": "100%",
-                  "table-layout": "fixed"
+                  "width": containerWidth + "px",
+                  "table-layout": "fixed",
+                  "border": "none"
                 });
+              }
+              
+              // Grid header ve content'in border'ını kaldır
+              gridElement.find(".k-grid-header, .k-grid-content").css({
+                "border": "none",
+                "padding": "0"
+              });
+              
+              // Sütun genişliklerini container'a tam sığdır (646px / 8 = 80.75px, ama tam sayı için 80px + kalanı son sütuna)
+              var columns = grid.columns;
+              var columnWidth = Math.floor(containerWidth / 8); // 80px
+              var lastColumnWidth = containerWidth - (columnWidth * 7); // Kalan: 646 - 560 = 86px
+              
+              for (var i = 0; i < columns.length; i++) {
+                if (i === columns.length - 1) {
+                  columns[i].width = lastColumnWidth; // Son sütun: 86px
+                } else {
+                  columns[i].width = columnWidth; // Diğerleri: 80px
+                }
+              }
+              
+              grid.refresh();
+              
+              // Gerçek ölçüleri tekrar kontrol et
+              setTimeout(function() {
+                var actualWidth = gridElement.width();
+                var totalColumnWidth = 0;
+                for (var j = 0; j < columns.length; j++) {
+                  totalColumnWidth += columns[j].width || 80;
+                }
                 
-                console.log("📏 Grid Ölçüleri:", {
+                console.log("📏 Grid Ölçüleri (Düzeltme Sonrası):", {
                   "Container iç alanı": containerWidth + "px",
                   "Grid genişliği (ayar)": grid.options.width + "px",
                   "Grid gerçek genişliği": actualWidth + "px",
                   "Sütun toplam genişliği": totalColumnWidth + "px",
                   "Sütun sayısı": columns.length,
-                  "Sütun başına": (totalColumnWidth / columns.length) + "px"
+                  "İlk 7 sütun": columnWidth + "px",
+                  "Son sütun (NAZİLLİ)": lastColumnWidth + "px"
                 });
-              }
+              }, 100);
             }
           }, 500);
           
