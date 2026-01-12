@@ -4095,11 +4095,27 @@
             }, 100);
             break;
           case "autocomplete":
-            $("#" + containerId).html('<input id="ornek-autocomplete-' + numara + '" style="width:300px;" />');
-            $("#ornek-autocomplete-" + numara).kendoAutoComplete({
-              dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
-              placeholder: "Firma ara..."
-            });
+            $("#" + containerId).html('<div style="padding:20px;"><h3 style="margin:0 0 15px 0;color:#206d7d;">📋 AutoComplete Örneği</h3><p style="margin:0 0 10px 0;color:#666;font-weight:bold;">📌 AutoComplete = Otomatik Tamamlama</p><p style="margin:0 0 20px 0;color:#666;line-height:1.6;"><strong>Mantık:</strong> Yazmaya başladığınızda otomatik öneriler gösterir. Örnek: "YAĞ" yazarsanız "YAĞCILAR" önerisi çıkar. Google arama gibi çalışır.</p><div style="margin-bottom:20px;"><label style="display:block;margin-bottom:8px;font-weight:bold;color:#333;">Firma Ara (Yazarken otomatik öneriler gösterir):</label><input id="ornek-autocomplete-' + numara + '" style="width:300px;" /></div><div style="padding:15px;background:#fff3cd;border-left:4px solid #ffc107;margin-bottom:20px;border-radius:4px;"><strong>💡 Deneyin:</strong><ul style="margin:10px 0 0 20px;padding:0;"><li style="margin:5px 0;">"YAĞ" yazın → "YAĞCILAR" önerisi çıkar</li><li style="margin:5px 0;">"TEPE" yazın → "TEPEKUM" önerisi çıkar</li><li style="margin:5px 0;">"NAM" yazın → "NAMDAR" önerisi çıkar</li></ul></div><div style="padding:15px;background:#e3f2fd;border-radius:5px;font-size:12px;"><strong>💡 Kullanım Senaryoları:</strong><ul style="margin:10px 0 0 20px;padding:0;"><li style="margin:5px 0;">Firma adı arama (yazarken öneriler)</li><li style="margin:5px 0;">Ürün adı arama</li><li style="margin:5px 0;">Şube adı arama</li></ul><strong>Kod:</strong> <code>$("#autocomplete").kendoAutoComplete({ dataSource: ["Seçenek1", "Seçenek2"], placeholder: "Ara..." });</code></div></div>');
+            setTimeout(function() {
+              if (typeof kendo !== 'undefined' && typeof $.fn.kendoAutoComplete !== 'undefined') {
+                var autocompleteEl = $("#ornek-autocomplete-" + numara);
+                if (autocompleteEl.length > 0) {
+                  // Eğer daha önce oluşturulmuşsa destroy et
+                  if (autocompleteEl.data("kendoAutoComplete")) {
+                    autocompleteEl.data("kendoAutoComplete").destroy();
+                  }
+                  autocompleteEl.kendoAutoComplete({
+                    dataSource: ["YAĞCILAR", "TEPEKUM", "NAMDAR", "ŞEKER"],
+                    placeholder: "Firma ara (örnek: YAĞ yazın)...",
+                    filter: "contains",
+                    minLength: 1 // 1 karakter yazınca öneri göster
+                  });
+                  console.log("✅ AutoComplete oluşturuldu:", numara);
+                }
+              } else {
+                console.error("❌ Telerik AutoComplete yüklenmedi");
+              }
+            }, 100);
             break;
           case "numerictextbox":
             $("#" + containerId).html('<input id="ornek-numerictextbox-' + numara + '" style="width:300px;" />');
