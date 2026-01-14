@@ -122,7 +122,7 @@ D:\tayfun\
 
 ## NOTLAR
 
-- Proje çalışıyor: http://127.0.0.1:6543
+- Proje çalışıyor: http://127.0.0.1:8000
 - Python 3.14.2 kurulu
 - Virtual environment: `D:\tayfun\venv\`
 - Masaüstü kısayolu: "ARIA NET Proje Ac.lnk"
