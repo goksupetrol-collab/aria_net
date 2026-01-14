@@ -13,7 +13,7 @@ Bu dosya, yeni bir Cursor sohbeti başlattığınızda AI asistanının projeyi 
 **Konum:** `D:\tayfun`  
 **Durum:** ✅ Aktif geliştirme  
 **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)  
-**URL:** http://127.0.0.1:8000
+**URL:** http://127.0.0.1:6543
 
 ---
 
@@ -135,7 +135,7 @@ cd D:\tayfun
 py manage.py runserver
 ```
 
-Tarayıcıda açın: http://127.0.0.1:8000
+Tarayıcıda açın: http://127.0.0.1:6543
 
 ---
 
@@ -162,7 +162,7 @@ Test-Path D:\tayfun\.git  # Git başlatıldı mı?
 ### Proje Açılmıyor?
 1. Python kurulu mu? `py --version`
 2. Virtual environment var mı? `D:\tayfun\venv\`
-3. Django çalışıyor mu? `cd D:\tayfun; .\venv\Scripts\Activate.ps1; py manage.py runserver`
+3. Django çalışıyor mu? `cd D:\tayfun; .\venv\Scripts\Activate.ps1; py manage.py runserver 127.0.0.1:6543`
 
 ### Git Sorunları?
 1. Git kurulu mu? `git --version`

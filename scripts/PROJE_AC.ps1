@@ -22,10 +22,10 @@ pip install -q -r requirements.txt
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "Django sunucusu baslatiliyor..." -ForegroundColor Cyan
-Write-Host "Tarayici: http://127.0.0.1:8000" -ForegroundColor Green
+Write-Host "Tarayici: http://127.0.0.1:6543" -ForegroundColor Green
 Write-Host "Durdurmak icin CTRL+C basin" -ForegroundColor Yellow
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-python manage.py runserver
+python manage.py runserver 127.0.0.1:6543
 

@@ -22,12 +22,12 @@ pip install -q -r requirements.txt
 echo.
 echo ========================================
 echo Django sunucusu baslatiliyor...
-echo Tarayici: http://127.0.0.1:8000
+echo Tarayici: http://127.0.0.1:6543
 echo Durdurmak icin CTRL+C basin
 echo ========================================
 echo.
 
-python manage.py runserver
+python manage.py runserver 127.0.0.1:6543
 
 pause
 
