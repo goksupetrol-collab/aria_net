@@ -31,9 +31,12 @@
 - Her değişiklikten sonra: `git add .` ve `git commit -m "açıklama"`
 
 ### 2. Dosya Kayıt Yeri
-- **HTML dosyaları:** `D:\tayfun\dashboard\templates\dashboard\dashboard.html`
+- **HTML dosyaları:** 
+  - `D:\tayfun\dashboard\templates\dashboard\base.html` (Ana şablon - ALAN 1, 2, 3)
+  - `D:\tayfun\dashboard\templates\dashboard\telerik_yeni_proje.html` (Ana sayfa - base'i kullanıyor)
 - **Python dosyaları:** `D:\tayfun\dashboard\` klasöründe
 - **Git kayıtları:** `D:\tayfun\.git\` (gizli klasör)
+- **⚠️ ÖNEMLİ:** `dashboard.html` diye bir dosya YOK! (Sadece klasör adı "dashboard")
 
 ### 3. Yedek Dosyalar
 - **Eski yedek dosyalar:** Silindi (Git kullanılıyor artık)
@@ -45,11 +48,11 @@
 
 ### TAHSİLAT Tablosu
 - ✅ Alt başlıklar eklendi: "AÇIKLAMA" ve "TL" satırları
-- Dosya: `dashboard.html` (satır 280-287)
+- Dosya: `telerik_yeni_proje.html` (base.html'i kullanıyor)
 
 ### ÖDEME Tablosu
 - ✅ Alt başlıklar eklendi: "A" ve "B" sütunları
-- Dosya: `dashboard.html` (satır 291-299)
+- Dosya: `telerik_yeni_proje.html` (base.html'i kullanıyor)
 - CSS: `.odeme-header`, `.odeme-row`, `.odeme-label` stilleri eklendi
 
 ---
@@ -87,7 +90,8 @@ D:\tayfun\
 │   ├── views.py        (API endpoints)
 │   ├── templates\      (HTML dosyaları)
 │   │   └── dashboard\
-│   │       └── dashboard.html  (ANA DOSYA)
+│   │       ├── base.html              (ANA ŞABLON - ALAN 1, 2, 3)
+│   │       └── telerik_yeni_proje.html (ANA SAYFA - base'i kullanıyor)
 │   └── static\         (CSS, JS dosyaları)
 ├── .git\              (Git kayıtları - GİZLİ)
 ├── db.sqlite3          (Veritabanı)
@@ -98,10 +102,13 @@ D:\tayfun\
 
 ## ÖNEMLİ DOSYALAR
 
-1. **dashboard.html** - Ana ekran (en çok düzenlenen)
-2. **models.py** - Veritabanı yapısı
-3. **views.py** - API endpoints
-4. **settings.py** - Django ayarları
+1. **base.html** - Ana şablon (ALAN 1, 2, 3 - sabit çerçeve)
+2. **telerik_yeni_proje.html** - Ana sayfa (base'i kullanıyor - içerik burada)
+3. **models.py** - Veritabanı yapısı
+4. **views.py** - API endpoints
+5. **settings.py** - Django ayarları
+
+**⚠️ ÖNEMLİ:** `dashboard.html` diye bir dosya YOK! Sadece klasör adı "dashboard" (Django uygulaması).
 
 ---
 
@@ -127,8 +134,9 @@ D:\tayfun\
 Bu dosyayı okuyun ve şu bilgileri hatırlayın:
 1. Git kullanılıyor, her değişiklikte commit yapılacak
 2. Kullanıcı kod yazmayı bilmiyor, sadece mantık söylüyor
-3. Ana dosya: dashboard.html
-4. Proje: D:\tayfun klasöründe
+3. Ana dosyalar: `base.html` (şablon) ve `telerik_yeni_proje.html` (sayfa)
+4. **`dashboard.html` diye bir dosya YOK!** (Sadece klasör adı "dashboard")
+5. Proje: D:\tayfun klasöründe
 
 ## ÖNEMLİ DOSYALAR (YENİ)
 

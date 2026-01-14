@@ -53,13 +53,14 @@ D:\tayfun\
 ├── aria_net\                    # Ana Django projesi
 │   ├── settings.py              # Django ayarları
 │   └── urls.py                  # URL yönlendirmeleri
-├── dashboard\                    # Ana uygulama
+├── dashboard\                    # Ana Django uygulaması (SADECE KLASÖR ADI - dosya değil!)
 │   ├── models.py                # Veritabanı modelleri
 │   ├── views.py                 # API endpoints ve view'lar
 │   ├── admin.py                 # Admin panel ayarları
 │   ├── templates\
 │   │   └── dashboard\
-│   │       └── dashboard.html  # ⭐ ANA DOSYA (en çok düzenlenen)
+│   │       ├── base.html              # ⭐ ANA ŞABLON (ALAN 1, 2, 3 burada)
+│   │       └── telerik_yeni_proje.html # ⭐ ANA SAYFA (base'i kullanıyor)
 │   └── static\                  # CSS, JS dosyaları
 ├── .git\                        # Git kayıtları (GİZLİ - ASLA SİLME!)
 ├── db.sqlite3                   # Veritabanı dosyası
@@ -73,10 +74,13 @@ D:\tayfun\
 ## 📄 ÖNEMLİ DOSYALAR
 
 ### Ana Dosyalar
-1. **`dashboard/templates/dashboard/dashboard.html`** - Ana ekran (en çok düzenlenen)
-2. **`dashboard/models.py`** - Veritabanı modelleri
-3. **`dashboard/views.py`** - API endpoints ve view fonksiyonları
-4. **`aria_net/settings.py`** - Django ayarları
+1. **`dashboard/templates/dashboard/base.html`** - Ana şablon (ALAN 1, 2, 3 - sabit çerçeve)
+2. **`dashboard/templates/dashboard/telerik_yeni_proje.html`** - Ana sayfa (base'i kullanıyor - içerik burada)
+3. **`dashboard/models.py`** - Veritabanı modelleri
+4. **`dashboard/views.py`** - API endpoints ve view fonksiyonları
+5. **`tayfun/settings.py`** - Django ayarları
+
+**⚠️ ÖNEMLİ:** `dashboard.html` diye bir dosya YOK! Sadece klasör adı "dashboard" (Django uygulaması).
 
 ### Dokümantasyon Dosyaları
 1. **`PROJE_DURUMU.md`** - Proje durumu ve önemli bilgiler
@@ -190,9 +194,10 @@ Kullanıcı şöyle istekler yapabilir:
 ## ⚠️ ÖNEMLİ UYARILAR
 
 1. **`.git` klasörünü ASLA silme!** (Git kayıtları burada)
-2. **`dashboard.html` dosyasını değiştirirken JavaScript kodlarını bozmamaya dikkat et**
-3. **Her değişiklikten sonra test et**
-4. **Git commit yapmayı unutma**
+2. **`base.html` ve `telerik_yeni_proje.html` dosyalarını değiştirirken JavaScript kodlarını bozmamaya dikkat et**
+3. **`dashboard.html` diye bir dosya YOK!** (Sadece klasör adı "dashboard")
+4. **Her değişiklikten sonra test et**
+5. **Git commit yapmayı unutma**
 
 ---
 
