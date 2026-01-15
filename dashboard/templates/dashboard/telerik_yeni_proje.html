@@ -554,7 +554,7 @@
         <div id="firma-tanimlari-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
       </div>
       <div id="firma-tanimlari-right-buttons">
-        <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni Firma</button>
+        <button id="firma-yeni-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni Firma</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Bilgi Değiştir</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 3</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 4</button>
@@ -562,6 +562,24 @@
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 6</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 7</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base exit-button">Çıkış - ESC</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FİRMA TANIM KARTI WINDOW -->
+  <div id="firma-tanim-karti-window" style="display:none;">
+    <div style="padding:12px;">
+      <div style="font-size:16px;font-weight:600;margin-bottom:12px;">Firma Tanım Kartı</div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <label for="firma-karti-adi-input" style="min-width:90px;">FİRMA ADI :</label>
+        <input id="firma-karti-adi-input" style="width:100%;" />
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
+      <button id="firma-karti-yeni" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni - F3</button>
+      <div style="display:flex;gap:8px;">
+        <button id="firma-karti-kaydet" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kaydet - F2</button>
+        <button id="firma-karti-cikis" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Çıkış - ESC</button>
       </div>
     </div>
   </div>
@@ -2078,6 +2096,38 @@
             neq: "Eşit değildir"
           }
         };
+      }
+
+      // Firma Tanım Kartı Window
+      if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
+        var firmaTanimKartiWindow = $("#firma-tanim-karti-window").kendoWindow({
+          title: "Firma Tanım Kartı",
+          width: "600px",
+          height: "320px",
+          visible: false,
+          modal: true,
+          resizable: false,
+          draggable: true,
+          actions: ["Close"]
+        }).data("kendoWindow");
+
+        if (typeof $.fn.kendoTextBox !== 'undefined') {
+          $("#firma-karti-adi-input").kendoTextBox({
+            placeholder: ""
+          });
+        }
+
+        $("#firma-yeni-btn").on("click", function() {
+          if (firmaTanimKartiWindow) {
+            firmaTanimKartiWindow.center().open();
+          }
+        });
+
+        $("#firma-karti-cikis").on("click", function() {
+          if (firmaTanimKartiWindow) {
+            firmaTanimKartiWindow.close();
+          }
+        });
       }
 
       // COMBOBOX LİSTE VERİLERİ (Kredi Kartı ve Banka sayfaları için)
