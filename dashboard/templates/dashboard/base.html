@@ -511,6 +511,11 @@
       // ALAN 1 - Ana Menü Butonları (Telerik Kendo UI Menu)
       var anaMenu = null;
       var enablePetronetMenuStyles = false;
+      function applyAltMenuFontSize() {
+        $("#ana-menu-bar .k-menu-group .k-menu-item-text, #ana-menu-bar .k-popup .k-menu-item-text").each(function() {
+          this.style.setProperty('font-size', '16px', 'important');
+        });
+      }
       function initAnaMenu() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoMenu !== 'undefined') {
           try {
@@ -529,6 +534,7 @@
                 }
               },
               open: function(e) {
+                applyAltMenuFontSize();
                 if (!enablePetronetMenuStyles) {
                   return;
                 }
@@ -608,6 +614,7 @@
               }
             }).data("kendoMenu");
             console.log("✅ Ana menü başarıyla oluşturuldu!");
+            setTimeout(applyAltMenuFontSize, 50);
             
             // Menü oluşturulduktan sonra Petronet görüntüsüne göre tüm stilleri uygula
             var isApplyingStyles = false; // Sonsuz döngü önleme
