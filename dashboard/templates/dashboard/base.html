@@ -115,6 +115,37 @@
       align-items: center !important;
       padding-left: 12px !important;
     }
+
+    /* Alt menüde sol hizayı zorla sabitle */
+    #ana-menu-bar .k-menu-group,
+    #ana-menu-bar .k-popup {
+      text-align: left !important;
+    }
+    #ana-menu-bar .k-menu-group .k-item,
+    #ana-menu-bar .k-popup .k-item {
+      display: flex !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+    #ana-menu-bar .k-menu-group .k-link,
+    #ana-menu-bar .k-popup .k-link,
+    #ana-menu-bar .k-menu-group .k-menu-link,
+    #ana-menu-bar .k-popup .k-menu-link {
+      display: flex !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+      width: 100% !important;
+      text-align: left !important;
+      padding-left: 12px !important;
+      margin-left: 0 !important;
+    }
+    #ana-menu-bar .k-menu-group .k-menu-item-text,
+    #ana-menu-bar .k-popup .k-menu-item-text {
+      display: inline-block !important;
+      text-align: left !important;
+      margin-left: 0 !important;
+    }
     
     /* Telerik TabStrip için font boyutu (ALAN 3) */
     #tabs .k-tabstrip-item {
