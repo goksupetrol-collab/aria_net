@@ -1,0 +1,54 @@
+============================================================
+FINAL KONTROL VE OZET
+============================================================
+Tarih: 2026-01-14 20:29:10.042664
+
+============================================================
+SQL SERVER KLASORLERI KONTROL
+============================================================
+   VAR: C:\Program Files\Microsoft SQL Server
+   VAR: C:\Program Files (x86)\Microsoft SQL Server
+   VAR: C:\Program Files\Microsoft SQL Server Management Studio 22
+
+============================================================
+PETRONET KLASORLERI KONTROL
+============================================================
+   YOK: C:\Petronet (Temizlendi)
+   YOK: D:\Petronet (Temizlendi)
+
+============================================================
+SQL SERVER SERVISLERI KONTROL
+============================================================
+   VAR: MSSQLSERVER servisi mevcut
+   VAR: MSSQL$PETROSQL servisi mevcut
+   VAR: SQLSERVERAGENT servisi mevcut
+   VAR: SQLBrowser servisi mevcut
+
+============================================================
+KOPYALAR KONTROL
+============================================================
+   OK: D:\tayfun\ozgur_sistem_kopyasi mevcut ve korunuyor
+   Toplam 1190 dosya korunuyor
+
+============================================================
+OZET
+============================================================
+
+SQL Server klasorleri:
+  - Kalan: 3
+  - Silinen: 0
+
+Petronet klasorleri:
+  - Kalan: 0
+  - Silinen: 2
+
+Kopyalar:
+  - OK: Kopyalar korunuyor
+
+============================================================
+SONUC
+============================================================
+
+UYARI: 3 SQL Server, 0 Petronet klasoru kaldi
+
+KORUNAN KLASOR: D:\tayfun\ozgur_sistem_kopyasi

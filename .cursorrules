@@ -1,0 +1,268 @@
+Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için tüm kodları yaz, hataları kendi kendine (Agent modunda) tara ve düzelt. Benimle her zaman Türkçe konuş.
+
+## PROJE BİLGİLERİ
+- **Proje:** aria_net (Django 5.2.9)
+- **Klasör:** D:\tayfun
+- **Ana Sayfa:** `dashboard/templates/dashboard/telerik_yeni_proje.html` (base.html'i extend ediyor)
+- **Base Template:** `dashboard/templates/dashboard/base.html`
+- **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
+
+## GİT KURALLARI - MUTLAKA UYULMALI
+**HER İŞLEMDEN SONRA GİT KAYDET - ASLA UNUTMA!**
+- Her değişiklikten sonra: `git add -A` ve `git commit -m "açıklama"`
+- Commit mesajları Türkçe ve açıklayıcı olacak
+- Kullanıcı kod yazmayı bilmiyor, bu yüzden ben (AI) otomatik commit yapacağım
+- Her önemli değişiklikte, her gün sonunda, her özellik eklendiğinde commit yapılacak
+- **UNUTMA:** Git kaydetmeden işlem tamamlanmış sayılmaz!
+
+## KRİTİK KURAL: OTOMATİK GERİ DÖNME YOK!
+**ASLA OTOMATİK GERİ DÖNME YAPILMAYACAK - KULLANICI AÇIKÇA İSTEMEDİKÇE!**
+- ❌ **ASLA** otomatik `git reset --hard` yapılmayacak
+- ❌ **ASLA** otomatik `git checkout` yapılmayacak
+- ❌ **ASLA** kullanıcıya sormadan geri dönme yapılmayacak
+- ❌ **ASLA** "güvenli noktaya dönelim" gibi önerilerde bulunulmayacak
+- ✅ **SADECE** kullanıcı AÇIKÇA "geri dön" dediğinde yapılacak
+- ✅ **SADECE** kullanıcı AÇIKÇA "git reset" dediğinde yapılacak
+- ✅ **SADECE** kullanıcı AÇIKÇA onayladığında yapılacak
+- **ÖNEMLİ:** Daha önce 6 proje kaybolmuş otomatik geri dönme yüzünden! Bu yüzden ASLA otomatik yapılmayacak!
+
+## ÖZEL GÜVENLİ ALAN: 12/01/2026 GÜVENLİ ALAN
+**Tag:** `12-01-guvenli-alan` - Son çare için özel nokta
+- **Durum:** Çalışır halde proje, sadece 123 alan, birkaç sayfa var, iskelet oluşturuluyor, tab açma kapamaları yapıldı
+- **Bu noktaya dönmek isterse:**
+  - ⚠️ **İKİ KEZ UYARI VERİLECEK**
+  - ⚠️ **"Bu yarı programı silme" diye açıklama yapılacak**
+  - ⚠️ **"Bu noktadan sonra yapılan TÜM değişiklikler silinir" diye uyarılacak**
+  - ⚠️ **"Eklenen tüm özellikler kaybolur" diye uyarılacak**
+  - ⚠️ **Sadece kullanıcı İKİ KEZ onayladığında yapılacak**
+- **Normal Git işlemleri:** Devam edecek (her işlemden sonra commit)
+- **Normal Git geri dönüşler:** Yapılabilir (bu sadece son çare)
+
+## TELERİK KULLANIMI - TÜM İMKANLAR KULLANILACAK
+**Telerik lisanslı - TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!**
+
+### Temel Kurallar:
+- ✅ **SADECE Telerik bileşenleri kullanılacak** (Menu, Grid, Toolbar, Button, Window, Chart, DatePicker, ComboBox, Notification, TabStrip, TreeView, vb.)
+- ✅ **Telerik CSS sınıfları kullanılacak** (`k-button`, `k-grid`, `k-menu`, vb.)
+- ✅ **Telerik CSS değişkenleri kullanılacak** (`var(--kendo-color-...)`)
+- ❌ **Özel HTML/CSS çözümleri YASAK** (Telerik bileşeni olmayan)
+- 📌 **Kural:** Her şey Telerik'in kendi bileşenleri ve CSS sınıfları ile yapılmalı
+
+### Kullanılabilir Telerik Bileşenleri:
+- **Menu:** `$("#menu").kendoMenu()` - Açılır menüler
+- **Grid:** `$("#grid").kendoGrid()` - Veri tabloları
+- **Toolbar:** `$("#toolbar").kendoToolbar()` - Araç çubukları
+- **Button:** `$("#button").kendoButton()` veya CSS: `k-button k-button-md`
+- **Window:** `$("#window").kendoWindow()` - Popup pencereler
+- **Chart:** `$("#chart").kendoChart()` - Grafikler
+- **DatePicker:** `$("#datepicker").kendoDatePicker()` - Tarih seçimi
+- **ComboBox:** `$("#combobox").kendoComboBox()` - Dropdown liste
+- **Notification:** `$("#notification").kendoNotification()` - Bildirimler
+- **TabStrip:** `$("#tabstrip").kendoTabStrip()` - Sekmeler
+- **TreeView:** `$("#treeview").kendoTreeView()` - Ağaç görünümü
+- **Ve daha fazlası:** Telerik'in tüm lisanslı bileşenleri kullanılabilir!
+
+### Telerik Dosyaları:
+- **CSS:** `dashboard/static/dashboard/kendo/styles/default-main.css`
+- **JS:** `dashboard/static/dashboard/js/kendo.all.min.js`
+- **jQuery:** `dashboard/static/dashboard/js/jquery-3.6.0.min.js` (Telerik için gerekli)
+- **Kültür:** `dashboard/static/dashboard/js/cultures/kendo.culture.tr-TR.min.js`
+- **Lisans:** `dashboard/static/dashboard/kendo/telerik-license.js`
+
+### Renk Paleti:
+- ❌ **Mavi kullanılmamalı** (kullanıcı tercihi)
+- ✅ **Uyumlu renkler:** Gri tonları, açık mavi tonları
+- 🎨 **Telerik CSS değişkenleri:** `var(--kendo-color-...)` kullanılabilir
+
+### Detaylı Bilgi:
+- 📄 **Telerik Proje Bilgileri:** `TELERIK_PROJE_BILGILERI.md`
+- 📄 **Detaylı Kullanım Rehberi:** `TELERIK_DETAYLI_KULLANIM_REHBERI.md`
+- 📄 **ASP.NET AJAX Bilgileri:** `TELERIK_ASPNET_AJAX_BILGILERI.md` (referans için)
+- 📄 **WPF Bilgileri:** `TELERIK_WPF_BILGILERI.md` (referans için)
+
+## PROJE YAPISI
+
+### HTML Dosyaları (Django Templates):
+- **`base.html`** - Ana template (ALAN 1, ALAN 2, ALAN 3 sabit alanlar, ribbon butonları, tab sistemi)
+- **`telerik_yeni_proje.html`** - Ana sayfa (base.html'i extend ediyor, tüm sayfa içerikleri burada `<div>` olarak)
+- ❌ **`dashboard.html`** - Artık kullanılmıyor (eski proje)
+- ❌ **`banka.html`, `kredi_karti.html`, `fiyat_degisimi.html`, `tanker.html`** - Artık kullanılmıyor (içerikleri `telerik_yeni_proje.html` içine taşındı)
+
+### Python Dosyaları:
+- **Models:** `dashboard/models.py` - MenuItem, Firma, Urun, vb.
+- **Views:** `dashboard/views.py` - API endpoints ve view fonksiyonları
+- **URLs:** `dashboard/urls.py`, `aria_net/urls.py`
+
+### Not:
+- **HTML + Telerik:** Django template sistemi ile HTML kullanılıyor, içinde Telerik JavaScript bileşenleri çağrılıyor
+- **Tek sayfa mantığı:** Tüm sayfa içerikleri `telerik_yeni_proje.html` içinde `<div>` olarak tanımlı, `show()`/`hide()` ile gösterilip gizleniyor
+
+## ÇALIŞMA ŞEKLİ
+1. Kullanıcı mantığı söyler
+2. Ben (AI) kodları yazarım
+3. Hataları tararım ve düzeltirim (Agent modunda)
+4. **MUTLAKA Git'e kaydederim** (`git add -A` ve `git commit -m "açıklama"`)
+5. Kullanıcıya Türkçe bilgi veririm
+
+## CEVAP VERME KURALLARI - MUTLAKA UYULMALI
+**KULLANICI KOD YAZMAYI BİLMİYOR - BASİT DİLLE ANLAT!**
+
+### Temel Kurallar:
+- ✅ **KISA VE NET ÖZET:** Uzun açıklamalar yapma, öz ve net ol
+- ✅ **YAZILIMCI DİLİ YOK:** Teknik terimler kullanma, bilmeyen birine anlatır gibi konuş
+- ✅ **ÖRNEKLERLE ANLAT:** Gerekirse günlük hayattan örnekler ver
+- ❌ **Kod örnekleri gösterme:** Kullanıcı kod bilmiyor, sadece ne yaptığını anlat
+
+### Örnek İyi Cevaplar:
+
+**✅ İYİ:**
+```
+"Tamam, MOTORİN tablosuna TOPLAM satırını ekledim. 
+Şimdi tablonun en altında yeni bir satır var, 
+orada tüm satışların toplamını göreceksiniz."
+```
+
+**❌ KÖTÜ:**
+```
+"HTML template'e yeni bir <tr> elementi ekledim, 
+JavaScript'te calculateTotal() fonksiyonunu güncelledim, 
+ve CSS'te .total-row sınıfını tanımladım."
+```
+
+### Ne Yapıldığını Anlatırken:
+- **"Şunu ekledim"** → "MOTORİN tablosuna yeni bir satır ekledim"
+- **"Şunu değiştirdim"** → "Banka sayfasındaki butonun rengini değiştirdim"
+- **"Şunu düzelttim"** → "Tab kapatılınca sayfa kaybolma sorununu düzelttim"
+
+### Özet Formatı:
+1. **Ne yaptım?** (Kısa ve net)
+2. **Nerede?** (Hangi sayfa/tablo)
+3. **Nasıl görünecek?** (Kullanıcı ne görecek)
+4. **Git'e kaydedildi mi?** (Evet/Hayır)
+
+## ÖNEMLİ NOTLAR
+- ✅ **HTML kullanılıyor:** Django template sistemi ile HTML dosyaları kullanılıyor
+- ✅ **Telerik bileşenleri:** Tüm UI bileşenleri Telerik Kendo UI ile yapılıyor (HTML içinde Telerik JavaScript bileşenleri)
+- ✅ **Ana dosyalar:** `base.html` (template) ve `telerik_yeni_proje.html` (ana sayfa)
+- ❌ **Eski dosyalar:** `dashboard.html` artık kullanılmıyor (eski proje)
+- ❌ **Ayrı sayfa dosyaları:** `banka.html`, `kredi_karti.html`, `fiyat_degisimi.html`, `tanker.html` artık kullanılmıyor - içerikleri `telerik_yeni_proje.html` içine taşındı
+- ✅ **Tab sistemi:** Telerik TabStrip ile çalışıyor (sessionStorage değil)
+- ✅ **Ribbon butonları:** Veritabanından (MenuItem) yükleniyor
+- ✅ **ALAN 1, ALAN 2, ALAN 3:** Sabit alanlar base.html'de tanımlı
+
+## TAB SİSTEMİ MANTIĞI (ALAN 3)
+
+### Temel Mantık: "Salonda Aynı Oda"
+- **Lobi = Salon:** Ana sayfa (`#title-bar` gösterilir)
+- **Tüm sayfalar = Aynı evin odaları:** Tüm sayfa içerikleri `telerik_yeni_proje.html` içinde `<div>` olarak tanımlı
+- **Tab açılınca:** İlgili `<div>` gösterilir (`show()`), diğerleri gizlenir (`hide()`)
+- **Tab kapanınca:** Lobiye dönülür (`#title-bar` gösterilir)
+
+### Sayfa İçerikleri (telerik_yeni_proje.html içinde):
+- `#main-content-operasyon` - Operasyon sayfası
+- `#main-content-kredi-karti` - Kredi Kartı sayfası
+- `#main-content-banka` - Banka sayfası
+- `#main-content-tanker` - Tanker sayfası
+- `#main-content-fiyat-degisimi` - Fiyat Değişimi sayfası
+- `#title-bar` - Lobi (ana sayfa)
+
+### Tab Açılma Kuralları:
+1. **ALAN 2'deki ribbon butonuna tıklanınca:**
+   - ALAN 3'te (TabStrip) ilgili tab açılır veya aktif yapılır
+   - İlgili sayfa içeriği gösterilir (`showPageOnly()` fonksiyonu)
+   - Diğer tüm sayfa içerikleri gizlenir
+
+2. **Tab zaten açıksa:**
+   - Yeni tab açılmaz, mevcut tab aktif yapılır
+   - İlgili sayfa içeriği gösterilir
+
+3. **Tab kapatılınca (X butonuna tıklanınca):**
+   - Tab kaldırılır (`tabStrip.remove()`)
+   - Eğer aktif tab kapatıldıysa → Solundaki tab'a geçilir
+   - Eğer pasif tab kapatıldıysa → Aktif tab korunur (sayfa değişmez)
+   - Hiç tab kalmadıysa → Lobiye dönülür (`#title-bar` gösterilir)
+
+### Tab Yönetimi Fonksiyonları (base.html):
+- `openOperasyonTab()` - Operasyon tab'ını açar
+- `openKrediKartiTab()` - Kredi Kartı tab'ını açar
+- `openBankaTab()` - Banka tab'ını açar
+- `openTankerTab()` - Tanker tab'ını açar
+- `openFiyatDegisimiTab()` - Fiyat Değişimi tab'ını açar
+- `closeOperasyonTab()` - Operasyon tab'ını kapatır
+- `closeKrediKartiTab()` - Kredi Kartı tab'ını kapatır
+- `closeBankaTab()` - Banka tab'ını kapatır
+- `closeTankerTab()` - Tanker tab'ını kapatır
+- `closeFiyatDegisimiTab()` - Fiyat Değişimi tab'ını kapatır
+- `showPageOnly(pageId)` - Sadece belirtilen sayfayı gösterir, diğerlerini gizler
+- `getActiveTabId()` - Aktif tab'ın ID'sini döndürür
+- `getTabIndexById(tabId)` - Tab ID'sine göre index bulur
+
+### Önemli:
+- **Tüm sayfalar aynı HTML dosyasında:** `telerik_yeni_proje.html`
+- **Sayfa geçişleri JavaScript ile:** `show()` / `hide()` kullanılır, sayfa yenilenmez
+- **Tab yönetimi:** Telerik Kendo TabStrip kullanılır (`#tabs` elementi)
+- **Event delegation:** X butonları için `$(document).on("click", ...)` kullanılır (dinamik elementler için)
+
+## YENİ SOHBET BAŞLARKEN
+Bu dosyayı okuyun ve şu bilgileri hatırlayın:
+
+### Temel Kurallar:
+1. **Git:** HER İŞLEMDEN SONRA commit yapılacak - ASLA UNUTMA!
+2. **Telerik:** Lisanslı, TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!
+3. **Kullanıcı:** Kod yazmayı bilmiyor, sadece mantık söylüyor
+4. **HTML:** Django template sistemi kullanılıyor (HTML + Telerik JavaScript bileşenleri)
+
+### Ana Dosyalar:
+- **`base.html`** - Template (ALAN 1, 2, 3, ribbon, tab sistemi)
+- **`telerik_yeni_proje.html`** - Ana sayfa (tüm sayfa içerikleri burada)
+
+### Proje Bilgileri:
+- **Klasör:** D:\tayfun
+- **Framework:** Django 5.2.9
+- **UI:** Telerik Kendo UI for jQuery
+- **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
+
+### Önemli:
+- ❌ **Eski dosyalar:** `dashboard.html` ve ayrı sayfa dosyaları (`banka.html`, vb.) artık kullanılmıyor
+- ✅ **Tek sayfa:** Tüm sayfalar `telerik_yeni_proje.html` içinde `<div>` olarak, `show()`/`hide()` ile yönetiliyor
+- ✅ **Tab sistemi:** Telerik TabStrip ile çalışıyor, "salonda aynı oda" mantığı
+
+## OPERASYON GRID - SÜTUN GENİŞLİKLERİ DEĞİŞTİRME
+
+### Grid Bilgileri:
+- **Grid ID:** `#operasyon-grid`
+- **Dosya:** `dashboard/templates/dashboard/telerik_yeni_proje.html`
+- **Satır:** ~1805-1812 (columns tanımı), ~1820 (duzeltGridBorderSorunu), ~1823-1840 (setTimeout ile genişlik ayarlama)
+
+### Mevcut Sütun Genişlikleri:
+- **MOTORİN** (sutun1): 120px
+- **YAĞCILAR** (sutun2): 80px
+- **TEPEKUM** (sutun3): 80px
+- **NAMDAR** (sutun4): 80px
+- **ŞEKER** (sutun5): 80px
+- **AKOVA** (sutun6): 80px
+- **KOOP.** (sutun7): 80px
+- **NAZİLLİ** (sutun8): 80px
+- **Toplam:** 680px (120 + 80*7)
+
+### Sütun Genişliği Değiştirme Talimatı:
+
+**Kullanıcı şöyle tarif edebilir:**
+- "YAĞCILAR sütunu X px yap, TEPEKUM sütunu Y px yap"
+- "İkinci sütunu X px yap, üçüncü sütunu Y px yap"
+- "Grid genişliğini de toplam sütun genişliğine göre güncelle"
+
+**Örnek:**
+- "YAĞCILAR sütunu 100px yap, TEPEKUM sütunu 90px yap, grid genişliğini de güncelle"
+
+### Yapılacaklar:
+1. **columns tanımında değiştir:** Satır ~1806-1807'de `width`, `minResizableWidth`, `maxResizableWidth` değerlerini güncelle
+2. **setTimeout içinde güncelle:** Satır ~1828-1830'da sütun genişliklerini güncelle
+3. **Toplam genişliği hesapla:** Satır ~1834'te `totalWidth` hesaplamasını güncelle
+4. **duzeltGridBorderSorunu güncelle:** Satır ~1820'de container genişliğini yeni toplam genişliğe göre güncelle
+5. **Grid CSS genişliğini güncelle:** Satır ~1836'da `$("#operasyon-grid").css("width", ...)` değerini güncelle
+
+### Önemli Notlar:
+- ✅ **Yapılabilir, bozmaz** - Sadece sütun genişliklerini değiştiriyoruz
+- ⚠️ **Toplam genişliği mutlaka güncelle** - Grid container genişliği de değişmeli
+- ⚠️ **duzeltGridBorderSorunu fonksiyonuna yeni genişliği ver** - Border sorununu önlemek için

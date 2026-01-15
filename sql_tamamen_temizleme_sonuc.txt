@@ -1,0 +1,55 @@
+============================================================
+SQL SERVER TAMAMEN TEMIZLEME
+============================================================
+Tarih: 2026-01-14 20:14:26.613795
+
+============================================================
+TUM CACHE TEMIZLEME
+============================================================
+
+   Plan cache temizleniyor...
+   OK: Plan cache temizlendi
+
+   Buffer cache temizleniyor...
+   OK: Buffer cache temizlendi
+
+   Procedure cache temizleniyor...
+   OK: Procedure cache temizlendi
+
+============================================================
+TUM VERITABANLARI SILME
+============================================================
+
+   Bulunan kullanici veritabanlari: 2
+
+   petromas_db veritabani siliniyor...
+   OK: petromas_db veritabani silindi
+
+   OZGUR veritabani siliniyor...
+   OK: OZGUR veritabani silindi
+
+============================================================
+TUM KULLANICILARI SILME
+============================================================
+
+   Bulunan kullanici sayisi: 3
+
+   MEHMETBILGISAYA\goksu kullanici siliniyor...
+   OK: MEHMETBILGISAYA\goksu kullanici silindi
+
+   NT Service\MSSQL$PETROSQL kullanici siliniyor...
+   OK: NT Service\MSSQL$PETROSQL kullanici silindi
+
+   BUILTIN\Users kullanici siliniyor...
+   OK: BUILTIN\Users kullanici silindi
+
+============================================================
+ERROR LOG TEMIZLEME
+============================================================
+
+   Error log arsivlenmis kayitlar temizleniyor...
+   OK: 0 error log temizlendi
+
+============================================================
+TEMIZLEME TAMAMLANDI
+============================================================

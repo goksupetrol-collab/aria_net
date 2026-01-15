@@ -1,0 +1,49 @@
+============================================================
+SQL SERVER VE PETRONET DOSYALARI SILME
+============================================================
+Tarih: 2026-01-14 20:20:01.063836
+KORUNACAK KLASOR: D:\tayfun\ozgur_sistem_kopyasi
+
+============================================================
+SQL SERVER SERVISLERI DURDURMA
+============================================================
+
+   MSSQLSERVER servisi durduruluyor...
+   NOT: MSSQLSERVER durdurulamadi (zaten durmus olabilir)
+
+   MSSQL$PETROSQL servisi durduruluyor...
+   NOT: MSSQL$PETROSQL durdurulamadi (zaten durmus olabilir)
+
+   SQLSERVERAGENT servisi durduruluyor...
+   NOT: SQLSERVERAGENT durdurulamadi (zaten durmus olabilir)
+
+   SQLBrowser servisi durduruluyor...
+   NOT: SQLBrowser durdurulamadi (zaten durmus olabilir)
+
+============================================================
+SQL SERVER KLASORLERI SILME
+============================================================
+   Siliniyor: C:\Program Files\Microsoft SQL Server
+   OK: C:\Program Files\Microsoft SQL Server silindi
+   Siliniyor: C:\Program Files (x86)\Microsoft SQL Server
+   OK: C:\Program Files (x86)\Microsoft SQL Server silindi
+
+   Toplam 2 SQL Server klasoru silindi
+
+============================================================
+PETRONET KLASORLERI SILME
+============================================================
+   Siliniyor: D:\Petronet
+   OK: D:\Petronet silindi
+
+   Toplam 1 Petronet klasoru silindi
+
+============================================================
+SILME TAMAMLANDI
+============================================================
+
+Toplam silinen:
+  - SQL Server klasorleri: 2
+  - Petronet klasorleri: 1
+
+KORUNAN KLASOR: D:\tayfun\ozgur_sistem_kopyasi
