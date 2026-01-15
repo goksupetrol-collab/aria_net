@@ -61,6 +61,7 @@
     /* İçerik alanı margin ayarı - base.html'deki main-content margin-top:169px var */
     #main-content-operasyon{margin-top:0 !important;padding-top:0 !important;display:block;overflow-x:hidden !important;width:100% !important;max-width:100vw !important;}
     #main-content-kredi-karti{margin-top:0 !important;padding-top:0 !important;display:none;}
+    #main-content-cari-kart{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-banka{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-tanker{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-fiyat-degisimi{margin-top:0 !important;padding-top:0 !important;display:none;}
@@ -88,6 +89,10 @@
     #kredi-karti-grid, #kredi-karti-grid .k-grid, #kredi-karti-grid .k-grid-content,
     #kredi-karti-grid .k-grid-header, #kredi-karti-grid .k-grid-header-wrap,
     #kredi-karti-grid .k-grid-content-wrap, #kredi-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
+    
+    #cari-kart-grid, #cari-kart-grid .k-grid, #cari-kart-grid .k-grid-content,
+    #cari-kart-grid .k-grid-header, #cari-kart-grid .k-grid-header-wrap,
+    #cari-kart-grid .k-grid-content-wrap, #cari-kart-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
     
     #banka-grid, #banka-grid .k-grid, #banka-grid .k-grid-content,
     #banka-grid .k-grid-header, #banka-grid .k-grid-header-wrap,
@@ -433,6 +438,14 @@
     <div class="content-wrapper" style="overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
     <div class="content-area" style="overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
       <!-- BOŞ ALAN - SIFIRDAN TASARLANACAK -->
+
+      <!-- OPERASYON - DRAWER ÖRNEĞİ (BOŞ ALAN) -->
+      <div id="operasyon-drawer-ornek" style="margin:10px 0 20px 10px;max-width:420px;">
+        <button id="operasyon-drawer-toggle" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">
+          Drawer Aç/Kapat
+        </button>
+        <div id="operasyon-drawer" style="min-height:160px;"></div>
+      </div>
       
       <!-- OPERASYON TABLOSU -->
       <div id="operasyon-tablo-container" style="position:relative;width:684px;height:320px;margin:20px 0 20px 10px;">
@@ -454,6 +467,17 @@
   <div class="container" id="main-content-banka" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">BANKA HESAP TAKİP</h1>
     <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+  </div>
+  
+  <!-- CARİ KARTLAR SAYFASI -->
+  <div class="container" id="main-content-cari-kart" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">CARİ KARTLAR</h1>
+    <div style="display:flex;gap:8px;justify-content:center;align-items:center;margin:10px 0;">
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Yeni Kart</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kaydet</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Sil</button>
+    </div>
+    <div id="cari-kart-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
   </div>
 
   <!-- KREDİ KARTI SAYFASI -->
@@ -1887,6 +1911,30 @@
     });
     
     $(document).ready(function() {
+      try {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoDrawer !== 'undefined') {
+          $("#operasyon-drawer").kendoDrawer({
+            template: "<ul><li>Operasyon Menü</li><li>Hızlı İşlemler</li><li>Raporlar</li></ul>",
+            minHeight: 160,
+            swipeToOpen: false
+          });
+          
+          $("#operasyon-drawer-toggle").on("click", function() {
+            var drawer = $("#operasyon-drawer").data("kendoDrawer");
+            var isOpen = $("#operasyon-drawer").data("drawer-open") === true;
+            if (isOpen) {
+              drawer.hide();
+              $("#operasyon-drawer").data("drawer-open", false);
+            } else {
+              drawer.show();
+              $("#operasyon-drawer").data("drawer-open", true);
+            }
+          });
+        }
+      } catch(e) { console.error("Operasyon Drawer hatası:", e); }
+    });
+    
+    $(document).ready(function() {
       // COMBOBOX LİSTE VERİLERİ (Kredi Kartı ve Banka sayfaları için)
       var bankaListesi = [
         "Ziraat Bankası",
@@ -2191,6 +2239,110 @@
               { field: "sutun1", title: "Sütun1", width: 140 },
               { field: "sutun2", title: "Sütun2", width: 140 },
               { field: "sutun3", title: "Sütun3", width: 140 }
+            ]
+          });
+        }
+      }, 200);
+      
+      // CARİ KART GRID
+      setTimeout(function() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoGrid !== 'undefined') {
+          var emptyRows = [];
+          for (var i = 0; i < 20; i++) {
+            emptyRows.push({
+              kod: "",
+              ad: "",
+              soyad: "",
+              unvan: "",
+              ilgili: "",
+              tel: "",
+              cep: "",
+              mail: "",
+              fisbak: "",
+              carbak: "",
+              grp1: ""
+            });
+          }
+          
+          var containerWidth = $("#cari-kart-grid").parent().width() || $(window).width();
+          var gridWidth = Math.min(containerWidth, 1920);
+          
+          $("#cari-kart-grid").kendoGrid({
+            dataSource: {
+              data: emptyRows,
+              schema: {
+                model: {
+                  fields: {
+                    kod: { type: "string" },
+                    ad: { type: "string" },
+                    soyad: { type: "string" },
+                    unvan: { type: "string" },
+                    ilgili: { type: "string" },
+                    tel: { type: "string" },
+                    cep: { type: "string" },
+                    mail: { type: "string" },
+                    fisbak: { type: "number" },
+                    carbak: { type: "number" },
+                    grp1: { type: "string" }
+                  }
+                }
+              }
+            },
+            width: gridWidth,
+            height: "100%",
+            scrollable: false,
+            sortable: true,
+            filterable: true,
+            resizable: false,
+            pageable: false,
+            editable: {
+              mode: "incell",
+              update: true
+            },
+            columns: [
+              { field: "kod", title: "KOD", width: 120 },
+              { field: "ad", title: "AD", width: 160 },
+              { field: "soyad", title: "SOYAD", width: 160 },
+              { field: "unvan", title: "ÜNVAN", width: 220 },
+              { field: "ilgili", title: "İLGİLİ", width: 160 },
+              { field: "tel", title: "TEL", width: 140 },
+              { field: "cep", title: "CEP", width: 140 },
+              { field: "mail", title: "MAIL", width: 200 },
+              {
+                field: "fisbak",
+                title: "FİŞ BAKİYE",
+                width: 130,
+                attributes: { class: "number-cell", style: "text-align: right;" },
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoNumericTextBox({
+                      format: "n2",
+                      decimals: 2,
+                      culture: "tr-TR",
+                      value: options.model[options.field] || 0,
+                      min: 0
+                    });
+                }
+              },
+              {
+                field: "carbak",
+                title: "CARİ BAKİYE",
+                width: 130,
+                attributes: { class: "number-cell", style: "text-align: right;" },
+                editor: function(container, options) {
+                  $('<input name="' + options.field + '"/>')
+                    .appendTo(container)
+                    .kendoNumericTextBox({
+                      format: "n2",
+                      decimals: 2,
+                      culture: "tr-TR",
+                      value: options.model[options.field] || 0,
+                      min: 0
+                    });
+                }
+              },
+              { field: "grp1", title: "GRUP", width: 90 }
             ]
           });
         }

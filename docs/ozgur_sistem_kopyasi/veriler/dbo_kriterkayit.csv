@@ -1,7 +1,0 @@
-﻿id,firmano,form,users,cekin,slipin,alisfatin,satfatin,fisin,carigrupin,deguser,degtarsaat,olususer,olustarsaat,ch_bak_sifir,ch_tarih,ch_devir,fat_ort_brm,Var_Basin,Nesne_Tip,Nesne_Ad,Nesne_Deger,ch_yazdir,vad_krd
-1,0,Veresi_Fis_Liste_Frm,ADMIN,,,,,,,,,,,,True,,,,,,,,
-2,0,Pompa_Var_Liste_Frm,ADMIN,,,,,,,,,,,,,,,,TcxComboBox,aratip,0,,
-3,0,Market_Var_Liste_Frm,MARKET,,,,,,,,,,,,,,,,TcxComboBox,aratip,0,,
-4,0,cariheskrtf,MARKET,,,,,,,,,,,False,,,,,,,,,
-5,0,Emtia_Kart_Liste_Frm,MARKET,,,,,,,,,,,False,,,,,,,,,
-6,0,Pompa_Var_Liste_Frm,YÖNETİM,,,,,,,,,,,,,,,,TcxComboBox,aratip,0,,

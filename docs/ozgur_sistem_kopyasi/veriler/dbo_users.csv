@@ -1,5 +1,0 @@
-﻿id,kod,firmano,sifre,gorev,ad,lang,gectar,aktif,mail,pc,ip,olususer,olustarsaat,deguser,degtarsaat,version,printduz,sisgrstarsaat,sisckstarsaat,indsec,indyuzde,yetki,vad_gelen,firmaid,mar_dep_kod,islem_Gun_sure,firma_sec,Pom_Gec_Sayac_Grs,Per_id,ch_firma_Sec,ch_Tum_Kartlar,BilgiEkranGosterimTarih,KartListGrupYetki
-1,ADMIN,1,EFE2008,YÖNETİCİ,SİSTEM YÖNETİCİSİ,0.0,,True,,DESKTOP-T80377U,192.168.1.111,ADMIN,2020-08-08 22:10:25,ADMIN,2020-08-08 22:10:25,1.3.7.5,1,2023-03-22 15:50:33,2023-03-22 15:51:21,,,0,False,,,0,1,,,,0,2023-03-22 15:48:08.460000,
-2,MARKET,1,M,,MARKET,0.0,,True,,HALIL-PC,192.168.1.89,SİSTEM YÖNETİCİSİ,2021-06-25 12:20:52,,,1.3.4,0,2021-06-25 12:23:38,,False,0,2,False,,M0001,0,0,,,0,0,2021-06-25 12:26:01.747000,
-3,YÖNETİM,1,Y,,YÖNETİM,0.0,,True,,MEHMETBILGISAYA,192.168.1.116,SİSTEM YÖNETİCİSİ,2021-06-25 12:21:12,,,1.4.12.4,0,2026-01-14 11:39:55,2026-01-14 11:54:03,False,0,1,False,,M0001,0,0,,,0,0,2026-01-14 11:35:16.740000,
-4,MEHMET,1,1,,MEHMET,0.0,,False,,,,YÖNETİM,2026-01-14 11:52:19,YÖNETİM,2026-01-14 11:52:31,,0,,,False,0,1,False,,,0,1,,0,1,1,,False

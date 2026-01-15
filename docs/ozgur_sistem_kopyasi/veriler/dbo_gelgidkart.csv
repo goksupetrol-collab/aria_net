@@ -1,8 +1,0 @@
-﻿id,firmano,sil,kod,ad,drm,grp1,grp2,grp3,fisbak,carbak,muhkod,olususer,olustarsaat,deguser,degtarsaat,dataok,fiyat,toplim,kdvtip,kdv,brim,parabrm,fisaktut,fisadet,fisakadet,actutar,gizli,muhonkod,tip_id,Prom,Puan_Brm,Puan_Tip,Puan_Nakit,Puan_KK,Puan_Fis,Prom_Sat_Puan,Prom_Urun,Prom_Sat_Tip,Prom_Kac_Satis,limit_tip,Remote_id
-1,0,0,GDAF,AÇIK - FAZLA,Aktif,6,0,0,0.0,0.0,,SİSTEM,2021-06-25 12:13:07,SİSTEM,2021-06-25 12:13:07,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,,,,,,,,,,,,0,
-2,0,0,CEKMAS,ÇEK MASRAF,Aktif,6,0,0,0.0,0.0,,SİSTEM,2021-06-25 12:13:07,SİSTEM,2021-06-25 12:13:07,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,,,,,,,,,,,,0,
-3,0,0,VDFARK,VADE FARKI,Aktif,7,0,0,0.0,0.0,,SİSTEM,2021-06-25 12:13:07,SİSTEM,2021-06-25 12:13:07,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,,,,,,,,,,,,0,
-4,0,0,MARSATGID,MARKET SATIŞ GİDER,Aktif,6,0,0,0.0,0.0,,SİSTEM,2021-06-25 12:13:07,SİSTEM,2021-06-25 12:13:07,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,,,,,,,,,,,,0,
-5,0,0,GID001,İSKONTO GİDERLERİ,Aktif,6,0,0,0.0,0.0,,SİSTEM,2021-06-25 12:13:07,SİSTEM,2021-06-25 12:13:07,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,,,,,,,,,,,,0,
-6,1,0,GID002,POS KOMİSYON GİDERLERİ,Aktif,6,0,0,0.0,0.0,,SİSTEM YÖNETİCİSİ,2021-06-25 12:22:56,,,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,3,,,,,,,,,,,0,
-7,1,0,GID003,PERSONEL MAAŞ GİDERLERİ,Aktif,6,0,0,0.0,0.0,,SİSTEM YÖNETİCİSİ,2021-06-25 12:23:03,,,0,0.0,0.0,Dahil,0.0,AD,TL,0.0,0,0,0.0,,,3,,,,,,,,,,,0,

@@ -1,9 +1,0 @@
-﻿id,sr,sil,firmano,tabload,grp1,grp2,ad,olususer,olustarsaat,deguser,degtarsaat,dataok,kar1,kar2,kdv,ykkisno,kar3,kar4,muhgrskod,muhckskod,muh_als_iad_kod,muh_sat_iad_kod,muh_als_isk_kod,muh_sat_isk_kod,muh_als_otv_kod,muh_sat_otv_kod,muh_sat_mal_kod,muhonkod,Restaurant,Remote_id,PerIDIN,Calisma_SartId,MuhasebeGrupKodu,YkKod,Yerli,UretimYerId,UserIdIn,Kod
-1,0,0,0,Prom_Urun_Puan,0,0,STANDART,,,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,,,,,,,,,,
-2,0,0,0,carikart,0,0,MÜŞTERİLER,SİSTEM,2021-06-25 12:13:06,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
-3,0,0,0,carikart,0,0,SATICILAR,SİSTEM,2021-06-25 12:13:06,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
-4,0,0,0,perkart,0,0,POMPACILAR,SİSTEM,2021-06-25 12:13:06,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
-5,0,0,0,perkart,0,0,KASİYERLER,SİSTEM,2021-06-25 12:13:06,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
-6,0,0,0,gelgidkart,0,0,GİDER,SİSTEM,2021-06-25 12:13:06,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
-7,0,0,0,gelgidkart,0,0,GELİR,SİSTEM,2021-06-25 12:13:06,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
-8,0,0,0,markgrp,0,0,MADENİ YAĞ,SİSTEM,2021-06-25 12:13:07,,,0,0.0,0.0,0.0,,0.0,0.0,,,,,,,,,,,False,0,,0,,,False,0,,
