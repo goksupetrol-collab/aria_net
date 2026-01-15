@@ -5,3 +5,11 @@
 3. Mehmet sorar, Cursor kısa cevap verir ve yazılım bilmeyene anlatır.
 4. Cursor, konsoldan bir işlem isterse tek adım tek adım yönlendirir.
 5. Mehmet bir şey istediğinde, Cursor önce "Anladım, bunu yapacağım" deyip onay ister.
+
+# PROJE BİLGİLERİ
+
+- Proje adı: aria_net
+- Klasör: D:\tayfun
+- Framework: Django 5.2.9
+- Veritabanı: SQLite (geçici) / SQL Server (sonra)
+- Ana dosyalar: base.html ve telerik_yeni_proje.html
