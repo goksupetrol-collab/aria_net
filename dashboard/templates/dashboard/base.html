@@ -96,6 +96,18 @@
       justify-content: flex-start !important;
     }
 
+    /* Alt menü yazı boyutu - en güçlü zorlamalar */
+    #ana-menu-bar .k-menu-group .k-item,
+    #ana-menu-bar .k-popup .k-item,
+    #ana-menu-bar .k-menu-group .k-item .k-link,
+    #ana-menu-bar .k-popup .k-item .k-link,
+    #ana-menu-bar .k-menu-group .k-item .k-menu-item-text,
+    #ana-menu-bar .k-popup .k-item .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-item span,
+    #ana-menu-bar .k-popup .k-item span {
+      font-size: 16px !important;
+    }
+
     /* Alt menü arka planı - açık gri */
     #ana-menu-bar .k-menu-group,
     #ana-menu-bar .k-popup,
@@ -512,7 +524,16 @@
       var anaMenu = null;
       var enablePetronetMenuStyles = false;
       function applyAltMenuFontSize() {
+        $("#ana-menu-bar .k-menu-group .k-item, #ana-menu-bar .k-popup .k-item").each(function() {
+          this.style.setProperty('font-size', '16px', 'important');
+        });
+        $("#ana-menu-bar .k-menu-group .k-link, #ana-menu-bar .k-popup .k-link").each(function() {
+          this.style.setProperty('font-size', '16px', 'important');
+        });
         $("#ana-menu-bar .k-menu-group .k-menu-item-text, #ana-menu-bar .k-popup .k-menu-item-text").each(function() {
+          this.style.setProperty('font-size', '16px', 'important');
+        });
+        $("#ana-menu-bar .k-menu-group span, #ana-menu-bar .k-popup span").each(function() {
           this.style.setProperty('font-size', '16px', 'important');
         });
       }
