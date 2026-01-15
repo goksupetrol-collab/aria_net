@@ -636,7 +636,7 @@
                 console.log("Ana menü tıklandı:", menuText);
                 // Alt menü öğelerine tıklama işlemleri
                 if (menuText === "Firma Tanımları") {
-                  openFirmaTanimlariWindow();
+                  openFirmaTanimlariTab();
                 } else if (menuText === "Ürün Tanımları") {
                   openUrunTanimlariWindow();
                 } else if (menuText === "Sistem Tanımları") {
@@ -1469,6 +1469,8 @@
                 tabId = "kredi-karti";
               } else if (tabText.indexOf("Cari Kart") >= 0) {
                 tabId = "cari-kart";
+              } else if (tabText.indexOf("Firma") >= 0) {
+                tabId = "firma-tanimlari";
               } else if (tabText.indexOf("Banka") >= 0) {
                 tabId = "banka";
               } else if (tabText.indexOf("Tanker") >= 0) {
@@ -1509,6 +1511,13 @@
         e.preventDefault();
         console.log("Cari Kart X butonuna tıklandı!");
         closeCariKartTab();
+      });
+
+      $(document).on("click", ".tab-close-firma-tanimlari", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Firma Tanımları X butonuna tıklandı!");
+        closeFirmaTanimlariTab();
       });
       
       $(document).on("click", ".tab-close-banka", function(e) {
@@ -1773,12 +1782,13 @@
     // Tüm sayfaları gizle, sadece belirtilen sayfayı göster
     function showPageOnly(pageId) {
       // Body class'larını temizle
-      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik');
+      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik');
       
       // Tüm sayfaları gizle
       $('#main-content-operasyon').hide();
       $('#main-content-kredi-karti').hide();
       $('#main-content-cari-kart').hide();
+      $('#main-content-firma-tanimlari').hide();
       $('#main-content-banka').hide();
       $('#main-content-tanker').hide();
       $('#main-content-fiyat-degisimi').hide();
@@ -1795,6 +1805,10 @@
       } else if (pageId === 'cari-kart') {
         $('body').addClass('cari-kart-sayfasi-acik');
         $('#main-content-cari-kart').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'firma-tanimlari') {
+        $('body').addClass('firma-tanimlari-sayfasi-acik');
+        $('#main-content-firma-tanimlari').show();
         $('#title-bar').hide();
       } else if (pageId === 'banka') {
         $('body').addClass('banka-sayfasi-acik');
@@ -2201,6 +2215,126 @@
             showNextTabAfterClose(cariKartTabIndex, wasActiveTab);
           }
         } catch (error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+
+    // Firma Tanımları tab'ını aç
+    function openFirmaTanimlariTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var firmaTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "firma-tanimlari" || tabText.indexOf("Firma") >= 0) {
+          firmaTabIndex = i;
+          break;
+        }
+      }
+      
+      if (firmaTabIndex >= 0) {
+        console.log("Firma Tanımları tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(firmaTabIndex);
+        showPageOnly('firma-tanimlari');
+        return;
+      }
+      
+      console.log("Yeni firma tanımları tab'ı ekleniyor...");
+      showPageOnly('firma-tanimlari');
+      
+      var tabContent = '🏢 Firma Tanımları <span class="tab-close-firma-tanimlari" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "firma-tanimlari");
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+
+    // Firma Tanımları tab'ını kapat
+    function closeFirmaTanimlariTab() {
+      console.log("closeFirmaTanimlariTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      var allTabs = tabStrip.items();
+      var firmaTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "firma-tanimlari" || tabText.indexOf("Firma") >= 0) {
+          firmaTabIndex = i;
+          break;
+        }
+      }
+      
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (firmaTabIndex >= 0 && firmaTabIndex === activeTabIndex);
+      
+      if (firmaTabIndex < 0) {
+        console.log("Firma Tanımları tab'ı bulunamadı!");
+        return;
+      }
+      
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      setTimeout(function() {
+        try {
+          console.log("Firma Tanımları tab'ı kapatılıyor... Index:", firmaTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(firmaTabIndex);
+          
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(firmaTabIndex, wasActiveTab);
+          }
+        } catch(error) {
           console.error("Tab kapatılırken hata:", error);
           ignoreSelectEvent = false;
           activeTabIdToKeep = null;
