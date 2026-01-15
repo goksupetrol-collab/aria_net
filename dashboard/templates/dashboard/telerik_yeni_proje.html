@@ -105,6 +105,11 @@
       visibility: visible !important;
       opacity: 1 !important;
     }
+
+    /* Başlık sürükleme için imleç */
+    #firma-tanimlari-grid .k-grid-header .k-header {
+      cursor: move;
+    }
     
     #banka-grid, #banka-grid .k-grid, #banka-grid .k-grid-content,
     #banka-grid .k-grid-header, #banka-grid .k-grid-header-wrap,
@@ -1806,7 +1811,9 @@
             sortable: false,
             filterable: false,
             resizable: false,
-            reorderable: true,
+            reorderable: {
+              columns: true
+            },
             columnResizeHandleWidth: 0,
             rowHeight: 30,
             columns: [
