@@ -1974,6 +1974,44 @@
             isFalse: "Hayır"
           }
         );
+        kendo.ui.FilterMenu.prototype.options.operators = {
+          string: {
+            contains: "İçerir",
+            doesnotcontain: "İçermez",
+            startswith: "İle başlar",
+            endswith: "İle biter",
+            eq: "Eşittir",
+            neq: "Eşit değildir",
+            isempty: "Boş",
+            isnotempty: "Boş değil",
+            isnull: "Null",
+            isnotnull: "Null değil"
+          },
+          number: {
+            eq: "Eşittir",
+            neq: "Eşit değildir",
+            gte: "Büyük veya eşit",
+            gt: "Büyüktür",
+            lte: "Küçük veya eşit",
+            lt: "Küçüktür",
+            isnull: "Null",
+            isnotnull: "Null değil"
+          },
+          date: {
+            eq: "Eşittir",
+            neq: "Eşit değildir",
+            gte: "Büyük veya eşit",
+            gt: "Büyüktür",
+            lte: "Küçük veya eşit",
+            lt: "Küçüktür",
+            isnull: "Null",
+            isnotnull: "Null değil"
+          },
+          enums: {
+            eq: "Eşittir",
+            neq: "Eşit değildir"
+          }
+        };
       }
 
       // COMBOBOX LİSTE VERİLERİ (Kredi Kartı ve Banka sayfaları için)
