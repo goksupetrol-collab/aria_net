@@ -2030,7 +2030,52 @@
             height: "100%",
             scrollable: false,
             sortable: true,
-            filterable: true,
+            filterable: {
+              messages: {
+                info: "Gösterilecek veriyi seçin:",
+                filter: "Filtrele",
+                clear: "Temizle",
+                isTrue: "Evet",
+                isFalse: "Hayır",
+                and: "Ve",
+                or: "Veya",
+                selectValue: "- Seç -"
+              },
+              operators: {
+                string: {
+                  contains: "İçerir",
+                  doesnotcontain: "İçermez",
+                  startswith: "İle başlar",
+                  endswith: "İle biter",
+                  eq: "Eşittir",
+                  neq: "Eşit değildir",
+                  isempty: "Boş",
+                  isnotempty: "Boş değil",
+                  isnull: "Null",
+                  isnotnull: "Null değil"
+                },
+                number: {
+                  eq: "Eşittir",
+                  neq: "Eşit değildir",
+                  gte: "Büyük veya eşit",
+                  gt: "Büyüktür",
+                  lte: "Küçük veya eşit",
+                  lt: "Küçüktür",
+                  isnull: "Null",
+                  isnotnull: "Null değil"
+                },
+                date: {
+                  eq: "Eşittir",
+                  neq: "Eşit değildir",
+                  gte: "Büyük veya eşit",
+                  gt: "Büyüktür",
+                  lte: "Küçük veya eşit",
+                  lt: "Küçüktür",
+                  isnull: "Null",
+                  isnotnull: "Null değil"
+                }
+              }
+            },
             resizable: false,
             pageable: false,
             editable: {
