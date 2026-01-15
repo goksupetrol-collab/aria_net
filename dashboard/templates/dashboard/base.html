@@ -136,6 +136,13 @@
       transition: background-color 0.15s ease, border-color 0.15s ease;
     }
 
+    /* Çerçeve sabit dursun, sadece rengi değişsin */
+    #ana-menu-bar .k-menu-group .k-item,
+    #ana-menu-bar .k-popup .k-item {
+      box-sizing: border-box !important;
+      border: 1px solid transparent !important;
+    }
+
     /* Alt menüde sol hizayı zorla sabitle */
     #ana-menu-bar .k-menu-group,
     #ana-menu-bar .k-popup {
@@ -788,7 +795,7 @@
                     // Düz sarı-turuncu arka plan uygula
                     item.style.setProperty('background', '#F3E9C9', 'important');
                     item.style.setProperty('background-color', '#F3E9C9', 'important');
-                    item.style.setProperty('border', '1px solid #E5C76B', 'important');
+                    item.style.setProperty('border-color', '#E5C76B', 'important');
                     item.style.setProperty('background-image', 'none', 'important');
                     item.style.setProperty('box-shadow', 'none', 'important');
                     item.style.setProperty('border', 'none', 'important');
@@ -809,7 +816,7 @@
                       // Varsayılan arka plana dön
                       item.style.setProperty('background', '#D9D9FF', 'important');
                       item.style.setProperty('background-color', '#D9D9FF', 'important');
-                      item.style.removeProperty('border');
+                      item.style.setProperty('border-color', 'transparent', 'important');
                       item.style.setProperty('background-image', 'none', 'important');
                       
                       // Çocuk elementleri transparent yap
@@ -1019,7 +1026,7 @@
               // Hover rengi uygula
               this.style.setProperty('background', '#F3E9C9', 'important');
               this.style.setProperty('background-color', '#F3E9C9', 'important');
-              this.style.setProperty('border', '1px solid #E5C76B', 'important');
+              this.style.setProperty('border-color', '#E5C76B', 'important');
               this.style.setProperty('background-image', 'none', 'important');
               this.style.setProperty('box-shadow', 'none', 'important');
               
@@ -1037,7 +1044,7 @@
               this.style.removeProperty('background-color');
               this.style.removeProperty('background-image');
               this.style.removeProperty('box-shadow');
-              this.style.removeProperty('border');
+              this.style.setProperty('border-color', 'transparent', 'important');
               
               // Çocuk elementlerin inline arka planını temizle
               $item.find("*").each(function() {
