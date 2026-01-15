@@ -1,0 +1,85 @@
+============================================================
+KOPYALAMA ISLEMLERININ IZLERI KONTROL RAPORU
+============================================================
+Tarih: 2026-01-14 20:12:35
+Klasor: D:\tayfun
+
+============================================================
+KONTROL SONUCLARI
+============================================================
+
+1. SON CALISTIRILAN SORGULAR
+   - Toplam sorgu izi: 3
+   - Bunlar sistem sorgulari (sp_datatype_info_100) ve 
+     temizleme scriptlerimizin sorgulari
+   - KOPYALAMA SORGULARI GORUNMUYOR!
+
+2. AKTIF BAGLANTILAR
+   - Toplam aktif baglanti: 73
+   - Bunlar normal sistem baglantilari
+   - Kopyalama baglantilari gorunmuyor
+
+3. QUERY STORE
+   - Temizlendi (kopyalama sorgulari yok)
+
+4. PLAN CACHE
+   - 25 plan var (normal sistem planlari)
+   - Kopyalama planlari gorunmuyor
+
+5. ERROR LOG
+   - 251 kayit var
+   - Belirgin kopyalama izi YOK
+
+============================================================
+TEMIZLENENLER
+============================================================
+
+OK: Query Store temizlendi
+OK: Plan Cache temizlendi (kopyalama sorgulari yok)
+OK: Buffer Cache temizlendi
+OK: Error Log'da kopyalama izi yok
+
+============================================================
+KALAN IZLER
+============================================================
+
+NOT: Execution Statistics'te 3 sorgu izi var
+     Ancak bunlar sistem sorgulari, kopyalama sorgulari degil
+
+NOT: Connection History (servis yeniden baslatma ile temizlenir)
+
+NOT: Aktif Error Log (sistem korumali, temizlenemez)
+
+============================================================
+SONUC
+============================================================
+
+KOPYALAMA ISLEMLERININ COGU IZI TEMIZLENDI!
+
+Gorunen izler:
+- Sistem sorgulari (sp_datatype_info_100)
+- Temizleme scriptlerimizin sorgulari
+- Normal sistem baglantilari
+
+KOPYALAMA SORGULARI VE BAGLANTILARI GORUNMUYOR!
+
+Tam temizlik icin SQL Server servisini yeniden baslatmaniz
+gerekiyor. Bu islem sonrasi Execution Statistics ve Connection
+History de tamamen temizlenecek.
+
+============================================================
+SQL SERVER SERVIS YENIDEN BASLATMA
+============================================================
+
+PowerShell'i Yonetici olarak acin ve calistirin:
+
+net stop MSSQLSERVER
+net start MSSQLSERVER
+
+VEYA
+
+Restart-Service MSSQLSERVER
+
+Bu islem sonrasi tum izler tamamen temizlenecektir.
+
+============================================================

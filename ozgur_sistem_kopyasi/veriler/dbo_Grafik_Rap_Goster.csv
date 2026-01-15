@@ -1,0 +1,8 @@
+﻿id,Tip,Ack_Tr,Ack_En,Goster
+1,1,Günlük Litre Araç Dağılımı,,True
+2,1,Saatlik Litre Araç Dağılımı,,True
+3,1,Akaryakıt Kodlarına Göre Dağılım,,True
+4,1,Pompacı Araç Dağılımı,,True
+5,1,Akaryakıt ve Cari Bazında Satış Dağılımı,,True
+6,1,Akaryakıt Bazında Karşılaştırmalı Dağılım,,True
+7,1,Akaryakıt Bazında Cari Karşılaştırmalı Dağılım,,True

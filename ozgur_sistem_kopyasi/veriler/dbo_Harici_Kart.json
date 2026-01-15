@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "tip_id": 9,
+    "tip": "VARDİYA ÇEK",
+    "kod": "VRDCEK",
+    "ad": "VARDİYA ÇEK GİRİŞ",
+    "cartip": "vardicek",
+    "parabrm": "TL",
+    "sil": 0
+  },
+  {
+    "id": 2,
+    "tip_id": 10,
+    "tip": "VARDİYA KASA",
+    "kod": "VRDKASA",
+    "ad": "VARDİYA KASALARI",
+    "cartip": "vardikasa",
+    "parabrm": "TL",
+    "sil": 0
+  },
+  {
+    "id": 3,
+    "tip_id": 11,
+    "tip": "VARDİYA HESABI",
+    "kod": "VRDHES",
+    "ad": "VARDİYA HESABI",
+    "cartip": "vardihes",
+    "parabrm": "TL",
+    "sil": 0
+  }
+]

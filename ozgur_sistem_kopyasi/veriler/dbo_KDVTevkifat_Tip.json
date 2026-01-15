@@ -1,0 +1,226 @@
+[
+  {
+    "Id": 0,
+    "Kod": "000",
+    "Ad": "000 - 0/10 - --Yok--",
+    "Yuzde": 0,
+    "Sil": false
+  },
+  {
+    "Id": 1,
+    "Kod": "601",
+    "Ad": "601 - 4/10 - Yapım işleri ile bu işlerle birlikte ifa edilen mühendislik",
+    "Yuzde": 40,
+    "Sil": false
+  },
+  {
+    "Id": 2,
+    "Kod": "602",
+    "Ad": "602 - 9/10 - Etüt, plan-proje, danışmanlık, denetim vb",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 3,
+    "Kod": "603",
+    "Ad": "603 - 7/10 - Makine, teçhizat, demirbaş ve taşitlara ait tadil, bakım, onarım",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 4,
+    "Kod": "604",
+    "Ad": "604 - 5/10 - Yemek servis hizmeti",
+    "Yuzde": 50,
+    "Sil": false
+  },
+  {
+    "Id": 5,
+    "Kod": "605",
+    "Ad": "605 - 5/10 - Organizasyon hizmeti",
+    "Yuzde": 50,
+    "Sil": false
+  },
+  {
+    "Id": 6,
+    "Kod": "606",
+    "Ad": "606 - 9/10 - İşgücü temin hizmetleri",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 7,
+    "Kod": "607",
+    "Ad": "607 - 9/10 - Özel güvenlik hizmeti",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 8,
+    "Kod": "608",
+    "Ad": "608 - 9/10 - Yapı denetim hizmetleri",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 9,
+    "Kod": "609",
+    "Ad": "609 - 7/10 - Fason olarak yaptirilan tekstil ve konfeksiyon işleri, çanta ve ayakkabı dikim işleri v",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 10,
+    "Kod": "610",
+    "Ad": "610 - 9/10 - Turistik mağazalara verilen müşteri bulma/ götürme hizmetleri",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 11,
+    "Kod": "611",
+    "Ad": "611 - 9/10 - Spor kulüplerinin yayın, reklam ve isim hakkı gelirlerine konu işlemleri",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 12,
+    "Kod": "612",
+    "Ad": "612 - 9/10 - Temizlik hizmeti",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 13,
+    "Kod": "613",
+    "Ad": "613 - 9/10 - Çevre ve bahçe bakım hizmetleri",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 14,
+    "Kod": "614",
+    "Ad": "614 - 5/10 - Servis taşımacıliğı",
+    "Yuzde": 50,
+    "Sil": false
+  },
+  {
+    "Id": 15,
+    "Kod": "615",
+    "Ad": "615 - 7/10 - Her türlü baskı ve basim hizmetleri",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 16,
+    "Kod": "616",
+    "Ad": "616 - 5/10 - 5018 sayili kanuna ekli cetvellerdeki idare,kurum ve kuruşlara yapılan diğer hizmetler",
+    "Yuzde": 50,
+    "Sil": false
+  },
+  {
+    "Id": 17,
+    "Kod": "617",
+    "Ad": "617 - 7/10 - Hurda metalden elde edilen külçe teslimleri",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 18,
+    "Kod": "618",
+    "Ad": "618 - 7/10 - Hurda metalden elde edilenler dışındaki bakir, çinko ve alüminyum külçe teslimleri",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 19,
+    "Kod": "619",
+    "Ad": "619 - 7/10 - Bakir, çinko ve alüminyum ürünlerinin teslimi",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 20,
+    "Kod": "620",
+    "Ad": "620 - 7/10 - istisnadan vazgeçenlerin hurda ve atık teslimi",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 21,
+    "Kod": "621",
+    "Ad": "621 - 9/10 - Metal, plastik, lastik, kauçuk, kâğit ve cam hurda ve atıklardan elde edilen hammadde teslimi",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 22,
+    "Kod": "622",
+    "Ad": "622 - 9/10 - Pamuk, tiftik, yün ve yapaği ile ham post ve deri teslimleri",
+    "Yuzde": 90,
+    "Sil": false
+  },
+  {
+    "Id": 23,
+    "Kod": "623",
+    "Ad": "623 - 5/10 - Ağaç ve orman ürünleri teslimi",
+    "Yuzde": 50,
+    "Sil": false
+  },
+  {
+    "Id": 24,
+    "Kod": "624",
+    "Ad": "624 - 2/10 - Yük Taşımacılığı Hizmeti",
+    "Yuzde": 20,
+    "Sil": false
+  },
+  {
+    "Id": 25,
+    "Kod": "625",
+    "Ad": "625 - 3/10 - Ticari Reklam Hizmetleri",
+    "Yuzde": 30,
+    "Sil": false
+  },
+  {
+    "Id": 26,
+    "Kod": "626",
+    "Ad": "626 - 2/10 - Diğer Teslimler",
+    "Yuzde": 20,
+    "Sil": false
+  },
+  {
+    "Id": 50,
+    "Kod": "650",
+    "Ad": "650 - 2/10 - Diğer",
+    "Yuzde": 20,
+    "Sil": false
+  },
+  {
+    "Id": 51,
+    "Kod": "650",
+    "Ad": "650 - 3/10 - Diğer",
+    "Yuzde": 30,
+    "Sil": false
+  },
+  {
+    "Id": 52,
+    "Kod": "650",
+    "Ad": "650 - 5/10 - Diğer",
+    "Yuzde": 50,
+    "Sil": false
+  },
+  {
+    "Id": 53,
+    "Kod": "650",
+    "Ad": "650 - 7/10 - Diğer",
+    "Yuzde": 70,
+    "Sil": false
+  },
+  {
+    "Id": 54,
+    "Kod": "650",
+    "Ad": "650 - 9/10 - Diğer",
+    "Yuzde": 90,
+    "Sil": false
+  }
+]

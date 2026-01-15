@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "ad": "ALIŞ FATURALARI",
+    "Goster": true
+  },
+  {
+    "id": 2,
+    "ad": "SATIŞ FATURALARI",
+    "Goster": true
+  }
+]

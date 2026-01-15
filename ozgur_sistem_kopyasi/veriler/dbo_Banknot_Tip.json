@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "ack": "MADENI PARA",
+    "Deger": 1.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  },
+  {
+    "id": 2,
+    "ack": "5 LIK BANKNOT",
+    "Deger": 5.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  },
+  {
+    "id": 3,
+    "ack": "10 LUK BANKNOT",
+    "Deger": 10.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  },
+  {
+    "id": 4,
+    "ack": "20 LIK BANKNOT",
+    "Deger": 20.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  },
+  {
+    "id": 5,
+    "ack": "50 LIK BANKNOT",
+    "Deger": 50.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  },
+  {
+    "id": 6,
+    "ack": "100 LUK BANKNOT",
+    "Deger": 100.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  },
+  {
+    "id": 7,
+    "ack": "200 LUK BANKNOT",
+    "Deger": 200.0,
+    "olususer": null,
+    "olustarsaat": null,
+    "sil": 0
+  }
+]

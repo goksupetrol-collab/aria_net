@@ -1,0 +1,2729 @@
+[
+  {
+    "id": 17,
+    "tip_id": 20,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 18,
+    "tip_id": 20,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 19,
+    "tip_id": 20,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 20,
+    "tip_id": 20,
+    "Tab": 4,
+    "ack_tr": "FİŞ SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 21,
+    "tip_id": 20,
+    "Tab": 5,
+    "ack_tr": "FİŞ - NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 22,
+    "tip_id": 20,
+    "Tab": 6,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 23,
+    "tip_id": 20,
+    "Tab": 7,
+    "ack_tr": "KM SEÇ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 24,
+    "tip_id": 20,
+    "Tab": 8,
+    "ack_tr": "KM",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 25,
+    "tip_id": 20,
+    "Tab": 9,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 26,
+    "tip_id": 20,
+    "Tab": 10,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 27,
+    "tip_id": 20,
+    "Tab": 11,
+    "ack_tr": "SÜRÜCÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 28,
+    "tip_id": 20,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 29,
+    "tip_id": 20,
+    "Tab": 13,
+    "ack_tr": "PERSONEL",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 30,
+    "tip_id": 20,
+    "Tab": 14,
+    "ack_tr": "ADA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 31,
+    "tip_id": 20,
+    "Tab": 15,
+    "ack_tr": "BORÇLU CARİ SEÇ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 32,
+    "tip_id": 20,
+    "Tab": 16,
+    "ack_tr": "BORÇLU CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 33,
+    "tip_id": 20,
+    "Tab": 17,
+    "ack_tr": "BORÇLU CARİ ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 35,
+    "tip_id": 1,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 36,
+    "tip_id": 1,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 37,
+    "tip_id": 1,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 38,
+    "tip_id": 1,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 39,
+    "tip_id": 1,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 40,
+    "tip_id": 1,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 41,
+    "tip_id": 1,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 42,
+    "tip_id": 1,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 43,
+    "tip_id": 1,
+    "Tab": 10,
+    "ack_tr": "PERSONEL",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 48,
+    "tip_id": 5,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 49,
+    "tip_id": 5,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 50,
+    "tip_id": 5,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 51,
+    "tip_id": 5,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 52,
+    "tip_id": 5,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 53,
+    "tip_id": 5,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 54,
+    "tip_id": 5,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 55,
+    "tip_id": 5,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 56,
+    "tip_id": 5,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 57,
+    "tip_id": 5,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 58,
+    "tip_id": 5,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 59,
+    "tip_id": 2,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 60,
+    "tip_id": 2,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 61,
+    "tip_id": 2,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 62,
+    "tip_id": 2,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 63,
+    "tip_id": 2,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 64,
+    "tip_id": 2,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 65,
+    "tip_id": 2,
+    "Tab": 8,
+    "ack_tr": "VADE TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 66,
+    "tip_id": 2,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 67,
+    "tip_id": 2,
+    "Tab": 10,
+    "ack_tr": "DEPO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 68,
+    "tip_id": 2,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 74,
+    "tip_id": 3,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 75,
+    "tip_id": 3,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 76,
+    "tip_id": 3,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 77,
+    "tip_id": 3,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 78,
+    "tip_id": 3,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 79,
+    "tip_id": 3,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 80,
+    "tip_id": 3,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 81,
+    "tip_id": 3,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 82,
+    "tip_id": 3,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 83,
+    "tip_id": 3,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 84,
+    "tip_id": 3,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 86,
+    "tip_id": 6,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 87,
+    "tip_id": 6,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 88,
+    "tip_id": 6,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 89,
+    "tip_id": 6,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 90,
+    "tip_id": 6,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 91,
+    "tip_id": 6,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 92,
+    "tip_id": 6,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 93,
+    "tip_id": 6,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 94,
+    "tip_id": 6,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 95,
+    "tip_id": 6,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 96,
+    "tip_id": 4,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 97,
+    "tip_id": 4,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 98,
+    "tip_id": 4,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 99,
+    "tip_id": 4,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 100,
+    "tip_id": 4,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 101,
+    "tip_id": 4,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 102,
+    "tip_id": 4,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 103,
+    "tip_id": 4,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 104,
+    "tip_id": 4,
+    "Tab": 10,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 105,
+    "tip_id": 8,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 106,
+    "tip_id": 8,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 107,
+    "tip_id": 8,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 108,
+    "tip_id": 8,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 109,
+    "tip_id": 8,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 110,
+    "tip_id": 8,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 111,
+    "tip_id": 8,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 112,
+    "tip_id": 8,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 113,
+    "tip_id": 8,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 114,
+    "tip_id": 8,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 115,
+    "tip_id": 8,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 116,
+    "tip_id": 7,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 117,
+    "tip_id": 7,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 118,
+    "tip_id": 7,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 119,
+    "tip_id": 7,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 120,
+    "tip_id": 7,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 121,
+    "tip_id": 7,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 122,
+    "tip_id": 7,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 123,
+    "tip_id": 7,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 125,
+    "tip_id": 7,
+    "Tab": 10,
+    "ack_tr": "Y.K. NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 126,
+    "tip_id": 7,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 127,
+    "tip_id": 9,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 128,
+    "tip_id": 9,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 129,
+    "tip_id": 9,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 130,
+    "tip_id": 9,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 131,
+    "tip_id": 9,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 132,
+    "tip_id": 9,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 133,
+    "tip_id": 9,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 134,
+    "tip_id": 9,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 135,
+    "tip_id": 9,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 136,
+    "tip_id": 9,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 137,
+    "tip_id": 10,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 138,
+    "tip_id": 10,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 139,
+    "tip_id": 10,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 140,
+    "tip_id": 10,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 141,
+    "tip_id": 10,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 142,
+    "tip_id": 10,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 143,
+    "tip_id": 10,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 144,
+    "tip_id": 10,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 145,
+    "tip_id": 10,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 146,
+    "tip_id": 10,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 147,
+    "tip_id": 7,
+    "Tab": 11,
+    "ack_tr": "İRSALIYE NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 148,
+    "tip_id": 9,
+    "Tab": 11,
+    "ack_tr": "İRSALIYE NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 149,
+    "tip_id": 10,
+    "Tab": 11,
+    "ack_tr": "İRSALIYE NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 150,
+    "tip_id": 11,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 151,
+    "tip_id": 11,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 152,
+    "tip_id": 11,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 153,
+    "tip_id": 11,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 154,
+    "tip_id": 11,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 155,
+    "tip_id": 11,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 156,
+    "tip_id": 11,
+    "Tab": 8,
+    "ack_tr": "ÖDEME TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 157,
+    "tip_id": 11,
+    "Tab": 9,
+    "ack_tr": "SEVK TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 158,
+    "tip_id": 11,
+    "Tab": 10,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 159,
+    "tip_id": 11,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 160,
+    "tip_id": 12,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 161,
+    "tip_id": 12,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 162,
+    "tip_id": 12,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 163,
+    "tip_id": 12,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 164,
+    "tip_id": 12,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 165,
+    "tip_id": 12,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 166,
+    "tip_id": 12,
+    "Tab": 8,
+    "ack_tr": "ÖDEME TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 167,
+    "tip_id": 12,
+    "Tab": 9,
+    "ack_tr": "SEVK TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 168,
+    "tip_id": 12,
+    "Tab": 10,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 169,
+    "tip_id": 12,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 170,
+    "tip_id": 12,
+    "Tab": 11,
+    "ack_tr": "DEPO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 171,
+    "tip_id": 13,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 172,
+    "tip_id": 13,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 173,
+    "tip_id": 13,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 174,
+    "tip_id": 13,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 175,
+    "tip_id": 13,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 176,
+    "tip_id": 13,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 177,
+    "tip_id": 13,
+    "Tab": 8,
+    "ack_tr": "ÖDEME TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 178,
+    "tip_id": 13,
+    "Tab": 9,
+    "ack_tr": "SEVK TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 179,
+    "tip_id": 13,
+    "Tab": 10,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 180,
+    "tip_id": 13,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 181,
+    "tip_id": 14,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 182,
+    "tip_id": 14,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 183,
+    "tip_id": 14,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 184,
+    "tip_id": 14,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 185,
+    "tip_id": 14,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 186,
+    "tip_id": 14,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 187,
+    "tip_id": 14,
+    "Tab": 8,
+    "ack_tr": "ÖDEME TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 188,
+    "tip_id": 14,
+    "Tab": 9,
+    "ack_tr": "SEVK TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 189,
+    "tip_id": 14,
+    "Tab": 10,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 190,
+    "tip_id": 14,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 191,
+    "tip_id": 16,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 192,
+    "tip_id": 16,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 193,
+    "tip_id": 16,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 194,
+    "tip_id": 16,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 195,
+    "tip_id": 16,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 196,
+    "tip_id": 16,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 197,
+    "tip_id": 16,
+    "Tab": 8,
+    "ack_tr": "ÖDEME TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 198,
+    "tip_id": 16,
+    "Tab": 9,
+    "ack_tr": "SEVK TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 199,
+    "tip_id": 16,
+    "Tab": 10,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 200,
+    "tip_id": 16,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 201,
+    "tip_id": 15,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 202,
+    "tip_id": 15,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 203,
+    "tip_id": 15,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 204,
+    "tip_id": 15,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 205,
+    "tip_id": 15,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 206,
+    "tip_id": 15,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 207,
+    "tip_id": 15,
+    "Tab": 8,
+    "ack_tr": "ÖDEME TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 208,
+    "tip_id": 15,
+    "Tab": 9,
+    "ack_tr": "SEVK TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 209,
+    "tip_id": 15,
+    "Tab": 10,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 210,
+    "tip_id": 15,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 211,
+    "tip_id": 15,
+    "Tab": 11,
+    "ack_tr": "DEPO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 212,
+    "tip_id": 1,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 213,
+    "tip_id": 2,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 214,
+    "tip_id": 3,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 215,
+    "tip_id": 4,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 216,
+    "tip_id": 5,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 217,
+    "tip_id": 6,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 218,
+    "tip_id": 7,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 219,
+    "tip_id": 8,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 220,
+    "tip_id": 9,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 221,
+    "tip_id": 11,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 222,
+    "tip_id": 12,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 223,
+    "tip_id": 13,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 224,
+    "tip_id": 14,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 225,
+    "tip_id": 15,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 226,
+    "tip_id": 16,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 229,
+    "tip_id": 20,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 230,
+    "tip_id": 1,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 231,
+    "tip_id": 2,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 232,
+    "tip_id": 3,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 233,
+    "tip_id": 4,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 234,
+    "tip_id": 5,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 236,
+    "tip_id": 6,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 237,
+    "tip_id": 7,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 238,
+    "tip_id": 8,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 239,
+    "tip_id": 9,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 240,
+    "tip_id": 10,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 241,
+    "tip_id": 11,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 242,
+    "tip_id": 12,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 243,
+    "tip_id": 13,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 244,
+    "tip_id": 14,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 245,
+    "tip_id": 15,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 246,
+    "tip_id": 16,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 247,
+    "tip_id": 21,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 248,
+    "tip_id": 21,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 249,
+    "tip_id": 21,
+    "Tab": 4,
+    "ack_tr": "FİŞ SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 250,
+    "tip_id": 21,
+    "Tab": 6,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 251,
+    "tip_id": 21,
+    "Tab": 7,
+    "ack_tr": "KM SEÇ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 252,
+    "tip_id": 21,
+    "Tab": 9,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 253,
+    "tip_id": 21,
+    "Tab": 10,
+    "ack_tr": "SÜRÜCÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 254,
+    "tip_id": 21,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 255,
+    "tip_id": 21,
+    "Tab": 12,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 256,
+    "tip_id": 21,
+    "Tab": 16,
+    "ack_tr": "VADE TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 257,
+    "tip_id": 21,
+    "Tab": 14,
+    "ack_tr": "PERSONEL",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 258,
+    "tip_id": 21,
+    "Tab": 15,
+    "ack_tr": "ADA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 259,
+    "tip_id": 21,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 260,
+    "tip_id": 21,
+    "Tab": 13,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 261,
+    "tip_id": 21,
+    "Tab": 5,
+    "ack_tr": "FİŞ - NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 262,
+    "tip_id": 21,
+    "Tab": 8,
+    "ack_tr": "KM",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 263,
+    "tip_id": 21,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 264,
+    "tip_id": 22,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 265,
+    "tip_id": 22,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 266,
+    "tip_id": 22,
+    "Tab": 4,
+    "ack_tr": "FİŞ SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 267,
+    "tip_id": 22,
+    "Tab": 6,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 271,
+    "tip_id": 22,
+    "Tab": 7,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 272,
+    "tip_id": 22,
+    "Tab": 8,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 276,
+    "tip_id": 22,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 277,
+    "tip_id": 22,
+    "Tab": 9,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 278,
+    "tip_id": 22,
+    "Tab": 5,
+    "ack_tr": "FİŞ - NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 280,
+    "tip_id": 22,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 284,
+    "tip_id": 19,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 285,
+    "tip_id": 19,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 286,
+    "tip_id": 19,
+    "Tab": 4,
+    "ack_tr": "FİŞ SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 287,
+    "tip_id": 19,
+    "Tab": 6,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 288,
+    "tip_id": 19,
+    "Tab": 7,
+    "ack_tr": "KM SEÇ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 289,
+    "tip_id": 19,
+    "Tab": 9,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 290,
+    "tip_id": 19,
+    "Tab": 11,
+    "ack_tr": "SÜRÜCÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 291,
+    "tip_id": 19,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 292,
+    "tip_id": 19,
+    "Tab": 13,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 293,
+    "tip_id": 19,
+    "Tab": 17,
+    "ack_tr": "VADE TARİHİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 294,
+    "tip_id": 19,
+    "Tab": 15,
+    "ack_tr": "PERSONEL",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 295,
+    "tip_id": 19,
+    "Tab": 16,
+    "ack_tr": "ADA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 296,
+    "tip_id": 19,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 297,
+    "tip_id": 19,
+    "Tab": 14,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 298,
+    "tip_id": 19,
+    "Tab": 5,
+    "ack_tr": "FİŞ - NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 299,
+    "tip_id": 19,
+    "Tab": 8,
+    "ack_tr": "KM",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 300,
+    "tip_id": 19,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 301,
+    "tip_id": 19,
+    "Tab": 18,
+    "ack_tr": "ALACAKLI CARİ SEÇ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 302,
+    "tip_id": 19,
+    "Tab": 19,
+    "ack_tr": "ALACAKLI CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 303,
+    "tip_id": 19,
+    "Tab": 10,
+    "ack_tr": "Y.K Fiş No",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 304,
+    "tip_id": 1,
+    "Tab": 11,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 305,
+    "tip_id": 6,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 306,
+    "tip_id": 26,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 307,
+    "tip_id": 26,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 308,
+    "tip_id": 26,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 309,
+    "tip_id": 26,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 310,
+    "tip_id": 26,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 311,
+    "tip_id": 26,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 312,
+    "tip_id": 26,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 313,
+    "tip_id": 26,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 314,
+    "tip_id": 26,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 315,
+    "tip_id": 26,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 316,
+    "tip_id": 26,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 317,
+    "tip_id": 26,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 318,
+    "tip_id": 26,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 319,
+    "tip_id": 27,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 320,
+    "tip_id": 27,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 321,
+    "tip_id": 27,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 322,
+    "tip_id": 27,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 323,
+    "tip_id": 27,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 324,
+    "tip_id": 27,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 325,
+    "tip_id": 27,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 326,
+    "tip_id": 27,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 327,
+    "tip_id": 27,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 328,
+    "tip_id": 27,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 329,
+    "tip_id": 27,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 330,
+    "tip_id": 27,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 331,
+    "tip_id": 27,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 332,
+    "tip_id": 28,
+    "Tab": 0,
+    "ack_tr": "FİRMA ÜNVAN",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 333,
+    "tip_id": 28,
+    "Tab": 1,
+    "ack_tr": "CARİ TÜRÜ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 334,
+    "tip_id": 28,
+    "Tab": 2,
+    "ack_tr": "CARİ KODU",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 335,
+    "tip_id": 28,
+    "Tab": 3,
+    "ack_tr": "CARİ ÜNVANI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 336,
+    "tip_id": 28,
+    "Tab": 4,
+    "ack_tr": "FATURA SERİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 337,
+    "tip_id": 28,
+    "Tab": 5,
+    "ack_tr": "FATURA NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 338,
+    "tip_id": 28,
+    "Tab": 6,
+    "ack_tr": "TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 339,
+    "tip_id": 28,
+    "Tab": 7,
+    "ack_tr": "SAAT",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 340,
+    "tip_id": 28,
+    "Tab": 8,
+    "ack_tr": "VADE TARİH",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 341,
+    "tip_id": 28,
+    "Tab": 9,
+    "ack_tr": "KDV TİP",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 342,
+    "tip_id": 28,
+    "Tab": 10,
+    "ack_tr": "Y.K NO",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 343,
+    "tip_id": 28,
+    "Tab": 11,
+    "ack_tr": "PLAKA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 344,
+    "tip_id": 28,
+    "Tab": 12,
+    "ack_tr": "AÇIKLAMA",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  }
+]

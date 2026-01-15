@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "kod": "GENRAP",
+    "ad": "GENEL RAPOR"
+  },
+  {
+    "id": 2,
+    "kod": "FATURA",
+    "ad": "FATURA"
+  },
+  {
+    "id": 3,
+    "kod": "FIS",
+    "ad": "FİŞ"
+  },
+  {
+    "id": 4,
+    "kod": "IRSALIYE",
+    "ad": "İRSALİYE"
+  },
+  {
+    "id": 5,
+    "kod": "VARDIYA",
+    "ad": "VARDIYA"
+  },
+  {
+    "id": 6,
+    "kod": "DEKONT",
+    "ad": "DEKONT"
+  },
+  {
+    "id": 7,
+    "kod": "PROMOSYON",
+    "ad": "PROMOSYON"
+  }
+]

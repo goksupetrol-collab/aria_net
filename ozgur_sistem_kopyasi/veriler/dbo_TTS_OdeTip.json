@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "Ad": "BANKA",
+    "Tip": 0,
+    "Sil": 0
+  },
+  {
+    "id": 2,
+    "Ad": "DBS 1 (AKTIF)",
+    "Tip": 0,
+    "Sil": 0
+  },
+  {
+    "id": 3,
+    "Ad": "NAKIT",
+    "Tip": 0,
+    "Sil": 0
+  },
+  {
+    "id": 4,
+    "Ad": "DBS 2 (VAKIF)",
+    "Tip": 0,
+    "Sil": 0
+  }
+]

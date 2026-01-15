@@ -1,0 +1,9 @@
+﻿Id,Ad,WebServis,Sil
+0,YOK,-,False
+1,DIGITAL,http://ozelentegrator.dtp.com.tr:1461/IntegrationService.asmx?WSDL,False
+2,UYUMSOFT,https://efatura.uyumsoft.com.tr/Services/Integration?singleWsdl,False
+3,ING,-,False
+4,E-Finans,-,False
+5,IsNet,-,False
+6,KolaySoft,-,False
+7,UyumApi,-,False

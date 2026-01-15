@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "users": "ADMIN",
+    "firmano": 0,
+    "form": "Veresi_Fis_Liste_Frm",
+    "genis": 178,
+    "panel": "Panel2",
+    "deguser": null,
+    "degtarsaat": null,
+    "olususer": null,
+    "olustarsaat": null
+  },
+  {
+    "id": "2",
+    "users": "MARKET",
+    "firmano": 0,
+    "form": "Fatura_Liste_Frm",
+    "genis": 153,
+    "panel": "Panel5",
+    "deguser": null,
+    "degtarsaat": null,
+    "olususer": null,
+    "olustarsaat": null
+  }
+]

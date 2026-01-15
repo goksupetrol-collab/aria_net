@@ -1,0 +1,41 @@
+[
+  {
+    "Id": 1,
+    "Firmano": 0,
+    "EBelgeTipId": 1,
+    "EntegratorId": null,
+    "EntegratorSeri": null,
+    "EntegratorBayiNo": "",
+    "Sil": false,
+    "OlusUser": "AKTARIM",
+    "OlusTarSaat": "2020-08-08 22:11:56.503000",
+    "DegUser": null,
+    "DegTarSaat": null
+  },
+  {
+    "Id": 2,
+    "Firmano": 0,
+    "EBelgeTipId": 1,
+    "EntegratorId": null,
+    "EntegratorSeri": null,
+    "EntegratorBayiNo": "",
+    "Sil": false,
+    "OlusUser": "AKTARIM",
+    "OlusTarSaat": "2020-08-08 22:11:56.540000",
+    "DegUser": null,
+    "DegTarSaat": null
+  },
+  {
+    "Id": 3,
+    "Firmano": 0,
+    "EBelgeTipId": 1,
+    "EntegratorId": null,
+    "EntegratorSeri": null,
+    "EntegratorBayiNo": "",
+    "Sil": false,
+    "OlusUser": "AKTARIM",
+    "OlusTarSaat": "2020-08-08 22:11:56.557000",
+    "DegUser": null,
+    "DegTarSaat": null
+  }
+]

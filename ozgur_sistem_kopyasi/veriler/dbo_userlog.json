@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "tarih": "2020-08-08 22:11:39",
+    "firmano": 0.0,
+    "usr": "SİSTEM",
+    "kayitid": 1.0,
+    "ack": "",
+    "ip": "",
+    "pcadi": "",
+    "islem": "KAYIT",
+    "tablo": "depokart",
+    "deguser": null,
+    "degtarsaat": null,
+    "olususer": null,
+    "olustarsaat": null
+  }
+]

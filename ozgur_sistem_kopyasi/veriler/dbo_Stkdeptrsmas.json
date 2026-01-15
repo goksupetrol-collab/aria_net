@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "trs_id": null,
+    "tarih": null,
+    "saat": null,
+    "cfirmano": null,
+    "gfirmano": null,
+    "Girdepkod": null,
+    "Girdep_id": null,
+    "Cikdepkod": null,
+    "Cikdep_id": null,
+    "Bel_Seri": null,
+    "Bel_No": null,
+    "Ack": null,
+    "Yertip": null,
+    "Yerad": null,
+    "olususer": null,
+    "olustarsaat": null,
+    "deguser": null,
+    "degtarsaat": null,
+    "sil": 1,
+    "GirDep_Tip": null,
+    "CikDep_Tip": null,
+    "Gen_Top": null,
+    "kayok": null
+  }
+]

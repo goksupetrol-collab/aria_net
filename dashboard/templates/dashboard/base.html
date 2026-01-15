@@ -71,12 +71,148 @@
       opacity: 1 !important;
     }
     
-    /* ALAN 1 - Boş, ileride eklenecek */
+    /* ALAN 1 - Ana Menü Butonları */
     #fixed-area-1-container {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0;
+    }
+    
+    /* Telerik Menu Stilleri - ALAN 1 için - Petronet görüntüsüne göre birebir - ÇOK GÜÇLÜ */
+    #ana-menu-bar,
+    #ana-menu-bar.k-widget,
+    #ana-menu-bar.k-menu {
+      width: 100% !important;
+      height: 100% !important;
+      background: transparent !important;
+      border: none !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+    }
+    
+    /* ALAN 1 - Tüm ana menü butonları - Petronet görüntüsüne göre - ÇOK GÜÇLÜ SELECTOR */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item,
+    #fixed-area-1-container #ana-menu-bar li.k-menu-item,
+    #fixed-area-1-container #ana-menu-bar > li,
+    #fixed-area-1-container #ana-menu-bar > li.k-menu-item,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.k-item,
+    #fixed-area-1-container #ana-menu-bar li.k-item {
+      background: #E3F2FD !important;
+      background-color: #E3F2FD !important;
+      border-right: 1px solid #90caf9 !important;
+      padding: 0 12px !important;
+      height: 28px !important;
+      line-height: 28px !important;
+      margin: 0 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+    }
+    
+    /* Hover durumu - biraz daha koyu açık mavi */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item:hover,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.k-state-hover:not(.k-state-open) {
+      background: #BBDEFB !important;
+      background-color: #BBDEFB !important;
+    }
+    
+    /* Açık menü durumu - menünün solundaki açık mavi (#64B5F6) */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.k-state-open,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.menu-acik,
+    #fixed-area-1-container #ana-menu-bar li.k-state-open {
+      background: #64B5F6 !important;
+      background-color: #64B5F6 !important;
+    }
+    
+    /* Ana menü yazı - Petronet görüntüsüne göre - ÇOK GÜÇLÜ SELECTOR */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item-text,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item .k-link,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item span,
+    #fixed-area-1-container #ana-menu-bar .k-link,
+    #fixed-area-1-container #ana-menu-bar li .k-link,
+    #fixed-area-1-container #ana-menu-bar li span,
+    #fixed-area-1-container #ana-menu-bar .k-item .k-link,
+    #fixed-area-1-container #ana-menu-bar .k-item span {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #333333 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      letter-spacing: 0.3px !important;
+      line-height: 28px !important;
+    }
+    
+    /* Açılan menü arka planı - Petronet görüntüsüne göre açık mavi */
+    #ana-menu-bar .k-menu-group {
+      background: #D9D9FF !important;
+      border: 1px solid #B3B3FF !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+      margin-top: 0 !important;
+      padding: 0 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+    }
+    
+    /* Alt menü öğeleri - Petronet görüntüsüne göre */
+    #ana-menu-bar .k-menu-group .k-menu-item {
+      background: #D9D9FF !important;
+      background-color: #D9D9FF !important;
+      border-right: none !important;
+      border-bottom: none !important;
+      padding: 6px 20px 6px 20px !important;
+      height: auto !important;
+      line-height: 1.4 !important;
+      position: relative !important;
+      margin: 0 !important;
+      min-height: 28px !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+    }
+    
+    /* Sol tarafta 20px açık mavi çizgi - Petronet görüntüsüne göre */
+    #ana-menu-bar .k-menu-group .k-menu-item::before {
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      width: 20px !important;
+      background: #D9D9FF !important;
+    }
+    
+    /* Hover durumu - Petronet görüntüsüne göre sarı-turuncu */
+    #ana-menu-bar .k-menu-group .k-menu-item:hover,
+    #ana-menu-bar .k-menu-group .k-menu-item.k-state-hover {
+      background: #FFF9C4 !important;
+      background-color: #FFF9C4 !important;
+    }
+    
+    /* Seçili menü öğesi - Petronet görüntüsüne göre sarı-turuncu */
+    #ana-menu-bar .k-menu-group .k-menu-item.k-state-selected,
+    #ana-menu-bar .k-menu-group .k-menu-item.k-state-active {
+      background: #FFF9C4 !important;
+      background-color: #FFF9C4 !important;
+    }
+    
+    /* Alt menü yazı - Petronet görüntüsüne göre */
+    #ana-menu-bar .k-menu-group .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link,
+    #ana-menu-bar .k-menu-group .k-menu-item span {
+      font-size: 15px !important;
+      font-weight: normal !important;
+      color: #333333 !important;
+      text-shadow: none !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      letter-spacing: 0.2px !important;
+      line-height: 1.4 !important;
+    }
+    
+    /* Hover durumunda yazı rengi koyu */
+    #ana-menu-bar .k-menu-group .k-menu-item:hover .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-menu-item.k-state-hover .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-menu-item:hover .k-link,
+    #ana-menu-bar .k-menu-group .k-menu-item.k-state-hover .k-link,
+    #ana-menu-bar .k-menu-group .k-menu-item:hover span,
+    #ana-menu-bar .k-menu-group .k-menu-item.k-state-hover span {
+      color: #333333 !important;
+      text-shadow: none !important;
     }
     /* Telerik TabStrip için font boyutu (ALAN 3) */
     #tabs .k-tabstrip-item {
@@ -116,6 +252,372 @@
   <!-- Telerik Kendo UI CSS -->
   <link rel="stylesheet" href="{% static 'dashboard/kendo/styles/default-main.css' %}" />
   
+  <!-- Petronet Menü Stilleri - Telerik CSS'inden SONRA yükleniyor - EN SON YÜKLENMELİ -->
+  <style>
+    /* TEST - Hover durumunda TÜM elementlerin arka planını KIRMIZI yap - MERDİVEN SORUNU TEST */
+    #ana-menu-bar .k-menu-group li:hover,
+    #ana-menu-bar .k-popup li:hover {
+      background: #FF0000 !important;
+      background-color: #FF0000 !important;
+      background-image: none !important;
+    }
+    
+    #ana-menu-bar .k-menu-group li:hover *,
+    #ana-menu-bar .k-popup li:hover * {
+      background: #FF0000 !important;
+      background-color: #FF0000 !important;
+      background-image: none !important;
+    }
+    
+    #ana-menu-bar .k-menu-group li:hover .k-link,
+    #ana-menu-bar .k-popup li:hover .k-link {
+      background: #FF0000 !important;
+      background-color: #FF0000 !important;
+      background-image: none !important;
+    }
+    
+    #ana-menu-bar .k-menu-group li:hover .k-link *,
+    #ana-menu-bar .k-popup li:hover .k-link * {
+      background: #FF0000 !important;
+      background-color: #FF0000 !important;
+      background-image: none !important;
+    }
+    
+    #ana-menu-bar .k-menu-group li:hover span,
+    #ana-menu-bar .k-popup li:hover span {
+      background: #FF0000 !important;
+      background-color: #FF0000 !important;
+      background-image: none !important;
+    }
+    
+  </style>
+  
+  <!-- Petronet Menü Stilleri - Telerik CSS'inden SONRA yükleniyor -->
+  <style>
+    /* Petronet görüntüsüne göre MENÜ STİLLERİ - ÇOK GÜÇLÜ OVERRIDE */
+    /* Ana menü container arka planı - açık mavi */
+    #fixed-area-1-container {
+      background: linear-gradient(to bottom, #E3F2FD, #E3F2FD) !important;
+      background-color: #E3F2FD !important;
+    }
+    
+    /* Ana menü butonları - açık mavi */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item,
+    #fixed-area-1-container #ana-menu-bar li.k-menu-item,
+    #fixed-area-1-container #ana-menu-bar > li,
+    #fixed-area-1-container #ana-menu-bar > li.k-menu-item,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.k-item,
+    #fixed-area-1-container #ana-menu-bar li.k-item,
+    #fixed-area-1-container #ana-menu-bar li {
+      background: #E3F2FD !important;
+      background-color: #E3F2FD !important;
+      padding: 0 12px !important;
+      height: 28px !important;
+      line-height: 28px !important;
+      margin: 0 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      border-right: 1px solid #90caf9 !important;
+    }
+    
+    /* Ana menü butonları hover - Telerik .k-state-hover class'ı ile */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item:hover,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.k-state-hover,
+    #fixed-area-1-container #ana-menu-bar li:hover,
+    #fixed-area-1-container #ana-menu-bar > li:hover,
+    #fixed-area-1-container #ana-menu-bar .k-item.k-state-hover > .k-link {
+      background: #BBDEFB !important;
+      background-color: #BBDEFB !important;
+    }
+    
+    /* Ana menü aktif/açık durumu - koyu mavi (Telerik .k-state-open class'ı ile) */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.k-state-open,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item.menu-acik,
+    #fixed-area-1-container #ana-menu-bar li.k-state-open,
+    #fixed-area-1-container #ana-menu-bar > li.k-state-open,
+    #fixed-area-1-container #ana-menu-bar .k-item.k-state-open > .k-link {
+      background: #64B5F6 !important;
+      background-color: #64B5F6 !important;
+    }
+    
+    /* Ana menü yazı - Telerik .k-link class'ı ile */
+    #fixed-area-1-container #ana-menu-bar .k-menu-item-text,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item .k-link,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item span,
+    #fixed-area-1-container #ana-menu-bar .k-link,
+    #fixed-area-1-container #ana-menu-bar li .k-link,
+    #fixed-area-1-container #ana-menu-bar li span,
+    #fixed-area-1-container #ana-menu-bar > li span,
+    #fixed-area-1-container #ana-menu-bar .k-item > .k-link,
+    #fixed-area-1-container #ana-menu-bar .k-item .k-link {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: #333333 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      letter-spacing: 0.3px !important;
+      line-height: 28px !important;
+    }
+    
+    /* Ana menü li elementi - font boyutunu override et */
+    #fixed-area-1-container #ana-menu-bar > li,
+    #fixed-area-1-container #ana-menu-bar li.k-item,
+    #fixed-area-1-container #ana-menu-bar .k-menu-item {
+      font-size: 16px !important;
+    }
+    
+    /* Alt menü container - açık mavi */
+    #ana-menu-bar .k-menu-group,
+    #ana-menu-bar .k-popup {
+      background: #D9D9FF !important;
+      background-color: #D9D9FF !important;
+      border: 1px solid #B3B3FF !important;
+      padding: 0 !important;
+    }
+    
+    /* Alt menü öğeleri - açık mavi, ayırıcı çizgi YOK - YAZILAR DİKEY ORTALANMIŞ, SOL BAŞTAN */
+    #ana-menu-bar .k-menu-group .k-menu-item,
+    #ana-menu-bar .k-popup .k-menu-item {
+      padding: 0 20px 0 25px !important; /* Sol padding 25px (20px mavi çizgi + 5px boşluk) - YAZILAR DAHA SOLDAN BAŞLAR */
+      margin: 0 !important;
+      min-height: 28px !important;
+      line-height: 28px !important; /* min-height ile aynı - dikey ortalama için */
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      background: #D9D9FF !important;
+      background-color: #D9D9FF !important;
+      border-bottom: none !important;
+      border-top: none !important;
+      position: relative !important;
+      display: flex !important; /* Flexbox ile dikey ortalama */
+      align-items: center !important; /* Dikey ortalama */
+      justify-content: flex-start !important; /* Sol baştan hizalama */
+    }
+    
+    /* Alt menü öğeleri - sol tarafta 20px mavi çizgi */
+    #ana-menu-bar .k-menu-group .k-menu-item::before,
+    #ana-menu-bar .k-popup .k-menu-item::before {
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      width: 20px !important;
+      background: #64B5F6 !important;
+      z-index: 0 !important; /* Yazıların arkasında kalmalı */
+    }
+    
+    /* COPILOT ÇÖZÜMÜ - MERDİVEN SORUNU ÇÖZÜMÜ */
+    /* Alt menü hover - Düz sarı-turuncu arka plan, çocuk elementler transparent */
+    #ana-menu-bar .k-menu-group li.k-item:hover,
+    #ana-menu-bar .k-popup li.k-item:hover,
+    #ana-menu-bar .k-menu-group .k-menu-item.k-item:hover,
+    #ana-menu-bar .k-popup .k-menu-item.k-item:hover,
+    #ana-menu-bar .k-menu-group li.k-item.k-state-hover,
+    #ana-menu-bar .k-popup li.k-item.k-state-hover {
+      background: #FFF9C4 !important; /* Düz sarı-turuncu arka plan */
+      background-color: #FFF9C4 !important;
+      background-image: none !important;
+      box-shadow: none !important; /* Kutuları kaldır */
+      border: none !important; /* Border'ları kaldır */
+    }
+    
+    /* Çocuk elementler transparent olmalı (merdiven görünümünü önlemek için) */
+    #ana-menu-bar .k-menu-group li.k-item:hover span,
+    #ana-menu-bar .k-popup li.k-item:hover span,
+    #ana-menu-bar .k-menu-group li.k-item:hover .k-link,
+    #ana-menu-bar .k-popup li.k-item:hover .k-link,
+    #ana-menu-bar .k-menu-group li.k-item:hover * {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+    
+    /* Hover durumunda ::after pseudo-element'ini devre dışı bırak (merdiven görünümünü önlemek için) */
+    /* NOT: ::before mavi çizgi için kullanılıyor, onu koruyoruz - hover durumunda da mavi kalmalı */
+    #ana-menu-bar .k-menu-group li.k-item:hover::after,
+    #ana-menu-bar .k-popup li.k-item:hover::after {
+      display: none !important;
+    }
+    
+    /* NOT: ::before mavi çizgiyi koruyoruz, hover durumunda da mavi kalmalı */
+    
+    /* Z-index sorunlarını çöz */
+    #ana-menu-bar .k-menu-group li.k-item {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+    
+    /* Alt menü yazı - Telerik .k-link class'ı ile - ÇOK GÜÇLÜ - DİKEY ORTALANMIŞ, SOL BAŞTAN */
+    /* GITHUB ÇÖZÜMÜ - DAHA YÜKSEK SPECIFICITY İLE */
+    /* SON DENEME - TÜM OLASI SELECTOR'LAR İLE MÜMKÜN OLAN EN YÜKSEK SPECIFICITY */
+    /* Parent li için - TÜM olası class kombinasyonları */
+    #ana-menu-bar .k-menu-group li.k-item.k-menu-item,
+    #ana-menu-bar .k-menu-group li.k-item,
+    #ana-menu-bar .k-popup li.k-item.k-menu-item,
+    #ana-menu-bar .k-popup li.k-item,
+    #ana-menu-bar ul.k-menu-group li.k-item,
+    #ana-menu-bar ul.k-popup li.k-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      flex-direction: row !important; /* Yatay yön */
+    }
+    
+    /* .k-link için - TÜM olası selector'lar */
+    #ana-menu-bar .k-menu-group .k-menu-item > .k-link.k-menu-link,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link.k-menu-link,
+    #ana-menu-bar .k-menu-group .k-item > .k-link,
+    #ana-menu-bar .k-menu-group li > .k-link,
+    #ana-menu-bar .k-popup .k-menu-item > .k-link.k-menu-link,
+    #ana-menu-bar .k-popup .k-menu-item .k-link.k-menu-link,
+    #ana-menu-bar ul.k-menu-group .k-link,
+    #ana-menu-bar ul.k-popup .k-link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      flex-direction: row !important; /* Yatay yön */
+      width: 100% !important; /* Tam genişlik */
+      font-size: 15px !important;
+      font-weight: normal !important;
+      color: #333333 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      letter-spacing: 0.2px !important;
+      line-height: 28px !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      position: relative !important;
+      z-index: 1 !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+    
+    /* .k-link içindeki TÜM elementler için */
+    #ana-menu-bar .k-menu-group .k-link *,
+    #ana-menu-bar .k-popup .k-link *,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link *,
+    #ana-menu-bar .k-popup .k-menu-item .k-link * {
+      text-align: left !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+    
+    /* .k-menu-item-text için - TÜM olası selector'lar */
+    #ana-menu-bar .k-menu-group .k-menu-item > .k-link > .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-item .k-link .k-menu-item-text,
+    #ana-menu-bar .k-popup .k-menu-item > .k-link > .k-menu-item-text,
+    #ana-menu-bar .k-popup .k-menu-item .k-link .k-menu-item-text,
+    #ana-menu-bar ul.k-menu-group .k-menu-item-text,
+    #ana-menu-bar ul.k-popup .k-menu-item-text {
+      text-align: left !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+      display: block !important;
+      width: auto !important;
+      float: left !important; /* Float ile sol hizalama */
+      clear: left !important;
+    }
+    
+    /* Telerik'in kendi CSS class'larını override et */
+    .k-menu-link,
+    .k-menu-item-text {
+      text-align: left !important;
+      justify-content: flex-start !important;
+    }
+    
+    /* Eski kurallar - geriye dönük uyumluluk için */
+    #ana-menu-bar .k-menu-group .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link,
+    #ana-menu-bar .k-menu-group .k-item > .k-link,
+    #ana-menu-bar .k-menu-group .k-menu-item span,
+    #ana-menu-bar .k-popup .k-menu-item-text,
+    #ana-menu-bar .k-popup .k-menu-item .k-link,
+    #ana-menu-bar .k-popup .k-item > .k-link,
+    #ana-menu-bar .k-popup .k-menu-item span,
+    #ana-menu-bar .k-menu-group .k-link,
+    #ana-menu-bar .k-popup .k-link {
+      font-size: 15px !important;
+      font-weight: normal !important;
+      color: #333333 !important;
+      font-family: 'Segoe UI', Arial, sans-serif !important;
+      letter-spacing: 0.2px !important;
+      line-height: 28px !important;
+      text-align: left !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      position: relative !important;
+      z-index: 1 !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+    }
+    
+    /* .k-link içindeki TÜM elementlerin padding'i 0 olmalı - İLK HARFLER ALT ALTA BAŞLAMALI */
+    /* AYRICA SOL BAŞTAN HİZALAMA İÇİN text-align ve justify-content ekle */
+    #ana-menu-bar .k-menu-group .k-link *,
+    #ana-menu-bar .k-popup .k-link *,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link *,
+    #ana-menu-bar .k-popup .k-menu-item .k-link *,
+    #ana-menu-bar .k-menu-group .k-menu-item-text *,
+    #ana-menu-bar .k-popup .k-menu-item-text * {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      text-align: left !important; /* Sol baştan hizalama */
+    }
+    
+    /* .k-link içindeki span ve .k-menu-item-text için özel sol hizalama */
+    /* FLEXBOX İLE UYUMLU - display: block yerine flex özellikleri kullan */
+    #ana-menu-bar .k-menu-group .k-link span,
+    #ana-menu-bar .k-popup .k-link span,
+    #ana-menu-bar .k-menu-group .k-link .k-menu-item-text,
+    #ana-menu-bar .k-popup .k-link .k-menu-item-text,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link span,
+    #ana-menu-bar .k-popup .k-menu-item .k-link span {
+      text-align: left !important; /* Sol baştan hizalama */
+      /* display: block kaldırıldı - flexbox ile uyumlu olmalı */
+      flex: 0 0 auto !important; /* Flexbox içinde otomatik boyut */
+      align-self: flex-start !important; /* Sol baştan hizalama */
+    }
+    
+    /* .k-link içindeki TÜM elementlerin varsayılan arka planı transparent - MERDİVEN SORUNU ÇÖZÜMÜ */
+    #ana-menu-bar .k-menu-group .k-link *,
+    #ana-menu-bar .k-popup .k-link *,
+    #ana-menu-bar .k-menu-group .k-menu-item .k-link *,
+    #ana-menu-bar .k-popup .k-menu-item .k-link * {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+    
+    
+    /* Alt menü li elementi - font boyutunu override et */
+    #ana-menu-bar .k-menu-group .k-menu-item,
+    #ana-menu-bar .k-popup .k-menu-item,
+    #ana-menu-bar .k-menu-group .k-item {
+      font-size: 15px !important;
+    }
+  </style>
+  
   <!-- jQuery (Telerik için gerekli) -->
   <script src="{% static 'dashboard/js/jquery-3.6.0.min.js' %}"></script>
   
@@ -135,18 +637,39 @@
 </head>
 
 <body>
-    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) - Koyu Gri -->
-  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #616161, #424242);height:24px;border-bottom:1px solid #757575;font-family:'Segoe UI',Arial,sans-serif;font-size:12px;opacity:0;">
-    <!-- ALAN 1 Etiketi (Proje anlatımı için) -->
-    <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;white-space:nowrap;">
-      ALAN 1 
-      <span style="color:#FF0000;font-size:10pt;margin-left:10px;">↕ 24px</span>
-      <span style="color:#FF0000;font-size:10pt;margin-left:10px;">↔ 100%</span>
-    </span>
+    <!-- 1. SABİT ALAN: ALAN 1 (En Üst) - Ana Menü Butonları -->
+  <div id="fixed-area-1-container" style="position:fixed;top:0;left:0;right:0;z-index:10000;background:linear-gradient(to bottom, #f5f5f5, #eeeeee);height:28px;border-bottom:1px solid #e0e0e0;font-family:'Segoe UI',Arial,sans-serif;opacity:0;">
+    <!-- Telerik Kendo UI Menu -->
+    <ul id="ana-menu-bar" style="margin:0;padding:0;list-style:none;display:flex;height:100%;align-items:center;font-family:'Segoe UI',Arial,sans-serif !important;">
+      <li>
+        <span>Tanımlar</span>
+        <ul>
+          <li><span>Firma Tanımları</span></li>
+          <li><span>Ürün Tanımları</span></li>
+          <li><span>E Posta Tanımları</span></li>
+          <li><span>Whatsapp Tanımları</span></li>
+          <li><span>Sistem Tanımları</span></li>
+          <li><span>Kullanıcı Tanımları</span></li>
+          <li><span>Çıkış</span></li>
+        </ul>
+      </li>
+      <li>
+        <span>Kartlar</span>
+        <ul></ul>
+      </li>
+      <li>
+        <span>Operasyon</span>
+        <ul></ul>
+      </li>
+      <li>
+        <span>Raporlar</span>
+        <ul></ul>
+      </li>
+    </ul>
   </div>
   
   <!-- 2. SABİT ALAN: ALAN 2 (İkonlu Butonlar) - Açık Gri -->
-  <div id="fixed-area-2-container" style="position:fixed;top:24px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #f5f5f5, #eeeeee);height:80px;display:flex;align-items:center;justify-content:flex-start;padding:8px 6px;gap:4px;font-family:'Segoe UI',Arial,sans-serif;border-bottom:1px solid #e0e0e0;opacity:0;">
+  <div id="fixed-area-2-container" style="position:fixed;top:28px;left:0;right:0;z-index:9999;background:linear-gradient(to bottom, #f5f5f5, #eeeeee);height:80px;display:flex;align-items:center;justify-content:flex-start;padding:8px 6px;gap:4px;font-family:'Segoe UI',Arial,sans-serif;border-bottom:1px solid #e0e0e0;opacity:0;">
     <!-- İkonlu Butonlar (ALAN 2'nin içinde) -->
     <div id="main-ribbon-container" style="display:flex;align-items:center;gap:4px;overflow-x:auto;flex:1;justify-content:flex-start;">
       <div id="ribbon-buttons" style="display:flex;gap:4px;align-items:center;flex-wrap:nowrap"></div>
@@ -160,7 +683,7 @@
   </div>
   
   <!-- 3. Tab Container - Telerik TabStrip - Açık Gri (ALAN 2 ile aynı) -->
-  <div id="tabs-container" style="position:fixed;top:104px;left:0;right:0;z-index:9998;height:26px;background:#f5f5f5;border-bottom:1px solid #e0e0e0;padding:0;opacity:0;">
+  <div id="tabs-container" style="position:fixed;top:108px;left:0;right:0;z-index:9998;height:26px;background:#f5f5f5;border-bottom:1px solid #e0e0e0;padding:0;opacity:0;">
     <div id="tabs"></div>
     <!-- ALAN 3 Etiketi (Proje anlatımı için) -->
     <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;white-space:nowrap;">
@@ -191,7 +714,7 @@
   </div>
   
   <!-- İÇERİK ALANI -->
-  <div id="main-content" style="margin-top:130px;padding-top:0;opacity:0;">
+  <div id="main-content" style="margin-top:134px;padding-top:0;opacity:0;">
     {% block content %}{% endblock %}
   </div>
   
@@ -318,7 +841,580 @@
         }
       }
 
-      // ALAN 1 - Boş, ileride eklenecek
+      // ALAN 1 - Ana Menü Butonları (Telerik Kendo UI Menu)
+      var anaMenu = null;
+      function initAnaMenu() {
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoMenu !== 'undefined') {
+          try {
+            anaMenu = $("#ana-menu-bar").kendoMenu({
+              orientation: "horizontal",
+              openOnClick: false,
+              highlightFirst: false, // COPILOT ÇÖZÜMÜ - Varsayılan hover'ları engelle
+              animation: {
+                open: {
+                  effects: "fadeIn",
+                  duration: 150
+                },
+                close: {
+                  effects: "fadeOut",
+                  duration: 100
+                }
+              },
+              open: function(e) {
+                // Menü açıldığında tıklanan butonu koyu mavi yap (#64B5F6)
+                var $item = $(e.item);
+                $item.addClass('menu-acik');
+                $item.css({
+                  'background': '#64B5F6 !important',
+                  'background-color': '#64B5F6 !important'
+                });
+                // Diğer tüm ana menü butonlarını açık mavi yap
+                $("#ana-menu-bar > li").not($item).css({
+                  'background': '#E3F2FD !important',
+                  'background-color': '#E3F2FD !important'
+                });
+                // Alt menü stillerini uygula - daha uzun bekleme
+                setTimeout(function() {
+                  if (typeof applyPetronetStyles === 'function' && !isApplyingStyles) {
+                    applyPetronetStyles();
+                  }
+                  // Ekstra kontrol - alt menü .k-link'leri zorla düzelt
+                  setTimeout(function() {
+                    $("#ana-menu-bar .k-menu-group .k-link, #ana-menu-bar .k-popup .k-link").each(function() {
+                      this.style.setProperty('font-size', '15px', 'important');
+                      this.style.setProperty('font-weight', 'normal', 'important');
+                      this.style.setProperty('color', '#333333', 'important');
+                      // Varsayılan arka planı transparent yap
+                      this.style.setProperty('background', 'transparent', 'important');
+                      this.style.setProperty('background-color', 'transparent', 'important');
+                    });
+                  }, 100);
+                  // Telerik kontrolü yap
+                  setTimeout(checkTelerikMenuStyles, 300);
+                }, 300);
+              },
+              close: function(e) {
+                // Menü kapandığında tüm butonları açık mavi yap
+                var $item = $(e.item);
+                $item.removeClass('menu-acik');
+                $item.css({
+                  'background': '#E3F2FD',
+                  'background-color': '#E3F2FD'
+                });
+                // Tüm ana menü butonlarını açık mavi yap
+                $("#ana-menu-bar > li").css({
+                  'background': '#E3F2FD',
+                  'background-color': '#E3F2FD'
+                });
+                // Stilleri tekrar uygula (sadece bir kez)
+                setTimeout(function() {
+                  if (typeof applyPetronetStyles === 'function' && !isApplyingStyles) {
+                    applyPetronetStyles();
+                  }
+                }, 150);
+                console.log("Menü kapandı:", $item.text());
+              },
+              select: function(e) {
+                var menuText = $(e.item).text().trim();
+                console.log("Ana menü tıklandı:", menuText);
+                // Alt menü öğelerine tıklama işlemleri burada yapılacak
+              }
+            }).data("kendoMenu");
+            console.log("✅ Ana menü başarıyla oluşturuldu!");
+            
+            // Menü oluşturulduktan sonra Petronet görüntüsüne göre tüm stilleri uygula
+            var isApplyingStyles = false; // Sonsuz döngü önleme
+            var lastApplyTime = 0; // Throttle için
+            
+            function applyPetronetStyles() {
+              // Throttle: 300ms içinde tekrar çağrılırsa çık
+              var now = Date.now();
+              if (now - lastApplyTime < 300) return;
+              lastApplyTime = now;
+              
+              if (isApplyingStyles) return; // Zaten uygulanıyorsa çık
+              isApplyingStyles = true;
+              
+              try {
+                // Ana menü container arka planı
+                $("#fixed-area-1-container").css({
+                  'background': '#E3F2FD',
+                  'background-color': '#E3F2FD',
+                  'background-image': 'none'
+                });
+                
+                // Ana menü butonları
+                $("#ana-menu-bar > li, #ana-menu-bar .k-menu-item, #ana-menu-bar li").each(function() {
+                  var $item = $(this);
+                  $item.css({
+                    'background': '#E3F2FD',
+                    'background-color': '#E3F2FD',
+                    'padding': '0 12px',
+                    'margin': '0',
+                    'height': '28px',
+                    'line-height': '28px',
+                    'font-family': "'Segoe UI', Arial, sans-serif",
+                    'border-right': '1px solid #90caf9'
+                  });
+                  // Ana menü yazı - Telerik .k-link'i zorla override et
+                  $item.find('.k-menu-item-text, .k-link, span').css({
+                    'font-size': '16px',
+                    'font-weight': '600',
+                    'font-family': "'Segoe UI', Arial, sans-serif",
+                    'color': '#333333',
+                    'letter-spacing': '0.3px',
+                    'line-height': '28px'
+                  });
+                  
+                  // .k-link'i özellikle hedefle ve zorla uygula
+                  var kLink = $item.find('.k-link').first();
+                  if (kLink.length > 0) {
+                    kLink[0].style.setProperty('font-size', '16px', 'important');
+                    kLink[0].style.setProperty('font-weight', '600', 'important');
+                    kLink[0].style.setProperty('color', '#333333', 'important');
+                    kLink[0].style.setProperty('font-family', "'Segoe UI', Arial, sans-serif", 'important');
+                  }
+                });
+                
+                // Alt menü container
+                $("#ana-menu-bar .k-menu-group, #ana-menu-bar .k-popup").css({
+                  'background': '#D9D9FF',
+                  'background-color': '#D9D9FF',
+                  'padding': '0'
+                });
+                
+                // Alt menü öğeleri - ayırıcı çizgi YOK, sol tarafta mavi çizgi VAR
+                $("#ana-menu-bar .k-menu-group .k-menu-item, #ana-menu-bar .k-popup .k-menu-item, #ana-menu-bar .k-menu-group .k-item").each(function() {
+                  var item = this; // DOM elementi
+                  var $item = $(this);
+                  
+                  // Alt menü öğesi padding'i zorla uygula - DOM elementine direkt - DİKEY ORTALANMIŞ
+                  item.style.setProperty('padding', '0 20px 0 25px', 'important'); /* Üst ve alt padding 0, sol padding 25px - YAZILAR DAHA SOLDAN BAŞLAR */
+                  item.style.setProperty('padding-left', '25px', 'important'); /* Sol padding 25px (20px mavi çizgi + 5px boşluk) */
+                  item.style.setProperty('margin', '0', 'important');
+                  item.style.setProperty('min-height', '28px', 'important');
+                  item.style.setProperty('line-height', '28px', 'important'); /* min-height ile aynı - dikey ortalama için */
+                  item.style.setProperty('font-family', "'Segoe UI', Arial, sans-serif", 'important');
+                  item.style.setProperty('background', '#D9D9FF', 'important');
+                  item.style.setProperty('background-color', '#D9D9FF', 'important');
+                  item.style.setProperty('border-bottom', 'none', 'important');
+                  item.style.setProperty('border-top', 'none', 'important');
+                  item.style.setProperty('position', 'relative', 'important');
+                  item.style.setProperty('font-size', '15px', 'important'); // li elementinin font boyutu
+                  item.style.setProperty('display', 'flex', 'important'); /* Flexbox ile dikey ortalama */
+                  item.style.setProperty('align-items', 'center', 'important'); /* Dikey ortalama */
+                  item.style.setProperty('justify-content', 'flex-start', 'important'); /* Sol baştan hizalama */
+                  
+                  // COPILOT ÇÖZÜMÜ - Runtime inline stillerini kaldır (SADECE background stilleri)
+                  $item.off('mouseenter mouseleave').on('mouseenter', function() {
+                    var item = this;
+                    
+                    // SADECE background ile ilgili inline stilleri temizle (padding/margin korunmalı)
+                    var currentStyle = item.getAttribute('style') || '';
+                    var styleParts = currentStyle.split(';');
+                    var newStyleParts = [];
+                    for (var i = 0; i < styleParts.length; i++) {
+                      var part = styleParts[i].trim();
+                      if (part && 
+                          !part.toLowerCase().includes('background') && 
+                          !part.toLowerCase().includes('box-shadow') &&
+                          !part.toLowerCase().includes('border-color')) {
+                        newStyleParts.push(part);
+                      }
+                    }
+                    item.setAttribute('style', newStyleParts.join('; '));
+                    
+                    // Düz sarı-turuncu arka plan uygula
+                    item.style.setProperty('background', '#FFF9C4', 'important');
+                    item.style.setProperty('background-color', '#FFF9C4', 'important');
+                    item.style.setProperty('background-image', 'none', 'important');
+                    item.style.setProperty('box-shadow', 'none', 'important');
+                    item.style.setProperty('border', 'none', 'important');
+                    
+                    // TÜM çocuk elementlerin SADECE background stillerini temizle (padding/margin korunmalı)
+                    $(item).find('*').each(function() {
+                      // SADECE background stillerini temizle
+                      this.style.background = 'transparent';
+                      this.style.backgroundColor = 'transparent';
+                      this.style.backgroundImage = 'none';
+                      this.style.boxShadow = 'none';
+                      // padding, margin, position, left, top, width, height gibi değerleri KORU
+                    });
+                  }).on('mouseleave', function() {
+                    var item = this;
+                    if (!item.classList.contains('k-state-selected') && 
+                        !item.classList.contains('k-state-active')) {
+                      // Varsayılan arka plana dön
+                      item.style.setProperty('background', '#D9D9FF', 'important');
+                      item.style.setProperty('background-color', '#D9D9FF', 'important');
+                      item.style.setProperty('background-image', 'none', 'important');
+                      
+                      // Çocuk elementleri transparent yap
+                      $(item).find('*').each(function() {
+                        this.style.background = 'transparent';
+                        this.style.backgroundColor = 'transparent';
+                        this.style.backgroundImage = 'none';
+                      });
+                    }
+                  });
+                  
+                  // Hover durumunu temizle (varsayılan arka planı zorla uygula)
+                  if (!item.classList.contains('k-state-hover') && 
+                      !item.classList.contains('k-state-selected') && 
+                      !item.classList.contains('k-state-active')) {
+                    item.style.setProperty('background', '#D9D9FF', 'important');
+                    item.style.setProperty('background-color', '#D9D9FF', 'important');
+                  }
+                  
+                  // JavaScript ile eklenen span'leri kaldır (CSS ::before kullanıyoruz)
+                  $item.find('span[style*="position:absolute"][style*="left:0"]').remove();
+                  
+                  // TÜM .k-link elementlerini bul ve zorla uygula - İLK HARFLER ALT ALTA BAŞLAMALI
+                  // DİKEY ORTALAMA İÇİN line-height ve display: flex ekle, SOL BAŞTAN HİZALAMA
+                  var kLinks = item.querySelectorAll('.k-link');
+                  kLinks.forEach(function(kLink) {
+                    kLink.style.setProperty('font-size', '15px', 'important');
+                    kLink.style.setProperty('font-weight', 'normal', 'important');
+                    kLink.style.setProperty('color', '#333333', 'important');
+                    kLink.style.setProperty('font-family', "'Segoe UI', Arial, sans-serif", 'important');
+                    kLink.style.setProperty('letter-spacing', '0.2px', 'important');
+                    kLink.style.setProperty('line-height', '28px', 'important'); /* min-height ile aynı - dikey ortalama için */
+                    kLink.style.setProperty('text-align', 'left', 'important'); /* Sol baştan hizalama */
+                    // FLEXBOX İLE DİKEY ORTALAMA VE SOL HİZALAMA
+                    kLink.style.setProperty('display', 'flex', 'important'); /* Flexbox yapısı */
+                    kLink.style.setProperty('align-items', 'center', 'important'); /* Dikey ortalama */
+                    kLink.style.setProperty('justify-content', 'flex-start', 'important'); /* Sol baştan hizalama */
+                    kLink.style.setProperty('text-align', 'left', 'important'); /* Metin sol hizalama */
+                    // İLK HARFLER ALT ALTA BAŞLAMALI - padding ve margin 0
+                    kLink.style.setProperty('padding-left', '0', 'important');
+                    kLink.style.setProperty('padding-right', '0', 'important');
+                    kLink.style.setProperty('padding-top', '0', 'important');
+                    kLink.style.setProperty('padding-bottom', '0', 'important');
+                    kLink.style.setProperty('margin-left', '0', 'important');
+                    kLink.style.setProperty('margin-right', '0', 'important');
+                    kLink.style.setProperty('margin-top', '0', 'important');
+                    kLink.style.setProperty('margin-bottom', '0', 'important');
+                    // Varsayılan arka planı transparent yap (merdiven görünümünü önlemek için)
+                    kLink.style.setProperty('background', 'transparent', 'important');
+                    kLink.style.setProperty('background-color', 'transparent', 'important');
+                    kLink.style.setProperty('background-image', 'none', 'important');
+                    
+                    // .k-link içindeki TÜM elementlerin padding ve margin'i 0 olmalı
+                    var linkChildren = kLink.querySelectorAll('*');
+                    linkChildren.forEach(function(child) {
+                      child.style.setProperty('padding-left', '0', 'important');
+                      child.style.setProperty('padding-right', '0', 'important');
+                      child.style.setProperty('margin-left', '0', 'important');
+                      child.style.setProperty('margin-right', '0', 'important');
+                    });
+                  });
+                  
+                  // .k-menu-item-text için - GRID YAPISI İLE SOL HİZALAMA
+                  var menuItemTexts = item.querySelectorAll('.k-menu-item-text');
+                  menuItemTexts.forEach(function(text) {
+                    text.style.setProperty('padding-left', '0', 'important');
+                    text.style.setProperty('padding-right', '0', 'important');
+                    text.style.setProperty('margin-left', '0', 'important');
+                    text.style.setProperty('margin-right', '0', 'important');
+                    text.style.setProperty('text-align', 'left', 'important'); /* Sol baştan hizalama */
+                    text.style.setProperty('justify-self', 'start', 'important'); /* Grid içinde sol hizalama */
+                    text.style.setProperty('display', 'block', 'important'); /* Block element */
+                    text.style.setProperty('width', 'auto', 'important'); /* Otomatik genişlik */
+                  });
+                  
+                  // .k-link içindeki span'ler için de sol hizalama (FLEXBOX UYUMLU)
+                  var linkSpans = item.querySelectorAll('.k-link span');
+                  linkSpans.forEach(function(span) {
+                    span.style.setProperty('text-align', 'left', 'important'); /* Sol baştan hizalama */
+                    span.style.setProperty('flex', '0 0 auto', 'important'); /* Flexbox içinde otomatik boyut */
+                    span.style.setProperty('align-self', 'flex-start', 'important'); /* Sol baştan hizalama */
+                    /* display: block kaldırıldı - flexbox ile uyumlu olmalı */
+                  });
+                  
+                  // Diğer yazı elementleri - SOL BAŞTAN HİZALAMA (FLEXBOX UYUMLU)
+                  var spans = item.querySelectorAll('span:not([style*="position"])');
+                  spans.forEach(function(span) {
+                    if (!span.classList.contains('k-link')) {
+                      span.style.setProperty('font-size', '15px', 'important');
+                      span.style.setProperty('color', '#333333', 'important');
+                      span.style.setProperty('text-align', 'left', 'important'); /* Sol baştan hizalama */
+                      /* display: block kaldırıldı - flexbox ile uyumlu olmalı */
+                    }
+                  });
+                });
+              } catch(e) {
+                console.error("Stil uygulama hatası:", e);
+              } finally {
+                isApplyingStyles = false;
+              }
+            }
+            
+            // İlk uygulama - sadece birkaç kez
+            setTimeout(applyPetronetStyles, 300);
+            setTimeout(applyPetronetStyles, 800);
+            
+            // AGRESIF ÇÖZÜM - Telerik'in inline style'larını tamamen temizle ve zorla uygula
+            function forceLeftAlignment() {
+              // Parent li için - Telerik'in inline style'larını temizle ve zorla uygula
+              $('#ana-menu-bar .k-menu-group li.k-item, #ana-menu-bar .k-popup li.k-item').each(function() {
+                // Telerik'in inline style'larını tamamen temizle
+                this.removeAttribute('style');
+                // Zorla flexbox ayarları uygula
+                this.style.setProperty('display', 'flex', 'important');
+                this.style.setProperty('align-items', 'center', 'important');
+                this.style.setProperty('justify-content', 'flex-start', 'important');
+                this.style.setProperty('text-align', 'left', 'important');
+              });
+              
+              // .k-link için - Telerik'in inline style'larını temizle ve zorla uygula
+              $('#ana-menu-bar .k-menu-group .k-menu-item .k-link, #ana-menu-bar .k-popup .k-menu-item .k-link').each(function() {
+                // Telerik'in inline style'larını tamamen temizle
+                this.removeAttribute('style');
+                // Zorla flexbox ayarları uygula
+                this.style.setProperty('display', 'flex', 'important');
+                this.style.setProperty('align-items', 'center', 'important');
+                this.style.setProperty('justify-content', 'flex-start', 'important');
+                this.style.setProperty('text-align', 'left', 'important');
+                this.style.setProperty('padding-left', '0', 'important');
+                this.style.setProperty('margin-left', '0', 'important');
+              });
+              
+              // .k-menu-item-text için - Telerik'in inline style'larını temizle ve zorla uygula
+              $('#ana-menu-bar .k-menu-group .k-menu-item .k-menu-item-text, #ana-menu-bar .k-popup .k-menu-item .k-menu-item-text').each(function() {
+                // Telerik'in inline style'larını tamamen temizle
+                this.removeAttribute('style');
+                // Zorla sol hizalama uygula
+                this.style.setProperty('text-align', 'left', 'important');
+                this.style.setProperty('margin-left', '0', 'important');
+                this.style.setProperty('padding-left', '0', 'important');
+                this.style.setProperty('display', 'block', 'important');
+                this.style.setProperty('width', 'auto', 'important');
+              });
+            }
+            
+            // İlk uygulama
+            setTimeout(forceLeftAlignment, 500);
+            setTimeout(forceLeftAlignment, 1000);
+            setTimeout(forceLeftAlignment, 1500);
+            
+            // Menü açıldığında da uygula
+            if (anaMenu) {
+              anaMenu.bind('open', function() {
+                setTimeout(forceLeftAlignment, 50);
+                setTimeout(forceLeftAlignment, 200);
+                setTimeout(forceLeftAlignment, 500);
+              });
+            }
+            
+            // Sürekli kontrol et (Telerik'in runtime değişikliklerini yakala)
+            setInterval(function() {
+              $('#ana-menu-bar .k-menu-group li.k-item').each(function() {
+                var justifyContent = window.getComputedStyle(this).justifyContent;
+                if (justifyContent !== 'flex-start') {
+                  this.style.setProperty('justify-content', 'flex-start', 'important');
+                }
+              });
+              
+              $('#ana-menu-bar .k-menu-group .k-menu-item .k-link').each(function() {
+                var justifyContent = window.getComputedStyle(this).justifyContent;
+                var textAlign = window.getComputedStyle(this).textAlign;
+                if (justifyContent !== 'flex-start') {
+                  this.style.setProperty('justify-content', 'flex-start', 'important');
+                }
+                if (textAlign !== 'left') {
+                  this.style.setProperty('text-align', 'left', 'important');
+                }
+              });
+              
+              $('#ana-menu-bar .k-menu-group .k-menu-item .k-menu-item-text').each(function() {
+                var textAlign = window.getComputedStyle(this).textAlign;
+                if (textAlign !== 'left') {
+                  this.style.setProperty('text-align', 'left', 'important');
+                }
+              });
+            }, 100); // Her 100ms'de bir kontrol et
+            
+            // COPILOT ÇÖZÜMÜ - Global hover event listener (Telerik'in inline stillerini kaldır)
+            // SADECE background stillerini temizle, padding/margin korunmalı
+            $("#ana-menu-bar").on("mouseenter", "li.k-item", function() {
+              var $item = $(this);
+              
+              // SADECE background ile ilgili inline stilleri temizle (padding/margin korunmalı)
+              var currentStyle = this.getAttribute('style') || '';
+              // Background stillerini kaldır ama padding/margin/position/left/top/bottom/width/height koru
+              var styleParts = currentStyle.split(';');
+              var newStyleParts = [];
+              for (var i = 0; i < styleParts.length; i++) {
+                var part = styleParts[i].trim();
+                if (part && 
+                    !part.toLowerCase().includes('background') && 
+                    !part.toLowerCase().includes('box-shadow') &&
+                    !part.toLowerCase().includes('border-color')) {
+                  newStyleParts.push(part);
+                }
+              }
+              this.setAttribute('style', newStyleParts.join('; '));
+              
+              // Düz sarı-turuncu arka plan uygula
+              this.style.setProperty('background', '#FFF9C4', 'important');
+              this.style.setProperty('background-color', '#FFF9C4', 'important');
+              this.style.setProperty('background-image', 'none', 'important');
+              this.style.setProperty('box-shadow', 'none', 'important');
+              
+              // TÜM çocuk elementlerin SADECE background stillerini temizle
+              $item.find("*").each(function() {
+                // SADECE background stillerini temizle, diğer stilleri koru
+                this.style.background = "transparent";
+                this.style.backgroundColor = "transparent";
+                this.style.backgroundImage = "none";
+                this.style.boxShadow = "none";
+                // padding, margin, position, left, top, width, height gibi değerleri KORU
+              });
+            });
+            
+            // TELERIK KARŞILAŞTIRMA KONTROLÜ - Fonksiyon olarak tanımla
+            function checkTelerikMenuStyles() {
+              console.log("\n\n========================================");
+              console.log("=== TELERIK MENU KARŞILAŞTIRMA KONTROLÜ ===");
+              console.log("========================================\n");
+              
+              // Ana menü container kontrolü
+              var menuBar = document.getElementById('ana-menu-bar');
+              if (!menuBar) {
+                console.log("❌ #ana-menu-bar bulunamadı!");
+                return;
+              }
+              console.log("✅ #ana-menu-bar bulundu");
+              
+              // Ana menü öğelerini kontrol et - TÜM YOLLARLA
+              var anaMenuItems1 = $("#ana-menu-bar > li");
+              var anaMenuItems2 = $("#ana-menu-bar .k-item");
+              var anaMenuItems3 = $("#ana-menu-bar .k-menu-item");
+              var anaMenuItems4 = $("#ana-menu-bar li");
+              
+              console.log("\n--- ANA MENÜ KONTROLÜ ---");
+              console.log("  - #ana-menu-bar > li sayısı:", anaMenuItems1.length);
+              console.log("  - .k-item sayısı:", anaMenuItems2.length);
+              console.log("  - .k-menu-item sayısı:", anaMenuItems3.length);
+              console.log("  - li sayısı:", anaMenuItems4.length);
+              
+              var anaMenuItems = anaMenuItems1.length > 0 ? anaMenuItems1 : anaMenuItems4;
+              console.log("\n✅ Kullanılan selector ile bulunan öğe sayısı:", anaMenuItems.length);
+              
+              if (anaMenuItems.length > 0) {
+                anaMenuItems.each(function(index) {
+                  var $item = $(this);
+                  var itemText = $item.text().trim().replace(/\s+/g, ' ').substring(0, 50);
+                  var hasKItem = $item.hasClass('k-item');
+                  var hasKMenuItem = $item.hasClass('k-menu-item');
+                  var kLink = $item.find('.k-link').first();
+                  var kLinkText = kLink.length > 0 ? kLink.text().trim() : '';
+                  var computedBg = window.getComputedStyle(this).backgroundColor;
+                  var computedFontSize = window.getComputedStyle(this).fontSize;
+                  var computedColor = window.getComputedStyle(this).color;
+                  
+                  console.log(`\n  📌 Ana Menü ${index + 1}: "${itemText}"`);
+                  console.log("    ✓ k-item class:", hasKItem);
+                  console.log("    ✓ k-menu-item class:", hasKMenuItem);
+                  console.log("    ✓ .k-link bulundu:", kLink.length > 0);
+                  if (kLink.length > 0) {
+                    console.log("    ✓ .k-link metni:", kLinkText || "(boş)");
+                    var kLinkBg = window.getComputedStyle(kLink[0]).backgroundColor;
+                    var kLinkFontSize = window.getComputedStyle(kLink[0]).fontSize;
+                    var kLinkColor = window.getComputedStyle(kLink[0]).color;
+                    console.log("    ✓ .k-link arka plan:", kLinkBg);
+                    console.log("    ✓ .k-link font boyutu:", kLinkFontSize);
+                    console.log("    ✓ .k-link yazı rengi:", kLinkColor);
+                  }
+                  console.log("    ✓ Arka plan rengi:", computedBg);
+                  console.log("    ✓ Font boyutu:", computedFontSize);
+                  console.log("    ✓ Yazı rengi:", computedColor);
+                });
+              } else {
+                console.log("  ⚠️ Ana menü öğeleri bulunamadı!");
+                console.log("  💡 HTML yapısını kontrol edin: $('#ana-menu-bar').html()");
+              }
+              
+              // Alt menü öğelerini kontrol et - TÜM YOLLARLA
+              console.log("\n\n--- ALT MENÜ KONTROLÜ ---");
+              var altMenuItems1 = $("#ana-menu-bar .k-menu-group .k-menu-item");
+              var altMenuItems2 = $("#ana-menu-bar .k-popup .k-menu-item");
+              var altMenuItems3 = $("#ana-menu-bar .k-menu-group .k-item");
+              var altMenuItems4 = $("#ana-menu-bar .k-popup .k-item");
+              
+              console.log("  - .k-menu-group .k-menu-item sayısı:", altMenuItems1.length);
+              console.log("  - .k-popup .k-menu-item sayısı:", altMenuItems2.length);
+              console.log("  - .k-menu-group .k-item sayısı:", altMenuItems3.length);
+              console.log("  - .k-popup .k-item sayısı:", altMenuItems4.length);
+              
+              var altMenuItems = altMenuItems1.length > 0 ? altMenuItems1 : 
+                                 altMenuItems2.length > 0 ? altMenuItems2 :
+                                 altMenuItems3.length > 0 ? altMenuItems3 : altMenuItems4;
+              
+              console.log("\nKullanılan selector ile bulunan öğe sayısı:", altMenuItems.length);
+              
+              if (altMenuItems.length > 0) {
+                console.log("\n✅ Alt menü öğeleri bulundu!");
+                altMenuItems.each(function(index) {
+                  var $item = $(this);
+                  var itemText = $item.text().trim().replace(/\s+/g, ' ').substring(0, 50);
+                  var kLink = $item.find('.k-link').first();
+                  var kLinkText = kLink.length > 0 ? kLink.text().trim() : '';
+                  var computedBg = window.getComputedStyle(this).backgroundColor;
+                  var computedFontSize = window.getComputedStyle(this).fontSize;
+                  var computedPaddingLeft = window.getComputedStyle(this).paddingLeft;
+                  var computedColor = window.getComputedStyle(this).color;
+                  
+                  console.log(`\n  📌 Alt Menü ${index + 1}: "${itemText}"`);
+                  console.log("    ✓ .k-link bulundu:", kLink.length > 0);
+                  if (kLink.length > 0) {
+                    console.log("    ✓ .k-link metni:", kLinkText || "(boş)");
+                    var kLinkBg = window.getComputedStyle(kLink[0]).backgroundColor;
+                    var kLinkFontSize = window.getComputedStyle(kLink[0]).fontSize;
+                    var kLinkColor = window.getComputedStyle(kLink[0]).color;
+                    console.log("    ✓ .k-link arka plan:", kLinkBg);
+                    console.log("    ✓ .k-link font boyutu:", kLinkFontSize);
+                    console.log("    ✓ .k-link yazı rengi:", kLinkColor);
+                  }
+                  console.log("    ✓ Arka plan rengi:", computedBg);
+                  console.log("    ✓ Font boyutu:", computedFontSize);
+                  console.log("    ✓ Sol padding:", computedPaddingLeft);
+                  console.log("    ✓ Yazı rengi:", computedColor);
+                });
+              } else {
+                console.log("  ⚠️ Alt menü öğeleri bulunamadı!");
+                console.log("  💡 İpucu: 'Tanımlar' menüsünü AÇIK tutun ve konsolda şunu yazın:");
+                console.log("     checkTelerikMenuStyles()");
+              }
+              
+              // Telerik varsayılan stillerini kontrol et
+              console.log("\n\n--- TELERIK VARSAYILAN STİLLER ---");
+              var kendoStyles = document.querySelector('link[href*="kendo"]');
+              if (kendoStyles) {
+                console.log("✅ Telerik CSS yüklendi:", kendoStyles.href);
+              } else {
+                console.log("⚠️ Telerik CSS bulunamadı!");
+              }
+              
+              console.log("\n========================================");
+              console.log("=== KONTROL TAMAMLANDI ===");
+              console.log("========================================\n");
+            }
+            
+            // İlk kontrol - sayfa yüklendiğinde
+            setTimeout(checkTelerikMenuStyles, 2000);
+            
+            // Global fonksiyon olarak tanımla - konsoldan çağrılabilir
+            window.checkTelerikMenuStyles = checkTelerikMenuStyles;
+          } catch(error) {
+            console.error("❌ Ana menü oluşturulurken hata:", error);
+          }
+        } else {
+          console.log("⏳ Telerik yükleniyor, ana menü bekleniyor...");
+          setTimeout(initAnaMenu, 100);
+        }
+      }
+      initAnaMenu();
 
       // Ribbon butonlarını oluştur (ALAN 2)
       loadRibbonButtons();
@@ -1372,6 +2468,40 @@
         console.log("Diğer sayfa:", pageName, "- Şimdilik çalışmıyor");
       }
     });
+    
+    // duzeltGridBorderSorunu fonksiyonu - Grid border sorununu düzeltir
+    function duzeltGridBorderSorunu(gridSelector, gridWidth) {
+      try {
+        var $grid = $(gridSelector);
+        if ($grid.length === 0) {
+          console.warn("Grid bulunamadı:", gridSelector);
+          return;
+        }
+        
+        // Grid container genişliğini ayarla
+        $grid.css({
+          'width': gridWidth + 'px',
+          'max-width': gridWidth + 'px',
+          'min-width': gridWidth + 'px'
+        });
+        
+        // Grid wrapper genişliğini ayarla
+        var $wrapper = $grid.closest('.k-grid-wrapper, .k-widget');
+        if ($wrapper.length > 0) {
+          $wrapper.css({
+            'width': gridWidth + 'px',
+            'max-width': gridWidth + 'px'
+          });
+        }
+        
+        console.log("Grid border sorunu düzeltildi:", gridSelector, "Genişlik:", gridWidth + 'px');
+      } catch(error) {
+        console.error("duzeltGridBorderSorunu hatası:", error);
+      }
+    }
+    
+    // Global fonksiyon olarak tanımla
+    window.duzeltGridBorderSorunu = duzeltGridBorderSorunu;
   </script>
   
   {% block extra_scripts %}{% endblock %}

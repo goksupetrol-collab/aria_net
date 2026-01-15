@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 3,
+    "Sec": true,
+    "TanID": 1,
+    "MasID": 1,
+    "Deger": "",
+    "Sorgu_Str": "",
+    "Deger_Sorgu": null
+  },
+  {
+    "Id": 4,
+    "Sec": true,
+    "TanID": 1,
+    "MasID": 2,
+    "Deger": "",
+    "Sorgu_Str": "",
+    "Deger_Sorgu": null
+  }
+]

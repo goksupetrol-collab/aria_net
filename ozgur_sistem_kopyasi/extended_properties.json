@@ -1,0 +1,146 @@
+[
+  {
+    "property_name": "MS_Description",
+    "property_value": "G=GIRISLER\r\nC=CIKISLAR",
+    "schema_name": "dbo",
+    "object_name": "cekhrk",
+    "object_type": "USER_TABLE",
+    "minor_id": 7,
+    "column_name": "gctip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "Micro\r\nLogo",
+    "schema_name": "dbo",
+    "object_name": "Entegre",
+    "object_type": "USER_TABLE",
+    "minor_id": 3,
+    "column_name": "tip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "VER=VERESIYE\r\nIRS=IRSALIYE\r\nSIP=SIPARIS\r\nFAT=FATURA",
+    "schema_name": "dbo",
+    "object_name": "faturamas",
+    "object_type": "USER_TABLE",
+    "minor_id": 38,
+    "column_name": "kaptip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "0=DEGISIM,1=TRANSFEROK",
+    "schema_name": "dbo",
+    "object_name": "grup",
+    "object_type": "USER_TABLE",
+    "minor_id": 13,
+    "column_name": "dataok"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "market - akaryakıt - yağ",
+    "schema_name": "dbo",
+    "object_name": "irsaliyemas",
+    "object_type": "USER_TABLE",
+    "minor_id": 6,
+    "column_name": "irtip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "alış -satış",
+    "schema_name": "dbo",
+    "object_name": "irsaliyemas",
+    "object_type": "USER_TABLE",
+    "minor_id": 9,
+    "column_name": "irtur"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "FISVERSAT= VERESIYE FISI\r\nFISALCSAT = ALACAK FISI",
+    "schema_name": "dbo",
+    "object_name": "Prom_Sat_Baslik",
+    "object_type": "USER_TABLE",
+    "minor_id": 13,
+    "column_name": "fistip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "BK= BEKLEMEDE\r\nCH= CARIYE AKTARILMIS\r\nFT= FATURALANMIS",
+    "schema_name": "dbo",
+    "object_name": "Prom_Sat_Baslik",
+    "object_type": "USER_TABLE",
+    "minor_id": 36,
+    "column_name": "aktip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "0=BORC\r\n1=ALACAK\r\n2=MANUEL",
+    "schema_name": "dbo",
+    "object_name": "Rapor_Grup_Kriter",
+    "object_type": "USER_TABLE",
+    "minor_id": 9,
+    "column_name": "Deger_Tip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "BAK\r\nPOR\r\nTAK\r\nKHA\r\nKDA",
+    "schema_name": "dbo",
+    "object_name": "Rapor_Grup_Kriter",
+    "object_type": "USER_TABLE",
+    "minor_id": 11,
+    "column_name": "Hrk_Tip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "1=Recete\r\n2=Urun",
+    "schema_name": "dbo",
+    "object_name": "ResSatRecHrk",
+    "object_type": "USER_TABLE",
+    "minor_id": 5,
+    "column_name": "UretimTipId"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "market - akaryakıt - yağ",
+    "schema_name": "dbo",
+    "object_name": "siparismas",
+    "object_type": "USER_TABLE",
+    "minor_id": 7,
+    "column_name": "siptip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "alış -satış",
+    "schema_name": "dbo",
+    "object_name": "siparismas",
+    "object_type": "USER_TABLE",
+    "minor_id": 8,
+    "column_name": "siptur"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "KAYIT\r\nSILME\r\nDUZELTME",
+    "schema_name": "dbo",
+    "object_name": "userlog",
+    "object_type": "USER_TABLE",
+    "minor_id": 9,
+    "column_name": "islem"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "FISVERSAT= VERESIYE FISI\r\nFISALCSAT = ALACAK FISI",
+    "schema_name": "dbo",
+    "object_name": "veresimas",
+    "object_type": "USER_TABLE",
+    "minor_id": 11,
+    "column_name": "fistip"
+  },
+  {
+    "property_name": "MS_Description",
+    "property_value": "BK= BEKLEMEDE\r\nCH= CARIYE AKTARILMIS\r\nFT= FATURALANMIS",
+    "schema_name": "dbo",
+    "object_name": "veresimas",
+    "object_type": "USER_TABLE",
+    "minor_id": 35,
+    "column_name": "aktip"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "user_kod": "MARKET",
+    "kisayol_cap": true,
+    "style": 4,
+    "coklu_satir": false,
+    "Modul": null,
+    "Eski_Style": true
+  },
+  {
+    "id": 2,
+    "user_kod": "YÖNETİM",
+    "kisayol_cap": true,
+    "style": 4,
+    "coklu_satir": false,
+    "Modul": null,
+    "Eski_Style": true
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "Firmano": 1,
+    "Ad": "BAKIYE",
+    "Aciklama": "Sayın <UNVAN>; Mevcut Borç Bakiyeniz <TARIH> itibari ile <BAKIYE> TL' dir.En kısa zamanda ödenmesini rica eder, saygılar sunarız.",
+    "OlusturmaTarihSaat": "2021-11-03 04:58:57",
+    "OlusturmaKullaniciUnvan": "SİSTEM YÖNETİCİSİ",
+    "DegistirmeTarihSaat": "2021-11-04 04:00:58",
+    "DegistirmeKullaniciUnvan": "SİSTEM YÖNETİCİSİ",
+    "SilTarihSaat": null,
+    "SilKullaniciUnvan": null,
+    "Sil": false,
+    "RemoteId": 0
+  }
+]

@@ -1,0 +1,3 @@
+﻿Id,GrpID,GrpAd,AlanAd,AlanAck,DegerTIP,Query_Table,Query_Table_Sorgu
+1,1,markt,Ozel_Kod1,Özel Kod 1,1,Ozel_Kod,sil=0
+2,1,markt,Ozel_Kod2,Özel Kod 2,1,Ozel_Kod,sil=0

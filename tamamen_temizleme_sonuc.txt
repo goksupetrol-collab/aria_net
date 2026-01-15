@@ -1,0 +1,679 @@
+============================================================
+PETRONET VE SQL SERVER TAMAMEN TEMIZLEME
+============================================================
+Tarih: 2026-01-14 20:23:09.706871
+KORUNACAK KLASOR: D:\tayfun\ozgur_sistem_kopyasi
+
+============================================================
+SQL SERVER SERVISLERI DURDURMA VE KALDIRMA
+============================================================
+
+   MSSQLSERVER servisi durduruluyor...
+   MSSQLSERVER servisi kaldiriliyor...
+   NOT: MSSQLSERVER kaldirilemedi
+
+   MSSQL$PETROSQL servisi durduruluyor...
+   MSSQL$PETROSQL servisi kaldiriliyor...
+   NOT: MSSQL$PETROSQL kaldirilemedi
+
+   SQLSERVERAGENT servisi durduruluyor...
+   SQLSERVERAGENT servisi kaldiriliyor...
+   NOT: SQLSERVERAGENT kaldirilemedi
+
+   SQLBrowser servisi durduruluyor...
+   SQLBrowser servisi kaldiriliyor...
+   NOT: SQLBrowser kaldirilemedi
+
+============================================================
+MASUSTU TEMIZLEME
+============================================================
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\Desktop\PetroNet - Kısayol.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\Desktop\PetroNet - Kısayol.lnk silindi
+
+   Toplam 1 masaustu ogesi silindi
+
+============================================================
+PROGRAM FILES TEMIZLEME
+============================================================
+
+   Araniyor: C:\Program Files
+   Siliniyor: C:\Program Files\Microsoft SQL Server
+   OK: C:\Program Files\Microsoft SQL Server silindi
+   Siliniyor: C:\Program Files\Microsoft SQL Server Management Studio 22
+   OK: C:\Program Files\Microsoft SQL Server Management Studio 22 silindi
+   Siliniyor: C:\Program Files\Adobe\Acrobat DC\Acrobat\sqlite.dll
+   HATA: C:\Program Files\Adobe\Acrobat DC\Acrobat\sqlite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Adobe\\Acrobat DC\\Acrobat\\sqlite.dll'
+   Siliniyor: C:\Program Files\Akia\jre\legal\java.sql
+   OK: C:\Program Files\Akia\jre\legal\java.sql silindi
+   Siliniyor: C:\Program Files\Akia\jre\legal\java.sql.rowset
+   OK: C:\Program Files\Akia\jre\legal\java.sql.rowset silindi
+   Siliniyor: C:\Program Files\Common Files\Apple\Mobile Device Support\SQLite3.dll
+   HATA: C:\Program Files\Common Files\Apple\Mobile Device Support\SQLite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\Apple\\Mobile Device Support\\SQLite3.dll'
+   Siliniyor: C:\Program Files\Common Files\microsoft shared\SQL Debugging
+   OK: C:\Program Files\Common Files\microsoft shared\SQL Debugging silindi
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\msdasql.dll
+   HATA: C:\Program Files\Common Files\System\Ole DB\msdasql.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\msdasql.dll'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\msdasqlr.dll
+   HATA: C:\Program Files\Common Files\System\Ole DB\msdasqlr.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\msdasqlr.dll'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\sqloledb.dll
+   HATA: C:\Program Files\Common Files\System\Ole DB\sqloledb.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\sqloledb.dll'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\sqloledb.rll
+   HATA: C:\Program Files\Common Files\System\Ole DB\sqloledb.rll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\sqloledb.rll'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\sqlxmlx.dll
+   HATA: C:\Program Files\Common Files\System\Ole DB\sqlxmlx.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\sqlxmlx.dll'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\sqlxmlx.rll
+   HATA: C:\Program Files\Common Files\System\Ole DB\sqlxmlx.rll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\sqlxmlx.rll'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\en-US\msdasqlr.dll.mui
+   HATA: C:\Program Files\Common Files\System\Ole DB\en-US\msdasqlr.dll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\en-US\\msdasqlr.dll.mui'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\en-US\sqloledb.rll.mui
+   HATA: C:\Program Files\Common Files\System\Ole DB\en-US\sqloledb.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\en-US\\sqloledb.rll.mui'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\en-US\sqlxmlx.rll.mui
+   HATA: C:\Program Files\Common Files\System\Ole DB\en-US\sqlxmlx.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\en-US\\sqlxmlx.rll.mui'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\tr-TR\msdasqlr.dll.mui
+   HATA: C:\Program Files\Common Files\System\Ole DB\tr-TR\msdasqlr.dll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\tr-TR\\msdasqlr.dll.mui'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\tr-TR\sqloledb.rll.mui
+   HATA: C:\Program Files\Common Files\System\Ole DB\tr-TR\sqloledb.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\tr-TR\\sqloledb.rll.mui'
+   Siliniyor: C:\Program Files\Common Files\System\Ole DB\tr-TR\sqlxmlx.rll.mui
+   HATA: C:\Program Files\Common Files\System\Ole DB\tr-TR\sqlxmlx.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Common Files\\System\\Ole DB\\tr-TR\\sqlxmlx.rll.mui'
+   Siliniyor: C:\Program Files\FileViewPro\Resources\Editor\monaco\min\vs\basic-languages\src\sql.js
+   HATA: C:\Program Files\FileViewPro\Resources\Editor\monaco\min\vs\basic-languages\src\sql.js silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\FileViewPro\\Resources\\Editor\\monaco\\min\\vs\\basic-languages\\src\\sql.js'
+   Siliniyor: C:\Program Files\Git\mingw64\bin\sqlite3_analyzer.sh
+   HATA: C:\Program Files\Git\mingw64\bin\sqlite3_analyzer.sh silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\mingw64\\bin\\sqlite3_analyzer.sh'
+   Siliniyor: C:\Program Files\Git\mingw64\lib\tcl8\8.6\tdbc\sqlite3-1.1.12.tm
+   HATA: C:\Program Files\Git\mingw64\lib\tcl8\8.6\tdbc\sqlite3-1.1.12.tm silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\mingw64\\lib\\tcl8\\8.6\\tdbc\\sqlite3-1.1.12.tm'
+   Siliniyor: C:\Program Files\Git\mingw64\lib\tcl8\8.6\tdbc\sqlite3-1.1.12.uuid
+   HATA: C:\Program Files\Git\mingw64\lib\tcl8\8.6\tdbc\sqlite3-1.1.12.uuid silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\mingw64\\lib\\tcl8\\8.6\\tdbc\\sqlite3-1.1.12.uuid'
+   Siliniyor: C:\Program Files\Git\usr\bin\msys-sqlite3-0.dll
+   HATA: C:\Program Files\Git\usr\bin\msys-sqlite3-0.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\bin\\msys-sqlite3-0.dll'
+   Siliniyor: C:\Program Files\Git\usr\share\licenses\libsqlite
+   OK: C:\Program Files\Git\usr\share\licenses\libsqlite silindi
+   Siliniyor: C:\Program Files\Git\usr\share\nano\sql.nanorc
+   HATA: C:\Program Files\Git\usr\share\nano\sql.nanorc silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\nano\\sql.nanorc'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\autoload\sqlcomplete.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\autoload\sqlcomplete.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\autoload\\sqlcomplete.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\doc\ft_sql.txt
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\doc\ft_sql.txt silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\doc\\ft_sql.txt'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\ftplugin\mysql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\ftplugin\mysql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\ftplugin\\mysql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\ftplugin\plsql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\ftplugin\plsql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\ftplugin\\plsql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\ftplugin\sql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\ftplugin\sql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\ftplugin\\sql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\indent\sql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\indent\sql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\indent\\sql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\indent\sqlanywhere.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\indent\sqlanywhere.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\indent\\sqlanywhere.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\esqlc.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\esqlc.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\esqlc.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\msql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\msql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\msql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\mysql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\mysql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\mysql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\plsql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\plsql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\plsql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sql.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sql.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sql.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlanywhere.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlanywhere.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sqlanywhere.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlforms.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlforms.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sqlforms.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlhana.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlhana.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sqlhana.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlinformix.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlinformix.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sqlinformix.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlj.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqlj.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sqlj.vim'
+   Siliniyor: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqloracle.vim
+   HATA: C:\Program Files\Git\usr\share\vim\vim91\syntax\sqloracle.vim silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Git\\usr\\share\\vim\\vim91\\syntax\\sqloracle.vim'
+   Siliniyor: C:\Program Files\Google\Play Games\26.1.54.0\service\SQLite.Interop.dll
+   HATA: C:\Program Files\Google\Play Games\26.1.54.0\service\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Google\\Play Games\\26.1.54.0\\service\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\Google\Play Games\26.1.54.0\service\System.Data.SQLite.dll
+   HATA: C:\Program Files\Google\Play Games\26.1.54.0\service\System.Data.SQLite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Google\\Play Games\\26.1.54.0\\service\\System.Data.SQLite.dll'
+   Siliniyor: C:\Program Files\Google\Play Games\current\service\SQLite.Interop.dll
+   HATA: C:\Program Files\Google\Play Games\current\service\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Google\\Play Games\\current\\service\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\Google\Play Games\current\service\System.Data.SQLite.dll
+   HATA: C:\Program Files\Google\Play Games\current\service\System.Data.SQLite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Google\\Play Games\\current\\service\\System.Data.SQLite.dll'
+   Siliniyor: C:\Program Files\McAfee\WebAdvisor\Analytics\dataConfig.cab.bak
+   HATA: C:\Program Files\McAfee\WebAdvisor\Analytics\dataConfig.cab.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\McAfee\\WebAdvisor\\Analytics\\dataConfig.cab.bak'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\1055\DataServices\+YeniSQLServerBağlantısı.odc
+   HATA: C:\Program Files\Microsoft Office\root\Office16\1055\DataServices\+YeniSQLServerBağlantısı.odc silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\1055\\DataServices\\+YeniSQLServerBağlantısı.odc'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ACCMonaco\sql-formatter
+   OK: C:\Program Files\Microsoft Office\root\Office16\ACCMonaco\sql-formatter silindi
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ACCMonaco\vs\basic-languages\access-sql
+   OK: C:\Program Files\Microsoft Office\root\Office16\ACCMonaco\vs\basic-languages\access-sql silindi
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ACCMonaco\vs\basic-languages\sql
+   OK: C:\Program Files\Microsoft Office\root\Office16\ACCMonaco\vs\basic-languages\sql silindi
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\Microsoft Power Query for Excel Integrated\bin\System.Data.SqlClient.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\Microsoft Power Query for Excel Integrated\bin\System.Data.SqlClient.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\Microsoft Power Query for Excel Integrated\\bin\\System.Data.SqlClient.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Microsoft.SqlServer.Configuration.SString.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Microsoft.SqlServer.Configuration.SString.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Microsoft.SqlServer.Configuration.SString.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Microsoft.SqlServer.Types.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Microsoft.SqlServer.Types.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Microsoft.SqlServer.Types.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql120.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql120.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Cartridges\\sql120.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql2000.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql2000.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Cartridges\\sql2000.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql70.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql70.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Cartridges\\sql70.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql90.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sql90.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Cartridges\\sql90.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sqlpdw.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\Cartridges\sqlpdw.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\Cartridges\\sqlpdw.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\tr\Microsoft.SqlServer.Types.resources.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-in\tr\Microsoft.SqlServer.Types.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-in\\tr\\Microsoft.SqlServer.Types.resources.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Microsoft.SqlServer.Configuration.SString.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Microsoft.SqlServer.Configuration.SString.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Microsoft.SqlServer.Configuration.SString.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Microsoft.SqlServer.Types.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Microsoft.SqlServer.Types.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Microsoft.SqlServer.Types.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql120.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql120.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Cartridges\\sql120.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql2000.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql2000.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Cartridges\\sql2000.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql70.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql70.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Cartridges\\sql70.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql90.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sql90.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Cartridges\\sql90.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sqlpdw.xsl
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\Cartridges\sqlpdw.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\Cartridges\\sqlpdw.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\tr\Microsoft.SqlServer.Types.resources.dll
+   HATA: C:\Program Files\Microsoft Office\root\Office16\ADDINS\PowerPivot Excel Add-inv16\tr\Microsoft.SqlServer.Types.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\Office16\\ADDINS\\PowerPivot Excel Add-inv16\\tr\\Microsoft.SqlServer.Types.resources.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Microsoft.SqlServer.Configuration.SString.dll
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Microsoft.SqlServer.Configuration.SString.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModel\\Microsoft.SqlServer.Configuration.SString.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sql2000.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sql2000.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModel\\Cartridges\\sql2000.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sql70.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sql70.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModel\\Cartridges\\sql70.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sql90.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sql90.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModel\\Cartridges\\sql90.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sqlpdw.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModel\Cartridges\sqlpdw.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModel\\Cartridges\\sqlpdw.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Microsoft.SqlServer.Configuration.SString.dll
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Microsoft.SqlServer.Configuration.SString.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModelv16\\Microsoft.SqlServer.Configuration.SString.dll'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sql2000.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sql2000.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModelv16\\Cartridges\\sql2000.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sql70.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sql70.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModelv16\\Cartridges\\sql70.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sql90.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sql90.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModelv16\\Cartridges\\sql90.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sqlpdw.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesCommonX64\Microsoft Shared\OFFICE16\DataModelv16\Cartridges\sqlpdw.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonX64\\Microsoft Shared\\OFFICE16\\DataModelv16\\Cartridges\\sqlpdw.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\SQLDumper.exe
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\SQLDumper.exe silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\SQLDumper.exe'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\msql.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\msql.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\msql.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql120.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql120.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql120.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql2000.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql2000.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql2000.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql70.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql70.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql70.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql90.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql90.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql90.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sqlpdw.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX64\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sqlpdw.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX64\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sqlpdw.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft SQL Server
+   OK: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft SQL Server silindi
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\SQLDumper.exe
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\SQLDumper.exe silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\SQLDumper.exe'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\msql.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\msql.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\msql.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql120.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql120.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql120.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql2000.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql2000.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql2000.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql70.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql70.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql70.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql90.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sql90.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sql90.xsl'
+   Siliniyor: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sqlpdw.xsl
+   HATA: C:\Program Files\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis Services\AS OLEDB\140\Cartridges\sqlpdw.xsl silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesX86\\Microsoft Analysis Services\\AS OLEDB\\140\\Cartridges\\sqlpdw.xsl'
+   Siliniyor: C:\Program Files\ReasonLabs\DNS\System.Data.SQLite.dll
+   HATA: C:\Program Files\ReasonLabs\DNS\System.Data.SQLite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\DNS\\System.Data.SQLite.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\DNS\arm64\SQLite.Interop.dll
+   HATA: C:\Program Files\ReasonLabs\DNS\arm64\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\DNS\\arm64\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\DNS\x64\SQLite.Interop.dll
+   HATA: C:\Program Files\ReasonLabs\DNS\x64\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\DNS\\x64\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\DNS\x86\SQLite.Interop.dll
+   HATA: C:\Program Files\ReasonLabs\DNS\x86\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\DNS\\x86\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\VPN\System.Data.SQLite.dll
+   HATA: C:\Program Files\ReasonLabs\VPN\System.Data.SQLite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\VPN\\System.Data.SQLite.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\VPN\ARM64\SQLite.Interop.dll
+   HATA: C:\Program Files\ReasonLabs\VPN\ARM64\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\VPN\\ARM64\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\VPN\x64\SQLite.Interop.dll
+   HATA: C:\Program Files\ReasonLabs\VPN\x64\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\VPN\\x64\\SQLite.Interop.dll'
+   Siliniyor: C:\Program Files\ReasonLabs\VPN\x86\SQLite.Interop.dll
+   HATA: C:\Program Files\ReasonLabs\VPN\x86\SQLite.Interop.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files\\ReasonLabs\\VPN\\x86\\SQLite.Interop.dll'
+
+   Araniyor: C:\Program Files (x86)
+   Siliniyor: C:\Program Files (x86)\Microsoft SQL Server
+   OK: C:\Program Files (x86)\Microsoft SQL Server silindi
+   Siliniyor: C:\Program Files (x86)\3uToolsV3\x86\sqlite.dll
+   HATA: C:\Program Files (x86)\3uToolsV3\x86\sqlite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\3uToolsV3\\x86\\sqlite.dll'
+   Siliniyor: C:\Program Files (x86)\3uToolsV3\x86\itunesDll\SQLite3.dll
+   HATA: C:\Program Files (x86)\3uToolsV3\x86\itunesDll\SQLite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\3uToolsV3\\x86\\itunesDll\\SQLite3.dll'
+   Siliniyor: C:\Program Files (x86)\3uToolsV3\x86\itunesFlashDll\SQLite3.dll
+   HATA: C:\Program Files (x86)\3uToolsV3\x86\itunesFlashDll\SQLite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\3uToolsV3\\x86\\itunesFlashDll\\SQLite3.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\Adobe\AdobeGCClient\win32\gcsqlitewrapper.dll
+   HATA: C:\Program Files (x86)\Common Files\Adobe\AdobeGCClient\win32\gcsqlitewrapper.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\Adobe\\AdobeGCClient\\win32\\gcsqlitewrapper.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\Adobe\AdobeGCClient\x64\gcsqlitewrapper.dll
+   HATA: C:\Program Files (x86)\Common Files\Adobe\AdobeGCClient\x64\gcsqlitewrapper.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\Adobe\\AdobeGCClient\\x64\\gcsqlitewrapper.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\Apple\Mobile Device Support\SQLite3.dll
+   HATA: C:\Program Files (x86)\Common Files\Apple\Mobile Device Support\SQLite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\Apple\\Mobile Device Support\\SQLite3.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\msdasql.dll
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\msdasql.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\msdasql.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\msdasqlr.dll
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\msdasqlr.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\msdasqlr.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\sqloledb.dll
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\sqloledb.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\sqloledb.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\sqloledb.rll
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\sqloledb.rll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\sqloledb.rll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\sqlxmlx.dll
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\sqlxmlx.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\sqlxmlx.dll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\sqlxmlx.rll
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\sqlxmlx.rll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\sqlxmlx.rll'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\en-US\msdasqlr.dll.mui
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\en-US\msdasqlr.dll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\en-US\\msdasqlr.dll.mui'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\en-US\sqloledb.rll.mui
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\en-US\sqloledb.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\en-US\\sqloledb.rll.mui'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\en-US\sqlxmlx.rll.mui
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\en-US\sqlxmlx.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\en-US\\sqlxmlx.rll.mui'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\tr-TR\msdasqlr.dll.mui
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\tr-TR\msdasqlr.dll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\tr-TR\\msdasqlr.dll.mui'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\tr-TR\sqloledb.rll.mui
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\tr-TR\sqloledb.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\tr-TR\\sqloledb.rll.mui'
+   Siliniyor: C:\Program Files (x86)\Common Files\System\Ole DB\tr-TR\sqlxmlx.rll.mui
+   HATA: C:\Program Files (x86)\Common Files\System\Ole DB\tr-TR\sqlxmlx.rll.mui silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Common Files\\System\\Ole DB\\tr-TR\\sqlxmlx.rll.mui'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\configs\sql.cfg
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\configs\sql.cfg silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\configs\\sql.cfg'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\modules\mysql_amxx.dll
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\modules\mysql_amxx.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\modules\\mysql_amxx.dll'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\modules\sqlite_amxx.dll
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\modules\sqlite_amxx.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\modules\\sqlite_amxx.dll'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\plugins\admin_sql.amxx
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\plugins\admin_sql.amxx silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\plugins\\admin_sql.amxx'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\amxmod_compat\mysql.sma
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\amxmod_compat\mysql.sma silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\scripting\\amxmod_compat\\mysql.sma'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\include\sqlx.inc
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\include\sqlx.inc silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\scripting\\include\\sqlx.inc'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\include\amxmod_compat\mysql.inc
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\include\amxmod_compat\mysql.inc silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\scripting\\include\\amxmod_compat\\mysql.inc'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\testsuite\sqlxtest.sma
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\testsuite\sqlxtest.sma silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\scripting\\testsuite\\sqlxtest.sma'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\testsuite\sqlxtest.sq3
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\testsuite\sqlxtest.sq3 silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\scripting\\testsuite\\sqlxtest.sq3'
+   Siliniyor: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\testsuite\sqlxtest.sql
+   HATA: C:\Program Files (x86)\csduragics16\cstrike\addons\amxmodx\scripting\testsuite\sqlxtest.sql silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\cstrike\\addons\\amxmodx\\scripting\\testsuite\\sqlxtest.sql'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\configs\sql.cfg
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\configs\sql.cfg silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\configs\\sql.cfg'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\modules\mysql_amxx.dll
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\modules\mysql_amxx.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\modules\\mysql_amxx.dll'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\modules\sqlite_amxx.dll
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\modules\sqlite_amxx.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\modules\\sqlite_amxx.dll'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\plugins\admin_sql.amxx
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\plugins\admin_sql.amxx silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\plugins\\admin_sql.amxx'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\amxmod_compat\mysql.sma
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\amxmod_compat\mysql.sma silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\scripting\\amxmod_compat\\mysql.sma'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\include\sqlx.inc
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\include\sqlx.inc silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\scripting\\include\\sqlx.inc'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\include\amxmod_compat\mysql.inc
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\include\amxmod_compat\mysql.inc silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\scripting\\include\\amxmod_compat\\mysql.inc'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\testsuite\sqlxtest.sma
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\testsuite\sqlxtest.sma silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\scripting\\testsuite\\sqlxtest.sma'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\testsuite\sqlxtest.sq3
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\testsuite\sqlxtest.sq3 silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\scripting\\testsuite\\sqlxtest.sq3'
+   Siliniyor: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\testsuite\sqlxtest.sql
+   HATA: C:\Program Files (x86)\csduragics16\valve\addons\amxmodx\scripting\testsuite\sqlxtest.sql silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\csduragics16\\valve\\addons\\amxmodx\\scripting\\testsuite\\sqlxtest.sql'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\Microsoft.Data.Sqlite.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\Microsoft.Data.Sqlite.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\Microsoft.Data.Sqlite.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_e_sqlite3.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_e_sqlite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.batteries_e_sqlite3.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_green.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_green.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.batteries_green.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_sqlcipher.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_sqlcipher.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.batteries_sqlcipher.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_v2.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.batteries_v2.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.batteries_v2.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.core.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.core.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.core.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.provider.e_sqlite3.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.provider.e_sqlite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.provider.e_sqlite3.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.provider.sqlcipher.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\SQLitePCLRaw.provider.sqlcipher.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\SQLitePCLRaw.provider.sqlcipher.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x64\e_sqlite3.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x64\e_sqlite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\x64\\e_sqlite3.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x64\sqlcipher.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x64\sqlcipher.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\x64\\sqlcipher.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x86\e_sqlite3.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x86\e_sqlite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\x86\\e_sqlite3.dll'
+   Siliniyor: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x86\sqlcipher.dll
+   HATA: C:\Program Files (x86)\EPSON Software\Epson ScanSmart\x86\sqlcipher.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\EPSON Software\\Epson ScanSmart\\x86\\sqlcipher.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\Microsoft.Data.SqlClient.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.SNI.arm64.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.SNI.arm64.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\Microsoft.Data.SqlClient.SNI.arm64.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.SNI.x64.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.SNI.x64.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\Microsoft.Data.SqlClient.SNI.x64.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.SNI.x86.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\Microsoft.Data.SqlClient.SNI.x86.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\Microsoft.Data.SqlClient.SNI.x86.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\de\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\de\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\de\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\es\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\es\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\es\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\fr\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\fr\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\fr\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\it\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\it\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\it\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\ja\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\ja\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\ja\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\ko\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\ko\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\ko\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\pt-BR\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\pt-BR\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\pt-BR\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\ru\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\ru\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\ru\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\zh-Hans\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\zh-Hans\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+   HATA: C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\ServiceHub\Services\Microsoft.VisualStudio.Setup.Service\zh-Hant\Microsoft.Data.SqlClient.resources.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\zh-Hant\\Microsoft.Data.SqlClient.resources.dll'
+   Siliniyor: C:\Program Files (x86)\Progress\Control Panel\Telerik.SqlServerQueries.dll
+   HATA: C:\Program Files (x86)\Progress\Control Panel\Telerik.SqlServerQueries.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Progress\\Control Panel\\Telerik.SqlServerQueries.dll'
+   Siliniyor: C:\Program Files (x86)\Progress\Telerik Report Server\Telerik.ReportServer.Web\Views\StorageSettings\MsSqlServer.cshtml
+   HATA: C:\Program Files (x86)\Progress\Telerik Report Server\Telerik.ReportServer.Web\Views\StorageSettings\MsSqlServer.cshtml silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Progress\\Telerik Report Server\\Telerik.ReportServer.Web\\Views\\StorageSettings\\MsSqlServer.cshtml'
+   Siliniyor: C:\Program Files (x86)\Progress\Telerik Report Server\Telerik.ReportServer.Web\Views\StorageSettings\MsSqlServerInfo.cshtml
+   HATA: C:\Program Files (x86)\Progress\Telerik Report Server\Telerik.ReportServer.Web\Views\StorageSettings\MsSqlServerInfo.cshtml silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Progress\\Telerik Report Server\\Telerik.ReportServer.Web\\Views\\StorageSettings\\MsSqlServerInfo.cshtml'
+   Siliniyor: C:\Program Files (x86)\Progress\Telerik Reporting 2025 Q4\Examples\Data\AdventureWorks OLTP\instawdb.sql
+   OK: C:\Program Files (x86)\Progress\Telerik Reporting 2025 Q4\Examples\Data\AdventureWorks OLTP\instawdb.sql silindi
+   Siliniyor: C:\Program Files (x86)\Progress\Telerik UI for WinForms 2025 Q4\Examples\QuickStart\Resources\SQL.txt
+   OK: C:\Program Files (x86)\Progress\Telerik UI for WinForms 2025 Q4\Examples\QuickStart\Resources\SQL.txt silindi
+   Siliniyor: C:\Program Files (x86)\Progress\Telerik UI for WinForms 2025 Q4\Examples\QuickStart\SyntaxEditor\FirstLook\ProjectFiles\Scripts\create-table.sql
+   OK: C:\Program Files (x86)\Progress\Telerik UI for WinForms 2025 Q4\Examples\QuickStart\SyntaxEditor\FirstLook\ProjectFiles\Scripts\create-table.sql silindi
+   Siliniyor: C:\Program Files (x86)\Progress\Test Studio\Bin\AzureResultsMapper\System.Data.SqlClient.dll
+   HATA: C:\Program Files (x86)\Progress\Test Studio\Bin\AzureResultsMapper\System.Data.SqlClient.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Progress\\Test Studio\\Bin\\AzureResultsMapper\\System.Data.SqlClient.dll'
+   Siliniyor: C:\Program Files (x86)\Progress\Test Studio\Bin\AzureTestCaseMapper\System.Data.SqlClient.dll
+   HATA: C:\Program Files (x86)\Progress\Test Studio\Bin\AzureTestCaseMapper\System.Data.SqlClient.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Progress\\Test Studio\\Bin\\AzureTestCaseMapper\\System.Data.SqlClient.dll'
+   Siliniyor: C:\Program Files (x86)\Smart Professional Surveillance System\SmartPSS\sqldrivers
+   OK: C:\Program Files (x86)\Smart Professional Surveillance System\SmartPSS\sqldrivers silindi
+   Siliniyor: C:\Program Files (x86)\Smart Professional Surveillance System\SmartPSS\QtSql4.dll
+   HATA: C:\Program Files (x86)\Smart Professional Surveillance System\SmartPSS\QtSql4.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Program Files (x86)\\Smart Professional Surveillance System\\SmartPSS\\QtSql4.dll'
+
+   Araniyor: D:\Program Files
+
+   Araniyor: D:\Program Files (x86)
+
+   Araniyor: C:\ProgramData
+   Siliniyor: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{00001E26-0000-0000-C0AB-030000000000}.bak
+   HATA: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{00001E26-0000-0000-C0AB-030000000000}.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\McAfee\\WebAdvisor\\AnalyticsEtw\\{00001E26-0000-0000-C0AB-030000000000}.bak'
+   Siliniyor: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{00002153-0000-0000-61FD-030000000000}.bak
+   HATA: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{00002153-0000-0000-61FD-030000000000}.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\McAfee\\WebAdvisor\\AnalyticsEtw\\{00002153-0000-0000-61FD-030000000000}.bak'
+   Siliniyor: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{000021FF-0000-0000-04FB-030000000000}.bak
+   HATA: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{000021FF-0000-0000-04FB-030000000000}.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\McAfee\\WebAdvisor\\AnalyticsEtw\\{000021FF-0000-0000-04FB-030000000000}.bak'
+   Siliniyor: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{000022CA-0000-0000-11DB-030000000000}.bak
+   HATA: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{000022CA-0000-0000-11DB-030000000000}.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\McAfee\\WebAdvisor\\AnalyticsEtw\\{000022CA-0000-0000-11DB-030000000000}.bak'
+   Siliniyor: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{0000398E-0000-0000-4AF3-030000000000}.bak
+   HATA: C:\ProgramData\McAfee\WebAdvisor\AnalyticsEtw\{0000398E-0000-0000-4AF3-030000000000}.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\McAfee\\WebAdvisor\\AnalyticsEtw\\{0000398E-0000-0000-4AF3-030000000000}.bak'
+   Siliniyor: C:\ProgramData\Microsoft\EdgeUpdate\Log\MicrosoftEdgeUpdate.log.bak
+   HATA: C:\ProgramData\Microsoft\EdgeUpdate\Log\MicrosoftEdgeUpdate.log.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\EdgeUpdate\\Log\\MicrosoftEdgeUpdate.log.bak'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQL$MSSQLSERVER01.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQL$MSSQLSERVER01.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+MSSQL$MSSQLSERVER01.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQL$PETROSQL.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQL$PETROSQL.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+MSSQL$PETROSQL.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQLFDLauncher$PETROSQL.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQLFDLauncher$PETROSQL.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+MSSQLFDLauncher$PETROSQL.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQLLaunchpad$PETROSQL.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQLLaunchpad$PETROSQL.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+MSSQLLaunchpad$PETROSQL.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQLSERVER.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+MSSQLSERVER.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+MSSQLSERVER.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+SQLTELEMETRY$MSSQLSERVER01.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+SQLTELEMETRY$MSSQLSERVER01.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+SQLTELEMETRY$MSSQLSERVER01.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+SQLTELEMETRY$PETROSQL.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+SQLTELEMETRY$PETROSQL.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+SQLTELEMETRY$PETROSQL.dat'
+   Siliniyor: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+SQLTELEMETRY.dat
+   HATA: C:\ProgramData\Microsoft\User Account Pictures\NT SERVICE+SQLTELEMETRY.dat silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\User Account Pictures\\NT SERVICE+SQLTELEMETRY.dat'
+   Siliniyor: C:\ProgramData\Microsoft\Windows\OneSettings\FeatureConfig.bak.json
+   HATA: C:\ProgramData\Microsoft\Windows\OneSettings\FeatureConfig.bak.json silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\Microsoft\\Windows\\OneSettings\\FeatureConfig.bak.json'
+   Siliniyor: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server 2022
+   OK: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server 2022 silindi
+   Siliniyor: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server 2025
+   OK: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server 2025 silindi
+   Siliniyor: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server Tools 22
+   OK: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server Tools 22 silindi
+   Siliniyor: C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PetroEfatura.exe_bfc354681461ec717c4279f6a94891fe988219f_39c84e95_88308473-c229-4582-8749-c6643ec00d89
+   OK: C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PetroEfatura.exe_bfc354681461ec717c4279f6a94891fe988219f_39c84e95_88308473-c229-4582-8749-c6643ec00d89 silindi
+   Siliniyor: C:\ProgramData\USOPrivate\UpdateStore\store.bak
+   HATA: C:\ProgramData\USOPrivate\UpdateStore\store.bak silinemedi: [WinError 5] Erişim engellendi: 'C:\\ProgramData\\USOPrivate\\UpdateStore\\store.bak'
+
+   Araniyor: D:\ProgramData
+
+   Toplam 3 dosya, 16 klasor silindi
+
+============================================================
+APPDATA TEMIZLEME
+============================================================
+
+   Araniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Adobe\ACPLocal.Next\GUDE\sqliteResumeTransfer.db
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Adobe\ACPLocal.Next\GUDE\sqliteResumeTransfer.db silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Adobe\\ACPLocal.Next\\GUDE\\sqliteResumeTransfer.db'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Adobe\AdobeSync\CoreSync\CLOUDNATIVEGUDE\sqliteResumeTransfer.db
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Adobe\AdobeSync\CoreSync\CLOUDNATIVEGUDE\sqliteResumeTransfer.db silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Adobe\\AdobeSync\\CoreSync\\CLOUDNATIVEGUDE\\sqliteResumeTransfer.db'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Adobe\AdobeSync\CoreSync\GUDE\sqliteResumeTransfer.db
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Adobe\AdobeSync\CoreSync\GUDE\sqliteResumeTransfer.db silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Adobe\\AdobeSync\\CoreSync\\GUDE\\sqliteResumeTransfer.db'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Google\Chrome\User Data\Default\Bookmarks.bak
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Google\Chrome\User Data\Default\Bookmarks.bak silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks.bak
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Bookmarks.bak silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Collections\collectionsSQLite
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Collections\collectionsSQLite silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Microsoft\\Edge\\User Data\\Default\\Collections\\collectionsSQLite'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Collections\collectionsSQLite-journal
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Collections\collectionsSQLite-journal silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeEDrop\EdgeEDropSQLite.db
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeEDrop\EdgeEDropSQLite.db silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Microsoft\\Edge\\User Data\\Default\\EdgeEDrop\\EdgeEDropSQLite.db'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeEDrop\EdgeEDropSQLite.db-journal
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeEDrop\EdgeEDropSQLite.db-journal silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeHubAppUsage\EdgeHubAppUsageSQLite.db
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeHubAppUsage\EdgeHubAppUsageSQLite.db silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Microsoft\\Edge\\User Data\\Default\\EdgeHubAppUsage\\EdgeHubAppUsageSQLite.db'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeHubAppUsage\EdgeHubAppUsageSQLite.db-journal
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\EdgeHubAppUsage\EdgeHubAppUsageSQLite.db-journal silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Pdf\pdfSQLite
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Pdf\pdfSQLite silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Pdf\pdfSQLite-journal
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Edge\User Data\Default\Pdf\pdfSQLite-journal silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Office\16.0\FeedbackPetrol
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Office\16.0\FeedbackPetrol silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Office\16.0\BackstageInAppNavCache\OD-goksupetrol@gmail.com
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Office\16.0\BackstageInAppNavCache\OD-goksupetrol@gmail.com silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\SSMS_18__settings\SettingsV2.18\SharedSettings.updates.v1.sqlite
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\SSMS_18__settings\SettingsV2.18\SharedSettings.updates.v1.sqlite silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\SSMS_18__settings\SettingsV2.18\SharedSettings.v1.sqlite
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\SSMS_18__settings\SettingsV2.18\SharedSettings.v1.sqlite silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\SSMS_18__settings\SettingsV2.18\Sync\894462549\0_TextEditor.SQL.Dropdown Bar.505389968
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\SSMS_18__settings\SettingsV2.18\Sync\894462549\0_TextEditor.SQL.Dropdown Bar.505389968 silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\vshub\SettingsV2.18\SharedSettings.updates.v1.sqlite
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\vshub\SettingsV2.18\SharedSettings.updates.v1.sqlite silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\vshub\SettingsV2.18\SharedSettings.v1.sqlite
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\vshub\SettingsV2.18\SharedSettings.v1.sqlite silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\vshub\SettingsV2.18\Sync\894462549\0_TextEditor.SQL.Dropdown Bar.505389968
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\SSMS\vshub\SettingsV2.18\Sync\894462549\0_TextEditor.SQL.Dropdown Bar.505389968 silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Windows\INetCache\IE\H3IJ9G2R\goksupetrol@gmail[1].json
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Microsoft\Windows\INetCache\IE\H3IJ9G2R\goksupetrol@gmail[1].json silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalCache\EBWebView\Default\Collections\collectionsSQLite
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalCache\EBWebView\Default\Collections\collectionsSQLite silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalCache\EBWebView\Default\Collections\collectionsSQLite-journal
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalCache\EBWebView\Default\Collections\collectionsSQLite-journal silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\extensions\sql
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\extensions\sql silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\extensions\cursor-worktree-textmate\syntaxes\worktree-sql.tmLanguage.json
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\extensions\cursor-worktree-textmate\syntaxes\worktree-sql.tmLanguage.json silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@opentelemetry\instrumentation-mysql
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@opentelemetry\instrumentation-mysql silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@opentelemetry\instrumentation-mysql2
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@opentelemetry\instrumentation-mysql2 silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@opentelemetry\sql-common
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@opentelemetry\sql-common silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\cjs\integrations\tracing\mysql.js
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\cjs\integrations\tracing\mysql.js silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\cjs\integrations\tracing\mysql2.js
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\cjs\integrations\tracing\mysql2.js silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\esm\integrations\tracing\mysql.js
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\esm\integrations\tracing\mysql.js silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\esm\integrations\tracing\mysql2.js
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@sentry\node\build\esm\integrations\tracing\mysql2.js silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@types\mysql
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@types\mysql silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@vscode\sqlite3
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\@vscode\sqlite3 silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\form-data\README.md.bak
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\form-data\README.md.bak silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\undici\lib\cache\sqlite-cache-store.js
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\node_modules\undici\lib\cache\sqlite-cache-store.js silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\resources\win32\sql.ico
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Programs\cursor\resources\app\resources\win32\sql.ico silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\DLLs\sqlite3.dll
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\DLLs\sqlite3.dll silinemedi: [WinError 5] Erişim engellendi: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Python\\pythoncore-3.14-64\\DLLs\\sqlite3.dll'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\DLLs\_sqlite3.pyd
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\DLLs\_sqlite3.pyd silinemedi: [WinError 5] Erişim engellendi: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Local\\Python\\pythoncore-3.14-64\\DLLs\\_sqlite3.pyd'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Doc\html\library\sqlite3.html
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Doc\html\library\sqlite3.html silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Doc\html\_sources\library\sqlite3.rst.txt
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Doc\html\_sources\library\sqlite3.rst.txt silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Lib\sqlite3
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Lib\sqlite3 silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Lib\dbm\sqlite3.py
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Python\pythoncore-3.14-64\Lib\dbm\sqlite3.py silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_007_Microsoft.SqlServer.SSMS.SSBDiagnose.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_007_Microsoft.SqlServer.SSMS.SSBDiagnose.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_008_Microsoft.SqlServer.SSMS.SSBDiagnose.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_008_Microsoft.SqlServer.SSMS.SSBDiagnose.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_009_Microsoft.SqlServer.SSMS.SMO.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_009_Microsoft.SqlServer.SSMS.SMO.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_010_Microsoft.SqlServer.SSMS.SMO.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_010_Microsoft.SqlServer.SSMS.SMO.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_011_Microsoft.SqlServer.SSMS.RS.Shared.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_011_Microsoft.SqlServer.SSMS.RS.Shared.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_012_Microsoft.SqlServer.SSMS.RS.Shared.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_012_Microsoft.SqlServer.SSMS.RS.Shared.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_013_Microsoft.SqlServer.SSMS.PerfTools.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_013_Microsoft.SqlServer.SSMS.PerfTools.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_014_Microsoft.SqlServer.SSMS.PerfTools.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_014_Microsoft.SqlServer.SSMS.PerfTools.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_015_Microsoft.SqlServer.SSMS.MDS.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_015_Microsoft.SqlServer.SSMS.MDS.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_016_Microsoft.SqlServer.SSMS.MDS.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_016_Microsoft.SqlServer.SSMS.MDS.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_017_Microsoft.SqlServer.SSMS.Externals.Targeted.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_017_Microsoft.SqlServer.SSMS.Externals.Targeted.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_018_Microsoft.SqlServer.SSMS.Externals.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_018_Microsoft.SqlServer.SSMS.Externals.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_019_Microsoft.SqlServer.SSMS.Externals.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_019_Microsoft.SqlServer.SSMS.Externals.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_020_Microsoft.SqlServer.SSMS.DDS.Targeted.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_020_Microsoft.SqlServer.SSMS.DDS.Targeted.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_021_Microsoft.SqlServer.SSMS.DDS.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_021_Microsoft.SqlServer.SSMS.DDS.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_022_Microsoft.SqlServer.SSMS.DDS.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_022_Microsoft.SqlServer.SSMS.DDS.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_023_Microsoft.SqlServer.SSMS.DacFx.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_023_Microsoft.SqlServer.SSMS.DacFx.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_024_Microsoft.SqlServer.SSMS.DacFx.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_024_Microsoft.SqlServer.SSMS.DacFx.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_025_Microsoft.SqlServer.SSMS.AuxFiles.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_025_Microsoft.SqlServer.SSMS.AuxFiles.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_026_Microsoft.SqlServer.SSMS.AuxFiles.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_026_Microsoft.SqlServer.SSMS.AuxFiles.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_027_Microsoft.SqlServer.SSMS.AS.Shared.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_027_Microsoft.SqlServer.SSMS.AS.Shared.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_028_Microsoft.SqlServer.SSMS.AS.Shared.Resources.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_028_Microsoft.SqlServer.SSMS.AS.Shared.Resources.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_171_SQLitePCLRaw.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_171_SQLitePCLRaw.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_172_SQLitePCLRaw.Targeted.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\dd_setup_20260114090716_172_SQLitePCLRaw.Targeted.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SQLEXPRADV_x64_ENU_decompression_log.txt
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SQLEXPRADV_x64_ENU_decompression_log.txt silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SQLServer2025-STDDEV-x64-ENU_decompression_log.txt
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SQLServer2025-STDDEV-x64-ENU_decompression_log.txt silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SqlSetup.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SqlSetup.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SqlSetup_1.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SqlSetup_1.log silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SqlSetup_Local.log
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Local\Temp\SqlSetup_Local.log silindi
+
+   Araniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Adobe\CoreSync\plugins\livetype\GudeLivetype\sqliteResumeTransfer.db
+   HATA: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Adobe\CoreSync\plugins\livetype\GudeLivetype\sqliteResumeTransfer.db silinemedi: [WinError 32] Dosya başka bir işlem tarafından kullanıldığından bu işlem dosyaya erişemiyor: 'C:\\Users\\goksu.MEHMETBILGISAYA\\AppData\\Roaming\\Adobe\\CoreSync\\plugins\\livetype\\GudeLivetype\\sqliteResumeTransfer.db'
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Microsoft SQL Server
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Microsoft SQL Server silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\SQL Profiler
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\SQL Profiler silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\SQL Server Management Studio
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\SQL Server Management Studio silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\MMC\SQLServerManager17
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\MMC\SQLServerManager17 silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\bitAKEP BackOffice PetroNet Ver. 1.4.11 [C1345] - TP 2025 (2025) 2026-01-10 12-54-02.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\bitAKEP BackOffice PetroNet Ver. 1.4.11 [C1345] - TP 2025 (2025) 2026-01-10 12-54-02.lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\Microsoft SQL Server 2025.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\Microsoft SQL Server 2025.lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\petromas_db_2026-01-14_11-30-04.7z.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\petromas_db_2026-01-14_11-30-04.7z.lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\petromas_db_2026-01-14_11-30-04.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\petromas_db_2026-01-14_11-30-04.lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\PetroNet (2).lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\PetroNet (2).lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\PETRONET.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\PETRONET.lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\PetroServer.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\PetroServer.lnk silindi
+   Siliniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\Petro_Yedek.lnk
+   OK: C:\Users\goksu.MEHMETBILGISAYA\AppData\Roaming\Microsoft\Windows\Recent\Petro_Yedek.lnk silindi
+
+   Araniyor: C:\Users\goksu.MEHMETBILGISAYA\AppData\LocalLow
+
+   Toplam 65 dosya, 12 klasor silindi
+
+============================================================
+KOK DIZINLER TEMIZLEME (C: ve D:)
+============================================================
+   Siliniyor: C:\\SQL2022
+   OK: C:\\SQL2022 silindi
+   Siliniyor: C:\\SQL2025
+   OK: C:\\SQL2025 silindi
+   Siliniyor: D:\\PETRONET_Aria
+   OK: D:\\PETRONET_Aria silindi
+   Siliniyor: D:\\Petro_Yedek
+   OK: D:\\Petro_Yedek silindi
+
+   Toplam 0 dosya, 4 klasor silindi
+
+============================================================
+REGISTRY TEMIZLEME
+============================================================
+
+   Registry temizleniyor: SOFTWARE\Microsoft\Microsoft SQL Server
+   NOT: SOFTWARE\Microsoft\Microsoft SQL Server silinemedi: [WinError 5] Erişim engellendi
+
+   Registry temizleniyor: SOFTWARE\Petronet
+   NOT: SOFTWARE\Petronet silinemedi: [WinError 2] Sistem belirtilen dosyayı bulamıyor
+
+   Registry temizleniyor: SOFTWARE\Microsoft\Microsoft SQL Server
+   NOT: SOFTWARE\Microsoft\Microsoft SQL Server silinemedi: [WinError 5] Erişim engellendi
+
+   Registry temizleniyor: SOFTWARE\Petronet
+   OK: SOFTWARE\Petronet silindi
+
+   Toplam 1 registry kaydi silindi
+
+============================================================
+TEMIZLEME TAMAMLANDI
+============================================================
+
+Toplam silinen:
+  - Masaustu ogeleri: 1
+  - Program Files dosyalari: 3
+  - Program Files klasorleri: 16
+  - AppData dosyalari: 65
+  - AppData klasorleri: 12
+  - Kok dizin dosyalari: 0
+  - Kok dizin klasorleri: 4
+  - Registry kayitlari: 1
+
+KORUNAN KLASOR: D:\tayfun\ozgur_sistem_kopyasi

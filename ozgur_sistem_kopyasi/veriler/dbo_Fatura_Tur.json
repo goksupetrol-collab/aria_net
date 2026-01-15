@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "ack_tr": "ALIŞ FATURASI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 2,
+    "ack_tr": "SATIŞ FATURASI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 3,
+    "ack_tr": "İADE FATURASI",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 4,
+    "ack_tr": "ALIŞ İRSALİYE",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 5,
+    "ack_tr": "SATIŞ İRSALİYE",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 6,
+    "ack_tr": "ALINAN SİPARİŞ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 7,
+    "ack_tr": "VERİLEN SİPARİŞ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 8,
+    "ack_tr": "SATIŞ FİŞİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 9,
+    "ack_tr": "ALACAK FİŞİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  },
+  {
+    "id": 10,
+    "ack_tr": "PROMOSYON FİŞİ",
+    "ack_en": null,
+    "ack_al": null,
+    "ack_ru": null
+  }
+]

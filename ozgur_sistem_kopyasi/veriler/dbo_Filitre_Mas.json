@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "GrpID": 1,
+    "GrpAd": "markt",
+    "AlanAd": "Ozel_Kod1",
+    "AlanAck": "Özel Kod 1",
+    "DegerTIP": 1,
+    "Query_Table": "Ozel_Kod",
+    "Query_Table_Sorgu": "sil=0"
+  },
+  {
+    "Id": 2,
+    "GrpID": 1,
+    "GrpAd": "markt",
+    "AlanAd": "Ozel_Kod2",
+    "AlanAck": "Özel Kod 2",
+    "DegerTIP": 1,
+    "Query_Table": "Ozel_Kod",
+    "Query_Table_Sorgu": "sil=0"
+  }
+]

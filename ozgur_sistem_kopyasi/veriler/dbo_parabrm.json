@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "Kod": "TL",
+    "ad": "TL",
+    "sabit": true,
+    "olususer": "SİSTEM",
+    "olustarsaat": "2009-01-01 00:00:00",
+    "deguser": null,
+    "degtarsaat": null,
+    "kurus_kod": null
+  },
+  {
+    "id": 2,
+    "Kod": "EURO",
+    "ad": "EURO",
+    "sabit": true,
+    "olususer": "SİSTEM",
+    "olustarsaat": "2009-01-01 00:00:00",
+    "deguser": null,
+    "degtarsaat": null,
+    "kurus_kod": null
+  },
+  {
+    "id": 3,
+    "Kod": "USD",
+    "ad": "USD",
+    "sabit": true,
+    "olususer": "SİSTEM",
+    "olustarsaat": "2009-01-01 00:00:00",
+    "deguser": null,
+    "degtarsaat": null,
+    "kurus_kod": null
+  },
+  {
+    "id": 4,
+    "Kod": "GBP",
+    "ad": "GBP",
+    "sabit": true,
+    "olususer": "SİSTEM",
+    "olustarsaat": "2009-01-01 00:00:00",
+    "deguser": null,
+    "degtarsaat": null,
+    "kurus_kod": null
+  }
+]

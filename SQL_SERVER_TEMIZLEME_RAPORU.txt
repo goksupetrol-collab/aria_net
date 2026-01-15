@@ -1,0 +1,81 @@
+============================================================
+SQL SERVER TUM IZLERI TEMIZLEME RAPORU
+============================================================
+Tarih: 2026-01-14 20:11:11
+Klasor: D:\tayfun
+
+============================================================
+TEMIZLENENLER
+============================================================
+
+1. QUERY STORE
+   OK: petromas_db Query Store temizlendi
+   OK: OZGUR Query Store temizlendi
+   - Tum veritabanlarinin Query Store verileri temizlendi
+
+2. PLAN CACHE
+   OK: Plan cache temizlendi
+   - Tum sorgu planlari cache'den silindi
+   - DBCC FREEPROCCACHE komutu calistirildi
+
+3. BUFFER CACHE
+   OK: Buffer cache temizlendi
+   - Tum temiz buffer'lar silindi
+   - DBCC DROPCLEANBUFFERS komutu calistirildi
+
+4. ERROR LOG
+   OK: Error log arsivlenmis kayitlar temizlendi
+   NOT: Aktif error log temizlenemez (sistem korumali)
+
+============================================================
+SERVIS YENIDEN BASLATMA GEREKTIRENLER
+============================================================
+
+1. EXECUTION STATISTICS
+   - Mevcut execution statistics: 0
+   - Servis yeniden baslatma ile tamamen temizlenir
+
+2. CONNECTION HISTORY
+   - Aktif baglanti sayisi: 11 (kendi baglantimiz haric)
+   - Servis yeniden baslatma ile tamamen temizlenir
+
+3. WAIT STATISTICS
+   - Servis yeniden baslatma ile sifirlanir
+
+4. TEMPDB
+   - Servis yeniden baslatmada otomatik temizlenir
+
+============================================================
+SONUC
+============================================================
+
+TUM TEMIZLENEBILEN IZLER BASARIYLA TEMIZLENDI:
+
+OK: Query Store (petromas_db, OZGUR)
+OK: Plan Cache
+OK: Buffer Cache
+OK: Error Log arsivlenmis kayitlar
+
+NOT: Execution Statistics, Connection History, Wait Statistics
+     ve TempDB icin SQL Server servisini yeniden baslatmaniz
+     gerekmektedir.
+
+============================================================
+SQL SERVER SERVIS YENIDEN BASLATMA
+============================================================
+
+Servis yeniden baslatmak icin:
+
+1. PowerShell'i Yonetici olarak acin
+2. Asagidaki komutu calistirin:
+
+   net stop MSSQLSERVER
+   net start MSSQLSERVER
+
+   VEYA
+
+   Restart-Service MSSQLSERVER
+
+Bu islem sonrasi tum izler tamamen temizlenecektir.
+
+============================================================
