@@ -2544,6 +2544,7 @@
             update: true
           },
           columns: [
+            { title: "#", width: 50, template: "#= (dataSource.page() - 1) * dataSource.pageSize() + (dataSource.indexOf(dataItem) + 1) #" },
             { field: "kod", title: "KOD", width: 120 },
             { field: "unvan", title: "ÜNVAN", width: 240 },
             { field: "vergi", title: "VERGİ NO", width: 160 },
