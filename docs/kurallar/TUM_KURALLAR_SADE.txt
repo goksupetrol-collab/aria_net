@@ -22,3 +22,17 @@
 4) Tüm kayıtlar sadece D:\tayfun\.git içinde tutulur.
 5) Her değişiklikten sonra git add + git commit yapılır.
 6) Normalde geri dönüş önerilmez, sadece istenen değişiklik yapılır.
+
+# TELERIK KULLANIMI (ZORUNLU)
+
+- Projede lisanslı Telerik kullanılır; arayüzde öncelik Telerik bileşenleri ve sınıflarıdır.
+- Telerik'te olmayan bir şey gerekiyorsa, önce "Telerik'te yok" notu düşülür, sonra alternatif belirtilir.
+- Menü, grid, buton gibi tüm öğelerde önce Telerik bileşenleri tercih edilir.
+
+## API Referansları
+- Kendo UI Dokümantasyon: https://www.telerik.com/kendo-jquery-ui/documentation
+- Kendo UI API: https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/ui
+- Kendo UI Demos: https://demos.telerik.com/kendo-ui
+- Menu API: https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/ui/menu
+- Grid API: https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/ui/grid
+- Toolbar API: https://www.telerik.com/kendo-jquery-ui/documentation/api/javascript/ui/toolbar
