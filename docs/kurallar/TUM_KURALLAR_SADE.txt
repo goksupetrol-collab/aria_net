@@ -13,3 +13,12 @@
 - Framework: Django 5.2.9
 - Veritabanı: SQLite (geçici) / SQL Server (sonra)
 - Ana dosyalar: base.html ve telerik_yeni_proje.html
+
+# GIT KURALLARI
+
+1) Git, gerektiğinde hatadan önceki duruma dönmek için kullanılır.
+2) Otomatik geri dönüş yok; sadece kullanıcı açıkça isterse yapılır.
+3) Geri dönüşten önce "hangi kayıt/commit?" sorulur ve açık onay alınır.
+4) Tüm kayıtlar sadece D:\tayfun\.git içinde tutulur.
+5) Her değişiklikten sonra git add + git commit yapılır.
+6) Normalde geri dönüş önerilmez, sadece istenen değişiklik yapılır.
