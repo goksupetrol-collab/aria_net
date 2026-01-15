@@ -570,9 +570,13 @@
   <div id="firma-tanim-karti-window" style="display:none;">
     <div style="padding:12px;">
       <div style="font-size:16px;font-weight:600;margin-bottom:12px;">Firma Tanım Kartı</div>
-      <div style="display:flex;align-items:center;gap:8px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
         <label for="firma-karti-adi-input" style="min-width:90px;">FİRMA ADI :</label>
         <input id="firma-karti-adi-input" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <label for="firma-karti-sube-input" style="min-width:90px;">ŞUBESİ :</label>
+        <input id="firma-karti-sube-input" style="width:100%;" />
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
@@ -2113,6 +2117,9 @@
 
         if (typeof $.fn.kendoTextBox !== 'undefined') {
           $("#firma-karti-adi-input").kendoTextBox({
+            placeholder: ""
+          });
+          $("#firma-karti-sube-input").kendoTextBox({
             placeholder: ""
           });
         }
