@@ -1810,6 +1810,9 @@
         $('body').addClass('firma-tanimlari-sayfasi-acik');
         $('#main-content-firma-tanimlari').show();
         $('#title-bar').hide();
+        if (window.initFirmaTanimlariGrid) {
+          setTimeout(window.initFirmaTanimlariGrid, 0);
+        }
       } else if (pageId === 'banka') {
         $('body').addClass('banka-sayfasi-acik');
         $('#main-content-banka').show();
