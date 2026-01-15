@@ -110,6 +110,25 @@
     #firma-tanimlari-grid .k-grid-header .k-header {
       cursor: move;
     }
+
+    /* Firma Tanımları sağ sabit buton paneli */
+    #firma-tanimlari-right-buttons {
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      width: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 5;
+    }
+    #firma-tanimlari-right-buttons .k-button {
+      width: 100%;
+      justify-content: center;
+    }
+    #firma-tanimlari-right-buttons .exit-button {
+      margin-top: auto;
+    }
     
     #banka-grid, #banka-grid .k-grid, #banka-grid .k-grid-content,
     #banka-grid .k-grid-header, #banka-grid .k-grid-header-wrap,
@@ -498,7 +517,7 @@
   </div>
   
   <!-- FİRMA TANIMLARI SAYFASI -->
-  <div class="container" id="main-content-firma-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+  <div class="container" id="main-content-firma-tanimlari" style="display:none;position:relative;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİRMA TANIMLARI</h1>
     <div style="display:flex;gap:8px;justify-content:center;align-items:center;margin:10px 0;">
       <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Yeni Firma</button>
@@ -506,6 +525,18 @@
       <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Sil</button>
     </div>
     <div id="firma-tanimlari-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+    
+    <!-- Firma Tanımları sağ buton paneli -->
+    <div id="firma-tanimlari-right-buttons">
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 1</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 2</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 3</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 4</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 5</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 6</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 7</button>
+      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base exit-button">Çıkış - ESC</button>
+    </div>
   </div>
 
   <!-- KREDİ KARTI SAYFASI -->
