@@ -952,14 +952,12 @@
               });
             }, 100); // Her 100ms'de bir kontrol et
             
-            // COPILOT ÇÖZÜMÜ - Global hover event listener (Telerik'in inline stillerini kaldır)
-            // SADECE background stillerini temizle, padding/margin korunmalı
+            // Hover rengi sadece üstündeyken kalsın, çıkınca sıfırla
             $("#ana-menu-bar").on("mouseenter", "li.k-item", function() {
               var $item = $(this);
               
               // SADECE background ile ilgili inline stilleri temizle (padding/margin korunmalı)
               var currentStyle = this.getAttribute('style') || '';
-              // Background stillerini kaldır ama padding/margin/position/left/top/bottom/width/height koru
               var styleParts = currentStyle.split(';');
               var newStyleParts = [];
               for (var i = 0; i < styleParts.length; i++) {
@@ -973,20 +971,33 @@
               }
               this.setAttribute('style', newStyleParts.join('; '));
               
-              // Düz sarı-turuncu arka plan uygula
+              // Hover rengi uygula
               this.style.setProperty('background', '#FFF9C4', 'important');
               this.style.setProperty('background-color', '#FFF9C4', 'important');
               this.style.setProperty('background-image', 'none', 'important');
               this.style.setProperty('box-shadow', 'none', 'important');
               
-              // TÜM çocuk elementlerin SADECE background stillerini temizle
+              // Çocuk elementlerin arka planını temizle
               $item.find("*").each(function() {
-                // SADECE background stillerini temizle, diğer stilleri koru
                 this.style.background = "transparent";
                 this.style.backgroundColor = "transparent";
                 this.style.backgroundImage = "none";
                 this.style.boxShadow = "none";
-                // padding, margin, position, left, top, width, height gibi değerleri KORU
+              });
+            }).on("mouseleave", "li.k-item", function() {
+              var $item = $(this);
+              // Hover bittiğinde inline arka planı temizle
+              this.style.removeProperty('background');
+              this.style.removeProperty('background-color');
+              this.style.removeProperty('background-image');
+              this.style.removeProperty('box-shadow');
+              
+              // Çocuk elementlerin inline arka planını temizle
+              $item.find("*").each(function() {
+                this.style.removeProperty('background');
+                this.style.removeProperty('background-color');
+                this.style.removeProperty('background-image');
+                this.style.removeProperty('box-shadow');
               });
             });
             
