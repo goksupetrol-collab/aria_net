@@ -39,6 +39,25 @@
     body.operasyon-sayfasi-acik .content-wrapper {
       overflow-y: hidden !important;
     }
+
+    /* Sağ sabit buton paneli */
+    #right-fixed-buttons {
+      position: fixed;
+      top: 190px;
+      right: 8px;
+      z-index: 9999;
+      width: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    #right-fixed-buttons .k-button {
+      width: 100%;
+      justify-content: center;
+    }
+    #right-fixed-buttons .exit-button {
+      margin-top: auto;
+    }
     
     /* Telerik Menu özelleştirmeleri - Resimdeki gibi */
     #top-menu-container{background:#e3f2fd !important}
@@ -472,6 +491,18 @@
       
     </div>
     </div>
+  </div>
+
+  <!-- SAĞ SABİT BUTON PANELİ -->
+  <div id="right-fixed-buttons">
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 1</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 2</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 3</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 4</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 5</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 6</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 7</button>
+    <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base exit-button">Çıkış - ESC</button>
   </div>
 
   <!-- KREDİ KARTI SAYFASI -->
