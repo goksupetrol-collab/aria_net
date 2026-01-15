@@ -523,6 +523,7 @@
       // ALAN 1 - Ana Menü Butonları (Telerik Kendo UI Menu)
       var anaMenu = null;
       var enablePetronetMenuStyles = false;
+      var allowHoverOpen = false;
       function applyAltMenuFontSize() {
         $("#ana-menu-bar .k-menu-group .k-item, #ana-menu-bar .k-popup .k-item").each(function() {
           this.style.setProperty('font-size', '16px', 'important');
@@ -542,7 +543,7 @@
           try {
             anaMenu = $("#ana-menu-bar").kendoMenu({
               orientation: "horizontal",
-              openOnClick: false,
+              openOnClick: true,
               highlightFirst: false, // COPILOT ÇÖZÜMÜ - Varsayılan hover'ları engelle
               animation: {
                 open: {
@@ -636,6 +637,40 @@
             }).data("kendoMenu");
             console.log("✅ Ana menü başarıyla oluşturuldu!");
             setTimeout(applyAltMenuFontSize, 50);
+
+            // Hover ile açma sadece tıklamadan sonra aktif olsun
+            $("#ana-menu-bar").on("click", "li.k-item", function(e) {
+              if ($(this).closest(".k-menu-group, .k-popup").length > 0) {
+                return;
+              }
+              allowHoverOpen = true;
+            });
+
+            $("#ana-menu-bar").on("mouseenter", "li.k-item", function() {
+              if (!allowHoverOpen || !anaMenu) {
+                return;
+              }
+              if ($(this).closest(".k-menu-group, .k-popup").length > 0) {
+                return;
+              }
+              var $item = $(this);
+              $item.siblings("li.k-item").each(function() {
+                anaMenu.close($(this));
+              });
+              anaMenu.open($item);
+            });
+
+            // ALAN 1 dışına tıklanınca hover açma kapansın
+            $(document).on("click", function(e) {
+              if ($(e.target).closest("#fixed-area-1-container").length === 0) {
+                allowHoverOpen = false;
+                if (anaMenu) {
+                  $("#ana-menu-bar > li.k-item").each(function() {
+                    anaMenu.close($(this));
+                  });
+                }
+              }
+            });
             
             // Menü oluşturulduktan sonra Petronet görüntüsüne göre tüm stilleri uygula
             var isApplyingStyles = false; // Sonsuz döngü önleme
