@@ -745,6 +745,7 @@
                     // Düz sarı-turuncu arka plan uygula
                     item.style.setProperty('background', '#F3E9C9', 'important');
                     item.style.setProperty('background-color', '#F3E9C9', 'important');
+                    item.style.setProperty('border', '1px solid #E5C76B', 'important');
                     item.style.setProperty('background-image', 'none', 'important');
                     item.style.setProperty('box-shadow', 'none', 'important');
                     item.style.setProperty('border', 'none', 'important');
@@ -765,6 +766,7 @@
                       // Varsayılan arka plana dön
                       item.style.setProperty('background', '#D9D9FF', 'important');
                       item.style.setProperty('background-color', '#D9D9FF', 'important');
+                      item.style.removeProperty('border');
                       item.style.setProperty('background-image', 'none', 'important');
                       
                       // Çocuk elementleri transparent yap
@@ -974,6 +976,7 @@
               // Hover rengi uygula
               this.style.setProperty('background', '#F3E9C9', 'important');
               this.style.setProperty('background-color', '#F3E9C9', 'important');
+              this.style.setProperty('border', '1px solid #E5C76B', 'important');
               this.style.setProperty('background-image', 'none', 'important');
               this.style.setProperty('box-shadow', 'none', 'important');
               
@@ -991,6 +994,7 @@
               this.style.removeProperty('background-color');
               this.style.removeProperty('background-image');
               this.style.removeProperty('box-shadow');
+              this.style.removeProperty('border');
               
               // Çocuk elementlerin inline arka planını temizle
               $item.find("*").each(function() {
