@@ -17,7 +17,7 @@ try:
 except ImportError:
     OPENPYXL_AVAILABLE = False
 
-from .models import MotorinSatis, BenzinSatis, Tahsilat, Odeme, Entry, AlisFiyati, Tanker, AracBilgi, Hypco, Aygaz, Firma, Urun, MenuItem
+from .models import MotorinSatis, BenzinSatis, Tahsilat, Odeme, Entry, AlisFiyati, Tanker, AracBilgi, Hypco, Aygaz, Firma, Urun, MenuItem, EvrakTuru, FirmaEvrak
 
 # BASE_DIR tanımı (Django settings'den alınabilir ama burada da tanımlıyoruz)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -952,7 +952,7 @@ def api_urunler(request, urun_id=None):
             })
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
-    
+
     elif request.method == 'PUT':
         # Ürün güncelle
         try:
@@ -961,28 +961,28 @@ def api_urunler(request, urun_id=None):
             sira_no = data.get('sira_no')
             ad = data.get('ad', '').strip()
             aktif = data.get('aktif', True)
-            
+
             if not urun_id_param:
                 urun_id_param = urun_id
-            
+
             if not urun_id_param:
                 return JsonResponse({'error': 'Ürün ID gerekli'}, status=400)
-            
+
             try:
                 urun = Urun.objects.get(id=urun_id_param)
             except Urun.DoesNotExist:
                 return JsonResponse({'error': 'Ürün bulunamadı'}, status=404)
-            
+
             if sira_no and sira_no != urun.sira_no:
                 if Urun.objects.filter(sira_no=sira_no).exclude(id=urun_id_param).exists():
                     return JsonResponse({'error': 'Bu sıra numarası zaten kullanılıyor'}, status=400)
                 urun.sira_no = sira_no
-            
+
             if ad:
                 urun.ad = ad
             urun.aktif = aktif
             urun.save()
-            
+
             return JsonResponse({
                 'success': True,
                 'id': urun.id,
@@ -992,7 +992,7 @@ def api_urunler(request, urun_id=None):
             })
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
-    
+
     elif request.method == 'DELETE':
         # Ürün sil (aktif=False yap)
         try:
@@ -1002,10 +1002,10 @@ def api_urunler(request, urun_id=None):
                     urun_id = data.get('id')
                 except:
                     pass
-            
+
             if not urun_id:
                 return JsonResponse({'error': 'Ürün ID gerekli'}, status=400)
-            
+
             try:
                 urun = Urun.objects.get(id=urun_id)
                 urun.aktif = False
@@ -1015,3 +1015,95 @@ def api_urunler(request, urun_id=None):
                 return JsonResponse({'error': 'Ürün bulunamadı'}, status=404)
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
+
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def api_evrak_turleri(request):
+    """Evrak türlerini listele / ekle"""
+    if request.method == 'GET':
+        turler = EvrakTuru.objects.filter(aktif=True).order_by('ad')
+        data = [
+            {
+                'id': t.id,
+                'ad': t.ad
+            }
+            for t in turler
+        ]
+        return JsonResponse(data, safe=False)
+
+    # POST
+    try:
+        data = json.loads(request.body)
+        ad = data.get('ad', '').strip()
+        if not ad:
+            return JsonResponse({'error': 'Evrak türü gerekli'}, status=400)
+
+        tur, _ = EvrakTuru.objects.get_or_create(ad=ad, defaults={'aktif': True})
+        return JsonResponse({'success': True, 'id': tur.id, 'ad': tur.ad})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def api_firma_evraklari(request, firma_id=None):
+    """Firma evrakları - GET: liste, POST: yükle"""
+    if request.method == 'GET':
+        if not firma_id:
+            return JsonResponse({'error': 'Firma ID gerekli'}, status=400)
+
+        evraklar = FirmaEvrak.objects.filter(firma_id=firma_id).order_by('-olusturma_tarihi')
+        data = [
+            {
+                'id': e.id,
+                'firma_id': e.firma_id,
+                'evrak_turu': e.evrak_turu.ad,
+                'evrak_turu_id': e.evrak_turu_id,
+                'aciklama': e.aciklama,
+                'bitis_tarihi': e.bitis_tarihi.isoformat() if e.bitis_tarihi else None,
+                'uyari_gunu': e.uyari_gunu,
+                'dosya_url': e.dosya.url if e.dosya else '',
+                'dosya_adi': e.dosya.name.split('/')[-1] if e.dosya else '',
+                'olusturma_tarihi': e.olusturma_tarihi.isoformat()
+            }
+            for e in evraklar
+        ]
+        return JsonResponse(data, safe=False)
+
+    # POST (multipart/form-data)
+    if not firma_id:
+        return JsonResponse({'error': 'Firma ID gerekli'}, status=400)
+
+    try:
+        evrak_turu_id = request.POST.get('evrak_turu_id')
+        aciklama = (request.POST.get('aciklama') or '').strip()
+        bitis_tarihi_str = (request.POST.get('bitis_tarihi') or '').strip()
+        uyari_gunu = int(request.POST.get('uyari_gunu') or 7)
+        dosya = request.FILES.get('dosya')
+
+        if not evrak_turu_id or not dosya:
+            return JsonResponse({'error': 'Evrak türü ve dosya gerekli'}, status=400)
+
+        try:
+            evrak_turu = EvrakTuru.objects.get(id=evrak_turu_id, aktif=True)
+        except EvrakTuru.DoesNotExist:
+            return JsonResponse({'error': 'Evrak türü bulunamadı'}, status=404)
+
+        bitis_tarihi = parse_date(bitis_tarihi_str) if bitis_tarihi_str else None
+        evrak = FirmaEvrak.objects.create(
+            firma_id=firma_id,
+            evrak_turu=evrak_turu,
+            dosya=dosya,
+            aciklama=aciklama,
+            bitis_tarihi=bitis_tarihi,
+            uyari_gunu=uyari_gunu
+        )
+
+        return JsonResponse({
+            'success': True,
+            'id': evrak.id,
+            'dosya_url': evrak.dosya.url if evrak.dosya else ''
+        })
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)

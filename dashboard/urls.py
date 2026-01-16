@@ -17,6 +17,8 @@ from .views import (
     api_arac_bilgi,
     api_firmalar,
     api_urunler,
+    api_evrak_turleri,
+    api_firma_evraklari,
 )
 
 urlpatterns = [
@@ -42,4 +44,6 @@ urlpatterns = [
     path('api/firmalar/<int:firma_id>/', api_firmalar, name='api_firmalar_detail'),
     path('api/urunler/', api_urunler, name='api_urunler'),
     path('api/urunler/<int:urun_id>/', api_urunler, name='api_urunler_detail'),
+    path('api/evrak-turleri/', api_evrak_turleri, name='api_evrak_turleri'),
+    path('api/firma-evraklari/<int:firma_id>/', api_firma_evraklari, name='api_firma_evraklari'),
 ]

@@ -575,9 +575,41 @@
   <div class="container" id="main-content-sube-karti" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">ŞUBE KARTI</h1>
     <div style="display:flex;gap:8px;justify-content:center;align-items:center;margin:10px 0;">
-      <button id="sube-karti-pdf-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">PDF Evrakları</button>
+      <button id="sube-karti-evrak-ekle-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Evrak Ekle</button>
     </div>
     <div id="sube-karti-grid" style="width:100%;max-width:100vw;height:400px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+    <div id="sube-evrak-grid" style="width:100%;max-width:100vw;height:400px;overflow-x:hidden !important;overflow-y:auto;margin:10px 0 0 0;padding:0;"></div>
+  </div>
+
+  <!-- ŞUBE EVRAK EKLE WINDOW -->
+  <div id="sube-evrak-window" style="display:none;">
+    <div style="padding:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <label for="sube-evrak-turu" style="min-width:110px;">Evrak Türü:</label>
+        <input id="sube-evrak-turu" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <label for="sube-evrak-bitistarih" style="min-width:110px;">Bitiş Tarihi:</label>
+        <input id="sube-evrak-bitistarih" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <label for="sube-evrak-uyari" style="min-width:110px;">Uyarı (gün):</label>
+        <input id="sube-evrak-uyari" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <label for="sube-evrak-aciklama" style="min-width:110px;">Açıklama:</label>
+        <input id="sube-evrak-aciklama" style="width:100%;" />
+      </div>
+      <div id="sube-evrak-upload"></div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
+      <button id="sube-evrak-kapat" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kapat</button>
+    </div>
+  </div>
+
+  <!-- ŞUBE EVRAK ÖNİZLEME WINDOW -->
+  <div id="sube-evrak-onizleme-window" style="display:none;">
+    <div id="sube-evrak-onizleme-icerik" style="height:600px;"></div>
   </div>
 
   <!-- FİRMA TANIM KARTI WINDOW -->
@@ -2155,12 +2187,285 @@
           }
         });
 
-        $("#sube-karti-pdf-btn").on("click", function() {
-          if (typeof showInfo === "function") {
-            showInfo("PDF bölümü birazdan eklenecek.");
-          } else {
-            alert("PDF bölümü birazdan eklenecek.");
+        var subeEvrakWindow = null;
+        var subeEvrakOnizlemeWindow = null;
+        var subeEvrakTurleri = [];
+
+        function ensureSubeEvrakWindows() {
+          if (subeEvrakWindow || typeof $.fn.kendoWindow === "undefined") {
+            return;
           }
+          subeEvrakWindow = $("#sube-evrak-window").kendoWindow({
+            title: "Şube Evrak Ekle",
+            width: "600px",
+            height: "420px",
+            visible: false,
+            modal: true,
+            resizable: false,
+            draggable: true,
+            actions: ["Close"]
+          }).data("kendoWindow");
+
+          subeEvrakOnizlemeWindow = $("#sube-evrak-onizleme-window").kendoWindow({
+            title: "Evrak Önizleme",
+            width: "80%",
+            height: "80%",
+            visible: false,
+            modal: true,
+            resizable: true,
+            draggable: true,
+            actions: ["Close", "Maximize", "Minimize"]
+          }).data("kendoWindow");
+        }
+
+        function loadSubeEvrakTurleri() {
+          return fetch("/api/evrak-turleri/")
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+              subeEvrakTurleri = data || [];
+              if (typeof $.fn.kendoDropDownList !== "undefined") {
+                $("#sube-evrak-turu").kendoDropDownList({
+                  dataTextField: "ad",
+                  dataValueField: "id",
+                  optionLabel: "Evrak türü seçin",
+                  dataSource: subeEvrakTurleri
+                });
+              }
+            });
+        }
+
+        function initSubeEvrakForm() {
+          if (typeof $.fn.kendoDatePicker !== "undefined") {
+            $("#sube-evrak-bitistarih").kendoDatePicker({
+              format: "dd.MM.yyyy"
+            });
+          }
+          if (typeof $.fn.kendoNumericTextBox !== "undefined") {
+            $("#sube-evrak-uyari").kendoNumericTextBox({
+              format: "n0",
+              decimals: 0,
+              min: 1,
+              value: 7
+            });
+          }
+          if (typeof $.fn.kendoTextBox !== "undefined") {
+            $("#sube-evrak-aciklama").kendoTextBox();
+          }
+          if (typeof $.fn.kendoUpload !== "undefined") {
+            $("#sube-evrak-upload").kendoUpload({
+              async: {
+                autoUpload: false
+              },
+              multiple: false,
+              validation: {
+                allowedExtensions: [".pdf", ".png", ".jpg", ".jpeg"],
+                maxFileSize: 15 * 1024 * 1024
+              }
+            });
+          }
+        }
+
+        function resetSubeEvrakForm() {
+          var dd = $("#sube-evrak-turu").data("kendoDropDownList");
+          if (dd) { dd.value(""); }
+          var dp = $("#sube-evrak-bitistarih").data("kendoDatePicker");
+          if (dp) { dp.value(null); }
+          var nt = $("#sube-evrak-uyari").data("kendoNumericTextBox");
+          if (nt) { nt.value(7); }
+          $("#sube-evrak-aciklama").val("");
+          var upload = $("#sube-evrak-upload").data("kendoUpload");
+          if (upload) { upload.clearAllFiles(); }
+        }
+
+        function ensureSubeEvrakGrid() {
+          if (typeof kendo === "undefined" || typeof $.fn.kendoGrid === "undefined") {
+            return;
+          }
+          if ($("#sube-evrak-grid").data("kendoGrid")) {
+            return;
+          }
+          $("#sube-evrak-grid").kendoGrid({
+            dataSource: {
+              data: [],
+              schema: {
+                model: {
+                  fields: {
+                    id: { type: "number" },
+                    evrak_turu: { type: "string" },
+                    bitis_tarihi: { type: "date" },
+                    uyari_gunu: { type: "number" },
+                    kalan_gun: { type: "number" },
+                    dosya_url: { type: "string" },
+                    dosya_adi: { type: "string" }
+                  }
+                }
+              }
+            },
+            height: 360,
+            sortable: true,
+            filterable: false,
+            pageable: false,
+            columns: [
+              { field: "evrak_turu", title: "Evrak Türü", width: 200 },
+              { field: "bitis_tarihi", title: "Bitiş Tarihi", width: 140, format: "{0:dd.MM.yyyy}" },
+              { field: "kalan_gun", title: "Kalan Gün", width: 110 },
+              { field: "uyari_gunu", title: "Uyarı (gün)", width: 110 },
+              { field: "dosya_adi", title: "Dosya", width: 220 },
+              { title: "Önizle", width: 90, template: "<button class='k-button k-button-sm k-rounded-md k-button-solid k-button-solid-base sube-evrak-onizle' data-url='#: dosya_url #'>Aç</button>" }
+            ]
+          });
+        }
+
+        window.refreshSubeEvrakGrid = function() {
+          ensureSubeEvrakGrid();
+          if (!window.selectedFirma || !window.selectedFirma.id) {
+            var gridEmpty = $("#sube-evrak-grid").data("kendoGrid");
+            if (gridEmpty) {
+              gridEmpty.dataSource.data([]);
+            }
+            return;
+          }
+          fetch("/api/firma-evraklari/" + window.selectedFirma.id + "/")
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+              var grid = $("#sube-evrak-grid").data("kendoGrid");
+              if (!grid) { return; }
+              var today = new Date();
+              today.setHours(0, 0, 0, 0);
+              var warnCount = 0;
+              var normalized = (data || []).map(function(item) {
+                if (item.bitis_tarihi) {
+                  var bitisDate = new Date(item.bitis_tarihi);
+                  bitisDate.setHours(0, 0, 0, 0);
+                  item.bitis_tarihi = bitisDate;
+                  var diffMs = bitisDate.getTime() - today.getTime();
+                  var diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+                  item.kalan_gun = diffDays;
+                  if (diffDays >= 0 && diffDays <= (item.uyari_gunu || 0)) {
+                    warnCount += 1;
+                  }
+                } else {
+                  item.kalan_gun = "";
+                }
+                return item;
+              });
+              grid.dataSource.data(normalized);
+              if (warnCount > 0) {
+                var message = warnCount + " evrakın bitişi yaklaşıyor.";
+                if (typeof showWarning === "function") {
+                  showWarning(message);
+                } else {
+                  alert(message);
+                }
+              }
+            });
+        };
+
+        $(document).on("click", ".sube-evrak-onizle", function() {
+          var url = $(this).data("url");
+          if (!url) {
+            return;
+          }
+          ensureSubeEvrakWindows();
+          var content = '<iframe src="' + url + '" style="width:100%;height:100%;border:none;"></iframe>';
+          $("#sube-evrak-onizleme-icerik").html(content);
+          if (subeEvrakOnizlemeWindow) {
+            subeEvrakOnizlemeWindow.center().open();
+          }
+        });
+
+        $("#sube-evrak-kapat").on("click", function() {
+          if (subeEvrakWindow) {
+            subeEvrakWindow.close();
+          }
+        });
+
+        $("#sube-karti-evrak-ekle-btn").on("click", function() {
+          if (!window.selectedFirma || !window.selectedFirma.id) {
+            if (typeof showWarning === "function") {
+              showWarning("Önce listeden firma seç.");
+            } else {
+              alert("Önce listeden firma seç.");
+            }
+            return;
+          }
+          ensureSubeEvrakWindows();
+          initSubeEvrakForm();
+          loadSubeEvrakTurleri().then(function() {
+            resetSubeEvrakForm();
+            if (subeEvrakWindow) {
+              subeEvrakWindow.center().open();
+            }
+          });
+        });
+
+        $("#sube-evrak-upload").on("click", ".k-upload-selected", function(e) {
+          e.preventDefault();
+          if (!window.selectedFirma || !window.selectedFirma.id) {
+            return;
+          }
+          var dd = $("#sube-evrak-turu").data("kendoDropDownList");
+          var turId = dd ? dd.value() : "";
+          var dp = $("#sube-evrak-bitistarih").data("kendoDatePicker");
+          var bitisTarihi = dp && dp.value() ? kendo.toString(dp.value(), "yyyy-MM-dd") : "";
+          var nt = $("#sube-evrak-uyari").data("kendoNumericTextBox");
+          var uyariGunu = nt ? nt.value() : 7;
+          var aciklama = ($("#sube-evrak-aciklama").val() || "").trim();
+          var upload = $("#sube-evrak-upload").data("kendoUpload");
+          var files = upload ? upload.getFiles() : [];
+
+          if (!turId) {
+            if (typeof showWarning === "function") {
+              showWarning("Evrak türü seç.");
+            } else {
+              alert("Evrak türü seç.");
+            }
+            return;
+          }
+          if (!files || files.length === 0) {
+            if (typeof showWarning === "function") {
+              showWarning("Dosya seç.");
+            } else {
+              alert("Dosya seç.");
+            }
+            return;
+          }
+
+          var formData = new FormData();
+          formData.append("evrak_turu_id", turId);
+          formData.append("bitis_tarihi", bitisTarihi);
+          formData.append("uyari_gunu", uyariGunu);
+          formData.append("aciklama", aciklama);
+          formData.append("dosya", files[0].rawFile);
+
+          fetch("/api/firma-evraklari/" + window.selectedFirma.id + "/", {
+            method: "POST",
+            body: formData
+          })
+            .then(function(response) {
+              return response.json().then(function(data) {
+                return { ok: response.ok, data: data };
+              });
+            })
+            .then(function(result) {
+              if (!result.ok) {
+                throw new Error(result.data && result.data.error ? result.data.error : "Yükleme hatası");
+              }
+              if (typeof showSuccess === "function") {
+                showSuccess("Evrak yüklendi.");
+              }
+              if (subeEvrakWindow) {
+                subeEvrakWindow.close();
+              }
+              window.refreshSubeEvrakGrid();
+            })
+            .catch(function(error) {
+              if (typeof showError === "function") {
+                showError(error.message || "Yükleme hatası");
+              } else {
+                alert(error.message || "Yükleme hatası");
+              }
+            });
         });
         $("#firma-yeni-btn-top").on("click", function() {
           if (firmaTanimKartiWindow) {
@@ -2729,6 +3034,9 @@
           });
         }
         grid.dataSource.data(data);
+        if (typeof window.refreshSubeEvrakGrid === "function") {
+          window.refreshSubeEvrakGrid();
+        }
       };
 
       window.initFirmaTanimlariGrid = function() {

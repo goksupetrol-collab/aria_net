@@ -348,6 +348,42 @@ class Firma(models.Model):
         return f"{self.sira_no} - {self.ad}"
 
 
+class EvrakTuru(models.Model):
+    """Şube evrak türleri"""
+    ad = models.CharField(max_length=100, verbose_name="Evrak Türü")
+    aktif = models.BooleanField(default=True, verbose_name="Aktif")
+    olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
+    guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
+
+    class Meta:
+        verbose_name = "Evrak Türü"
+        verbose_name_plural = "Evrak Türleri"
+        ordering = ["ad"]
+
+    def __str__(self):
+        return self.ad
+
+
+class FirmaEvrak(models.Model):
+    """Firma/Şube evrakları"""
+    firma = models.ForeignKey(Firma, on_delete=models.CASCADE, related_name="evraklar", verbose_name="Firma")
+    evrak_turu = models.ForeignKey(EvrakTuru, on_delete=models.PROTECT, related_name="evraklar", verbose_name="Evrak Türü")
+    dosya = models.FileField(upload_to="firma_evraklari/", verbose_name="Dosya")
+    aciklama = models.CharField(max_length=200, blank=True, default="", verbose_name="Açıklama")
+    bitis_tarihi = models.DateField(null=True, blank=True, verbose_name="Bitiş Tarihi")
+    uyari_gunu = models.IntegerField(default=7, verbose_name="Uyarı Günü")
+    olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
+    guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
+
+    class Meta:
+        verbose_name = "Firma Evrakı"
+        verbose_name_plural = "Firma Evrakları"
+        ordering = ["-olusturma_tarihi"]
+
+    def __str__(self):
+        return f"{self.firma.ad} - {self.evrak_turu.ad}"
+
+
 class MenuItem(models.Model):
     """Ribbon menü öğeleri - PetroNet gibi veritabanında saklanıyor"""
     sira_no = models.IntegerField(verbose_name="Sıra No", unique=True)
