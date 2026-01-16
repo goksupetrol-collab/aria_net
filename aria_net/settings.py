@@ -75,27 +75,27 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# Geçici olarak SQLite kullanılıyor (SQL Server yapılandırması için)
-# SQL Server kullanmak için aşağıdaki yorumları kaldırın ve SQLite kısmını yorum yapın
+# SQL Server ayarları (aktif)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'aria_net',
+        'HOST': 'localhost\\SQL2025',
+        'PORT': '',
+        'USER': 'sa',
+        'PASSWORD': 'Mt5652472!',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 18 for SQL Server',
+            'extra_params': 'TrustServerCertificate=yes;Encrypt=yes',
+        },
     }
 }
 
-# SQL Server ayarları (şu an yorum satırı)
+# SQLite (gerekirse geri dönmek için)
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'mssql',
-#         'NAME': 'aria_net_db',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#         'OPTIONS': {
-#             'driver': 'ODBC Driver 18 for SQL Server',
-#             'extra_params': 'TrustServerCertificate=yes;Encrypt=yes',
-#         },
-#         # Windows Authentication kullanılıyor (şifre gerekmez)
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
