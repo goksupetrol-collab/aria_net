@@ -2393,7 +2393,7 @@
               { field: "kalan_gun", title: "Kalan Gün", width: 110 },
               { field: "uyari_gunu", title: "Uyarı (gün)", width: 110 },
               { field: "dosya_adi", title: "Dosya", width: 220 },
-              { title: "Önizle", width: 90, template: "<button class='k-button k-button-sm k-rounded-md k-button-solid k-button-solid-base sube-evrak-onizle' data-url='#: dosya_url #'>Aç</button>" }
+              { title: "Önizle", width: 90, template: "<button class='k-button k-button-sm k-rounded-md k-button-solid k-button-solid-base sube-evrak-onizle' data-id='#: id #' data-url='#: dosya_url #'>Aç</button>" }
             ]
           });
         }
@@ -2460,8 +2460,9 @@
         }
 
         $(document).on("click", ".sube-evrak-onizle", function() {
+          var evrakId = $(this).data("id");
           var url = $(this).data("url");
-          var resolvedUrl = normalizeSubeEvrakUrl(url);
+          var resolvedUrl = evrakId ? (window.location.origin + "/api/firma-evrak-onizle/" + evrakId + "/") : normalizeSubeEvrakUrl(url);
           if (!resolvedUrl) {
             return;
           }

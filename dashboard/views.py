@@ -1,13 +1,15 @@
 from pathlib import Path
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.utils.dateparse import parse_date
 from datetime import date
 import json
 import os
 import xml.etree.ElementTree as ET
+import mimetypes
 from django.db.models import Max
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
@@ -1107,3 +1109,26 @@ def api_firma_evraklari(request, firma_id=None):
         })
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
+
+
+@require_http_methods(["GET"])
+@xframe_options_sameorigin
+def firma_evrak_onizle(request, evrak_id):
+    """Evrak dosyasını iframe içinde açmak için inline döner."""
+    try:
+        evrak = FirmaEvrak.objects.get(id=evrak_id)
+    except FirmaEvrak.DoesNotExist:
+        raise Http404("Evrak bulunamadı.")
+
+    if not evrak.dosya:
+        raise Http404("Dosya bulunamadı.")
+
+    file_path = evrak.dosya.path
+    if not os.path.exists(file_path):
+        raise Http404("Dosya bulunamadı.")
+
+    content_type, _ = mimetypes.guess_type(file_path)
+    response = FileResponse(open(file_path, "rb"), content_type=content_type or "application/octet-stream")
+    filename = os.path.basename(file_path)
+    response["Content-Disposition"] = f'inline; filename="{filename}"'
+    return response
