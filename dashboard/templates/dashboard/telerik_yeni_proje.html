@@ -2284,21 +2284,39 @@
               }
               });
             }
-
-            var upload = $("#sube-evrak-upload").data("kendoUpload");
-            if (upload && upload.wrapper) {
-              var $fileInput = $(upload.wrapper).find("input[type='file']").first();
-              $fileInput.prop("disabled", false);
-              $(upload.wrapper).find(".k-upload-button").off("click.sube").on("click.sube", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if ($fileInput.length) {
-                  $fileInput[0].click();
-                }
-                return false;
-              });
-            }
           }
+        }
+
+        function wireSubeEvrakUploadButton() {
+          var upload = $("#sube-evrak-upload").data("kendoUpload");
+          if (!upload || !upload.wrapper) {
+            return;
+          }
+          var $wrapper = $(upload.wrapper);
+          var $button = $wrapper.find(".k-upload-button").first();
+          var $fileInput = $wrapper.find("input[type='file']").first();
+
+          if (!$button.length || !$fileInput.length) {
+            return;
+          }
+
+          $fileInput.prop("disabled", false).css({
+            position: "absolute",
+            opacity: 0,
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            cursor: "pointer"
+          });
+          $button.css({ position: "relative", overflow: "hidden" });
+
+          $button.off("click.sube").on("click.sube", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $fileInput[0].click();
+            return false;
+          });
         }
 
         function resetSubeEvrakForm() {
@@ -2432,6 +2450,7 @@
             if (subeEvrakWindow) {
               subeEvrakWindow.center().open();
             }
+            setTimeout(wireSubeEvrakUploadButton, 100);
           });
         });
 
