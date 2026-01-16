@@ -545,7 +545,7 @@
   <div class="container" id="main-content-firma-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİRMA TANIMLARI</h1>
     <div style="display:flex;gap:8px;justify-content:center;align-items:center;margin:10px 0;">
-      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Yeni Firma</button>
+      <button id="firma-yeni-btn-top" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Yeni Firma</button>
       <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kaydet</button>
       <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Sil</button>
     </div>
@@ -2118,8 +2118,68 @@
 
         $("#firma-yeni-btn").on("click", function() {
           if (firmaTanimKartiWindow) {
+            $("#firma-karti-adi-input").val("");
+            $("#firma-karti-sube-input").val("");
             firmaTanimKartiWindow.center().open();
           }
+        });
+        $("#firma-yeni-btn-top").on("click", function() {
+          if (firmaTanimKartiWindow) {
+            $("#firma-karti-adi-input").val("");
+            $("#firma-karti-sube-input").val("");
+            firmaTanimKartiWindow.center().open();
+          }
+        });
+
+        $("#firma-karti-yeni").on("click", function() {
+          $("#firma-karti-adi-input").val("");
+          $("#firma-karti-sube-input").val("");
+        });
+
+        $("#firma-karti-kaydet").on("click", function() {
+          var firmaAdi = ($("#firma-karti-adi-input").val() || "").trim();
+          var subeAdi = ($("#firma-karti-sube-input").val() || "").trim();
+          if (!firmaAdi) {
+            if (typeof showWarning === "function") {
+              showWarning("Firma adı boş olamaz.");
+            } else {
+              alert("Firma adı boş olamaz.");
+            }
+            return;
+          }
+
+          fetch("/api/firmalar/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ad: firmaAdi, sube: subeAdi })
+          })
+            .then(function(response) {
+              return response.json().then(function(data) {
+                return { ok: response.ok, data: data };
+              });
+            })
+            .then(function(result) {
+              if (!result.ok) {
+                throw new Error(result.data && result.data.error ? result.data.error : "Kayıt hatası");
+              }
+              if (typeof showSuccess === "function") {
+                showSuccess("Firma kaydedildi.");
+              }
+              var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+              if (grid) {
+                grid.dataSource.read();
+              }
+              if (firmaTanimKartiWindow) {
+                firmaTanimKartiWindow.close();
+              }
+            })
+            .catch(function(error) {
+              if (typeof showError === "function") {
+                showError(error.message || "Kayıt hatası");
+              } else {
+                alert(error.message || "Kayıt hatası");
+              }
+            });
         });
 
         $("#firma-karti-cikis").on("click", function() {
@@ -2595,33 +2655,25 @@
         if ($("#firma-tanimlari-grid").data("kendoGrid")) {
           return;
         }
-        var emptyRows = [];
-        for (var i = 0; i < 20; i++) {
-          emptyRows.push({
-            kod: "",
-            unvan: "",
-            vergi: "",
-            tel: "",
-            yetkili: "",
-            adres: ""
-          });
-        }
-        
         var containerWidth = $("#firma-tanimlari-grid").parent().width() || $(window).width();
         var gridWidth = Math.min(containerWidth, 1920);
         
         $("#firma-tanimlari-grid").kendoGrid({
           dataSource: {
-            data: emptyRows,
+            transport: {
+              read: {
+                url: "/api/firmalar/",
+                dataType: "json"
+              }
+            },
             schema: {
               model: {
                 fields: {
-                  kod: { type: "string" },
-                  unvan: { type: "string" },
-                  vergi: { type: "string" },
-                  tel: { type: "string" },
-                  yetkili: { type: "string" },
-                  adres: { type: "string" }
+                  id: { type: "number" },
+                  sira_no: { type: "number" },
+                  ad: { type: "string" },
+                  sube: { type: "string" },
+                  aktif: { type: "boolean" }
                 }
               }
             }
@@ -2651,13 +2703,8 @@
             update: true
           },
           columns: [
-            { title: "#", width: 50, template: "#= (dataSource.page() - 1) * dataSource.pageSize() + (dataSource.indexOf(dataItem) + 1) #" },
-            { field: "kod", title: "KOD", width: 120 },
-            { field: "unvan", title: "ÜNVAN", width: 240 },
-            { field: "vergi", title: "VERGİ NO", width: 160 },
-            { field: "tel", title: "TEL", width: 140 },
-            { field: "yetkili", title: "YETKİLİ", width: 180 },
-            { field: "adres", title: "ADRES", width: 300 }
+            { field: "ad", title: "FİRMA ADI", width: 320 },
+            { field: "sube", title: "ŞUBESİ", width: 220 }
           ]
         });
       };

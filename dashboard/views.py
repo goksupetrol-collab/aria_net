@@ -8,6 +8,7 @@ from datetime import date
 import json
 import os
 import xml.etree.ElementTree as ET
+from django.db.models import Max
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 try:
@@ -806,6 +807,7 @@ def api_firmalar(request, firma_id=None):
                 'id': f.id,
                 'sira_no': f.sira_no,
                 'ad': f.ad,
+                'sube': f.sube,
                 'aktif': f.aktif
             }
             for f in firmalar
@@ -818,20 +820,26 @@ def api_firmalar(request, firma_id=None):
             data = json.loads(request.body)
             sira_no = data.get('sira_no')
             ad = data.get('ad', '').strip()
+            sube = data.get('sube', '').strip()
             
-            if not sira_no or not ad:
-                return JsonResponse({'error': 'Sıra no ve ad gerekli'}, status=400)
+            if not ad:
+                return JsonResponse({'error': 'Firma adı gerekli'}, status=400)
+
+            if not sira_no:
+                max_sira = Firma.objects.aggregate(Max('sira_no'))['sira_no__max'] or 0
+                sira_no = max_sira + 1
             
             # Aynı sıra no var mı kontrol et
             if Firma.objects.filter(sira_no=sira_no).exists():
                 return JsonResponse({'error': 'Bu sıra numarası zaten kullanılıyor'}, status=400)
             
-            firma = Firma.objects.create(sira_no=sira_no, ad=ad, aktif=True)
+            firma = Firma.objects.create(sira_no=sira_no, ad=ad, sube=sube, aktif=True)
             return JsonResponse({
                 'success': True,
                 'id': firma.id,
                 'sira_no': firma.sira_no,
-                'ad': firma.ad
+                'ad': firma.ad,
+                'sube': firma.sube
             })
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
@@ -843,6 +851,7 @@ def api_firmalar(request, firma_id=None):
             firma_id = data.get('id')
             sira_no = data.get('sira_no')
             ad = data.get('ad', '').strip()
+            sube = data.get('sube', '').strip()
             aktif = data.get('aktif', True)
             
             if not firma_id:
@@ -861,6 +870,8 @@ def api_firmalar(request, firma_id=None):
             
             if ad:
                 firma.ad = ad
+            if sube:
+                firma.sube = sube
             firma.aktif = aktif
             firma.save()
             
@@ -869,6 +880,7 @@ def api_firmalar(request, firma_id=None):
                 'id': firma.id,
                 'sira_no': firma.sira_no,
                 'ad': firma.ad,
+                'sube': firma.sube,
                 'aktif': firma.aktif
             })
         except Exception as e:

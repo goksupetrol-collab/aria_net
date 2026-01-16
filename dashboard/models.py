@@ -334,6 +334,7 @@ class Firma(models.Model):
     """Firma/Şube tanımları - PetroNet'ten alındı"""
     sira_no = models.IntegerField(verbose_name="Sıra No", unique=True)
     ad = models.CharField(max_length=100, verbose_name="Firma Adı")
+    sube = models.CharField(max_length=100, verbose_name="Şube", blank=True, default="")
     aktif = models.BooleanField(default=True, verbose_name="Aktif")
     olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
     guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
