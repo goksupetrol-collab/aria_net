@@ -2265,6 +2265,14 @@
               validation: {
                 allowedExtensions: [".pdf", ".png", ".jpg", ".jpeg"],
                 maxFileSize: 15 * 1024 * 1024
+              },
+              localization: {
+                select: "Dosya Seç",
+                uploadSelectedFiles: "Yükle",
+                cancel: "İptal",
+                headerStatusUploading: "Yükleniyor...",
+                headerStatusUploaded: "Yüklendi",
+                dropFilesHere: "Dosyayı buraya bırak"
               }
             });
           }
@@ -2400,6 +2408,12 @@
             resetSubeEvrakForm();
             if (subeEvrakWindow) {
               subeEvrakWindow.center().open();
+            }
+            var fileInput = $("#sube-evrak-upload").find(".k-upload-button input[type='file']");
+            if (fileInput.length) {
+              setTimeout(function() {
+                fileInput.trigger("click");
+              }, 100);
             }
           });
         });
