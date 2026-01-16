@@ -103,6 +103,7 @@
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
     #sube-evrak-upload .k-upload-button {position: relative; z-index: 2; pointer-events: auto;}
+    #sube-evrak-upload .k-dropzone {display:none !important;}
 
     /* Sütun seçimi menüsü ikonu her zaman görünsün */
     #firma-tanimlari-grid .k-grid-header .k-header .k-grid-column-menu,
@@ -3372,10 +3373,10 @@
               attempt = attempt || 0;
               var maxAttempts = 15;
               
-              // Buton #upload-area içinde değil, parent veya kardeş elementlerde olabilir
+              // Sadece #upload-area icindeki butonlari hedefle
               var $uploadArea = $("#upload-area");
-              var $uploadButton = $uploadArea.siblings(".k-upload-button").add($uploadArea.find(".k-upload-button")).add($uploadArea.parent().find(".k-upload-button"));
-              var $fileInput = $uploadArea.find("input[type='file']").add($uploadArea.siblings("input[type='file']")).add($uploadArea.parent().find("input[type='file']"));
+              var $uploadButton = $uploadArea.find(".k-upload-button");
+              var $fileInput = $uploadArea.find("input[type='file']");
               
               console.log("Kontrol " + attempt + ": Buton=" + $uploadButton.length + ", FileInput=" + $fileInput.length);
               console.log("Upload area HTML:", $uploadArea.html().substring(0, 200));
