@@ -310,14 +310,6 @@
     </div>
   </div>
 
-  <!-- SİSTEM TANIMLARI WINDOW -->
-  <div id="sistem-tanimlari-window" style="display:none;">
-    <div style="padding:12px;">
-      <label for="sistem-adi-input" style="display:block;margin-bottom:6px;font-weight:600;">Sistem Adı</label>
-      <input id="sistem-adi-input" style="width:100%;" />
-    </div>
-  </div>
-
   <!-- E POSTA TANIMLARI DIALOG -->
   <div id="eposta-dialog" style="display:none;">
     <div style="padding:12px;">
@@ -359,7 +351,6 @@
       { text: "Ürün Tanımları", key: "urun_tanimlari" },
       { text: "E Posta Tanımları", key: "eposta_tanimlari" },
       { text: "Whatsapp Tanımları", key: "whatsapp_tanimlari" },
-      { text: "Sistem Tanımları", key: "sistem_tanimlari" },
       { text: "Çıkış", key: "cikis" }
     ];
 
@@ -1182,7 +1173,6 @@
       // Firma Tanımları Window (boş içerik)
       var firmaTanimlariWindow = null;
       var urunTanimlariWindow = null;
-      var sistemTanimlariWindow = null;
       var epostaDialog = null;
       function initFirmaTanimlariWindow() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
@@ -1240,33 +1230,6 @@
       }
       initUrunTanimlariWindow();
 
-      function initSistemTanimlariWindow() {
-        if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
-          try {
-            sistemTanimlariWindow = $("#sistem-tanimlari-window").kendoWindow({
-              title: "Sistem Tanımları",
-              width: "60%",
-              height: "60%",
-              visible: false,
-              modal: false,
-              resizable: true,
-              draggable: true,
-              actions: ["Maximize", "Minimize", "Close"]
-            }).data("kendoWindow");
-
-            if (typeof $.fn.kendoTextBox !== 'undefined') {
-              $("#sistem-adi-input").kendoTextBox({
-                placeholder: "Sistem adı yazın..."
-              });
-            }
-          } catch (error) {
-            console.error("Sistem Tanımları Window başlatılırken hata:", error);
-          }
-        } else {
-          setTimeout(initSistemTanimlariWindow, 100);
-        }
-      }
-      initSistemTanimlariWindow();
 
       function initEpostaDialog() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoDialog !== 'undefined') {
@@ -1314,9 +1277,6 @@
         if (isWindowOpen(urunTanimlariWindow)) {
           openCount += 1;
         }
-        if (isWindowOpen(sistemTanimlariWindow)) {
-          openCount += 1;
-        }
         if (openCount > 1) {
           var offset = (openCount - 1) * 30;
           var wrapper = win.wrapper;
@@ -1346,14 +1306,6 @@
           return;
         }
         openWindowCascade(urunTanimlariWindow);
-      }
-
-      function openSistemTanimlariWindow() {
-        if (!sistemTanimlariWindow) {
-          initSistemTanimlariWindow();
-          return;
-        }
-        openWindowCascade(sistemTanimlariWindow);
       }
 
       function openEpostaDialog() {
