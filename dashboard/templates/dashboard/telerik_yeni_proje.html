@@ -607,7 +607,8 @@
       </div>
       <input id="sube-evrak-upload" name="files" type="file" />
     </div>
-    <div style="display:flex;justify-content:flex-end;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid #e0e0e0;">
+      <button id="sube-evrak-kaydet" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Kaydet</button>
       <button id="sube-evrak-kapat" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kapat</button>
     </div>
   </div>
@@ -2481,8 +2482,7 @@
           });
         });
 
-        $("#sube-evrak-upload").on("click", ".k-upload-selected", function(e) {
-          e.preventDefault();
+        function submitSubeEvrakUpload() {
           if (!window.selectedFirma || !window.selectedFirma.id) {
             return;
           }
@@ -2584,6 +2584,16 @@
                 alert(error.message || "Yükleme hatası");
               }
             });
+        }
+
+        $("#sube-evrak-upload").on("click", ".k-upload-selected", function(e) {
+          e.preventDefault();
+          submitSubeEvrakUpload();
+        });
+
+        $("#sube-evrak-kaydet").on("click", function(e) {
+          e.preventDefault();
+          submitSubeEvrakUpload();
         });
         $("#firma-yeni-btn-top").on("click", function() {
           if (firmaTanimKartiWindow) {
