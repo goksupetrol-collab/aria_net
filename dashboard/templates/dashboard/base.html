@@ -318,24 +318,6 @@
     </div>
   </div>
 
-  <!-- KULLANICI TANIMLARI WINDOW + SPLITTER -->
-  <div id="kullanici-tanimlari-window" style="display:none;">
-    <div id="kullanici-splitter" style="height:100%;">
-      <div style="padding:10px;">
-        <h3 style="margin:0 0 8px 0;">Kullanıcı Listesi</h3>
-        <div>Ahmet Yılmaz</div>
-        <div>Ayşe Demir</div>
-        <div>Mehmet Kaya</div>
-      </div>
-      <div style="padding:10px;">
-        <h3 style="margin:0 0 8px 0;">Kullanıcı Detayı</h3>
-        <div>Ad Soyad: Ahmet Yılmaz</div>
-        <div>Rol: Yönetici</div>
-        <div>Durum: Aktif</div>
-      </div>
-    </div>
-  </div>
-
   <!-- E POSTA TANIMLARI DIALOG -->
   <div id="eposta-dialog" style="display:none;">
     <div style="padding:12px;">
@@ -378,7 +360,6 @@
       { text: "E Posta Tanımları", key: "eposta_tanimlari" },
       { text: "Whatsapp Tanımları", key: "whatsapp_tanimlari" },
       { text: "Sistem Tanımları", key: "sistem_tanimlari" },
-      { text: "Kullanıcı Tanımları", key: "kullanici_tanimlari" },
       { text: "Çıkış", key: "cikis" }
     ];
 
@@ -1202,7 +1183,6 @@
       var firmaTanimlariWindow = null;
       var urunTanimlariWindow = null;
       var sistemTanimlariWindow = null;
-      var kullaniciTanimlariWindow = null;
       var epostaDialog = null;
       function initFirmaTanimlariWindow() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
@@ -1288,37 +1268,6 @@
       }
       initSistemTanimlariWindow();
 
-      function initKullaniciTanimlariWindow() {
-        if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
-          try {
-            kullaniciTanimlariWindow = $("#kullanici-tanimlari-window").kendoWindow({
-              title: "Kullanıcı Tanımları",
-              width: "70%",
-              height: "60%",
-              visible: false,
-              modal: false,
-              resizable: true,
-              draggable: true,
-              actions: ["Maximize", "Minimize", "Close"]
-            }).data("kendoWindow");
-
-            if (typeof $.fn.kendoSplitter !== 'undefined') {
-              $("#kullanici-splitter").kendoSplitter({
-                panes: [
-                  { size: "35%", collapsible: true },
-                  { collapsible: true }
-                ]
-              });
-            }
-          } catch (error) {
-            console.error("Kullanıcı Tanımları Window başlatılırken hata:", error);
-          }
-        } else {
-          setTimeout(initKullaniciTanimlariWindow, 100);
-        }
-      }
-      initKullaniciTanimlariWindow();
-
       function initEpostaDialog() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoDialog !== 'undefined') {
           try {
@@ -1368,10 +1317,6 @@
         if (isWindowOpen(sistemTanimlariWindow)) {
           openCount += 1;
         }
-        if (isWindowOpen(kullaniciTanimlariWindow)) {
-          openCount += 1;
-        }
-
         if (openCount > 1) {
           var offset = (openCount - 1) * 30;
           var wrapper = win.wrapper;
@@ -1409,14 +1354,6 @@
           return;
         }
         openWindowCascade(sistemTanimlariWindow);
-      }
-
-      function openKullaniciTanimlariWindow() {
-        if (!kullaniciTanimlariWindow) {
-          initKullaniciTanimlariWindow();
-          return;
-        }
-        openWindowCascade(kullaniciTanimlariWindow);
       }
 
       function openEpostaDialog() {
