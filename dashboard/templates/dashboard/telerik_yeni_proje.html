@@ -586,7 +586,7 @@
     <div style="padding:12px;">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
         <label for="sube-evrak-turu" style="min-width:110px;">Evrak Türü:</label>
-        <input id="sube-evrak-turu" style="width:100%;" />
+        <input id="sube-evrak-turu" style="width:100%;" placeholder="Örn: Lisans" />
       </div>
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
         <label for="sube-evrak-bitistarih" style="min-width:110px;">Bitiş Tarihi:</label>
@@ -2223,11 +2223,16 @@
             .then(function(response) { return response.json(); })
             .then(function(data) {
               subeEvrakTurleri = data || [];
-              if (typeof $.fn.kendoDropDownList !== "undefined") {
-                $("#sube-evrak-turu").kendoDropDownList({
+              if (typeof $.fn.kendoComboBox !== "undefined") {
+                $("#sube-evrak-turu").kendoComboBox({
                   dataTextField: "ad",
                   dataValueField: "id",
-                  optionLabel: "Evrak türü seçin",
+                  placeholder: "Örn: Lisans",
+                  filter: "contains",
+                  suggest: true,
+                  highlightFirst: true,
+                  valuePrimitive: true,
+                  allowCustom: true,
                   dataSource: subeEvrakTurleri
                 });
               }
@@ -2266,7 +2271,7 @@
         }
 
         function resetSubeEvrakForm() {
-          var dd = $("#sube-evrak-turu").data("kendoDropDownList");
+          var dd = $("#sube-evrak-turu").data("kendoComboBox");
           if (dd) { dd.value(""); }
           var dp = $("#sube-evrak-bitistarih").data("kendoDatePicker");
           if (dp) { dp.value(null); }
@@ -2404,8 +2409,9 @@
           if (!window.selectedFirma || !window.selectedFirma.id) {
             return;
           }
-          var dd = $("#sube-evrak-turu").data("kendoDropDownList");
-          var turId = dd ? dd.value() : "";
+          var dd = $("#sube-evrak-turu").data("kendoComboBox");
+          var turValue = dd ? dd.value() : "";
+          var turText = dd ? dd.text() : "";
           var dp = $("#sube-evrak-bitistarih").data("kendoDatePicker");
           var bitisTarihi = dp && dp.value() ? kendo.toString(dp.value(), "yyyy-MM-dd") : "";
           var nt = $("#sube-evrak-uyari").data("kendoNumericTextBox");
@@ -2414,7 +2420,7 @@
           var upload = $("#sube-evrak-upload").data("kendoUpload");
           var files = upload ? upload.getFiles() : [];
 
-          if (!turId) {
+          if (!turValue && !turText) {
             if (typeof showWarning === "function") {
               showWarning("Evrak türü seç.");
             } else {
@@ -2431,16 +2437,54 @@
             return;
           }
 
-          var formData = new FormData();
-          formData.append("evrak_turu_id", turId);
-          formData.append("bitis_tarihi", bitisTarihi);
-          formData.append("uyari_gunu", uyariGunu);
-          formData.append("aciklama", aciklama);
-          formData.append("dosya", files[0].rawFile);
+          function uploadEvrak(turIdFinal) {
+            var formData = new FormData();
+            formData.append("evrak_turu_id", turIdFinal);
+            formData.append("bitis_tarihi", bitisTarihi);
+            formData.append("uyari_gunu", uyariGunu);
+            formData.append("aciklama", aciklama);
+            formData.append("dosya", files[0].rawFile);
 
-          fetch("/api/firma-evraklari/" + window.selectedFirma.id + "/", {
+            return fetch("/api/firma-evraklari/" + window.selectedFirma.id + "/", {
+              method: "POST",
+              body: formData
+            })
+              .then(function(response) {
+                return response.json().then(function(data) {
+                  return { ok: response.ok, data: data };
+                });
+              })
+              .then(function(result) {
+                if (!result.ok) {
+                  throw new Error(result.data && result.data.error ? result.data.error : "Yükleme hatası");
+                }
+                if (typeof showSuccess === "function") {
+                  showSuccess("Evrak yüklendi.");
+                }
+                if (subeEvrakWindow) {
+                  subeEvrakWindow.close();
+                }
+                window.refreshSubeEvrakGrid();
+              });
+          }
+
+          var isNumericId = turValue && String(parseInt(turValue, 10)) === String(turValue);
+          if (isNumericId) {
+            uploadEvrak(turValue).catch(function(error) {
+              if (typeof showError === "function") {
+                showError(error.message || "Yükleme hatası");
+              } else {
+                alert(error.message || "Yükleme hatası");
+              }
+            });
+            return;
+          }
+
+          var newTypeName = (turText || turValue || "").trim();
+          fetch("/api/evrak-turleri/", {
             method: "POST",
-            body: formData
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ad: newTypeName })
           })
             .then(function(response) {
               return response.json().then(function(data) {
@@ -2449,15 +2493,12 @@
             })
             .then(function(result) {
               if (!result.ok) {
-                throw new Error(result.data && result.data.error ? result.data.error : "Yükleme hatası");
+                throw new Error(result.data && result.data.error ? result.data.error : "Evrak türü kaydedilemedi");
               }
-              if (typeof showSuccess === "function") {
-                showSuccess("Evrak yüklendi.");
+              if (dd) {
+                dd.value(result.data.id);
               }
-              if (subeEvrakWindow) {
-                subeEvrakWindow.close();
-              }
-              window.refreshSubeEvrakGrid();
+              return uploadEvrak(result.data.id);
             })
             .catch(function(error) {
               if (typeof showError === "function") {
