@@ -240,7 +240,6 @@
         <ul>
           <li><span>Firma Tanımları</span></li>
           <li><span>Ürün Tanımları</span></li>
-          <li><span>E Posta Tanımları</span></li>
           <li><span>Whatsapp Tanımları</span></li>
           <li><span>Sistem Tanımları</span></li>
           <li><span>Kullanıcı Tanımları</span></li>
@@ -310,14 +309,6 @@
     </div>
   </div>
 
-  <!-- E POSTA TANIMLARI DIALOG -->
-  <div id="eposta-dialog" style="display:none;">
-    <div style="padding:12px;">
-      <label for="eposta-adres-input" style="display:block;margin-bottom:6px;font-weight:600;">E-Posta</label>
-      <input id="eposta-adres-input" style="width:100%;" />
-    </div>
-  </div>
-  
   <!-- FIRMA YÖNETİMİ WINDOW -->
   <div id="firma-window" style="display:none;">
     <div id="firma-grid-container" style="padding:10px;height:100%;">
@@ -349,7 +340,6 @@
     var tanimlarMenuData = [
       { text: "Firma Tanımları", key: "firma_tanimlari" },
       { text: "Ürün Tanımları", key: "urun_tanimlari" },
-      { text: "E Posta Tanımları", key: "eposta_tanimlari" },
       { text: "Whatsapp Tanımları", key: "whatsapp_tanimlari" },
       { text: "Çıkış", key: "cikis" }
     ];
@@ -614,8 +604,6 @@
                   openSistemTanimlariWindow();
                 } else if (menuText === "Kullanıcı Tanımları") {
                   openKullaniciTanimlariWindow();
-                } else if (menuText === "E Posta Tanımları") {
-                  openEpostaDialog();
                 } else if (menuText === "Cari Kartlar" || menuText === "Cari Kart") {
                   openCariKartTab();
                 }
@@ -1173,7 +1161,6 @@
       // Firma Tanımları Window (boş içerik)
       var firmaTanimlariWindow = null;
       var urunTanimlariWindow = null;
-      var epostaDialog = null;
       function initFirmaTanimlariWindow() {
         if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
           try {
@@ -1231,33 +1218,6 @@
       initUrunTanimlariWindow();
 
 
-      function initEpostaDialog() {
-        if (typeof kendo !== 'undefined' && typeof $.fn.kendoDialog !== 'undefined') {
-          try {
-            epostaDialog = $("#eposta-dialog").kendoDialog({
-              title: "E Posta Tanımları",
-              width: "420px",
-              visible: false,
-              modal: true,
-              actions: [
-                { text: "Kapat" }
-              ]
-            }).data("kendoDialog");
-
-            if (typeof $.fn.kendoTextBox !== 'undefined') {
-              $("#eposta-adres-input").kendoTextBox({
-                placeholder: "E-posta adresi yazın..."
-              });
-            }
-          } catch (error) {
-            console.error("E Posta Dialog başlatılırken hata:", error);
-          }
-        } else {
-          setTimeout(initEpostaDialog, 100);
-        }
-      }
-      initEpostaDialog();
-      
       function isWindowOpen(win) {
         return !!(win && win.wrapper && win.wrapper.is(":visible"));
       }
@@ -1306,14 +1266,6 @@
           return;
         }
         openWindowCascade(urunTanimlariWindow);
-      }
-
-      function openEpostaDialog() {
-        if (!epostaDialog) {
-          initEpostaDialog();
-          return;
-        }
-        epostaDialog.open();
       }
 
       // Ribbon butonlarını oluştur (ALAN 2)
