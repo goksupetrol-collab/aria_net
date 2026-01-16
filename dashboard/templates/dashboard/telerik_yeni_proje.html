@@ -102,7 +102,6 @@
     #sube-karti-grid, #sube-karti-grid .k-grid, #sube-karti-grid .k-grid-content,
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
-    #sube-evrak-upload .k-upload-button {display:none !important;}
 
     /* Sütun seçimi menüsü ikonu her zaman görünsün */
     #firma-tanimlari-grid .k-grid-header .k-header .k-grid-column-menu,
@@ -600,9 +599,6 @@
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
         <label for="sube-evrak-aciklama" style="min-width:110px;">Açıklama:</label>
         <input id="sube-evrak-aciklama" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-        <button id="sube-evrak-dosya-sec" type="button" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Dosya Seç</button>
       </div>
       <div id="sube-evrak-upload"></div>
     </div>
@@ -2245,20 +2241,26 @@
 
         function initSubeEvrakForm() {
           if (typeof $.fn.kendoDatePicker !== "undefined") {
-            $("#sube-evrak-bitistarih").kendoDatePicker({
-              format: "dd.MM.yyyy"
-            });
+            if (!$("#sube-evrak-bitistarih").data("kendoDatePicker")) {
+              $("#sube-evrak-bitistarih").kendoDatePicker({
+                format: "dd.MM.yyyy"
+              });
+            }
           }
           if (typeof $.fn.kendoNumericTextBox !== "undefined") {
-            $("#sube-evrak-uyari").kendoNumericTextBox({
-              format: "n0",
-              decimals: 0,
-              min: 1,
-              value: 7
-            });
+            if (!$("#sube-evrak-uyari").data("kendoNumericTextBox")) {
+              $("#sube-evrak-uyari").kendoNumericTextBox({
+                format: "n0",
+                decimals: 0,
+                min: 1,
+                value: 7
+              });
+            }
           }
           if (typeof $.fn.kendoTextBox !== "undefined") {
-            $("#sube-evrak-aciklama").kendoTextBox();
+            if (!$("#sube-evrak-aciklama").data("kendoTextBox")) {
+              $("#sube-evrak-aciklama").kendoTextBox();
+            }
           }
           if (typeof $.fn.kendoUpload !== "undefined") {
             if (!$("#sube-evrak-upload").data("kendoUpload")) {
@@ -2396,16 +2398,6 @@
         $("#sube-evrak-kapat").on("click", function() {
           if (subeEvrakWindow) {
             subeEvrakWindow.close();
-          }
-        });
-
-        $("#sube-evrak-dosya-sec").on("click", function(e) {
-          e.preventDefault();
-          initSubeEvrakForm();
-          var upload = $("#sube-evrak-upload").data("kendoUpload");
-          var input = upload && upload.element ? upload.element.find("input[type='file']") : $("#sube-evrak-upload input[type='file']");
-          if (input && input.length) {
-            input[0].click();
           }
         });
 
