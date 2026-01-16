@@ -102,10 +102,10 @@
     #sube-karti-grid, #sube-karti-grid .k-grid, #sube-karti-grid .k-grid-content,
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
-    #sube-evrak-upload .k-upload-button {position: relative; z-index: 2; pointer-events: auto;}
-    #sube-evrak-upload .k-dropzone {display:flex !important; align-items:center; gap:8px;}
-    #sube-evrak-upload .k-dropzone-hint {display:none !important;}
-    #sube-evrak-upload input[type="file"] {display:block !important; pointer-events:auto;}
+    #sube-evrak-window .k-upload-button {position: relative; z-index: 2; pointer-events: auto;}
+    #sube-evrak-window .k-dropzone {display:flex !important; align-items:center; gap:8px;}
+    #sube-evrak-window .k-dropzone-hint {display:none !important;}
+    #sube-evrak-window input[type="file"] {display:block !important; pointer-events:auto;}
 
     /* Sütun seçimi menüsü ikonu her zaman görünsün */
     #firma-tanimlari-grid .k-grid-header .k-header .k-grid-column-menu,
@@ -604,7 +604,7 @@
         <label for="sube-evrak-aciklama" style="min-width:110px;">Açıklama:</label>
         <input id="sube-evrak-aciklama" style="width:100%;" />
       </div>
-      <div id="sube-evrak-upload"></div>
+      <input id="sube-evrak-upload" name="files" type="file" />
     </div>
     <div style="display:flex;justify-content:flex-end;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
       <button id="sube-evrak-kapat" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kapat</button>
