@@ -102,6 +102,7 @@
     #sube-karti-grid, #sube-karti-grid .k-grid, #sube-karti-grid .k-grid-content,
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
+    #sube-evrak-upload .k-upload-button {position: relative; z-index: 2; pointer-events: auto;}
 
     /* Sütun seçimi menüsü ikonu her zaman görünsün */
     #firma-tanimlari-grid .k-grid-header .k-header .k-grid-column-menu,
@@ -2275,12 +2276,26 @@
               },
               localization: {
                 select: "Dosya Seç",
-                uploadSelectedFiles: "Yükle",
+                uploadSelectedFiles: "Kaydet",
                 cancel: "İptal",
                 headerStatusUploading: "Yükleniyor...",
                 headerStatusUploaded: "Yüklendi",
                 dropFilesHere: "Dosyayı buraya bırak"
               }
+              });
+            }
+
+            var upload = $("#sube-evrak-upload").data("kendoUpload");
+            if (upload && upload.wrapper) {
+              var $fileInput = $(upload.wrapper).find("input[type='file']").first();
+              $fileInput.prop("disabled", false);
+              $(upload.wrapper).find(".k-upload-button").off("click.sube").on("click.sube", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if ($fileInput.length) {
+                  $fileInput[0].click();
+                }
+                return false;
               });
             }
           }
