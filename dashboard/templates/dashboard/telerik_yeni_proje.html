@@ -103,7 +103,9 @@
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
     #sube-evrak-upload .k-upload-button {position: relative; z-index: 2; pointer-events: auto;}
-    #sube-evrak-upload .k-dropzone {display:none !important;}
+    #sube-evrak-upload .k-dropzone {display:flex !important; align-items:center; gap:8px;}
+    #sube-evrak-upload .k-dropzone-hint {display:none !important;}
+    #sube-evrak-upload input[type="file"] {display:block !important; pointer-events:auto;}
 
     /* Sütun seçimi menüsü ikonu her zaman görünsün */
     #firma-tanimlari-grid .k-grid-header .k-header .k-grid-column-menu,
@@ -2288,16 +2290,26 @@
           }
         }
 
-        function wireSubeEvrakUploadButton() {
+        function wireSubeEvrakUploadButton(attempt) {
+          attempt = attempt || 0;
           var upload = $("#sube-evrak-upload").data("kendoUpload");
           if (!upload || !upload.wrapper) {
+            if (attempt < 6) {
+              setTimeout(function() { wireSubeEvrakUploadButton(attempt + 1); }, 150);
+            }
             return;
+          }
+          if (typeof upload.enable === "function") {
+            upload.enable(true);
           }
           var $wrapper = $(upload.wrapper);
           var $button = $wrapper.find(".k-upload-button").first();
           var $fileInput = $wrapper.find("input[type='file']").first();
 
           if (!$button.length || !$fileInput.length) {
+            if (attempt < 6) {
+              setTimeout(function() { wireSubeEvrakUploadButton(attempt + 1); }, 150);
+            }
             return;
           }
 
@@ -2308,15 +2320,23 @@
             left: 0,
             width: "100%",
             height: "100%",
-            cursor: "pointer"
+            cursor: "pointer",
+            display: "block",
+            zIndex: 3,
+            pointerEvents: "auto"
           });
           $button.css({ position: "relative", overflow: "hidden" });
 
-          $button.off("click.sube").on("click.sube", function(e) {
+          $wrapper.off("click.subeUploadProxy").on("click.subeUploadProxy", ".k-upload-button", function(e) {
+            if ($(e.target).is("input[type='file']")) {
+              return;
+            }
             e.preventDefault();
             e.stopPropagation();
-            $fileInput[0].click();
-            return false;
+            var input = $wrapper.find("input[type='file']").first();
+            if (input.length) {
+              input[0].click();
+            }
           });
         }
 
