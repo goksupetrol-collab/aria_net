@@ -2378,7 +2378,9 @@
                     uyari_gunu: { type: "number" },
                     kalan_gun: { type: "number" },
                     dosya_url: { type: "string" },
-                    dosya_adi: { type: "string" }
+                    dosya_adi: { type: "string" },
+                    aciklama: { type: "string" },
+                    durum: { type: "string" }
                   }
                 }
               }
@@ -2388,11 +2390,13 @@
             filterable: false,
             pageable: false,
             columns: [
-              { field: "evrak_turu", title: "Evrak Türü", width: 200 },
-              { field: "bitis_tarihi", title: "Bitiş Tarihi", width: 140, format: "{0:dd.MM.yyyy}" },
-              { field: "kalan_gun", title: "Kalan Gün", width: 110 },
-              { field: "uyari_gunu", title: "Uyarı (gün)", width: 110 },
-              { field: "dosya_adi", title: "Dosya", width: 220 },
+              { field: "evrak_turu", title: "Evrak Türü", width: 170 },
+              { field: "bitis_tarihi", title: "Bitiş Tarihi", width: 130, format: "{0:dd.MM.yyyy}" },
+              { field: "kalan_gun", title: "Kalan Gün", width: 100 },
+              { field: "uyari_gunu", title: "Uyarı (gün)", width: 100 },
+              { field: "aciklama", title: "Açıklama", width: 220 },
+              { field: "dosya_adi", title: "Dosya", width: 200 },
+              { field: "durum", title: "Durum", width: 130, template: "# if (kalan_gun < 0) { # <span class='k-badge k-badge-md k-badge-solid k-badge-error'>Süresi geçti</span> # } else if (kalan_gun <= (uyari_gunu || 0)) { # <span class='k-badge k-badge-md k-badge-solid k-badge-warning'>Yaklaşıyor</span> # } else { # <span class='k-badge k-badge-md k-badge-solid k-badge-success'>Normal</span> # } #" },
               { title: "Önizle", width: 90, template: "<button class='k-button k-button-sm k-rounded-md k-button-solid k-button-solid-base sube-evrak-onizle' data-id='#: id #' data-url='#: dosya_url #'>Aç</button>" }
             ]
           });
@@ -2423,11 +2427,17 @@
                   var diffMs = bitisDate.getTime() - today.getTime();
                   var diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
                   item.kalan_gun = diffDays;
-                  if (diffDays >= 0 && diffDays <= (item.uyari_gunu || 0)) {
+                  if (diffDays < 0) {
+                    item.durum = "Süresi geçti";
+                  } else if (diffDays <= (item.uyari_gunu || 0)) {
+                    item.durum = "Yaklaşıyor";
                     warnCount += 1;
+                  } else {
+                    item.durum = "Normal";
                   }
                 } else {
                   item.kalan_gun = "";
+                  item.durum = "";
                 }
                 return item;
               });
