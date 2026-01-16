@@ -1307,8 +1307,7 @@
   
   <!-- TANIMLAR ALT MENÜ -->
   <div id="tanimlar-menu" style="position:fixed;top:28px;left:0;background:#FFFFFF;border:1px solid #E0E0E0;box-shadow:0 2px 4px rgba(0,0,0,0.1);z-index:10001;display:none;min-width:200px;">
-    <div id="tanimlar-firmalar" style="padding:5px 15px;cursor:pointer;border-bottom:1px solid #F0F0F0;">Firmalar</div>
-    <div id="tanimlar-urunler" style="padding:5px 15px;cursor:pointer;">Ürünler</div>
+    <div id="tanimlar-firmalar" style="padding:5px 15px;cursor:pointer;">Firmalar</div>
   </div>
 {% endblock %}
 
@@ -1455,15 +1454,8 @@
         kapatTanimlarMenu();
       });
       
-      $("#tanimlar-urunler").on("click", function(e) {
-        e.stopPropagation();
-        console.log("Ürünler tıklandı");
-        acUrunYonetimPenceresi();
-        kapatTanimlarMenu();
-      });
-      
       // Hover efektleri
-      $("#tanimlar-firmalar, #tanimlar-urunler").hover(
+      $("#tanimlar-firmalar").hover(
         function() { $(this).css("background", "#F5F5F5"); },
         function() { $(this).css("background", "#FFFFFF"); }
       );
