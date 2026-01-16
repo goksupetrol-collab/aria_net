@@ -1309,8 +1309,10 @@
                 tabId = "kredi-karti";
               } else if (tabText.indexOf("Cari Kart") >= 0) {
                 tabId = "cari-kart";
-              } else if (tabText.indexOf("Firma") >= 0) {
+            } else if (tabText.indexOf("Firma") >= 0) {
                 tabId = "firma-tanimlari";
+            } else if (tabText.indexOf("Şube") >= 0) {
+              tabId = "sube-karti";
               } else if (tabText.indexOf("Banka") >= 0) {
                 tabId = "banka";
               } else if (tabText.indexOf("Tanker") >= 0) {
@@ -1358,6 +1360,13 @@
         e.preventDefault();
         console.log("Firma Tanımları X butonuna tıklandı!");
         closeFirmaTanimlariTab();
+      });
+
+      $(document).on("click", ".tab-close-sube-karti", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Şube Kartı X butonuna tıklandı!");
+        closeSubeKartiTab();
       });
       
       $(document).on("click", ".tab-close-banka", function(e) {
@@ -1453,6 +1462,8 @@
           activeTabId = "kredi-karti";
         } else if (activeTabText.indexOf("Cari Kart") >= 0) {
           activeTabId = "cari-kart";
+        } else if (activeTabText.indexOf("Şube") >= 0) {
+          activeTabId = "sube-karti";
         } else if (activeTabText.indexOf("Banka") >= 0) {
           activeTabId = "banka";
         } else if (activeTabText.indexOf("Tanker") >= 0) {
@@ -1482,7 +1493,9 @@
             currentTabId = "kredi-karti";
           } else if (tabText.indexOf("Cari Kart") >= 0) {
             currentTabId = "cari-kart";
-          } else if (tabText.indexOf("Banka") >= 0) {
+        } else if (tabText.indexOf("Şube") >= 0) {
+          currentTabId = "sube-karti";
+        } else if (tabText.indexOf("Banka") >= 0) {
             currentTabId = "banka";
           } else if (tabText.indexOf("Tanker") >= 0) {
             currentTabId = "tanker";
@@ -1622,7 +1635,7 @@
     // Tüm sayfaları gizle, sadece belirtilen sayfayı göster
     function showPageOnly(pageId) {
       // Body class'larını temizle
-      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik');
+      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik sube-karti-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik');
       
       // Tüm sayfaları gizle
       $('#main-content-operasyon').hide();
@@ -1630,6 +1643,7 @@
       $('#main-content-cari-kart').hide();
       $('#main-content-firma-tanimlari').hide();
       $('#main-content-banka').hide();
+      $('#main-content-sube-karti').hide();
       $('#main-content-tanker').hide();
       $('#main-content-fiyat-degisimi').hide();
       
@@ -1652,6 +1666,13 @@
         $('#title-bar').hide();
         if (window.initFirmaTanimlariGrid) {
           setTimeout(window.initFirmaTanimlariGrid, 0);
+        }
+      } else if (pageId === 'sube-karti') {
+        $('body').addClass('sube-karti-sayfasi-acik');
+        $('#main-content-sube-karti').show();
+        $('#title-bar').hide();
+        if (window.updateSubeKartiView) {
+          setTimeout(window.updateSubeKartiView, 0);
         }
       } else if (pageId === 'banka') {
         $('body').addClass('banka-sayfasi-acik');
@@ -2178,6 +2199,126 @@
             showNextTabAfterClose(firmaTabIndex, wasActiveTab);
           }
         } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+
+    // Şube Kartı tab'ını aç
+    function openSubeKartiTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+
+      var allTabs = tabStrip.items();
+      var subeTabIndex = -1;
+
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+
+        if (tabId === "sube-karti" || tabText.indexOf("Şube") >= 0) {
+          subeTabIndex = i;
+          break;
+        }
+      }
+
+      if (subeTabIndex >= 0) {
+        console.log("Şube Kartı tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(subeTabIndex);
+        showPageOnly('sube-karti');
+        return;
+      }
+
+      console.log("Yeni Şube Kartı tab'ı ekleniyor...");
+      showPageOnly('sube-karti');
+
+      var tabContent = '🏬 Şube Kartı <span class="tab-close-sube-karti" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "sube-karti");
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+
+    // Şube Kartı tab'ını kapat
+    function closeSubeKartiTab() {
+      console.log("closeSubeKartiTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+
+      var allTabs = tabStrip.items();
+      var subeTabIndex = -1;
+
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+
+        if (tabId === "sube-karti" || tabText.indexOf("Şube") >= 0) {
+          subeTabIndex = i;
+          break;
+        }
+      }
+
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (subeTabIndex >= 0 && subeTabIndex === activeTabIndex);
+
+      if (subeTabIndex < 0) {
+        console.log("Şube Kartı tab'ı bulunamadı!");
+        return;
+      }
+
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+
+      setTimeout(function() {
+        try {
+          console.log("Şube Kartı tab'ı kapatılıyor... Index:", subeTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(subeTabIndex);
+
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(subeTabIndex, wasActiveTab);
+          }
+        } catch (error) {
           console.error("Tab kapatılırken hata:", error);
           ignoreSelectEvent = false;
           activeTabIdToKeep = null;
