@@ -600,6 +600,9 @@
         <label for="sube-evrak-aciklama" style="min-width:110px;">Açıklama:</label>
         <input id="sube-evrak-aciklama" style="width:100%;" />
       </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <button id="sube-evrak-dosya-sec" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Dosya Seç</button>
+      </div>
       <div id="sube-evrak-upload"></div>
     </div>
     <div style="display:flex;justify-content:flex-end;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
@@ -2257,7 +2260,8 @@
             $("#sube-evrak-aciklama").kendoTextBox();
           }
           if (typeof $.fn.kendoUpload !== "undefined") {
-            $("#sube-evrak-upload").kendoUpload({
+            if (!$("#sube-evrak-upload").data("kendoUpload")) {
+              $("#sube-evrak-upload").kendoUpload({
               async: {
                 autoUpload: false
               },
@@ -2274,7 +2278,8 @@
                 headerStatusUploaded: "Yüklendi",
                 dropFilesHere: "Dosyayı buraya bırak"
               }
-            });
+              });
+            }
           }
         }
 
@@ -2390,6 +2395,14 @@
         $("#sube-evrak-kapat").on("click", function() {
           if (subeEvrakWindow) {
             subeEvrakWindow.close();
+          }
+        });
+
+        $("#sube-evrak-dosya-sec").on("click", function() {
+          var upload = $("#sube-evrak-upload").data("kendoUpload");
+          var input = upload && upload.element ? upload.element.find("input[type='file']") : $("#sube-evrak-upload input[type='file']");
+          if (input && input.length) {
+            input.trigger("click");
           }
         });
 
