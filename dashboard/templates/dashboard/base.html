@@ -605,7 +605,7 @@
                 } else if (menuText === "Kullanıcı Tanımları") {
                   openKullaniciTanimlariWindow();
                 } else if (menuText === "Cari Kartlar" || menuText === "Cari Kart") {
-                  openCariKartTab();
+                  // Cari Kart sayfası devre dışı
                 }
               }
             }).data("kendoMenu");
@@ -2578,11 +2578,9 @@
         openKrediKartiTab();
         setActiveRibbonButton(pageName);
       }
-      // Cari Kart sayfası
+      // Cari Kart sayfası (devre dışı)
       else if (pageName === 'cari_kart' || pageName === 'cari-kart' || pageName === 'carikart') {
-        console.log("Cari Kart sayfası açılıyor...");
-        openCariKartTab();
-        setActiveRibbonButton(pageName);
+        console.log("Cari Kart sayfası devre dışı.");
       }
       // Banka sayfası
       else if (pageName === 'banka') {
