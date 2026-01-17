@@ -2734,6 +2734,7 @@
               model: {
                 id: "id",
                 fields: {
+                  row_no: { type: "number" },
                   id: { type: "number" },
                   sira_no: { type: "number" },
                   ad: { type: "string" },
@@ -2795,6 +2796,14 @@
             }
           },
           dataBound: function() {
+            var view = this.dataSource.view();
+            for (var i = 0; i < view.length; i++) {
+              if (typeof view[i].set === "function") {
+                view[i].set("row_no", i + 1);
+              } else {
+                view[i].row_no = i + 1;
+              }
+            }
             if (window.__firmaDenemeEklendi) {
               return;
             }
@@ -2845,7 +2854,7 @@
             update: true
           },
           columns: [
-            { title: "#", width: 60, template: "#= (dataSource.indexOf(data) + 1) #" },
+            { field: "row_no", title: "#", width: 60 },
             { field: "ad", title: "FİRMA ADI", width: 220 },
             { field: "vergi_no", title: "VERGİ NO", width: 140 },
             { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
