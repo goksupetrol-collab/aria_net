@@ -2086,6 +2086,20 @@
       }, 0);
     }
 
+    function ensureFirmaTanimlariGrid() {
+      if (typeof window.initFirmaTanimlariGrid !== "function") {
+        return;
+      }
+      setTimeout(function() {
+        window.initFirmaTanimlariGrid();
+        var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+        if (grid) {
+          grid.resize();
+          grid.dataSource.read();
+        }
+      }, 200);
+    }
+
     // Firma Tanımları tab'ını aç
     function openFirmaTanimlariTab() {
       if (!tabStrip) {
@@ -2111,9 +2125,7 @@
         console.log("Firma Tanımları tab'ı zaten var, aktif yapılıyor...");
         tabStrip.select(firmaTabIndex);
         showPageOnly('firma-tanimlari');
-        if (typeof window.initFirmaTanimlariGrid === "function") {
-          setTimeout(window.initFirmaTanimlariGrid, 0);
-        }
+        ensureFirmaTanimlariGrid();
         return;
       }
       
@@ -2136,9 +2148,7 @@
         if (tabIndex >= 0) {
           tabStrip.select(tabIndex);
         }
-        if (typeof window.initFirmaTanimlariGrid === "function") {
-          setTimeout(window.initFirmaTanimlariGrid, 0);
-        }
+        ensureFirmaTanimlariGrid();
       }, 100);
     }
 
