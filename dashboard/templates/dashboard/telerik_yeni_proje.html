@@ -2642,6 +2642,7 @@
             update: true
           },
           columns: [
+            { title: "#", width: 60, template: "#= this.dataSource.indexOf(dataItem) + 1 #" },
             { field: "ad", title: "FİRMA ADI", width: 220 },
             { field: "vergi_no", title: "VERGİ NO", width: 140 },
             { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
