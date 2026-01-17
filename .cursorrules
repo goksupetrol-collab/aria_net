@@ -141,6 +141,9 @@ ve CSS'te .total-row sınıfını tanımladım."
 3. **Nasıl görünecek?** (Kullanıcı ne görecek)
 4. **Git'e kaydedildi mi?** (Evet/Hayır)
 
+### Ek Kural:
+- **İş bitince tek parça özet ver:** Yapılanları tek paragrafta, kısa ve net anlat
+
 ## ÖNEMLİ NOTLAR
 - ✅ **HTML kullanılıyor:** Django template sistemi ile HTML dosyaları kullanılıyor
 - ✅ **Telerik bileşenleri:** Tüm UI bileşenleri Telerik Kendo UI ile yapılıyor (HTML içinde Telerik JavaScript bileşenleri)
