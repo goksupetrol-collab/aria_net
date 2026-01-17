@@ -1587,13 +1587,13 @@
             stacking: "down",
             templates: [{
               type: "info",
-              template: "#= message #"
+              template: "#= data #"
             }, {
               type: "warning",
-              template: "#= message #"
+              template: "#= data #"
             }, {
               type: "error",
-              template: "#= message #"
+              template: "#= data #"
             }]
           }).data("kendoNotification");
         }
@@ -2855,7 +2855,7 @@
             update: true
           },
           columns: [
-            { title: "#", width: 60, template: "#= this.dataSource.indexOf(dataItem) + 1 #" },
+            { title: "#", width: 60, template: "#= (dataSource.indexOf(data) + 1) #" },
             { field: "ad", title: "FİRMA ADI", width: 220 },
             { field: "vergi_no", title: "VERGİ NO", width: 140 },
             { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
