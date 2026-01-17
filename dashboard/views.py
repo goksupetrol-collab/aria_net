@@ -13,6 +13,7 @@ import mimetypes
 from django.db.models import Max
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
+import re
 try:
     import openpyxl
     OPENPYXL_AVAILABLE = True
@@ -36,6 +37,45 @@ def _load_license():
         return LICENSE_PATH.read_text(encoding="utf-8").strip()
     except OSError:
         return None
+
+
+def _turkish_title(value):
+    if value is None:
+        return ""
+    value = " ".join(str(value).strip().split())
+    if not value:
+        return ""
+
+    lower_map = str.maketrans({"I": "ı", "İ": "i"})
+    upper_map = str.maketrans({"i": "İ", "ı": "I"})
+
+    def tr_lower(text):
+        return text.translate(lower_map).lower()
+
+    def tr_upper(text):
+        return text.translate(upper_map).upper()
+
+    def title_word(word):
+        if not word:
+            return word
+        parts = re.split(r"([-'])", word)
+        fixed_parts = []
+        for part in parts:
+            if part in ("-", "'"):
+                fixed_parts.append(part)
+                continue
+            if not part:
+                fixed_parts.append(part)
+                continue
+            lowered = tr_lower(part)
+            fixed_parts.append(tr_upper(lowered[0]) + lowered[1:])
+        return "".join(fixed_parts)
+
+    return " ".join(title_word(word) for word in value.split(" "))
+
+
+def _normalize_firma_text(value):
+    return _turkish_title(value)
 
 
 def motorin_telerik_test(request):
@@ -827,14 +867,14 @@ def api_firmalar(request, firma_id=None):
         try:
             data = json.loads(request.body)
             sira_no = data.get('sira_no')
-            ad = data.get('ad', '').strip()
-            sube = data.get('sube', '').strip()
+            ad = _normalize_firma_text(data.get('ad', '').strip())
+            sube = _normalize_firma_text(data.get('sube', '').strip())
             vergi_no = data.get('vergi_no', '').strip()
-            vergi_dairesi = data.get('vergi_dairesi', '').strip()
+            vergi_dairesi = _normalize_firma_text(data.get('vergi_dairesi', '').strip())
             adres = data.get('adres', '').strip()
             telefon = data.get('telefon', '').strip()
             eposta = data.get('eposta', '').strip()
-            yetkili_kisi = data.get('yetkili_kisi', '').strip()
+            yetkili_kisi = _normalize_firma_text(data.get('yetkili_kisi', '').strip())
             
             if not ad:
                 return JsonResponse({'error': 'Firma adı gerekli'}, status=400)
@@ -881,14 +921,14 @@ def api_firmalar(request, firma_id=None):
             data = json.loads(request.body)
             firma_id = data.get('id')
             sira_no = data.get('sira_no')
-            ad = data.get('ad', '').strip()
-            sube = data.get('sube', '').strip()
+            ad = _normalize_firma_text(data.get('ad', '').strip())
+            sube = _normalize_firma_text(data.get('sube', '').strip())
             vergi_no = data.get('vergi_no', '').strip()
-            vergi_dairesi = data.get('vergi_dairesi', '').strip()
+            vergi_dairesi = _normalize_firma_text(data.get('vergi_dairesi', '').strip())
             adres = data.get('adres', '').strip()
             telefon = data.get('telefon', '').strip()
             eposta = data.get('eposta', '').strip()
-            yetkili_kisi = data.get('yetkili_kisi', '').strip()
+            yetkili_kisi = _normalize_firma_text(data.get('yetkili_kisi', '').strip())
             aktif = data.get('aktif', True)
             
             if not firma_id:

@@ -1527,6 +1527,48 @@
           $("#firma-karti-yetkili").kendoTextBox({ placeholder: "" });
         }
 
+        function normalizeSpace(value) {
+          return (value || "").replace(/\s+/g, " ").trim();
+        }
+
+        function turkishToLower(value) {
+          return (value || "")
+            .replace(/I/g, "ı")
+            .replace(/İ/g, "i")
+            .toLowerCase();
+        }
+
+        function turkishToUpper(value) {
+          return (value || "")
+            .replace(/i/g, "İ")
+            .replace(/ı/g, "I")
+            .toUpperCase();
+        }
+
+        function titleCaseWordTr(word) {
+          if (!word) {
+            return word;
+          }
+          return word.split(/([-'])/).map(function(part) {
+            if (part === "-" || part === "'") {
+              return part;
+            }
+            if (!part) {
+              return part;
+            }
+            var lowered = turkishToLower(part);
+            return turkishToUpper(lowered.charAt(0)) + lowered.slice(1);
+          }).join("");
+        }
+
+        function normalizeTitleTr(value) {
+          var cleaned = normalizeSpace(value);
+          if (!cleaned) {
+            return "";
+          }
+          return cleaned.split(" ").map(titleCaseWordTr).join(" ");
+        }
+
         $("#firma-yeni-btn").on("click", function() {
           if (firmaTanimKartiWindow) {
             $("#firma-karti-adi-input").val("");
@@ -2005,14 +2047,22 @@
         });
 
         $("#firma-karti-kaydet").on("click", function() {
-          var firmaAdi = ($("#firma-karti-adi-input").val() || "").trim();
-          var subeAdi = ($("#firma-karti-sube-input").val() || "").trim();
-          var vergiNo = ($("#firma-karti-vergi-no").val() || "").trim();
-          var vergiDairesi = ($("#firma-karti-vergi-dairesi").val() || "").trim();
-          var adres = ($("#firma-karti-adres").val() || "").trim();
-          var telefon = ($("#firma-karti-telefon").val() || "").trim();
-          var eposta = ($("#firma-karti-eposta").val() || "").trim();
-          var yetkiliKisi = ($("#firma-karti-yetkili").val() || "").trim();
+          var firmaAdi = normalizeTitleTr($("#firma-karti-adi-input").val());
+          var subeAdi = normalizeTitleTr($("#firma-karti-sube-input").val());
+          var vergiNo = normalizeSpace($("#firma-karti-vergi-no").val());
+          var vergiDairesi = normalizeTitleTr($("#firma-karti-vergi-dairesi").val());
+          var adres = normalizeSpace($("#firma-karti-adres").val());
+          var telefon = normalizeSpace($("#firma-karti-telefon").val());
+          var eposta = normalizeSpace($("#firma-karti-eposta").val());
+          var yetkiliKisi = normalizeTitleTr($("#firma-karti-yetkili").val());
+          $("#firma-karti-adi-input").val(firmaAdi);
+          $("#firma-karti-sube-input").val(subeAdi);
+          $("#firma-karti-vergi-dairesi").val(vergiDairesi);
+          $("#firma-karti-yetkili").val(yetkiliKisi);
+          $("#firma-karti-adres").val(adres);
+          $("#firma-karti-telefon").val(telefon);
+          $("#firma-karti-eposta").val(eposta);
+          $("#firma-karti-vergi-no").val(vergiNo);
           if (!firmaAdi) {
             if (typeof showWarning === "function") {
               showWarning("Firma adı boş olamaz.");
@@ -2700,6 +2750,37 @@
                 sube: dataItem.sube
               };
             }
+          },
+          dataBound: function() {
+            if (window.__firmaDenemeEklendi) {
+              return;
+            }
+            var grid = this;
+            var data = grid.dataSource.data() || [];
+            var hasDeneme = false;
+            for (var i = 0; i < data.length; i++) {
+              var ad = (data[i].ad || "").toString().trim().toLowerCase();
+              if (ad === "deneme") {
+                hasDeneme = true;
+                break;
+              }
+            }
+            if (!hasDeneme) {
+              grid.dataSource.add({
+                id: -1,
+                sira_no: 0,
+                ad: "Deneme",
+                sube: "",
+                vergi_no: "",
+                vergi_dairesi: "",
+                adres: "",
+                telefon: "",
+                eposta: "",
+                yetkili_kisi: "",
+                aktif: true
+              });
+            }
+            window.__firmaDenemeEklendi = true;
           },
           columnMenu: {
             messages: {
