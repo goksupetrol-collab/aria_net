@@ -2111,6 +2111,9 @@
         console.log("Firma Tanımları tab'ı zaten var, aktif yapılıyor...");
         tabStrip.select(firmaTabIndex);
         showPageOnly('firma-tanimlari');
+        if (typeof window.initFirmaTanimlariGrid === "function") {
+          setTimeout(window.initFirmaTanimlariGrid, 0);
+        }
         return;
       }
       
@@ -2132,6 +2135,9 @@
         var tabIndex = allTabsArray.length - 1;
         if (tabIndex >= 0) {
           tabStrip.select(tabIndex);
+        }
+        if (typeof window.initFirmaTanimlariGrid === "function") {
+          setTimeout(window.initFirmaTanimlariGrid, 0);
         }
       }, 100);
     }
