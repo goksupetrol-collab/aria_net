@@ -2590,10 +2590,14 @@
             transport: {
               read: {
                 url: "/api/firmalar/",
-                dataType: "json"
+                dataType: "json",
+                cache: false
               }
             },
             schema: {
+              data: function(response) {
+                return response && response.data ? response.data : response;
+              },
               model: {
                 fields: {
                   id: { type: "number" },
