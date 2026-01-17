@@ -897,6 +897,13 @@
                       id: { type: "number", editable: false },
                       sira_no: { type: "number", validation: { required: true, min: 1 } },
                       ad: { type: "string", validation: { required: true } },
+                      sube: { type: "string" },
+                      vergi_no: { type: "string" },
+                      vergi_dairesi: { type: "string" },
+                      adres: { type: "string" },
+                      telefon: { type: "string" },
+                      eposta: { type: "string" },
+                      yetkili_kisi: { type: "string" },
                       aktif: { type: "boolean", defaultValue: true }
                     }
                   }
@@ -929,9 +936,15 @@
                 confirmation: "Silmek istediÄŸinizden emin misiniz?"
               },
               columns: [
-                { field: "sira_no", title: "SÄ±ra No", width: 100 },
-                { field: "ad", title: "Firma AdÄ±", width: 300 },
-                { field: "aktif", title: "Aktif", width: 80, template: "#= aktif ? 'Evet' : 'HayÄ±r' #" },
+                { field: "sira_no", title: "Sıra No", width: 90 },
+                { field: "ad", title: "Firma Adı", width: 220 },
+                { field: "vergi_no", title: "Vergi No", width: 140 },
+                { field: "vergi_dairesi", title: "Vergi Dairesi", width: 160 },
+                { field: "adres", title: "Adres", width: 240 },
+                { field: "telefon", title: "Telefon", width: 140 },
+                { field: "eposta", title: "E-posta", width: 180 },
+                { field: "yetkili_kisi", title: "Yetkili Kişi", width: 160 },
+                { field: "aktif", title: "Aktif", width: 80, template: "#= aktif ? 'Evet' : 'Hayır' #" },
                 { 
                   command: [
                     { name: "edit", text: "DÃ¼zenle", className: "k-button k-button-sm" },
@@ -2537,6 +2550,12 @@
                   sira_no: { type: "number" },
                   ad: { type: "string" },
                   sube: { type: "string" },
+                  vergi_no: { type: "string" },
+                  vergi_dairesi: { type: "string" },
+                  adres: { type: "string" },
+                  telefon: { type: "string" },
+                  eposta: { type: "string" },
+                  yetkili_kisi: { type: "string" },
                   aktif: { type: "boolean" }
                 }
               }
@@ -2578,8 +2597,13 @@
             update: true
           },
           columns: [
-            { field: "ad", title: "FİRMA ADI", width: 320 },
-            { field: "sube", title: "ŞUBESİ", width: 220 }
+            { field: "ad", title: "FİRMA ADI", width: 220 },
+            { field: "vergi_no", title: "VERGİ NO", width: 140 },
+            { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
+            { field: "adres", title: "ADRES", width: 240 },
+            { field: "telefon", title: "TELEFON", width: 140 },
+            { field: "eposta", title: "E-POSTA", width: 180 },
+            { field: "yetkili_kisi", title: "YETKİLİ KİŞİ", width: 160 }
           ]
         });
       };

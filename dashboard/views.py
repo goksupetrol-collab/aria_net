@@ -810,6 +810,12 @@ def api_firmalar(request, firma_id=None):
                 'sira_no': f.sira_no,
                 'ad': f.ad,
                 'sube': f.sube,
+                'vergi_no': f.vergi_no,
+                'vergi_dairesi': f.vergi_dairesi,
+                'adres': f.adres,
+                'telefon': f.telefon,
+                'eposta': f.eposta,
+                'yetkili_kisi': f.yetkili_kisi,
                 'aktif': f.aktif
             }
             for f in firmalar
@@ -823,6 +829,12 @@ def api_firmalar(request, firma_id=None):
             sira_no = data.get('sira_no')
             ad = data.get('ad', '').strip()
             sube = data.get('sube', '').strip()
+            vergi_no = data.get('vergi_no', '').strip()
+            vergi_dairesi = data.get('vergi_dairesi', '').strip()
+            adres = data.get('adres', '').strip()
+            telefon = data.get('telefon', '').strip()
+            eposta = data.get('eposta', '').strip()
+            yetkili_kisi = data.get('yetkili_kisi', '').strip()
             
             if not ad:
                 return JsonResponse({'error': 'Firma adı gerekli'}, status=400)
@@ -835,13 +847,30 @@ def api_firmalar(request, firma_id=None):
             if Firma.objects.filter(sira_no=sira_no).exists():
                 return JsonResponse({'error': 'Bu sıra numarası zaten kullanılıyor'}, status=400)
             
-            firma = Firma.objects.create(sira_no=sira_no, ad=ad, sube=sube, aktif=True)
+            firma = Firma.objects.create(
+                sira_no=sira_no,
+                ad=ad,
+                sube=sube,
+                vergi_no=vergi_no,
+                vergi_dairesi=vergi_dairesi,
+                adres=adres,
+                telefon=telefon,
+                eposta=eposta,
+                yetkili_kisi=yetkili_kisi,
+                aktif=True
+            )
             return JsonResponse({
                 'success': True,
                 'id': firma.id,
                 'sira_no': firma.sira_no,
                 'ad': firma.ad,
-                'sube': firma.sube
+                'sube': firma.sube,
+                'vergi_no': firma.vergi_no,
+                'vergi_dairesi': firma.vergi_dairesi,
+                'adres': firma.adres,
+                'telefon': firma.telefon,
+                'eposta': firma.eposta,
+                'yetkili_kisi': firma.yetkili_kisi
             })
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
@@ -854,6 +883,12 @@ def api_firmalar(request, firma_id=None):
             sira_no = data.get('sira_no')
             ad = data.get('ad', '').strip()
             sube = data.get('sube', '').strip()
+            vergi_no = data.get('vergi_no', '').strip()
+            vergi_dairesi = data.get('vergi_dairesi', '').strip()
+            adres = data.get('adres', '').strip()
+            telefon = data.get('telefon', '').strip()
+            eposta = data.get('eposta', '').strip()
+            yetkili_kisi = data.get('yetkili_kisi', '').strip()
             aktif = data.get('aktif', True)
             
             if not firma_id:
@@ -872,8 +907,20 @@ def api_firmalar(request, firma_id=None):
             
             if ad:
                 firma.ad = ad
-            if sube:
+            if 'sube' in data:
                 firma.sube = sube
+            if 'vergi_no' in data:
+                firma.vergi_no = vergi_no
+            if 'vergi_dairesi' in data:
+                firma.vergi_dairesi = vergi_dairesi
+            if 'adres' in data:
+                firma.adres = adres
+            if 'telefon' in data:
+                firma.telefon = telefon
+            if 'eposta' in data:
+                firma.eposta = eposta
+            if 'yetkili_kisi' in data:
+                firma.yetkili_kisi = yetkili_kisi
             firma.aktif = aktif
             firma.save()
             
