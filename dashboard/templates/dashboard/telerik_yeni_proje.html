@@ -625,6 +625,30 @@
         <label for="firma-karti-sube-input" style="min-width:90px;">ŞUBESİ :</label>
         <input id="firma-karti-sube-input" style="width:100%;" />
       </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <label for="firma-karti-vergi-no" style="min-width:90px;">VERGİ NO :</label>
+        <input id="firma-karti-vergi-no" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <label for="firma-karti-vergi-dairesi" style="min-width:90px;">VERGİ DAİRESİ :</label>
+        <input id="firma-karti-vergi-dairesi" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <label for="firma-karti-adres" style="min-width:90px;">ADRES :</label>
+        <input id="firma-karti-adres" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <label for="firma-karti-telefon" style="min-width:90px;">TELEFON :</label>
+        <input id="firma-karti-telefon" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <label for="firma-karti-eposta" style="min-width:90px;">E-POSTA :</label>
+        <input id="firma-karti-eposta" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <label for="firma-karti-yetkili" style="min-width:90px;">YETKİLİ :</label>
+        <input id="firma-karti-yetkili" style="width:100%;" />
+      </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
       <button id="firma-karti-yeni" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni - F3</button>
@@ -1471,12 +1495,12 @@
         };
       }
 
-      // Firma TanÄ±m KartÄ± Window
+      // Firma Tanım Kartı Window
       if (typeof kendo !== 'undefined' && typeof $.fn.kendoWindow !== 'undefined') {
         var firmaTanimKartiWindow = $("#firma-tanim-karti-window").kendoWindow({
-          title: "Firma TanÄ±m KartÄ±",
+          title: "Firma Tanım Kartı",
           width: "600px",
-          height: "320px",
+          height: "520px",
           visible: false,
           modal: true,
           resizable: false,
@@ -1485,18 +1509,26 @@
         }).data("kendoWindow");
 
         if (typeof $.fn.kendoTextBox !== 'undefined') {
-          $("#firma-karti-adi-input").kendoTextBox({
-            placeholder: ""
-          });
-          $("#firma-karti-sube-input").kendoTextBox({
-            placeholder: ""
-          });
+          $("#firma-karti-adi-input").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-sube-input").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-vergi-no").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-vergi-dairesi").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-adres").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-telefon").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-eposta").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-yetkili").kendoTextBox({ placeholder: "" });
         }
 
         $("#firma-yeni-btn").on("click", function() {
           if (firmaTanimKartiWindow) {
             $("#firma-karti-adi-input").val("");
             $("#firma-karti-sube-input").val("");
+            $("#firma-karti-vergi-no").val("");
+            $("#firma-karti-vergi-dairesi").val("");
+            $("#firma-karti-adres").val("");
+            $("#firma-karti-telefon").val("");
+            $("#firma-karti-eposta").val("");
+            $("#firma-karti-yetkili").val("");
             firmaTanimKartiWindow.center().open();
           }
         });
@@ -1953,27 +1985,31 @@
           e.preventDefault();
           submitSubeEvrakUpload();
         });
-        $("#firma-yeni-btn-top").on("click", function() {
-          if (firmaTanimKartiWindow) {
-            $("#firma-karti-adi-input").val("");
-            $("#firma-karti-sube-input").val("");
-            firmaTanimKartiWindow.center().open();
-          }
-        });
-
         $("#firma-karti-yeni").on("click", function() {
           $("#firma-karti-adi-input").val("");
           $("#firma-karti-sube-input").val("");
+          $("#firma-karti-vergi-no").val("");
+          $("#firma-karti-vergi-dairesi").val("");
+          $("#firma-karti-adres").val("");
+          $("#firma-karti-telefon").val("");
+          $("#firma-karti-eposta").val("");
+          $("#firma-karti-yetkili").val("");
         });
 
         $("#firma-karti-kaydet").on("click", function() {
           var firmaAdi = ($("#firma-karti-adi-input").val() || "").trim();
           var subeAdi = ($("#firma-karti-sube-input").val() || "").trim();
+          var vergiNo = ($("#firma-karti-vergi-no").val() || "").trim();
+          var vergiDairesi = ($("#firma-karti-vergi-dairesi").val() || "").trim();
+          var adres = ($("#firma-karti-adres").val() || "").trim();
+          var telefon = ($("#firma-karti-telefon").val() || "").trim();
+          var eposta = ($("#firma-karti-eposta").val() || "").trim();
+          var yetkiliKisi = ($("#firma-karti-yetkili").val() || "").trim();
           if (!firmaAdi) {
             if (typeof showWarning === "function") {
-              showWarning("Firma adÄ± boÅŸ olamaz.");
+              showWarning("Firma adı boş olamaz.");
             } else {
-              alert("Firma adÄ± boÅŸ olamaz.");
+              alert("Firma adı boş olamaz.");
             }
             return;
           }
@@ -1981,7 +2017,16 @@
           fetch("/api/firmalar/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ad: firmaAdi, sube: subeAdi })
+            body: JSON.stringify({
+              ad: firmaAdi,
+              sube: subeAdi,
+              vergi_no: vergiNo,
+              vergi_dairesi: vergiDairesi,
+              adres: adres,
+              telefon: telefon,
+              eposta: eposta,
+              yetkili_kisi: yetkiliKisi
+            })
           })
             .then(function(response) {
               return response.json().then(function(data) {
@@ -1990,7 +2035,7 @@
             })
             .then(function(result) {
               if (!result.ok) {
-                throw new Error(result.data && result.data.error ? result.data.error : "KayÄ±t hatasÄ±");
+                throw new Error(result.data && result.data.error ? result.data.error : "Kayıt hatası");
               }
               if (typeof showSuccess === "function") {
                 showSuccess("Firma kaydedildi.");
@@ -2005,9 +2050,9 @@
             })
             .catch(function(error) {
               if (typeof showError === "function") {
-                showError(error.message || "KayÄ±t hatasÄ±");
+                showError(error.message || "Kayıt hatası");
               } else {
-                alert(error.message || "KayÄ±t hatasÄ±");
+                alert(error.message || "Kayıt hatası");
               }
             });
         });
