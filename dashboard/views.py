@@ -844,6 +844,24 @@ def api_firmalar(request, firma_id=None):
     if request.method == 'GET':
         # Tüm firmaları listele (yönetim için aktif olmayanlar da görünsün)
         firmalar = Firma.objects.all().order_by('sira_no')
+        for firma in firmalar:
+            normalized_ad = _normalize_firma_text(firma.ad)
+            normalized_sube = _normalize_firma_text(firma.sube)
+            normalized_vergi_dairesi = _normalize_firma_text(firma.vergi_dairesi)
+            normalized_yetkili = _normalize_firma_text(firma.yetkili_kisi)
+            updates = {}
+            if firma.ad != normalized_ad:
+                updates["ad"] = normalized_ad
+            if firma.sube != normalized_sube:
+                updates["sube"] = normalized_sube
+            if firma.vergi_dairesi != normalized_vergi_dairesi:
+                updates["vergi_dairesi"] = normalized_vergi_dairesi
+            if firma.yetkili_kisi != normalized_yetkili:
+                updates["yetkili_kisi"] = normalized_yetkili
+            if updates:
+                for field, value in updates.items():
+                    setattr(firma, field, value)
+                firma.save(update_fields=list(updates.keys()))
         data = [
             {
                 'id': f.id,
