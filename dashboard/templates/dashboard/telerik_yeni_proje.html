@@ -561,7 +561,6 @@
   <!-- FİRMA TANIMLARI SAYFASI -->
   <div class="container" id="main-content-firma-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİRMA TANIMLARI</h1>
-    <div style="text-align:center;color:#206d7d;margin:6px 0;font-size:12pt;">FIRMA SAYFASI TEST GÖRÜNÜM</div>
     <div class="firma-tanimlari-layout">
       <div class="firma-tanimlari-grid-area">
         <div id="firma-tanimlari-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
@@ -1637,7 +1636,6 @@
             grid.dataSource.read();
             grid.refresh();
           }
-          showFirmaTanimlariNotice("info", "Liste yenileniyor...");
         });
 
         var subeEvrakWindow = null;
@@ -2169,7 +2167,6 @@
               if (firmaTanimKartiWindow) {
                 firmaTanimKartiWindow.close();
               }
-              showFirmaTanimlariNotice("info", "Firma kaydı listeye gönderildi.");
             })
             .catch(function(error) {
               if (typeof showError === "function") {
@@ -2761,7 +2758,6 @@
                     console.log("Firma listesi boş görünüyor.");
                   }
                 }
-                showFirmaTanimlariNotice("info", "Firma listesi: " + count + " kayıt");
               }
             },
             error: function(e) {
@@ -2879,14 +2875,9 @@
           window.initFirmaTanimlariGrid(true);
         }
         var grid = $("#firma-tanimlari-grid").data("kendoGrid");
-        if (grid) {
+          if (grid) {
           grid.dataSource.read();
           grid.refresh();
-          if (typeof showFirmaTanimlariNotice === "function") {
-            showFirmaTanimlariNotice("info", "Liste yenileniyor...");
-          } else {
-            alert("Liste yenileniyor...");
-          }
         } else {
           alert("Liste görünmüyor. Sayfa yüklenmemiş olabilir.");
         }
