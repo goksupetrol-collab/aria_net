@@ -1602,7 +1602,7 @@
           if (firmaTanimlariNotify) {
             firmaTanimlariNotify.show(message, type);
           } else {
-            console.log(message);
+            alert(message);
           }
         }
 
@@ -2876,6 +2876,24 @@
           }
         }, 800);
       };
+
+      $(document).on("click", "#firma-tanimlari-refresh-btn", function() {
+        if (typeof window.initFirmaTanimlariGrid === "function") {
+          window.initFirmaTanimlariGrid(true);
+        }
+        var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+        if (grid) {
+          grid.dataSource.read();
+          grid.refresh();
+          if (typeof showFirmaTanimlariNotice === "function") {
+            showFirmaTanimlariNotice("info", "Liste yenileniyor...");
+          } else {
+            alert("Liste yenileniyor...");
+          }
+        } else {
+          alert("Liste görünmüyor. Sayfa yüklenmemiş olabilir.");
+        }
+      });
       
       // ÅUBE BAZLI SATIÅ GRAFÄ°ÄÄ°
       setTimeout(function() {
