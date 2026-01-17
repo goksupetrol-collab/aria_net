@@ -2575,6 +2575,10 @@
           setTimeout(window.initFirmaTanimlariGrid, 200);
           return;
         }
+        if (!$("#main-content-firma-tanimlari").is(":visible")) {
+          setTimeout(window.initFirmaTanimlariGrid, 200);
+          return;
+        }
         var existingGrid = $("#firma-tanimlari-grid").data("kendoGrid");
         if (existingGrid) {
           existingGrid.dataSource.read();
