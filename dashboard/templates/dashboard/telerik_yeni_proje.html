@@ -1,4 +1,4 @@
-﻿{% extends "dashboard/base.html" %}
+{% extends "dashboard/base.html" %}
 {% load static %}
 
 {% block title %}Yeni Telerik Projesi{% endblock %}
@@ -2045,12 +2045,36 @@
               if (!result.ok) {
                 throw new Error(result.data && result.data.error ? result.data.error : "Kayıt hatası");
               }
+              var createdItem = {
+                id: result.data && result.data.id ? result.data.id : null,
+                ad: firmaAdi,
+                sube: subeAdi,
+                vergi_no: vergiNo,
+                vergi_dairesi: vergiDairesi,
+                adres: adres,
+                telefon: telefon,
+                eposta: eposta,
+                yetkili_kisi: yetkiliKisi,
+                aktif: true
+              };
               if (typeof showSuccess === "function") {
                 showSuccess("Firma kaydedildi.");
               }
+              if (window.initFirmaTanimlariGrid) {
+                setTimeout(function() { window.initFirmaTanimlariGrid(true); }, 0);
+              }
               var grid = $("#firma-tanimlari-grid").data("kendoGrid");
               if (grid) {
+                if (createdItem.id && typeof grid.dataSource.get === "function") {
+                  var existingItem = grid.dataSource.get(createdItem.id);
+                  if (!existingItem) {
+                    grid.dataSource.add(createdItem);
+                  }
+                } else {
+                  grid.dataSource.add(createdItem);
+                }
                 grid.dataSource.read();
+                grid.refresh();
               }
               if (firmaTanimKartiWindow) {
                 firmaTanimKartiWindow.close();
@@ -2617,6 +2641,7 @@
                 return response && response.data ? response.data : response;
               },
               model: {
+                id: "id",
                 fields: {
                   id: { type: "number" },
                   sira_no: { type: "number" },
@@ -2630,6 +2655,33 @@
                   yetkili_kisi: { type: "string" },
                   aktif: { type: "boolean" }
                 }
+              }
+            },
+            requestEnd: function(e) {
+              if (e && e.type === "read") {
+                var response = e.response;
+                var dataList = response && response.data ? response.data : response;
+                var count = Array.isArray(dataList) ? dataList.length : 0;
+                if (count === 0) {
+                  if (typeof showWarning === "function") {
+                    showWarning("Firma listesi boş görünüyor.");
+                  } else {
+                    console.log("Firma listesi boş görünüyor.");
+                  }
+                }
+              }
+            },
+            error: function(e) {
+              var message = "Firma listesi alınamadı.";
+              if (e && e.xhr && e.xhr.responseText) {
+                message = e.xhr.responseText;
+              } else if (e && e.errors) {
+                message = JSON.stringify(e.errors);
+              }
+              if (typeof showError === "function") {
+                showError(message);
+              } else {
+                alert(message);
               }
             }
           },
@@ -2679,6 +2731,11 @@
             { field: "yetkili_kisi", title: "YETKİLİ KİŞİ", width: 160 }
           ]
         });
+        var createdGrid = $("#firma-tanimlari-grid").data("kendoGrid");
+        if (createdGrid) {
+          createdGrid.dataSource.read();
+          createdGrid.refresh();
+        }
       };
       
       // ÅUBE BAZLI SATIÅ GRAFÄ°ÄÄ°

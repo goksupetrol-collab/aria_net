@@ -8,10 +8,11 @@ Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için t
 - **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
 
 ## GİT KURALLARI - MUTLAKA UYULMALI
-**HER İŞLEMDEN SONRA GİT KAYDET - ASLA UNUTMA!**
+**HER İŞLEMDEN SONRA OTOMATİK GİT KAYDET - ASLA UNUTMA!**
 - Her değişiklikten sonra: `git add -A` ve `git commit -m "açıklama"`
 - Commit mesajları Türkçe ve açıklayıcı olacak
 - Kullanıcı kod yazmayı bilmiyor, bu yüzden ben (AI) otomatik commit yapacağım
+- Cursor içinde işlem biter bitmez otomatik commit yapılacak
 - Her önemli değişiklikte, her gün sonunda, her özellik eklendiğinde commit yapılacak
 - **UNUTMA:** Git kaydetmeden işlem tamamlanmış sayılmaz!
 
