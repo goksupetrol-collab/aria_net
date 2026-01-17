@@ -626,38 +626,84 @@
   <!-- FİRMA TANIM KARTI WINDOW -->
   <div id="firma-tanim-karti-window" style="display:none;">
     <div style="padding:12px;">
-      <div style="font-size:16px;font-weight:600;margin-bottom:12px;">Firma Tanım Kartı</div>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-        <label for="firma-karti-adi-input" style="min-width:90px;">FİRMA ADI :</label>
-        <input id="firma-karti-adi-input" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <label for="firma-karti-sube-input" style="min-width:90px;">ŞUBESİ :</label>
-        <input id="firma-karti-sube-input" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <label for="firma-karti-vergi-no" style="min-width:90px;">VERGİ NO :</label>
-        <input id="firma-karti-vergi-no" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <label for="firma-karti-vergi-dairesi" style="min-width:90px;">VERGİ DAİRESİ :</label>
-        <input id="firma-karti-vergi-dairesi" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <label for="firma-karti-adres" style="min-width:90px;">ADRES :</label>
-        <input id="firma-karti-adres" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <label for="firma-karti-telefon" style="min-width:90px;">TELEFON :</label>
-        <input id="firma-karti-telefon" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <label for="firma-karti-eposta" style="min-width:90px;">E-POSTA :</label>
-        <input id="firma-karti-eposta" style="width:100%;" />
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <label for="firma-karti-yetkili" style="min-width:90px;">YETKİLİ :</label>
-        <input id="firma-karti-yetkili" style="width:100%;" />
+      <div id="firma-tanim-karti-tabstrip">
+        <ul>
+          <li class="k-state-active">1 Genel Bilgiler</li>
+          <li>2 Adres Bilgileri</li>
+        </ul>
+        <div style="padding:12px 6px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <label for="firma-karti-adi-input" style="min-width:90px;">FİRMA ADI :</label>
+            <input id="firma-karti-adi-input" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <label for="firma-karti-sube-input" style="min-width:90px;">ŞUBESİ :</label>
+            <input id="firma-karti-sube-input" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-vergi-no" style="min-width:90px;">VERGİ NO :</label>
+            <input id="firma-karti-vergi-no" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-vergi-dairesi" style="min-width:90px;">VERGİ DAİRESİ :</label>
+            <input id="firma-karti-vergi-dairesi" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-adres" style="min-width:90px;">ADRES :</label>
+            <input id="firma-karti-adres" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-telefon" style="min-width:90px;">TELEFON :</label>
+            <input id="firma-karti-telefon" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-eposta" style="min-width:90px;">E-POSTA :</label>
+            <input id="firma-karti-eposta" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-yetkili" style="min-width:90px;">YETKİLİ :</label>
+            <input id="firma-karti-yetkili" style="width:100%;" />
+          </div>
+        </div>
+        <div style="padding:12px 6px;min-height:220px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <label for="firma-karti-mahalle" style="min-width:90px;">Mahalle :</label>
+            <input id="firma-karti-mahalle" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <label for="firma-karti-cadde-sokak" style="min-width:90px;">Cadde / Sokak :</label>
+            <input id="firma-karti-cadde-sokak" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <label style="min-width:90px;">No / Bina / Kat :</label>
+            <input id="firma-karti-no" style="width:70px;" />
+            <label for="firma-karti-bina-blok">Bina / Blok</label>
+            <input id="firma-karti-bina-blok" style="width:90px;" />
+            <label for="firma-karti-kat">Kat</label>
+            <input id="firma-karti-kat" style="width:60px;" />
+            <label for="firma-karti-daire">Daire</label>
+            <input id="firma-karti-daire" style="width:70px;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <label for="firma-karti-ilce" style="min-width:90px;">İlçe :</label>
+            <input id="firma-karti-ilce" style="width:34%;" />
+            <label for="firma-karti-il">İl :</label>
+            <input id="firma-karti-il" style="width:34%;" />
+            <label for="firma-karti-posta-kodu">Posta Kodu :</label>
+            <input id="firma-karti-posta-kodu" style="width:22%;" />
+          </div>
+          <div style="height:10px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <label for="firma-karti-konum-lat" style="min-width:90px;">Konum :</label>
+            <input id="firma-karti-konum-lat" style="width:120px;" placeholder="Enlem" />
+            <input id="firma-karti-konum-lng" style="width:120px;" placeholder="Boylam" />
+            <button id="firma-karti-konum-al" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Konum Al</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <label for="firma-karti-konum-link" style="min-width:90px;">Konum Linki :</label>
+            <input id="firma-karti-konum-link" style="width:100%;" readonly />
+          </div>
+        </div>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-top:1px solid #e0e0e0;">
@@ -1518,6 +1564,17 @@
           actions: ["Close"]
         }).data("kendoWindow");
 
+        if (typeof $.fn.kendoTabStrip !== "undefined") {
+          var $firmaTabstrip = $("#firma-tanim-karti-tabstrip");
+          if ($firmaTabstrip.length > 0 && !$firmaTabstrip.data("kendoTabStrip")) {
+            $firmaTabstrip.kendoTabStrip({
+              animation: {
+                open: { effects: "fadeIn", duration: 120 }
+              }
+            });
+          }
+        }
+
         if (typeof $.fn.kendoTextBox !== 'undefined') {
           $("#firma-karti-adi-input").kendoTextBox({ placeholder: "" });
           $("#firma-karti-sube-input").kendoTextBox({ placeholder: "" });
@@ -1527,7 +1584,48 @@
           $("#firma-karti-telefon").kendoTextBox({ placeholder: "" });
           $("#firma-karti-eposta").kendoTextBox({ placeholder: "" });
           $("#firma-karti-yetkili").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-mahalle").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-cadde-sokak").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-no").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-bina-blok").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-kat").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-daire").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-ilce").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-il").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-posta-kodu").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-konum-lat").kendoTextBox({ placeholder: "Enlem" });
+          $("#firma-karti-konum-lng").kendoTextBox({ placeholder: "Boylam" });
+          $("#firma-karti-konum-link").kendoTextBox({ placeholder: "" });
         }
+
+        if (typeof $.fn.kendoButton !== "undefined") {
+          $("#firma-karti-konum-al").kendoButton();
+        }
+
+        $("#firma-karti-konum-al").on("click", function() {
+          if (!navigator.geolocation) {
+            showFirmaTanimlariNotice("error", "Bu tarayıcı konum desteği vermiyor.");
+            return;
+          }
+          navigator.geolocation.getCurrentPosition(
+            function(position) {
+              var lat = position.coords.latitude;
+              var lng = position.coords.longitude;
+              $("#firma-karti-konum-lat").val(lat.toFixed(6));
+              $("#firma-karti-konum-lng").val(lng.toFixed(6));
+              $("#firma-karti-konum-link").val("https://maps.google.com/?q=" + lat + "," + lng);
+              showFirmaTanimlariNotice("success", "Konum alındı.");
+            },
+            function(error) {
+              var message = "Konum alınamadı.";
+              if (error && error.message) {
+                message = "Konum alınamadı: " + error.message;
+              }
+              showFirmaTanimlariNotice("error", message);
+            },
+            { enableHighAccuracy: true, timeout: 10000 }
+          );
+        });
 
         function normalizeSpace(value) {
           return (value || "").replace(/\s+/g, " ").trim();
