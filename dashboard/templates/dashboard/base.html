@@ -1665,7 +1665,7 @@
         $('#main-content-firma-tanimlari').show();
         $('#title-bar').hide();
         if (window.initFirmaTanimlariGrid) {
-          setTimeout(window.initFirmaTanimlariGrid, 0);
+          setTimeout(function() { window.initFirmaTanimlariGrid(true); }, 0);
         }
       } else if (pageId === 'sube-karti') {
         $('body').addClass('sube-karti-sayfasi-acik');
@@ -2091,7 +2091,7 @@
         return;
       }
       setTimeout(function() {
-        window.initFirmaTanimlariGrid();
+        window.initFirmaTanimlariGrid(true);
         var grid = $("#firma-tanimlari-grid").data("kendoGrid");
         if (grid) {
           grid.resize();

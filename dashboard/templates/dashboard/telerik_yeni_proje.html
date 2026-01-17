@@ -2570,19 +2570,19 @@
         }
       };
 
-      window.initFirmaTanimlariGrid = function() {
+      window.initFirmaTanimlariGrid = function(forceRebuild) {
         if (typeof kendo === 'undefined' || typeof $.fn.kendoGrid === 'undefined') {
-          setTimeout(window.initFirmaTanimlariGrid, 200);
+          setTimeout(function() { window.initFirmaTanimlariGrid(forceRebuild); }, 200);
           return;
         }
         if (!$("#main-content-firma-tanimlari").is(":visible")) {
-          setTimeout(window.initFirmaTanimlariGrid, 200);
+          setTimeout(function() { window.initFirmaTanimlariGrid(forceRebuild); }, 200);
           return;
         }
         var existingGrid = $("#firma-tanimlari-grid").data("kendoGrid");
         if (existingGrid) {
           var gridContainer = $("#firma-tanimlari-grid");
-          var needsRebuild = gridContainer.width() === 0 || gridContainer.height() === 0;
+          var needsRebuild = forceRebuild || gridContainer.width() === 0 || gridContainer.height() === 0;
           if (!needsRebuild) {
             existingGrid.dataSource.read();
             existingGrid.refresh();
