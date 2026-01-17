@@ -98,7 +98,7 @@
     
     #firma-tanimlari-grid, #firma-tanimlari-grid .k-grid, #firma-tanimlari-grid .k-grid-content,
     #firma-tanimlari-grid .k-grid-header, #firma-tanimlari-grid .k-grid-header-wrap,
-    #firma-tanimlari-grid .k-grid-content-wrap, #firma-tanimlari-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
+    #firma-tanimlari-grid .k-grid-content-wrap, #firma-tanimlari-grid table {overflow-x:auto !important;max-width:100% !important;width:100% !important}
     #sube-karti-grid, #sube-karti-grid .k-grid, #sube-karti-grid .k-grid-content,
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
@@ -115,9 +115,22 @@
       opacity: 1 !important;
     }
 
-    /* BaÅŸlÄ±k sÃ¼rÃ¼kleme iÃ§in imleÃ§ */
+    /* BaÅŸlÄ±k imleci ve sÃ¼tun tutma alanÄ± */
     #firma-tanimlari-grid .k-grid-header .k-header {
-      cursor: move;
+      cursor: default;
+    }
+    #firma-tanimlari-grid .k-resize-handle,
+    #firma-tanimlari-grid .k-column-resizer {
+      width: 10px !important;
+      cursor: col-resize !important;
+      pointer-events: auto !important;
+      z-index: 5;
+    }
+    #firma-tanimlari-grid .k-grid-header-wrap {
+      overflow-x: hidden !important;
+    }
+    #firma-tanimlari-grid .k-grid-content {
+      overflow-x: auto !important;
     }
 
     /* Firma TanÄ±mlarÄ± yerleÅŸimi */
@@ -626,6 +639,12 @@
   <!-- FİRMA TANIM KARTI WINDOW -->
   <div id="firma-tanim-karti-window" style="display:none;">
     <div style="padding:12px;">
+      <style>
+        #firma-tanim-karti-window .firma-karti-label {
+          min-width: 140px;
+          display: inline-block;
+        }
+      </style>
       <div id="firma-tanim-karti-tabstrip">
         <ul>
           <li class="k-state-active">1 Genel Bilgiler</li>
@@ -633,49 +652,49 @@
         </ul>
         <div style="padding:12px 6px;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <label for="firma-karti-adi-input" style="min-width:90px;">FİRMA ADI :</label>
+            <label for="firma-karti-adi-input" class="firma-karti-label">FİRMA ADI :</label>
             <input id="firma-karti-adi-input" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <label for="firma-karti-sube-input" style="min-width:90px;">ŞUBESİ :</label>
-            <input id="firma-karti-sube-input" style="width:100%;" />
+            <label for="firma-karti-tur-input" class="firma-karti-label">TÜR :</label>
+            <input id="firma-karti-tur-input" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-            <label for="firma-karti-vergi-no" style="min-width:90px;">VERGİ NO :</label>
-            <input id="firma-karti-vergi-no" style="width:100%;" />
+            <label for="firma-karti-kod-input" class="firma-karti-label">KOD :</label>
+            <input id="firma-karti-kod-input" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-            <label for="firma-karti-vergi-dairesi" style="min-width:90px;">VERGİ DAİRESİ :</label>
+            <label for="firma-karti-vergi-dairesi" class="firma-karti-label">VERGİ DAİRESİ :</label>
             <input id="firma-karti-vergi-dairesi" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-            <label for="firma-karti-adres" style="min-width:90px;">ADRES :</label>
-            <input id="firma-karti-adres" style="width:100%;" />
+            <label for="firma-karti-vergi-no" class="firma-karti-label">VERGİ NO :</label>
+            <input id="firma-karti-vergi-no" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-            <label for="firma-karti-telefon" style="min-width:90px;">TELEFON :</label>
+            <label for="firma-karti-mersis-no" class="firma-karti-label">MERSİS NO :</label>
+            <input id="firma-karti-mersis-no" style="width:100%;" />
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+            <label for="firma-karti-telefon" class="firma-karti-label">TELEFON :</label>
             <input id="firma-karti-telefon" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-            <label for="firma-karti-eposta" style="min-width:90px;">E-POSTA :</label>
+            <label for="firma-karti-eposta" class="firma-karti-label">E-POSTA :</label>
             <input id="firma-karti-eposta" style="width:100%;" />
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-            <label for="firma-karti-yetkili" style="min-width:90px;">YETKİLİ :</label>
-            <input id="firma-karti-yetkili" style="width:100%;" />
           </div>
         </div>
         <div style="padding:12px 6px;min-height:220px;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <label for="firma-karti-mahalle" style="min-width:90px;">Mahalle :</label>
+            <label for="firma-karti-mahalle" class="firma-karti-label">Mahalle :</label>
             <input id="firma-karti-mahalle" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <label for="firma-karti-cadde-sokak" style="min-width:90px;">Cadde / Sokak :</label>
+            <label for="firma-karti-cadde-sokak" class="firma-karti-label">Cadde / Sokak :</label>
             <input id="firma-karti-cadde-sokak" style="width:100%;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <label style="min-width:90px;">No / Bina / Kat :</label>
+            <label class="firma-karti-label">No / Bina / Kat :</label>
             <input id="firma-karti-no" style="width:70px;" />
             <label for="firma-karti-bina-blok">Bina / Blok</label>
             <input id="firma-karti-bina-blok" style="width:90px;" />
@@ -685,7 +704,7 @@
             <input id="firma-karti-daire" style="width:70px;" />
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <label for="firma-karti-ilce" style="min-width:90px;">İlçe :</label>
+            <label for="firma-karti-ilce" class="firma-karti-label">İlçe :</label>
             <input id="firma-karti-ilce" style="width:34%;" />
             <label for="firma-karti-il">İl :</label>
             <input id="firma-karti-il" style="width:34%;" />
@@ -694,13 +713,13 @@
           </div>
           <div style="height:10px;"></div>
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <label for="firma-karti-konum-lat" style="min-width:90px;">Konum :</label>
+            <label for="firma-karti-konum-lat" class="firma-karti-label">Konum :</label>
             <input id="firma-karti-konum-lat" style="width:120px;" placeholder="Enlem" />
             <input id="firma-karti-konum-lng" style="width:120px;" placeholder="Boylam" />
             <button id="firma-karti-konum-al" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Konum Al</button>
           </div>
           <div style="display:flex;align-items:center;gap:8px;">
-            <label for="firma-karti-konum-link" style="min-width:90px;">Konum Linki :</label>
+            <label for="firma-karti-konum-link" class="firma-karti-label">Konum Linki :</label>
             <input id="firma-karti-konum-link" style="width:100%;" readonly />
           </div>
         </div>
@@ -1495,60 +1514,82 @@
     });
     
     $(document).ready(function() {
-      // Filtre menÃ¼sÃ¼ TÃ¼rkÃ§e metinler (global)
+      // Filtre ve kolon menüsü Türkçe metinler (global)
       if (typeof kendo !== 'undefined' && kendo.ui && kendo.ui.FilterMenu) {
         kendo.ui.FilterMenu.prototype.options.messages = $.extend(
           true,
           kendo.ui.FilterMenu.prototype.options.messages,
           {
-            info: "DeÄŸeri ÅŸu olanlarÄ± gÃ¶ster:",
+            info: "Değeri şu olanları göster:",
             filter: "Filtrele",
             clear: "Temizle",
             and: "Ve",
             or: "Veya",
-            selectValue: "- SeÃ§ -",
+            selectValue: "- Seç -",
             isTrue: "Evet",
-            isFalse: "HayÄ±r"
+            isFalse: "Hayır"
           }
         );
         kendo.ui.FilterMenu.prototype.options.operators = {
           string: {
-            contains: "Ä°Ã§erir",
-            doesnotcontain: "Ä°Ã§ermez",
-            startswith: "Ä°le baÅŸlar",
-            endswith: "Ä°le biter",
-            eq: "EÅŸittir",
-            neq: "EÅŸit deÄŸildir",
-            isempty: "BoÅŸ",
-            isnotempty: "BoÅŸ deÄŸil",
+            contains: "İçerir",
+            doesnotcontain: "İçermez",
+            startswith: "İle başlar",
+            endswith: "İle biter",
+            eq: "Eşittir",
+            neq: "Eşit değildir",
+            isempty: "Boş",
+            isnotempty: "Boş değil",
             isnull: "Null",
-            isnotnull: "Null deÄŸil"
+            isnotnull: "Null değil"
           },
           number: {
-            eq: "EÅŸittir",
-            neq: "EÅŸit deÄŸildir",
-            gte: "BÃ¼yÃ¼k veya eÅŸit",
-            gt: "BÃ¼yÃ¼ktÃ¼r",
-            lte: "KÃ¼Ã§Ã¼k veya eÅŸit",
-            lt: "KÃ¼Ã§Ã¼ktÃ¼r",
+            eq: "Eşittir",
+            neq: "Eşit değildir",
+            gte: "Büyük veya eşit",
+            gt: "Büyüktür",
+            lte: "Küçük veya eşit",
+            lt: "Küçüktür",
             isnull: "Null",
-            isnotnull: "Null deÄŸil"
+            isnotnull: "Null değil"
           },
           date: {
-            eq: "EÅŸittir",
-            neq: "EÅŸit deÄŸildir",
-            gte: "BÃ¼yÃ¼k veya eÅŸit",
-            gt: "BÃ¼yÃ¼ktÃ¼r",
-            lte: "KÃ¼Ã§Ã¼k veya eÅŸit",
-            lt: "KÃ¼Ã§Ã¼ktÃ¼r",
+            eq: "Eşittir",
+            neq: "Eşit değildir",
+            gte: "Büyük veya eşit",
+            gt: "Büyüktür",
+            lte: "Küçük veya eşit",
+            lt: "Küçüktür",
             isnull: "Null",
-            isnotnull: "Null deÄŸil"
+            isnotnull: "Null değil"
           },
           enums: {
-            eq: "EÅŸittir",
-            neq: "EÅŸit deÄŸildir"
+            eq: "Eşittir",
+            neq: "Eşit değildir"
           }
         };
+      }
+
+      if (typeof kendo !== 'undefined' && kendo.ui && kendo.ui.ColumnMenu) {
+        kendo.ui.ColumnMenu.prototype.options.messages = $.extend(
+          true,
+          kendo.ui.ColumnMenu.prototype.options.messages,
+          {
+            columns: "Sütun Seçimi",
+            filter: "Filtre",
+            sortAscending: "Artan Sırala",
+            sortDescending: "Azalan Sırala",
+            settings: "Ayarlar",
+            done: "Tamam",
+            lock: "Sütunu Sabitle",
+            unlock: "Sabitlemeyi Kaldır",
+            setColumnPosition: "Sütun Konumu",
+            movePrev: "Önceki",
+            moveNext: "Sonraki",
+            moveToStart: "Başa Taşı",
+            moveToEnd: "Sona Taşı"
+          }
+        );
       }
 
       // Firma Tanım Kartı Window
@@ -1559,7 +1600,10 @@
           height: "520px",
           visible: false,
           modal: true,
-          resizable: false,
+          resizable: {
+            columns: true
+          },
+          columnResizeHandleWidth: 10,
           draggable: true,
           actions: ["Close"]
         }).data("kendoWindow");
@@ -1576,26 +1620,34 @@
         }
 
         if (typeof $.fn.kendoTextBox !== 'undefined') {
-          $("#firma-karti-adi-input").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-sube-input").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-vergi-no").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-vergi-dairesi").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-adres").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-telefon").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-eposta").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-yetkili").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-mahalle").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-cadde-sokak").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-no").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-bina-blok").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-kat").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-daire").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-ilce").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-il").kendoTextBox({ placeholder: "" });
-          $("#firma-karti-posta-kodu").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-adi-input").kendoTextBox({ placeholder: "Örn: ABC Lojistik" });
+          $("#firma-karti-tur-input").kendoTextBox({ placeholder: "Örn: Ana Firma" });
+          $("#firma-karti-kod-input").kendoTextBox({ placeholder: "Örn: FIR0001" });
+          $("#firma-karti-vergi-dairesi").kendoTextBox({ placeholder: "Örn: Kadıköy" });
+          $("#firma-karti-eposta").kendoTextBox({ placeholder: "ornek@firma.com" });
+          $("#firma-karti-mahalle").kendoTextBox({ placeholder: "Örn: Merkez Mah." });
+          $("#firma-karti-cadde-sokak").kendoTextBox({ placeholder: "Örn: Atatürk Cd." });
+          $("#firma-karti-no").kendoTextBox({ placeholder: "Örn: 12" });
+          $("#firma-karti-bina-blok").kendoTextBox({ placeholder: "Örn: A" });
+          $("#firma-karti-kat").kendoTextBox({ placeholder: "Örn: 3" });
+          $("#firma-karti-daire").kendoTextBox({ placeholder: "Örn: 5" });
+          $("#firma-karti-ilce").kendoTextBox({ placeholder: "Örn: Kadıköy" });
+          $("#firma-karti-il").kendoTextBox({ placeholder: "Örn: İstanbul" });
           $("#firma-karti-konum-lat").kendoTextBox({ placeholder: "Enlem" });
           $("#firma-karti-konum-lng").kendoTextBox({ placeholder: "Boylam" });
-          $("#firma-karti-konum-link").kendoTextBox({ placeholder: "" });
+          $("#firma-karti-konum-link").kendoTextBox({ placeholder: "Otomatik dolacak" });
+        }
+
+        if (typeof $.fn.kendoMaskedTextBox !== "undefined") {
+          $("#firma-karti-telefon").kendoMaskedTextBox({ mask: "(000) 000 00 00", promptChar: "_" });
+          $("#firma-karti-vergi-no").kendoMaskedTextBox({ mask: "0000000000", promptChar: "_" });
+          $("#firma-karti-mersis-no").kendoMaskedTextBox({ mask: "0000000000000000", promptChar: "_" });
+          $("#firma-karti-posta-kodu").kendoMaskedTextBox({ mask: "00000", promptChar: "_" });
+        } else if (typeof $.fn.kendoTextBox !== "undefined") {
+          $("#firma-karti-telefon").kendoTextBox({ placeholder: "Örn: 0532 123 45 67" });
+          $("#firma-karti-vergi-no").kendoTextBox({ placeholder: "10 haneli" });
+          $("#firma-karti-mersis-no").kendoTextBox({ placeholder: "16 haneli" });
+          $("#firma-karti-posta-kodu").kendoTextBox({ placeholder: "Örn: 34000" });
         }
 
         if (typeof $.fn.kendoButton !== "undefined") {
@@ -1697,14 +1749,18 @@
         $("#firma-yeni-btn").on("click", function() {
           if (firmaTanimKartiWindow) {
             $("#firma-karti-adi-input").val("");
-            $("#firma-karti-sube-input").val("");
-            $("#firma-karti-vergi-no").val("");
             $("#firma-karti-vergi-dairesi").val("");
-            $("#firma-karti-adres").val("");
+            $("#firma-karti-tur-input").val("");
+            $("#firma-karti-kod-input").val("");
+            $("#firma-karti-vergi-no").val("");
+            $("#firma-karti-mersis-no").val("");
             $("#firma-karti-telefon").val("");
             $("#firma-karti-eposta").val("");
-            $("#firma-karti-yetkili").val("");
             firmaTanimKartiWindow.center().open();
+            var tabstrip = $("#firma-tanim-karti-tabstrip").data("kendoTabStrip");
+            if (tabstrip) {
+              tabstrip.select(0);
+            }
           }
         });
 
@@ -2173,32 +2229,32 @@
         });
         $("#firma-karti-yeni").on("click", function() {
           $("#firma-karti-adi-input").val("");
-          $("#firma-karti-sube-input").val("");
-          $("#firma-karti-vergi-no").val("");
           $("#firma-karti-vergi-dairesi").val("");
-          $("#firma-karti-adres").val("");
+          $("#firma-karti-tur-input").val("");
+          $("#firma-karti-kod-input").val("");
+          $("#firma-karti-vergi-no").val("");
+          $("#firma-karti-mersis-no").val("");
           $("#firma-karti-telefon").val("");
           $("#firma-karti-eposta").val("");
-          $("#firma-karti-yetkili").val("");
         });
 
         $("#firma-karti-kaydet").on("click", function() {
           var firmaAdi = normalizeTitleTr($("#firma-karti-adi-input").val());
-          var subeAdi = normalizeTitleTr($("#firma-karti-sube-input").val());
-          var vergiNo = normalizeSpace($("#firma-karti-vergi-no").val());
+          var tur = normalizeTitleTr($("#firma-karti-tur-input").val());
+          var kod = normalizeSpace($("#firma-karti-kod-input").val());
           var vergiDairesi = normalizeTitleTr($("#firma-karti-vergi-dairesi").val());
-          var adres = normalizeSpace($("#firma-karti-adres").val());
+          var vergiNo = normalizeSpace($("#firma-karti-vergi-no").val());
+          var mersisNo = normalizeSpace($("#firma-karti-mersis-no").val());
           var telefon = normalizeSpace($("#firma-karti-telefon").val());
           var eposta = normalizeSpace($("#firma-karti-eposta").val());
-          var yetkiliKisi = normalizeTitleTr($("#firma-karti-yetkili").val());
           $("#firma-karti-adi-input").val(firmaAdi);
-          $("#firma-karti-sube-input").val(subeAdi);
+          $("#firma-karti-tur-input").val(tur);
+          $("#firma-karti-kod-input").val(kod);
           $("#firma-karti-vergi-dairesi").val(vergiDairesi);
-          $("#firma-karti-yetkili").val(yetkiliKisi);
-          $("#firma-karti-adres").val(adres);
+          $("#firma-karti-vergi-no").val(vergiNo);
+          $("#firma-karti-mersis-no").val(mersisNo);
           $("#firma-karti-telefon").val(telefon);
           $("#firma-karti-eposta").val(eposta);
-          $("#firma-karti-vergi-no").val(vergiNo);
           if (!firmaAdi) {
             if (typeof showWarning === "function") {
               showWarning("Firma adı boş olamaz.");
@@ -2213,13 +2269,13 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               ad: firmaAdi,
-              sube: subeAdi,
+              tur: tur,
+              kod: kod,
               vergi_no: vergiNo,
               vergi_dairesi: vergiDairesi,
-              adres: adres,
+              mersis_no: mersisNo,
               telefon: telefon,
-              eposta: eposta,
-              yetkili_kisi: yetkiliKisi
+              eposta: eposta
             })
           })
             .then(function(response) {
@@ -2234,13 +2290,13 @@
               var createdItem = {
                 id: result.data && result.data.id ? result.data.id : null,
                 ad: firmaAdi,
-                sube: subeAdi,
+                tur: tur,
+                kod: kod,
                 vergi_no: vergiNo,
                 vergi_dairesi: vergiDairesi,
-                adres: adres,
+                mersis_no: mersisNo,
                 telefon: telefon,
                 eposta: eposta,
-                yetkili_kisi: yetkiliKisi,
                 aktif: true
               };
               if (typeof showSuccess === "function") {
@@ -2834,12 +2890,25 @@
                   sira_no: { type: "number" },
                   ad: { type: "string" },
                   sube: { type: "string" },
-                  vergi_no: { type: "string" },
+                  tur: { type: "string" },
+                  kod: { type: "string" },
                   vergi_dairesi: { type: "string" },
-                  adres: { type: "string" },
+                  vergi_no: { type: "string" },
+                  mersis_no: { type: "string" },
                   telefon: { type: "string" },
                   eposta: { type: "string" },
-                  yetkili_kisi: { type: "string" },
+                  mahalle: { type: "string" },
+                  cadde_sokak: { type: "string" },
+                  no: { type: "string" },
+                  bina_blok: { type: "string" },
+                  kat: { type: "string" },
+                  daire: { type: "string" },
+                  ilce: { type: "string" },
+                  il: { type: "string" },
+                  posta_kodu: { type: "string" },
+                  konum_lat: { type: "string" },
+                  konum_lng: { type: "string" },
+                  konum_link: { type: "string" },
                   aktif: { type: "boolean" }
                 }
               }
@@ -2850,11 +2919,7 @@
                 var dataList = response && response.data ? response.data : response;
                 var count = Array.isArray(dataList) ? dataList.length : 0;
                 if (count === 0) {
-                  if (typeof showWarning === "function") {
-                    showWarning("Firma listesi boş görünüyor.");
-                  } else {
-                    console.log("Firma listesi boş görünüyor.");
-                  }
+                  console.log("Firma listesi boş görünüyor.");
                 }
               }
             },
@@ -2917,25 +2982,44 @@
                 sira_no: 0,
                 ad: "Deneme",
                 sube: "",
-                vergi_no: "",
                 vergi_dairesi: "",
-                adres: "",
+                vergi_no: "",
+                tur: "",
+                kod: "",
+                mersis_no: "",
                 telefon: "",
                 eposta: "",
-                yetkili_kisi: "",
+                mahalle: "",
+                cadde_sokak: "",
+                no: "",
+                bina_blok: "",
+                kat: "",
+                daire: "",
+                ilce: "",
+                il: "",
+                posta_kodu: "",
+                konum_lat: "",
+                konum_lng: "",
+                konum_link: "",
                 aktif: true
               });
             }
             window.__firmaDenemeEklendi = true;
           },
           columnMenu: {
+            setColumnPosition: true,
             messages: {
               columns: "Sütun Seçimi",
               filter: "Filtre",
               sortAscending: "Artan Sırala",
               sortDescending: "Azalan Sırala",
               settings: "Ayarlar",
-              done: "Tamam"
+              done: "Tamam",
+              setColumnPosition: "Sütun Konumu",
+              movePrev: "Önceki",
+              moveNext: "Sonraki",
+              moveToStart: "Başa Taşı",
+              moveToEnd: "Sona Taşı"
             }
           },
           resizable: false,
@@ -2947,12 +3031,25 @@
           columns: [
             { field: "row_no", title: "#", width: 60 },
             { field: "ad", title: "FİRMA ADI", width: 220 },
-            { field: "vergi_no", title: "VERGİ NO", width: 140 },
+            { field: "tur", title: "TÜR", width: 140 },
+            { field: "kod", title: "KOD", width: 140 },
             { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
-            { field: "adres", title: "ADRES", width: 240 },
+            { field: "vergi_no", title: "VERGİ NO", width: 140 },
+            { field: "mersis_no", title: "MERSİS NO", width: 160 },
             { field: "telefon", title: "TELEFON", width: 140 },
             { field: "eposta", title: "E-POSTA", width: 180 },
-            { field: "yetkili_kisi", title: "YETKİLİ KİŞİ", width: 160 }
+            { field: "mahalle", title: "MAHALLE", width: 160 },
+            { field: "cadde_sokak", title: "CADDE / SOKAK", width: 180 },
+            { field: "no", title: "NO", width: 80 },
+            { field: "bina_blok", title: "BİNA/BLOK", width: 110 },
+            { field: "kat", title: "KAT", width: 80 },
+            { field: "daire", title: "DAİRE", width: 90 },
+            { field: "ilce", title: "İLÇE", width: 140 },
+            { field: "il", title: "İL", width: 120 },
+            { field: "posta_kodu", title: "POSTA KODU", width: 120 },
+            { field: "konum_lat", title: "KONUM ENLEM", width: 140 },
+            { field: "konum_lng", title: "KONUM BOYLAM", width: 140 },
+            { field: "konum_link", title: "KONUM LİNKİ", width: 240 }
           ]
         });
         var createdGrid = $("#firma-tanimlari-grid").data("kendoGrid");
