@@ -567,6 +567,7 @@
       </div>
       <div id="firma-tanimlari-right-buttons">
         <button id="firma-yeni-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni Firma</button>
+        <button id="firma-tanimlari-refresh-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Listeyi Yenile</button>
         <button id="firma-sube-karti-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Şube Kartı</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Bilgi Değiştir</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 3</button>
@@ -575,6 +576,7 @@
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 6</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 7</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base exit-button">Çıkış - ESC</button>
+        <span id="firma-tanimlari-notification"></span>
       </div>
     </div>
   </div>
@@ -1569,6 +1571,41 @@
           return cleaned.split(" ").map(titleCaseWordTr).join(" ");
         }
 
+        var firmaTanimlariNotify = null;
+        function ensureFirmaTanimlariNotify() {
+          if (firmaTanimlariNotify || typeof $.fn.kendoNotification === "undefined") {
+            return;
+          }
+          firmaTanimlariNotify = $("#firma-tanimlari-notification").kendoNotification({
+            position: {
+              pinned: true,
+              top: 180,
+              right: 30
+            },
+            autoHideAfter: 3500,
+            stacking: "down",
+            templates: [{
+              type: "info",
+              template: "#= message #"
+            }, {
+              type: "warning",
+              template: "#= message #"
+            }, {
+              type: "error",
+              template: "#= message #"
+            }]
+          }).data("kendoNotification");
+        }
+
+        function showFirmaTanimlariNotice(type, message) {
+          ensureFirmaTanimlariNotify();
+          if (firmaTanimlariNotify) {
+            firmaTanimlariNotify.show(message, type);
+          } else {
+            console.log(message);
+          }
+        }
+
         $("#firma-yeni-btn").on("click", function() {
           if (firmaTanimKartiWindow) {
             $("#firma-karti-adi-input").val("");
@@ -1598,6 +1635,18 @@
           if (typeof window.updateSubeKartiView === "function") {
             setTimeout(window.updateSubeKartiView, 0);
           }
+        });
+
+        $("#firma-tanimlari-refresh-btn").on("click", function() {
+          if (typeof window.initFirmaTanimlariGrid === "function") {
+            window.initFirmaTanimlariGrid(true);
+          }
+          var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+          if (grid) {
+            grid.dataSource.read();
+            grid.refresh();
+          }
+          showFirmaTanimlariNotice("info", "Liste yenileniyor...");
         });
 
         var subeEvrakWindow = null;
@@ -2129,6 +2178,7 @@
               if (firmaTanimKartiWindow) {
                 firmaTanimKartiWindow.close();
               }
+              showFirmaTanimlariNotice("info", "Firma kaydı listeye gönderildi.");
             })
             .catch(function(error) {
               if (typeof showError === "function") {
@@ -2719,6 +2769,7 @@
                     console.log("Firma listesi boş görünüyor.");
                   }
                 }
+                showFirmaTanimlariNotice("info", "Firma listesi: " + count + " kayıt");
               }
             },
             error: function(e) {
@@ -2733,6 +2784,7 @@
               } else {
                 alert(message);
               }
+              showFirmaTanimlariNotice("error", "Firma listesi alınamadı.");
             }
           },
           width: gridWidth,
@@ -2817,6 +2869,12 @@
           createdGrid.dataSource.read();
           createdGrid.refresh();
         }
+        setTimeout(function() {
+          var checkGrid = $("#firma-tanimlari-grid").data("kendoGrid");
+          if (!checkGrid) {
+            showFirmaTanimlariNotice("error", "Firma listesi çizilemedi. Yeniden deneyin.");
+          }
+        }, 800);
       };
       
       // ÅUBE BAZLI SATIÅ GRAFÄ°ÄÄ°
