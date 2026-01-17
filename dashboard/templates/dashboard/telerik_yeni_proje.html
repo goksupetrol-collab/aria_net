@@ -2581,10 +2581,16 @@
         }
         var existingGrid = $("#firma-tanimlari-grid").data("kendoGrid");
         if (existingGrid) {
-          existingGrid.dataSource.read();
-          existingGrid.refresh();
-          existingGrid.resize();
-          return;
+          var gridContainer = $("#firma-tanimlari-grid");
+          var needsRebuild = gridContainer.width() === 0 || gridContainer.height() === 0;
+          if (!needsRebuild) {
+            existingGrid.dataSource.read();
+            existingGrid.refresh();
+            existingGrid.resize();
+            return;
+          }
+          existingGrid.destroy();
+          gridContainer.empty();
         }
         var containerWidth = $("#firma-tanimlari-grid").parent().width() || $(window).width();
         var gridWidth = Math.min(containerWidth, 1920);
