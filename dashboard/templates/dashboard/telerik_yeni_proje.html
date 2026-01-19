@@ -14,12 +14,6 @@
     #top-menu-bar .k-menu{display:block !important;width:100% !important;background:#fff !important}
     #top-menu-bar .k-menu-item{display:inline-block !important;visibility:visible !important}
     .content-area{width:100%;height:auto;margin-top:0;display:grid;grid-template-columns:620px 620px 640px;grid-template-rows:448px 438px;gap:5px;padding:0;max-width:100vw;overflow-x:hidden !important}
-    /* Operasyon sayfasÄ± iÃ§in content-area Ã¶zel ayar */
-    #main-content-operasyon .content-area {
-      overflow-x: hidden !important;
-      width: 100% !important;
-      max-width: 100vw !important;
-    }
     .panel{position:relative;display:flex;flex-direction:column;overflow:hidden}
     .panel-content{flex:1;overflow:auto;position:relative}
     .mtr1-section{grid-column:1;grid-row:1}
@@ -35,10 +29,6 @@
     .genel-total{grid-column:1 / span 2;grid-row:3;display:flex;align-items:center;justify-content:center;height:25px}
     .limits-area{grid-column:1 / span 2;grid-row:4;display:grid;grid-template-columns:1fr 1fr;gap:3px}
     .content-wrapper{width:100%;height:auto;overflow-x:hidden !important;overflow-y:auto;margin-top:0}
-    /* Operasyon sayfasÄ± iÃ§in content-wrapper kaydÄ±rmasÄ±nÄ± gizle */
-    body.operasyon-sayfasi-acik .content-wrapper {
-      overflow-y: hidden !important;
-    }
     
     /* Telerik Menu Ã¶zelleÅŸtirmeleri - Resimdeki gibi */
     #top-menu-container{background:#e3f2fd !important}
@@ -59,33 +49,12 @@
     .content-wrapper{margin-top:0 !important;padding-top:0 !important;}
     
     /* Ä°Ã§erik alanÄ± margin ayarÄ± - base.html'deki main-content margin-top:169px var */
-    #main-content-operasyon{margin-top:0 !important;padding-top:0 !important;display:block;overflow-x:hidden !important;width:100% !important;max-width:100vw !important;}
-    #main-content-kredi-karti{margin-top:0 !important;padding-top:0 !important;display:none;}
-    #main-content-cari-kart{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-firma-tanimlari{margin-top:0 !important;padding-top:0 !important;display:none;}
+    #main-content-sube-tanimlari{margin-top:0 !important;padding-top:0 !important;display:none;}
     #main-content-sube-karti{margin-top:0 !important;padding-top:0 !important;display:none;}
-    #main-content-banka{margin-top:0 !important;padding-top:0 !important;display:none;}
-    #main-content-tanker{margin-top:0 !important;padding-top:0 !important;display:none;}
-    #main-content-fiyat-degisimi{margin-top:0 !important;padding-top:0 !important;display:none;}
+    #main-content-menu-cubugu-ayarlari{margin-top:0 !important;padding-top:0 !important;display:none;}
     .container{padding:0 !important;margin:0 !important;}
     
-    /* Operasyon sayfasÄ± iÃ§in kaydÄ±rma kaldÄ±rma */
-    body.operasyon-sayfasi-acik,
-    body.operasyon-sayfasi-acik html {
-      overflow-x: hidden !important;
-      overflow-y: hidden !important;
-      width: 100% !important;
-      max-width: 100vw !important;
-    }
-    #main-content-operasyon,
-    #main-content-operasyon .container,
-    #main-content-operasyon .content-wrapper,
-    #main-content-operasyon .content-area,
-    #main-content-operasyon * {
-      overflow-x: hidden !important;
-      overflow-y: hidden !important;
-      max-width: 100vw !important;
-    }
     
     /* Kredi kartÄ± ve banka sayfalarÄ± iÃ§in overflow kontrolÃ¼ */
     #kredi-karti-grid, #kredi-karti-grid .k-grid, #kredi-karti-grid .k-grid-content,
@@ -96,9 +65,39 @@
     #cari-kart-grid .k-grid-header, #cari-kart-grid .k-grid-header-wrap,
     #cari-kart-grid .k-grid-content-wrap, #cari-kart-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
     
-    #firma-tanimlari-grid, #firma-tanimlari-grid .k-grid, #firma-tanimlari-grid .k-grid-content,
-    #firma-tanimlari-grid .k-grid-header, #firma-tanimlari-grid .k-grid-header-wrap,
-    #firma-tanimlari-grid .k-grid-content-wrap, #firma-tanimlari-grid table {overflow-x:auto !important;max-width:100% !important;width:100% !important}
+    #firma-tanimlari-grid {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #main-content-firma-tanimlari h1 {
+      font-size: 15px !important;
+      line-height: 20px !important;
+    }
+    #firma-tanimlari-grid .k-grid-content {
+      overflow-x: auto !important;
+      overflow-y: auto !important;
+    }
+    #firma-tanimlari-grid .k-grid-header-wrap {
+      overflow-x: hidden !important;
+      padding-right: 0 !important;
+    }
+    #firma-tanimlari-grid .k-grid-header table,
+    #firma-tanimlari-grid .k-grid-content table {
+      table-layout: fixed;
+    }
+    #firma-tanimlari-grid .k-grid-header table,
+    #firma-tanimlari-grid .k-grid-content table {
+      width: 100% !important;
+    }
+    #firma-tanimlari-grid .k-grid-content table tr {
+      height: 25px !important;
+    }
+    #firma-tanimlari-grid .k-grid-content table td {
+      height: 25px !important;
+      line-height: 25px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
     #sube-karti-grid, #sube-karti-grid .k-grid, #sube-karti-grid .k-grid-content,
     #sube-karti-grid .k-grid-header, #sube-karti-grid .k-grid-header-wrap,
     #sube-karti-grid .k-grid-content-wrap, #sube-karti-grid table {overflow-x:hidden !important;max-width:100% !important;width:100% !important}
@@ -126,14 +125,12 @@
       pointer-events: auto !important;
       z-index: 5;
     }
-    #firma-tanimlari-grid .k-grid-header-wrap {
-      overflow-x: hidden !important;
-    }
-    #firma-tanimlari-grid .k-grid-content {
-      overflow-x: auto !important;
-    }
 
     /* Firma TanÄ±mlarÄ± yerleÅŸimi */
+    body.firma-tanimlari-sayfasi-acik #main-content-firma-tanimlari {
+      overflow-x: visible !important;
+      max-width: none !important;
+    }
     .firma-tanimlari-layout {
       display: flex;
       align-items: stretch;
@@ -146,18 +143,19 @@
 
     /* Firma TanÄ±mlarÄ± saÄŸ sabit buton paneli */
     #firma-tanimlari-right-buttons {
-      width: 200px;
+      width: 190px;
       display: none;
       flex-direction: column;
       gap: 6px;
       padding: 10px;
-      background: #f7f7f7;
-      border: 1px solid #d0d0d0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      background: var(--kendo-color-base);
+      border: 1px solid var(--kendo-color-border, #d0d0d0);
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
       position: sticky;
-      top: 160px;
-      height: calc(100vh - 220px);
-      min-height: 420px;
+      top: 0;
+      height: 800px;
+      min-height: 800px;
       z-index: 5;
     }
     body.firma-tanimlari-sayfasi-acik #firma-tanimlari-right-buttons {
@@ -166,6 +164,61 @@
     body.firma-tanimlari-sayfasi-acik #main-content-firma-tanimlari {
       display: block !important;
       min-height: 600px;
+    }
+    #firma-tanimlari-right-buttons .firma-action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      width: 100%;
+      height: 32px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--kendo-color-border, #cfcfcf);
+      background: var(--kendo-color-base, #f5f5f5);
+      color: var(--kendo-color-text, #222222);
+      transition: background-color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
+    }
+    #firma-tanimlari-right-buttons .firma-action-btn:hover,
+    #firma-tanimlari-right-buttons .firma-action-btn.k-hover {
+      background: var(--kendo-color-base-hover, #ededed);
+      border-color: var(--kendo-color-border-emphasis, #bdbdbd);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
+    }
+    #firma-tanimlari-right-buttons .firma-action-btn:active,
+    #firma-tanimlari-right-buttons .firma-action-btn.k-active,
+    #firma-tanimlari-right-buttons .firma-action-btn.k-selected,
+    #firma-tanimlari-right-buttons .firma-action-btn.is-selected {
+      background: var(--kendo-color-success, #2e7d32);
+      border-color: var(--kendo-color-success, #2e7d32);
+      color: var(--kendo-color-on-success, #ffffff);
+    }
+    #firma-tanimlari-right-buttons .firma-action-btn .k-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      color: inherit;
+    }
+    #firma-tanimlari-right-buttons .firma-action-icon {
+      font-size: 14px;
+      width: 16px;
+      min-width: 16px;
+      text-align: center;
+      color: inherit;
+    }
+    #firma-tanimlari-right-buttons .firma-action-primary {
+      border-color: var(--kendo-color-success, #2e7d32);
+    }
+    #firma-tanimlari-right-buttons .firma-action-danger {
+      border-color: var(--kendo-color-error, #c62828);
+      color: var(--kendo-color-error, #c62828);
+      background: var(--kendo-color-base, #f5f5f5);
+    }
+    #firma-tanimlari-right-buttons .firma-action-danger:hover,
+    #firma-tanimlari-right-buttons .firma-action-danger.k-hover {
+      background: var(--kendo-color-error, #c62828);
+      border-color: var(--kendo-color-error, #c62828);
+      color: var(--kendo-color-on-error, #ffffff);
     }
     body.firma-tanimlari-sayfasi-acik #firma-tanimlari-grid {
       min-height: 600px;
@@ -182,6 +235,92 @@
       font-size: 17px;
     }
     #firma-tanimlari-right-buttons .exit-button {
+      margin-top: auto;
+    }
+
+    /* Şube Tanımları yerleşimi */
+    body.sube-tanimlari-sayfasi-acik #main-content-sube-tanimlari {
+      overflow-x: visible !important;
+      max-width: none !important;
+    }
+    .sube-tanimlari-layout {
+      display: flex;
+      align-items: stretch;
+      gap: 16px;
+    }
+    .sube-tanimlari-grid-area {
+      flex: 1;
+      min-width: 0;
+    }
+    #sube-tanimlari-grid {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #sube-tanimlari-grid .k-grid-content {
+      overflow-x: auto !important;
+      overflow-y: auto !important;
+    }
+    #sube-tanimlari-grid .k-grid-header-wrap {
+      overflow-x: hidden !important;
+    }
+    #sube-tanimlari-grid .k-grid-header table,
+    #sube-tanimlari-grid .k-grid-content table {
+      table-layout: fixed;
+    }
+    #sube-tanimlari-grid .k-grid-header .k-header .k-grid-column-menu,
+    #sube-tanimlari-grid .k-grid-header .k-header .k-column-menu {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    #sube-tanimlari-grid .k-grid-header .k-header {
+      cursor: default;
+    }
+    #sube-tanimlari-grid .k-resize-handle,
+    #sube-tanimlari-grid .k-column-resizer {
+      width: 10px !important;
+      cursor: col-resize !important;
+      pointer-events: auto !important;
+      z-index: 5;
+    }
+
+    /* Şube Tanımları sağ sabit buton paneli */
+    #sube-tanimlari-right-buttons {
+      width: 200px;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+      background: #f7f7f7;
+      border: 1px solid #d0d0d0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 160px;
+      height: calc(100vh - 220px);
+      min-height: 420px;
+      z-index: 5;
+    }
+    body.sube-tanimlari-sayfasi-acik #sube-tanimlari-right-buttons {
+      display: flex;
+    }
+    body.sube-tanimlari-sayfasi-acik #main-content-sube-tanimlari {
+      display: block !important;
+      min-height: 600px;
+    }
+    body.sube-tanimlari-sayfasi-acik #sube-tanimlari-grid {
+      min-height: 600px;
+      border: 1px solid #e0e0e0;
+    }
+    #sube-tanimlari-right-buttons .k-button {
+      width: 100%;
+      justify-content: center;
+      height: 34px;
+      min-height: 34px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      line-height: 30px;
+      font-size: 17px;
+    }
+    #sube-tanimlari-right-buttons .exit-button {
       margin-top: auto;
     }
     
@@ -213,7 +352,7 @@
     /* PROFESYONEL RENK PALETÄ° - Modern & Temiz */
     
     /* Sayfa Arka PlanÄ± */
-    body, #main-content-operasyon, .content-wrapper {
+    body, .content-wrapper {
       background-color: #fafafa !important;
     }
     
@@ -238,15 +377,77 @@
       background-image: linear-gradient(to bottom, #2196f3, #1976d2) !important;
       color: #ffffff !important;
       font-weight: 600 !important;
-      font-size: 12px !important;
+      font-size: 16px !important;
       letter-spacing: 0.05em !important;
       text-transform: uppercase !important;
-      padding: 12px 15px !important;
+      padding: 4px 6px !important;
       border: none !important;
       border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
       border-bottom: 2px solid #1565c0 !important;
       text-align: center !important;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+      white-space: normal !important;
+      overflow-wrap: normal !important;
+      word-break: keep-all !important;
+      text-overflow: clip !important;
+      overflow: visible !important;
+      line-height: 16px !important;
+      height: auto !important;
+    }
+    .k-grid .k-grid-header th .k-link,
+    .k-grid-header th .k-link,
+    .k-grid-header-wrap th .k-link {
+      display: block !important;
+      white-space: normal !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      text-overflow: clip !important;
+      overflow: visible !important;
+      text-align: center !important;
+      height: auto !important;
+    }
+    .k-grid .k-grid-header,
+    .k-grid-header-wrap {
+      height: auto !important;
+    }
+    .k-grid .k-grid-header table,
+    .k-grid-header-wrap table {
+      height: auto !important;
+    }
+    .k-grid .k-grid-header th .k-link .k-column-title,
+    .k-grid-header th .k-link .k-column-title,
+    .k-grid-header-wrap th .k-link .k-column-title {
+      display: inline-block !important;
+      white-space: normal !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      text-overflow: clip !important;
+      overflow: visible !important;
+      max-width: none !important;
+    }
+    #firma-tanimlari-grid .k-grid-header th,
+    #firma-tanimlari-grid .k-grid-header th .k-link,
+    #firma-tanimlari-grid .k-grid-header th .k-column-title {
+      height: auto !important;
+      white-space: normal !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      text-overflow: clip !important;
+      overflow: visible !important;
+      text-align: center !important;
+      vertical-align: middle !important;
+    }
+    #firma-tanimlari-grid .k-grid-header th {
+      overflow: visible !important;
+    }
+    #firma-tanimlari-grid .k-grid-header th .k-link {
+      width: auto !important;
+      display: block !important;
+    }
+    #firma-tanimlari-grid .k-grid-header th .k-column-title {
+      width: auto !important;
+      display: block !important;
+      text-transform: none !important;
     }
     
     .k-grid .k-grid-header th:last-child,
@@ -266,14 +467,18 @@
     .k-grid tbody td,
     .k-grid-content td,
     .k-grid-content table td {
-      padding: 12px 15px !important;
+      padding: 0 6px !important;
       border-right: 1px solid #e0e0e0 !important;
       border-bottom: 1px solid #e0e0e0 !important;
       border-top: none !important;
-      font-size: 13px !important;
-      line-height: 1.5 !important;
+      font-size: 12px !important;
+      line-height: 25px !important;
+      height: 25px !important;
       color: #2d3748 !important;
       background-color: inherit !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
       transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     
@@ -286,6 +491,10 @@
     .k-grid tbody tr,
     .k-grid-content tbody tr {
       transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .k-grid tbody tr,
+    .k-grid-content tbody tr {
+      height: 25px !important;
     }
     
     .k-grid tbody tr:hover,
@@ -511,86 +720,170 @@
     <div>LOBI</div>
   </div>
   
-  <div class="container" id="main-content-operasyon" style="display:block;overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
-    <div class="header">
-      <div id="header-toolbar"></div>
-    </div>
-    
-    <!-- Sol Ãœstte Kompakt MenÃ¼ YapÄ±sÄ± -->
-    <div class="menu-container">
-      <!-- AltÄ±nda: 3 Ä°konlu Buton - Kompakt -->
-      <div id="middle-buttons" style="display:flex;gap:5px;padding:5px 0;margin-top:5px"></div>
-      
-      <!-- En Alt: 2 Sabit Ã–ÄŸe - Kompakt -->
-      <div id="bottom-fixed" style="display:flex;gap:5px;padding:5px 0;margin-top:5px"></div>
-    </div>
-    
-    <!-- Ä°Ã§erik AlanÄ± (Dinamik) - BOÅ -->
-    <div class="content-wrapper" style="overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
-    <div class="content-area" style="overflow-x:hidden !important;width:100% !important;max-width:100vw !important;">
-      <!-- BOÅ ALAN - SIFIRDAN TASARLANACAK -->
-
-      <!-- OPERASYON - DRAWER Ã–RNEÄÄ° (BOÅ ALAN) -->
-      <div id="operasyon-drawer-ornek" style="margin:10px 0 20px 10px;max-width:420px;">
-        <button id="operasyon-drawer-toggle" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">
-          Drawer AÃ§/Kapat
-        </button>
-        <div id="operasyon-drawer" style="min-height:160px;"></div>
-      </div>
-      
-      <!-- OPERASYON TABLOSU -->
-      <div id="operasyon-tablo-container" style="position:relative;width:684px;height:320px;margin:20px 0 20px 10px;">
-        <!-- Telerik Grid Tablosu - 8 sÃ¼tun 10 satÄ±r -->
-        <div id="operasyon-grid" style="width:680px;height:316px;position:absolute;top:2px;left:2px;"></div>
-      </div>
-      
-    </div>
-    </div>
-  </div>
-
-  <!-- KREDÄ° KARTI SAYFASI -->
-  <div class="container" id="main-content-kredi-karti" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">KREDÄ° KARTI TAKÄ°P</h1>
-    <div id="kredi-karti-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
-  </div>
-
-  <!-- BANKA SAYFASI -->
-  <div class="container" id="main-content-banka" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">BANKA HESAP TAKÄ°P</h1>
-    <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
-  </div>
   
-  <!-- CARÄ° KARTLAR SAYFASI -->
-  <div class="container" id="main-content-cari-kart" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">CARÄ° KARTLAR</h1>
-    <div style="display:flex;gap:8px;justify-content:center;align-items:center;margin:10px 0;">
-      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Yeni Kart</button>
-      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kaydet</button>
-      <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Sil</button>
-    </div>
-    <div id="cari-kart-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
-  </div>
   
+  <!-- MENÜ ÇUBUĞU AYARLARI SAYFASI -->
+  <div class="container" id="main-content-menu-cubugu-ayarlari" style="display:none;width:100%;max-width:100vw;">
+    <div id="menu-cubugu-ayarlari-window" style="display:none;">
+      <div class="k-card" style="margin:0;">
+        <div class="k-card-body">
+          <div id="menu-ayar-splitter" style="height:520px;">
+            <div>
+              <div class="k-card" style="margin:8px;">
+                <div class="k-card-header">
+                  <h4 class="k-card-title">Menüler</h4>
+                </div>
+                <div class="k-card-body">
+                  <div id="menu-ayar-tree"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="k-card" style="margin:8px;text-align:center;">
+                <div class="k-card-body">
+                  <button id="menu-ayar-add" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base" style="margin-bottom:8px;">
+                    →
+                  </button>
+                  <button id="menu-ayar-remove" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">
+                    ←
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="k-card" style="margin:8px;">
+                <div class="k-card-header">
+                  <h4 class="k-card-title">ALAN 2 Sırası</h4>
+                </div>
+                <div class="k-card-body">
+                  <div id="menu-ayar-selected-list"></div>
+                  <div style="margin-top:8px;display:flex;gap:8px;align-items:center;">
+                    <label for="menu-ayar-icon-select" class="k-label">İkon</label>
+                    <input id="menu-ayar-icon-select" />
+                    <button id="menu-ayar-icon-apply" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Uygula</button>
+                  </div>
+                  <div style="margin-top:8px;display:flex;gap:8px;">
+                    <button id="menu-ayar-up" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yukarı</button>
+                    <button id="menu-ayar-down" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Aşağı</button>
+                  </div>
+                  <div style="margin-top:12px;display:flex;gap:8px;">
+                    <button id="menu-ayar-save" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Kaydet</button>
+                    <button id="menu-ayar-exit" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Çıkış</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FİRMA TANIMLARI SAYFASI -->
-  <div class="container" id="main-content-firma-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">FİRMA TANIMLARI</h1>
+  <div class="container" id="main-content-firma-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:visible;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#1f4d5a;margin:4px 0 0 0;font-size:16px;font-weight:600;background:#e6f0f2;border:1px solid #cfdde0;border-radius:6px;padding:4px 10px;">FİRMA TANIMLARI</h1>
     <div class="firma-tanimlari-layout">
       <div class="firma-tanimlari-grid-area">
-        <div id="firma-tanimlari-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
+        <div id="firma-tanimlari-grid" style="width:100%;max-width:100vw;height:800px;margin:0;padding:0;"></div>
       </div>
       <div id="firma-tanimlari-right-buttons">
-        <button id="firma-yeni-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni Firma</button>
-        <button id="firma-tanimlari-refresh-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Listeyi Yenile</button>
-        <button id="firma-sube-karti-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Şube Kartı</button>
-        <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Bilgi Değiştir</button>
+        <button id="firma-yeni-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base firma-action-btn">
+          <span class="firma-action-icon">➕</span>
+          <span>Yeni Firma</span>
+        </button>
+        <button id="firma-tanimlari-refresh-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base firma-action-btn">
+          <span class="firma-action-icon">🔄</span>
+          <span>Listeyi Yenile</span>
+        </button>
+        <button id="firma-sube-tanimlari-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base firma-action-btn">
+          <span class="firma-action-icon">📂</span>
+          <span>Şube Tanımları</span>
+        </button>
+        <button id="firma-bilgi-degistir-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base firma-action-btn">
+          <span class="firma-action-icon">✏️</span>
+          <span>Bilgi Değiştir</span>
+        </button>
+        <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base firma-action-btn firma-action-danger exit-button">
+          <span class="firma-action-icon">⛔</span>
+          <span>Çıkış - ESC</span>
+        </button>
+        <span id="firma-tanimlari-notification"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ŞUBE TANIMLARI SAYFASI -->
+  <div class="container" id="main-content-sube-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:visible;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">ŞUBE TANIMLARI</h1>
+    <div class="sube-tanimlari-layout">
+      <div class="sube-tanimlari-grid-area">
+        <div id="sube-tanimlari-grid" style="width:100%;max-width:100vw;height:800px;margin:0;padding:0;"></div>
+      </div>
+      <div id="sube-tanimlari-right-buttons">
+        <button id="sube-yeni-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Yeni Şube</button>
+        <button id="sube-tanimlari-refresh-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Listeyi Yenile</button>
+        <button id="sube-karti-gor-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Şube Kartı Gör</button>
+        <button id="sube-bilgi-degistir-btn" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Bilgi Değiştir</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 3</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 4</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 5</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 6</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Buton 7</button>
         <button class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base exit-button">Çıkış - ESC</button>
-        <span id="firma-tanimlari-notification"></span>
+        <span id="sube-tanimlari-notification"></span>
       </div>
+    </div>
+  </div>
+
+  <!-- ŞUBE TANIM KARTI WINDOW -->
+  <div id="sube-tanim-karti-window" style="display:none;">
+    <div style="padding:12px;">
+      <style>
+        #sube-tanim-karti-window .sube-karti-label {
+          min-width: 140px;
+          display: inline-block;
+        }
+      </style>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-ana-firma" class="sube-karti-label">ANA FİRMA :</label>
+        <input id="sube-ana-firma" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-adi-input" class="sube-karti-label">ŞUBE ADI :</label>
+        <input id="sube-adi-input" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-istasyon-input" class="sube-karti-label">İSTASYON :</label>
+        <input id="sube-istasyon-input" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-vergi-dairesi" class="sube-karti-label">VERGİ DAİRESİ :</label>
+        <input id="sube-vergi-dairesi" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-vergi-no" class="sube-karti-label">VERGİ NO :</label>
+        <input id="sube-vergi-no" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-adres" class="sube-karti-label">ADRES :</label>
+        <input id="sube-adres" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-telefon" class="sube-karti-label">TELEFON :</label>
+        <input id="sube-telefon" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <label for="sube-eposta" class="sube-karti-label">E-POSTA :</label>
+        <input id="sube-eposta" style="width:100%;" />
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <label for="sube-yetkili-kisi" class="sube-karti-label">YETKİLİ :</label>
+        <input id="sube-yetkili-kisi" style="width:100%;" />
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid #e0e0e0;">
+      <button id="sube-tanim-kaydet" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">Kaydet</button>
+      <button id="sube-tanim-kapat" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base">Kapat</button>
     </div>
   </div>
 
@@ -734,25 +1027,6 @@
     </div>
   </div>
 
-  <!-- KREDİ KARTI SAYFASI -->
-  <div class="container" id="main-content-kredi-karti" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">KREDİ KARTI TAKİP</h1>
-    <div id="kredi-karti-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
-  </div>
-
-  <!-- BANKA SAYFASI -->
-  <div class="container" id="main-content-banka" style="display:none;padding:0;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-    <h1 style="text-align:center;color:#206d7d;margin:10px 0;font-size:20pt;font-weight:bold;">BANKA HESAP TAKİP</h1>
-    <div id="banka-grid" style="width:100%;max-width:100vw;height:800px;overflow-x:hidden !important;overflow-y:auto;margin:0;padding:0;"></div>
-  </div>
-
-  <!-- TANKER SAYFASI - BOS SAYFA -->
-  <div class="container" id="main-content-tanker" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-  </div>
-
-  <!-- FIYAT DEGISIMI SAYFASI - BOS SAYFA -->
-  <div class="container" id="main-content-fiyat-degisimi" style="display:none;padding:20px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
-  </div>
 
   <!-- FIRMA YÖNETİMİ WINDOW -->
   <div id="firma-window" style="display:none;">
@@ -1773,13 +2047,336 @@
             }
             return;
           }
-          if (typeof openSubeKartiTab === "function") {
-            openSubeKartiTab();
+          var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+          var dataItem = grid ? grid.dataSource.get(window.selectedFirma.id) : null;
+          if (!dataItem && grid) {
+            var view = grid.dataSource.view() || [];
+            for (var i = 0; i < view.length; i++) {
+              if (view[i].id === window.selectedFirma.id) {
+                dataItem = view[i];
+                break;
+              }
+            }
           }
-          if (typeof window.updateSubeKartiView === "function") {
-            setTimeout(window.updateSubeKartiView, 0);
+          if (!dataItem) {
+            if (typeof showWarning === "function") {
+              showWarning("Firma bilgisi bulunamadÄ±.");
+            } else {
+              alert("Firma bilgisi bulunamadÄ±.");
+            }
+            return;
+          }
+          if (!$("#firma-karti-gor-window").data("kendoWindow")) {
+            $("#firma-karti-gor-window").kendoWindow({
+              title: "Firma KartÄ±",
+              width: 900,
+              height: 600,
+              modal: false,
+              visible: false,
+              resizable: true,
+              actions: ["Minimize", "Maximize", "Close"]
+            });
+          }
+          var windowInstance = $("#firma-karti-gor-window").data("kendoWindow");
+          if (windowInstance) {
+            var adresTekSatir = dataItem.adres;
+            if (!adresTekSatir) {
+              var adresParca = [];
+              if (dataItem.mahalle) { adresParca.push(dataItem.mahalle); }
+              if (dataItem.cadde_sokak) { adresParca.push(dataItem.cadde_sokak); }
+              if (dataItem.no) { adresParca.push("No: " + dataItem.no); }
+              if (dataItem.bina_blok) { adresParca.push("Bina/Blok: " + dataItem.bina_blok); }
+              if (dataItem.kat) { adresParca.push("Kat: " + dataItem.kat); }
+              if (dataItem.daire) { adresParca.push("Daire: " + dataItem.daire); }
+              if (dataItem.ilce) { adresParca.push(dataItem.ilce); }
+              if (dataItem.il) { adresParca.push(dataItem.il); }
+              if (dataItem.posta_kodu) { adresParca.push("PK: " + dataItem.posta_kodu); }
+              adresTekSatir = adresParca.join(", ");
+            }
+            $("#firma-karti-gor-baslik").val("");
+            $("#firma-karti-gor-output").val("");
+            $(".firma-karti-gor-check").prop("checked", false);
+            $("#firma-karti-gor-adi").val(dataItem.ad || "");
+            $("#firma-karti-gor-tur").val(dataItem.tur || "");
+            $("#firma-karti-gor-kod").val(dataItem.kod || "");
+            $("#firma-karti-gor-sube").val(dataItem.sube || "");
+            $("#firma-karti-gor-vergi-dairesi").val(dataItem.vergi_dairesi || "");
+            $("#firma-karti-gor-vergi-no").val(dataItem.vergi_no || "");
+            $("#firma-karti-gor-mersis-no").val(dataItem.mersis_no || "");
+            $("#firma-karti-gor-telefon").val(dataItem.telefon || "");
+            $("#firma-karti-gor-eposta").val(dataItem.eposta || "");
+            $("#firma-karti-gor-yetkili").val(dataItem.yetkili_kisi || "");
+            $("#firma-karti-gor-adres").val(adresTekSatir || "");
+            $("#firma-karti-gor-mahalle").val(dataItem.mahalle || "");
+            $("#firma-karti-gor-cadde-sokak").val(dataItem.cadde_sokak || "");
+            $("#firma-karti-gor-no").val(dataItem.no || "");
+            $("#firma-karti-gor-bina-blok").val(dataItem.bina_blok || "");
+            $("#firma-karti-gor-kat").val(dataItem.kat || "");
+            $("#firma-karti-gor-daire").val(dataItem.daire || "");
+            $("#firma-karti-gor-ilce").val(dataItem.ilce || "");
+            $("#firma-karti-gor-il").val(dataItem.il || "");
+            $("#firma-karti-gor-posta-kodu").val(dataItem.posta_kodu || "");
+            $("#firma-karti-gor-konum-lat").val(dataItem.konum_lat || "");
+            $("#firma-karti-gor-konum-lng").val(dataItem.konum_lng || "");
+            $("#firma-karti-gor-konum-link").val(dataItem.konum_link || "");
+            if (dataItem.ad) {
+              windowInstance.title("Firma KartÄ± - " + dataItem.ad);
+            }
+            windowInstance.center().open();
           }
         });
+
+        $("#firma-sube-tanimlari-btn").on("click", function() {
+          if (typeof window.openSubeTanimlariTab === "function") {
+            window.openSubeTanimlariTab();
+          }
+        });
+
+        var subeTanimKartiWindow = null;
+        function initSubeTanimKartiWindow() {
+          if (typeof kendo === 'undefined' || typeof $.fn.kendoWindow === 'undefined') {
+            setTimeout(initSubeTanimKartiWindow, 100);
+            return;
+          }
+          if (subeTanimKartiWindow) {
+            return;
+          }
+          subeTanimKartiWindow = $("#sube-tanim-karti-window").kendoWindow({
+            title: "Şube Tanım Kartı",
+            width: 900,
+            height: 520,
+            visible: false,
+            modal: false,
+            resizable: true,
+            draggable: true,
+            actions: ["Minimize", "Maximize", "Close"]
+          }).data("kendoWindow");
+
+          if (typeof $.fn.kendoDropDownList !== 'undefined') {
+            $("#sube-ana-firma").kendoDropDownList({
+              optionLabel: "Ana firma seç",
+              dataTextField: "ad",
+              dataValueField: "id",
+              dataSource: []
+            });
+          }
+          if (typeof $.fn.kendoTextBox !== 'undefined') {
+            $("#sube-adi-input").kendoTextBox();
+            $("#sube-istasyon-input").kendoTextBox();
+            $("#sube-vergi-dairesi").kendoTextBox();
+            $("#sube-vergi-no").kendoTextBox();
+            $("#sube-adres").kendoTextBox();
+            $("#sube-telefon").kendoTextBox();
+            $("#sube-eposta").kendoTextBox();
+            $("#sube-yetkili-kisi").kendoTextBox();
+          }
+        }
+        initSubeTanimKartiWindow();
+
+        var anaFirmaCache = null;
+        function fetchAnaFirmalar(callback) {
+          if (anaFirmaCache) {
+            if (typeof callback === "function") {
+              callback(anaFirmaCache);
+            }
+            return;
+          }
+          $.getJSON("/api/firmalar/", function(list) {
+            var filtered = (list || []).filter(function(item) {
+              var tur = (item.tur || "").toString().trim().toLowerCase();
+              return tur === "ana firma";
+            }).map(function(item) {
+              return { id: item.id, ad: item.ad };
+            });
+            anaFirmaCache = filtered;
+            if (typeof callback === "function") {
+              callback(filtered);
+            }
+          }).fail(function() {
+            if (typeof showError === "function") {
+              showError("Ana firma listesi alınamadı.");
+            } else {
+              alert("Ana firma listesi alınamadı.");
+            }
+          });
+        }
+
+        function openSubeTanimKartiWindow() {
+          initSubeTanimKartiWindow();
+          $("#sube-adi-input").val("");
+          $("#sube-istasyon-input").val("");
+          $("#sube-vergi-dairesi").val("");
+          $("#sube-vergi-no").val("");
+          $("#sube-adres").val("");
+          $("#sube-telefon").val("");
+          $("#sube-eposta").val("");
+          $("#sube-yetkili-kisi").val("");
+
+          fetchAnaFirmalar(function(list) {
+            var ddl = $("#sube-ana-firma").data("kendoDropDownList");
+            if (ddl) {
+              ddl.dataSource.data(list);
+              ddl.select(0);
+            }
+            if (subeTanimKartiWindow) {
+              subeTanimKartiWindow.center().open();
+            }
+          });
+        }
+
+        $("#sube-yeni-btn").on("click", function() {
+          openSubeTanimKartiWindow();
+        });
+
+        $("#sube-tanimlari-refresh-btn").on("click", function() {
+          if (typeof window.initSubeTanimlariGrid === "function") {
+            window.initSubeTanimlariGrid(true);
+            var grid = $("#sube-tanimlari-grid").data("kendoGrid");
+            if (grid) {
+              grid.dataSource.read();
+            }
+          }
+        });
+
+        $("#sube-tanim-kapat").on("click", function() {
+          if (subeTanimKartiWindow) {
+            subeTanimKartiWindow.close();
+          }
+        });
+
+        $("#sube-tanim-kaydet").on("click", function() {
+          var ddl = $("#sube-ana-firma").data("kendoDropDownList");
+          var anaFirmaId = ddl ? ddl.value() : "";
+          var payload = {
+            ana_firma_id: anaFirmaId,
+            sube_adi: $("#sube-adi-input").val() || "",
+            istasyon_adi: $("#sube-istasyon-input").val() || "",
+            vergi_dairesi: $("#sube-vergi-dairesi").val() || "",
+            vergi_no: $("#sube-vergi-no").val() || "",
+            adres: $("#sube-adres").val() || "",
+            telefon: $("#sube-telefon").val() || "",
+            eposta: $("#sube-eposta").val() || "",
+            yetkili_kisi: $("#sube-yetkili-kisi").val() || ""
+          };
+
+          if (!payload.ana_firma_id) {
+            if (typeof showWarning === "function") {
+              showWarning("Ana firma seç.");
+            } else {
+              alert("Ana firma seç.");
+            }
+            return;
+          }
+          if (!payload.sube_adi.trim()) {
+            if (typeof showWarning === "function") {
+              showWarning("Şube adı gerekli.");
+            } else {
+              alert("Şube adı gerekli.");
+            }
+            return;
+          }
+
+          $.ajax({
+            url: "/api/subeler/",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(payload),
+            success: function() {
+              if (typeof showSuccess === "function") {
+                showSuccess("Şube kaydedildi.");
+              }
+              if (subeTanimKartiWindow) {
+                subeTanimKartiWindow.close();
+              }
+              var grid = $("#sube-tanimlari-grid").data("kendoGrid");
+              if (grid) {
+                grid.dataSource.read();
+              }
+            },
+            error: function(xhr) {
+              var message = "Şube kaydedilemedi.";
+              if (xhr && xhr.responseText) {
+                message = xhr.responseText;
+              }
+              if (typeof showError === "function") {
+                showError(message);
+              } else {
+                alert(message);
+              }
+            }
+          });
+        });
+
+        if (!window.__firmaKartiGorHandlers) {
+          window.__firmaKartiGorHandlers = true;
+          $("#firma-karti-gor-olustur").on("click", function() {
+            var baslik = ($("#firma-karti-gor-baslik").val() || "").trim();
+            var lines = [];
+            if (baslik) {
+              lines.push(baslik);
+            }
+            $(".firma-karti-gor-check:checked").each(function() {
+              var label = $(this).data("label") || "";
+              var target = $(this).data("target");
+              var value = target ? $(target).val() : "";
+              value = value ? value.toString().trim() : "";
+              if (label && value) {
+                lines.push(label + ": " + value);
+              }
+            });
+            $("#firma-karti-gor-output").val(lines.join("\n"));
+            if (lines.length === 0) {
+              if (typeof showWarning === "function") {
+                showWarning("En az bir bilgi seç.");
+              } else {
+                alert("En az bir bilgi seç.");
+              }
+            }
+          });
+          $("#firma-karti-gor-kopyala").on("click", function() {
+            var text = ($("#firma-karti-gor-output").val() || "").trim();
+            if (!text) {
+              if (typeof showWarning === "function") {
+                showWarning("Önce kartı oluştur.");
+              } else {
+                alert("Önce kartı oluştur.");
+              }
+              return;
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function() {
+                if (typeof showSuccess === "function") {
+                  showSuccess("Kopyalandı.");
+                }
+              });
+            } else {
+              var output = $("#firma-karti-gor-output");
+              output.focus();
+              output.select();
+              try {
+                document.execCommand("copy");
+              } catch (err) {}
+            }
+          });
+          $("#firma-karti-gor-whatsapp").on("click", function() {
+            var text = ($("#firma-karti-gor-output").val() || "").trim();
+            if (!text) {
+              if (typeof showWarning === "function") {
+                showWarning("Önce kartı oluştur.");
+              } else {
+                alert("Önce kartı oluştur.");
+              }
+              return;
+            }
+            var rawNumber = ($("#firma-karti-gor-telefon-gonder").val() || "").trim();
+            var number = rawNumber.replace(/\D/g, "");
+            var url = "https://web.whatsapp.com/send?text=" + encodeURIComponent(text);
+            if (number) {
+              url = "https://web.whatsapp.com/send?phone=" + encodeURIComponent(number) + "&text=" + encodeURIComponent(text);
+            }
+            window.open(url, "_blank");
+          });
+        }
 
         $("#firma-tanimlari-refresh-btn").on("click", function() {
           if (typeof window.initFirmaTanimlariGrid === "function") {
@@ -1789,6 +2386,51 @@
           if (grid) {
             grid.dataSource.read();
             grid.refresh();
+          }
+        });
+
+        $("#firma-bilgi-degistir-btn").on("click", function() {
+          if (!window.selectedFirma || !window.selectedFirma.id) {
+            showFirmaTanimlariNotice("warning", "Önce listeden firma seç.");
+            return;
+          }
+          if (firmaTanimKartiWindow) {
+            var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+            var dataItem = grid ? grid.dataSource.get(window.selectedFirma.id) : null;
+            if (!dataItem && grid) {
+              var view = grid.dataSource.view() || [];
+              for (var i = 0; i < view.length; i++) {
+                if (view[i].id === window.selectedFirma.id) {
+                  dataItem = view[i];
+                  break;
+                }
+              }
+            }
+            $("#firma-karti-adi-input").val(dataItem && dataItem.ad ? dataItem.ad : "");
+            $("#firma-karti-tur-input").val(dataItem && dataItem.tur ? dataItem.tur : "");
+            $("#firma-karti-kod-input").val(dataItem && dataItem.kod ? dataItem.kod : "");
+            $("#firma-karti-vergi-dairesi").val(dataItem && dataItem.vergi_dairesi ? dataItem.vergi_dairesi : "");
+            $("#firma-karti-vergi-no").val(dataItem && dataItem.vergi_no ? dataItem.vergi_no : "");
+            $("#firma-karti-mersis-no").val(dataItem && dataItem.mersis_no ? dataItem.mersis_no : "");
+            $("#firma-karti-telefon").val(dataItem && dataItem.telefon ? dataItem.telefon : "");
+            $("#firma-karti-eposta").val(dataItem && dataItem.eposta ? dataItem.eposta : "");
+            $("#firma-karti-mahalle").val(dataItem && dataItem.mahalle ? dataItem.mahalle : "");
+            $("#firma-karti-cadde-sokak").val(dataItem && dataItem.cadde_sokak ? dataItem.cadde_sokak : "");
+            $("#firma-karti-no").val(dataItem && dataItem.no ? dataItem.no : "");
+            $("#firma-karti-bina-blok").val(dataItem && dataItem.bina_blok ? dataItem.bina_blok : "");
+            $("#firma-karti-kat").val(dataItem && dataItem.kat ? dataItem.kat : "");
+            $("#firma-karti-daire").val(dataItem && dataItem.daire ? dataItem.daire : "");
+            $("#firma-karti-ilce").val(dataItem && dataItem.ilce ? dataItem.ilce : "");
+            $("#firma-karti-il").val(dataItem && dataItem.il ? dataItem.il : "");
+            $("#firma-karti-posta-kodu").val(dataItem && dataItem.posta_kodu ? dataItem.posta_kodu : "");
+            $("#firma-karti-konum-lat").val(dataItem && dataItem.konum_lat ? dataItem.konum_lat : "");
+            $("#firma-karti-konum-lng").val(dataItem && dataItem.konum_lng ? dataItem.konum_lng : "");
+            $("#firma-karti-konum-link").val(dataItem && dataItem.konum_link ? dataItem.konum_link : "");
+            firmaTanimKartiWindow.center().open();
+            var tabstrip = $("#firma-tanim-karti-tabstrip").data("kendoTabStrip");
+            if (tabstrip) {
+              tabstrip.select(0);
+            }
           }
         });
 
@@ -2247,6 +2889,18 @@
           var mersisNo = normalizeSpace($("#firma-karti-mersis-no").val());
           var telefon = normalizeSpace($("#firma-karti-telefon").val());
           var eposta = normalizeSpace($("#firma-karti-eposta").val());
+          var mahalle = normalizeTitleTr($("#firma-karti-mahalle").val());
+          var caddeSokak = normalizeTitleTr($("#firma-karti-cadde-sokak").val());
+          var no = normalizeSpace($("#firma-karti-no").val());
+          var binaBlok = normalizeSpace($("#firma-karti-bina-blok").val());
+          var kat = normalizeSpace($("#firma-karti-kat").val());
+          var daire = normalizeSpace($("#firma-karti-daire").val());
+          var ilce = normalizeTitleTr($("#firma-karti-ilce").val());
+          var il = normalizeTitleTr($("#firma-karti-il").val());
+          var postaKodu = normalizeSpace($("#firma-karti-posta-kodu").val());
+          var konumLat = normalizeSpace($("#firma-karti-konum-lat").val());
+          var konumLng = normalizeSpace($("#firma-karti-konum-lng").val());
+          var konumLink = normalizeSpace($("#firma-karti-konum-link").val());
           $("#firma-karti-adi-input").val(firmaAdi);
           $("#firma-karti-tur-input").val(tur);
           $("#firma-karti-kod-input").val(kod);
@@ -2255,6 +2909,18 @@
           $("#firma-karti-mersis-no").val(mersisNo);
           $("#firma-karti-telefon").val(telefon);
           $("#firma-karti-eposta").val(eposta);
+          $("#firma-karti-mahalle").val(mahalle);
+          $("#firma-karti-cadde-sokak").val(caddeSokak);
+          $("#firma-karti-no").val(no);
+          $("#firma-karti-bina-blok").val(binaBlok);
+          $("#firma-karti-kat").val(kat);
+          $("#firma-karti-daire").val(daire);
+          $("#firma-karti-ilce").val(ilce);
+          $("#firma-karti-il").val(il);
+          $("#firma-karti-posta-kodu").val(postaKodu);
+          $("#firma-karti-konum-lat").val(konumLat);
+          $("#firma-karti-konum-lng").val(konumLng);
+          $("#firma-karti-konum-link").val(konumLink);
           if (!firmaAdi) {
             if (typeof showWarning === "function") {
               showWarning("Firma adı boş olamaz.");
@@ -2264,19 +2930,42 @@
             return;
           }
 
-          fetch("/api/firmalar/", {
-            method: "POST",
+          var isEdit = window.selectedFirma && window.selectedFirma.id;
+          var requestUrl = "/api/firmalar/";
+          var requestMethod = "POST";
+          if (isEdit) {
+            requestUrl = "/api/firmalar/" + window.selectedFirma.id + "/";
+            requestMethod = "PUT";
+          }
+          var payload = {
+            ad: firmaAdi,
+            tur: tur,
+            kod: kod,
+            vergi_no: vergiNo,
+            vergi_dairesi: vergiDairesi,
+            mersis_no: mersisNo,
+            telefon: telefon,
+            eposta: eposta,
+            mahalle: mahalle,
+            cadde_sokak: caddeSokak,
+            no: no,
+            bina_blok: binaBlok,
+            kat: kat,
+            daire: daire,
+            ilce: ilce,
+            il: il,
+            posta_kodu: postaKodu,
+            konum_lat: konumLat,
+            konum_lng: konumLng,
+            konum_link: konumLink
+          };
+          if (isEdit && window.selectedFirma && window.selectedFirma.id) {
+            payload.id = window.selectedFirma.id;
+          }
+          fetch(requestUrl, {
+            method: requestMethod,
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              ad: firmaAdi,
-              tur: tur,
-              kod: kod,
-              vergi_no: vergiNo,
-              vergi_dairesi: vergiDairesi,
-              mersis_no: mersisNo,
-              telefon: telefon,
-              eposta: eposta
-            })
+            body: JSON.stringify(payload)
           })
             .then(function(response) {
               return response.json().then(function(data) {
@@ -2287,8 +2976,8 @@
               if (!result.ok) {
                 throw new Error(result.data && result.data.error ? result.data.error : "Kayıt hatası");
               }
-              var createdItem = {
-                id: result.data && result.data.id ? result.data.id : null,
+              var updatedItem = {
+                id: result.data && result.data.id ? result.data.id : (isEdit ? window.selectedFirma.id : null),
                 ad: firmaAdi,
                 tur: tur,
                 kod: kod,
@@ -2297,29 +2986,50 @@
                 mersis_no: mersisNo,
                 telefon: telefon,
                 eposta: eposta,
+                mahalle: mahalle,
+                cadde_sokak: caddeSokak,
+                no: no,
+                bina_blok: binaBlok,
+                kat: kat,
+                daire: daire,
+                ilce: ilce,
+                il: il,
+                posta_kodu: postaKodu,
+                konum_lat: konumLat,
+                konum_lng: konumLng,
+                konum_link: konumLink,
                 aktif: true
               };
               if (typeof showSuccess === "function") {
-                showSuccess("Firma kaydedildi.");
+                showSuccess(isEdit ? "Firma güncellendi." : "Firma kaydedildi.");
               }
               if (window.initFirmaTanimlariGrid) {
                 setTimeout(function() { window.initFirmaTanimlariGrid(true); }, 0);
               }
               var grid = $("#firma-tanimlari-grid").data("kendoGrid");
               if (grid) {
-                if (createdItem.id && typeof grid.dataSource.get === "function") {
-                  var existingItem = grid.dataSource.get(createdItem.id);
-                  if (!existingItem) {
-                    grid.dataSource.add(createdItem);
+                if (updatedItem.id && typeof grid.dataSource.get === "function") {
+                  var existingItem = grid.dataSource.get(updatedItem.id);
+                  if (existingItem) {
+                    for (var key in updatedItem) {
+                      if (Object.prototype.hasOwnProperty.call(updatedItem, key)) {
+                        existingItem.set(key, updatedItem[key]);
+                      }
+                    }
+                  } else {
+                    grid.dataSource.add(updatedItem);
                   }
                 } else {
-                  grid.dataSource.add(createdItem);
+                  grid.dataSource.add(updatedItem);
                 }
                 grid.dataSource.read();
                 grid.refresh();
               }
               if (firmaTanimKartiWindow) {
                 firmaTanimKartiWindow.close();
+              }
+              if (isEdit) {
+                window.selectedFirma = null;
               }
             })
             .catch(function(error) {
@@ -2798,6 +3508,7 @@
       
       // FİRMA TANIMLARI GRID
       window.selectedFirma = null;
+      window.selectedSube = null;
 
       function initSubeKartiGrid() {
         if (typeof kendo === 'undefined' || typeof $.fn.kendoGrid === 'undefined') {
@@ -2844,6 +3555,154 @@
         }
       };
 
+      window.initSubeTanimlariGrid = function(forceRebuild) {
+        if (typeof kendo === 'undefined' || typeof $.fn.kendoGrid === 'undefined') {
+          setTimeout(function() { window.initSubeTanimlariGrid(forceRebuild); }, 200);
+          return;
+        }
+        if (!$("#main-content-sube-tanimlari").is(":visible")) {
+          setTimeout(function() { window.initSubeTanimlariGrid(forceRebuild); }, 200);
+          return;
+        }
+        var existingGrid = $("#sube-tanimlari-grid").data("kendoGrid");
+        if (existingGrid) {
+          var gridContainer = $("#sube-tanimlari-grid");
+          var needsRebuild = forceRebuild || gridContainer.width() === 0 || gridContainer.height() === 0;
+          if (!needsRebuild) {
+            existingGrid.refresh();
+            existingGrid.resize();
+            return;
+          }
+          existingGrid.destroy();
+          gridContainer.empty();
+        }
+        var containerWidth = $("#sube-tanimlari-grid").parent().width();
+        if (!containerWidth) {
+          setTimeout(function() { window.initSubeTanimlariGrid(forceRebuild); }, 200);
+          return;
+        }
+        var gridWidth = Math.min(containerWidth, 1920);
+
+        $("#sube-tanimlari-grid").kendoGrid({
+          dataSource: {
+            transport: {
+              read: {
+                url: "/api/subeler/",
+                dataType: "json",
+                cache: false
+              }
+            },
+            schema: {
+              data: function(response) {
+                return response && response.data ? response.data : response;
+              },
+              model: {
+                id: "id",
+                fields: {
+                  id: { type: "number" },
+                  sira_no: { type: "number" },
+                  ana_firma_id: { type: "number" },
+                  ana_firma_ad: { type: "string" },
+                  sube_adi: { type: "string" },
+                  istasyon_adi: { type: "string" },
+                  vergi_dairesi: { type: "string" },
+                  vergi_no: { type: "string" },
+                  adres: { type: "string" },
+                  telefon: { type: "string" },
+                  eposta: { type: "string" },
+                  yetkili_kisi: { type: "string" },
+                  aktif: { type: "boolean" }
+                }
+              }
+            },
+            error: function(e) {
+              var message = "Şube listesi alınamadı.";
+              if (e && e.xhr && e.xhr.responseText) {
+                message = e.xhr.responseText;
+              } else if (e && e.errors) {
+                message = JSON.stringify(e.errors);
+              }
+              if (typeof showError === "function") {
+                showError(message);
+              } else {
+                alert(message);
+              }
+            }
+          },
+          width: gridWidth,
+          height: 600,
+          scrollable: { virtual: false },
+          sortable: true,
+          filterable: true,
+          selectable: "row",
+          dataBound: function() {
+            var gridInstance = this;
+            setTimeout(function() {
+              if (!gridInstance || !gridInstance.wrapper) {
+                return;
+              }
+              var content = gridInstance.wrapper.find(".k-grid-content")[0];
+              var headerWrap = gridInstance.wrapper.find(".k-grid-header-wrap");
+              if (content && headerWrap.length) {
+                var pad = content.offsetWidth - content.clientWidth;
+                if (pad < 0) {
+                  pad = 0;
+                }
+                headerWrap.css("padding-right", pad + "px");
+              }
+              gridInstance.resize();
+            }, 0);
+          },
+          columnMenu: {
+            setColumnPosition: true,
+            messages: {
+              columns: "Sütun Seçimi",
+              filter: "Filtre",
+              sortAscending: "Artan Sırala",
+              sortDescending: "Azalan Sırala",
+              settings: "Ayarlar",
+              done: "Tamam",
+              setColumnPosition: "Sütun Konumu",
+              movePrev: "Önceki",
+              moveNext: "Sonraki",
+              moveToStart: "Başa Taşı",
+              moveToEnd: "Sona Taşı"
+            }
+          },
+          resizable: {
+            columns: true
+          },
+          columnResizeHandleWidth: 10,
+          reorderable: {
+            columns: true
+          },
+          change: function() {
+            var dataItem = this.dataItem(this.select());
+            if (dataItem) {
+              window.selectedSube = {
+                id: dataItem.id,
+                ana_firma_id: dataItem.ana_firma_id,
+                ana_firma_ad: dataItem.ana_firma_ad,
+                sube_adi: dataItem.sube_adi,
+                istasyon_adi: dataItem.istasyon_adi
+              };
+            }
+          },
+          columns: [
+            { field: "sira_no", title: "Sıra No", width: 90 },
+            { field: "ana_firma_ad", title: "ANA FİRMA", width: 200 },
+            { field: "sube_adi", title: "ŞUBE ADI", width: 220 },
+            { field: "istasyon_adi", title: "İSTASYON", width: 200 },
+            { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
+            { field: "vergi_no", title: "VERGİ NO", width: 140 },
+            { field: "adres", title: "ADRES", width: 240 },
+            { field: "telefon", title: "TELEFON", width: 140 },
+            { field: "eposta", title: "E-POSTA", width: 180 },
+            { field: "yetkili_kisi", title: "YETKİLİ KİŞİ", width: 160 }
+          ]
+        });
+      };
+
       window.initFirmaTanimlariGrid = function(forceRebuild) {
         if (typeof kendo === 'undefined' || typeof $.fn.kendoGrid === 'undefined') {
           setTimeout(function() { window.initFirmaTanimlariGrid(forceRebuild); }, 200);
@@ -2866,9 +3725,101 @@
           existingGrid.destroy();
           gridContainer.empty();
         }
-        var containerWidth = $("#firma-tanimlari-grid").parent().width() || $(window).width();
+        var containerWidth = $("#firma-tanimlari-grid").parent().width();
+        if (!containerWidth) {
+          setTimeout(function() { window.initFirmaTanimlariGrid(forceRebuild); }, 200);
+          return;
+        }
         var gridWidth = Math.min(containerWidth, 1920);
         
+        var firmaTanimlariGridStorageKey = "firma_tanimlari_grid_columns_v1";
+        function loadFirmaTanimlariHiddenColumns() {
+          try {
+            var raw = localStorage.getItem(firmaTanimlariGridStorageKey);
+            var parsed = raw ? JSON.parse(raw) : null;
+            return Array.isArray(parsed) ? parsed : [];
+          } catch (error) {
+            return [];
+          }
+        }
+        function saveFirmaTanimlariHiddenColumns(grid) {
+          if (!grid || !grid.columns) {
+            return;
+          }
+          var hidden = [];
+          grid.columns.forEach(function(col) {
+            if (col && col.field && col.hidden) {
+              hidden.push(col.field);
+            }
+          });
+          localStorage.setItem(firmaTanimlariGridStorageKey, JSON.stringify(hidden));
+        }
+        var firmaHiddenColumns = loadFirmaTanimlariHiddenColumns();
+
+        var firmaColumns = [
+          { field: "sira_no", title: "Sıra No", width: 90 },
+          { field: "ad", title: "FİRMA ADI", width: 220 },
+          { field: "tur", title: "TÜR", width: 140 },
+          { field: "kod", title: "KOD", width: 120 },
+          { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
+          { field: "vergi_no", title: "VERGİ NO", width: 140 },
+          { field: "mersis_no", title: "MERSİS NO", width: 160 },
+          { field: "adres", title: "ADRES", width: 240 },
+          { field: "mahalle", title: "MAHALLE", width: 160 },
+          { field: "cadde_sokak", title: "CADDE / SOKAK", width: 200 },
+          { field: "no", title: "NO", width: 80 },
+          { field: "bina_blok", title: "BİNA / BLOK", width: 120 },
+          { field: "kat", title: "KAT", width: 80 },
+          { field: "daire", title: "DAİRE", width: 80 },
+          { field: "ilce", title: "İLÇE", width: 140 },
+          { field: "il", title: "İL", width: 120 },
+          { field: "posta_kodu", title: "POSTA KODU", width: 120 },
+          { field: "telefon", title: "TELEFON", width: 140 },
+          { field: "eposta", title: "E-POSTA", width: 180 },
+          { field: "yetkili_kisi", title: "YETKİLİ KİŞİ", width: 160 },
+          { field: "konum_lat", title: "KONUM ENLEM", width: 120 },
+          { field: "konum_lng", title: "KONUM BOYLAM", width: 120 },
+          { field: "konum_link", title: "KONUM LİNK", width: 220 }
+        ];
+
+        if (firmaHiddenColumns.length > 0) {
+          firmaColumns.forEach(function(col) {
+            if (col.field && firmaHiddenColumns.indexOf(col.field) >= 0) {
+              col.hidden = true;
+            }
+          });
+        }
+
+        function syncFirmaTanimlariLayout(gridInstance) {
+          if (!gridInstance || !gridInstance.wrapper) {
+            return;
+          }
+          var wrapper = gridInstance.wrapper;
+          var contentTable = wrapper.find(".k-grid-content table");
+          var headerTable = wrapper.find(".k-grid-header table");
+          if (contentTable.length && headerTable.length) {
+            contentTable.css({ width: "100%", minWidth: "100%" });
+            headerTable.css({ width: "100%", minWidth: "100%" });
+          }
+          var headerWrap = wrapper.find(".k-grid-header");
+          var contentWrap = wrapper.find(".k-grid-content");
+          var gridTop = wrapper.offset() ? wrapper.offset().top : 0;
+          var alan4 = $("#fixed-area-4-container");
+          var alan4Height = alan4.length ? alan4.outerHeight() : 0;
+          var viewportHeight = window.innerHeight || $(window).height();
+          var targetHeight = Math.max(200, viewportHeight - alan4Height - gridTop);
+          wrapper.css({ height: targetHeight + "px" });
+          if (headerWrap.length && contentWrap.length) {
+            var headerHeight = headerWrap.outerHeight() || 0;
+            var contentHeight = Math.max(100, targetHeight - headerHeight);
+            contentWrap.css({ height: contentHeight + "px" });
+          }
+          $("#firma-tanimlari-right-buttons").css({
+            height: targetHeight + "px",
+            minHeight: targetHeight + "px"
+          });
+        }
+
         $("#firma-tanimlari-grid").kendoGrid({
           dataSource: {
             transport: {
@@ -2885,18 +3836,16 @@
               model: {
                 id: "id",
                 fields: {
-                  row_no: { type: "number" },
                   id: { type: "number" },
                   sira_no: { type: "number" },
                   ad: { type: "string" },
-                  sube: { type: "string" },
                   tur: { type: "string" },
                   kod: { type: "string" },
-                  vergi_dairesi: { type: "string" },
+                  sube: { type: "string" },
                   vergi_no: { type: "string" },
+                  vergi_dairesi: { type: "string" },
                   mersis_no: { type: "string" },
-                  telefon: { type: "string" },
-                  eposta: { type: "string" },
+                  adres: { type: "string" },
                   mahalle: { type: "string" },
                   cadde_sokak: { type: "string" },
                   no: { type: "string" },
@@ -2906,6 +3855,9 @@
                   ilce: { type: "string" },
                   il: { type: "string" },
                   posta_kodu: { type: "string" },
+                  telefon: { type: "string" },
+                  eposta: { type: "string" },
+                  yetkili_kisi: { type: "string" },
                   konum_lat: { type: "string" },
                   konum_lng: { type: "string" },
                   konum_link: { type: "string" },
@@ -2940,7 +3892,7 @@
           },
           width: gridWidth,
           height: 600,
-          scrollable: true,
+          scrollable: { virtual: false },
           sortable: true,
           filterable: true,
           selectable: "row",
@@ -2955,59 +3907,57 @@
             }
           },
           dataBound: function() {
-            var view = this.dataSource.view();
-            for (var i = 0; i < view.length; i++) {
-              if (typeof view[i].set === "function") {
-                view[i].set("row_no", i + 1);
-              } else {
-                view[i].row_no = i + 1;
+            if (!window.__firmaDenemeEklendi) {
+              var grid = this;
+              var data = grid.dataSource.data() || [];
+              var hasDeneme = false;
+              for (var i = 0; i < data.length; i++) {
+                var ad = (data[i].ad || "").toString().trim().toLowerCase();
+                if (ad === "deneme") {
+                  hasDeneme = true;
+                  break;
+                }
               }
-            }
-            if (window.__firmaDenemeEklendi) {
-              return;
-            }
-            var grid = this;
-            var data = grid.dataSource.data() || [];
-            var hasDeneme = false;
-            for (var i = 0; i < data.length; i++) {
-              var ad = (data[i].ad || "").toString().trim().toLowerCase();
-              if (ad === "deneme") {
-                hasDeneme = true;
-                break;
+              if (!hasDeneme) {
+                grid.dataSource.add({
+                  id: -1,
+                  sira_no: 0,
+                  ad: "Deneme",
+                  sube: "",
+                  vergi_dairesi: "",
+                  vergi_no: "",
+                  adres: "",
+                  telefon: "",
+                  eposta: "",
+                  yetkili_kisi: "",
+                  aktif: true
+                });
               }
+              window.__firmaDenemeEklendi = true;
             }
-            if (!hasDeneme) {
-              grid.dataSource.add({
-                id: -1,
-                sira_no: 0,
-                ad: "Deneme",
-                sube: "",
-                vergi_dairesi: "",
-                vergi_no: "",
-                tur: "",
-                kod: "",
-                mersis_no: "",
-                telefon: "",
-                eposta: "",
-                mahalle: "",
-                cadde_sokak: "",
-                no: "",
-                bina_blok: "",
-                kat: "",
-                daire: "",
-                ilce: "",
-                il: "",
-                posta_kodu: "",
-                konum_lat: "",
-                konum_lng: "",
-                konum_link: "",
-                aktif: true
-              });
-            }
-            window.__firmaDenemeEklendi = true;
+
+            var gridInstance = this;
+            setTimeout(function() {
+              if (!gridInstance || !gridInstance.wrapper) {
+                return;
+              }
+              var content = gridInstance.wrapper.find(".k-grid-content")[0];
+              var headerWrap = gridInstance.wrapper.find(".k-grid-header-wrap");
+              if (content && headerWrap.length) {
+                var pad = content.offsetWidth - content.clientWidth;
+                if (pad < 0) {
+                  pad = 0;
+                }
+                headerWrap.css("padding-right", pad + "px");
+              }
+              gridInstance.resize();
+              syncFirmaTanimlariLayout(gridInstance);
+            }, 0);
+
           },
           columnMenu: {
             setColumnPosition: true,
+            columns: true,
             messages: {
               columns: "Sütun Seçimi",
               filter: "Filtre",
@@ -3022,41 +3972,35 @@
               moveToEnd: "Sona Taşı"
             }
           },
-          resizable: false,
+          resizable: {
+            columns: true
+          },
+          columnResizeHandleWidth: 10,
           reorderable: {
             columns: true
           },
+          columnHide: function() {
+            saveFirmaTanimlariHiddenColumns(this);
+          },
+          columnShow: function() {
+            saveFirmaTanimlariHiddenColumns(this);
+          },
           pageable: false,
           editable: false,
-          columns: [
-            { field: "row_no", title: "#", width: 60 },
-            { field: "ad", title: "FİRMA ADI", width: 220 },
-            { field: "tur", title: "TÜR", width: 140 },
-            { field: "kod", title: "KOD", width: 140 },
-            { field: "vergi_dairesi", title: "VERGİ DAİRESİ", width: 160 },
-            { field: "vergi_no", title: "VERGİ NO", width: 140 },
-            { field: "mersis_no", title: "MERSİS NO", width: 160 },
-            { field: "telefon", title: "TELEFON", width: 140 },
-            { field: "eposta", title: "E-POSTA", width: 180 },
-            { field: "mahalle", title: "MAHALLE", width: 160 },
-            { field: "cadde_sokak", title: "CADDE / SOKAK", width: 180 },
-            { field: "no", title: "NO", width: 80 },
-            { field: "bina_blok", title: "BİNA/BLOK", width: 110 },
-            { field: "kat", title: "KAT", width: 80 },
-            { field: "daire", title: "DAİRE", width: 90 },
-            { field: "ilce", title: "İLÇE", width: 140 },
-            { field: "il", title: "İL", width: 120 },
-            { field: "posta_kodu", title: "POSTA KODU", width: 120 },
-            { field: "konum_lat", title: "KONUM ENLEM", width: 140 },
-            { field: "konum_lng", title: "KONUM BOYLAM", width: 140 },
-            { field: "konum_link", title: "KONUM LİNKİ", width: 240 }
-          ]
+          columns: firmaColumns
         });
         var createdGrid = $("#firma-tanimlari-grid").data("kendoGrid");
         if (createdGrid) {
           createdGrid.dataSource.read();
           createdGrid.refresh();
+          setTimeout(function() { syncFirmaTanimlariLayout(createdGrid); }, 0);
         }
+        $(window).off("resize.firmaTanimlariLayout").on("resize.firmaTanimlariLayout", function() {
+          var grid = $("#firma-tanimlari-grid").data("kendoGrid");
+          if (grid) {
+            syncFirmaTanimlariLayout(grid);
+          }
+        });
         setTimeout(function() {
           var checkGrid = $("#firma-tanimlari-grid").data("kendoGrid");
           if (!checkGrid) {
@@ -3077,6 +4021,7 @@
           alert("Liste görünmüyor. Sayfa yüklenmemiş olabilir.");
         }
       });
+
       
       // ÅUBE BAZLI SATIÅ GRAFÄ°ÄÄ°
       setTimeout(function() {

@@ -23,12 +23,7 @@
     body.operasyon-sayfasi-acik #main-content {
       overflow-y: hidden !important;
     }
-    #main-content > * {max-width:100% !important;overflow-x:hidden !important;width:100% !important}
-    
-    /* Telerik Grid overflow kontrolü - tüm grid elementlerinde */
-    .k-grid, .k-grid-content, .k-grid-header, .k-grid-header-wrap, .k-grid-content-wrap,
-    .k-grid table, .k-grid-header table {overflow-x:hidden !important;max-width:100% !important}
-    .k-grid-content-locked, .k-grid-header-locked {overflow-x:hidden !important}
+    #main-content > * {max-width:100% !important;width:100% !important}
     
     /* 3 Sabit Alan - Basit HTML ile */
     #fixed-area-1-container,
@@ -174,13 +169,45 @@
       margin-left: 0 !important;
     }
     
-    /* Telerik TabStrip için font boyutu (ALAN 3) */
+    /* Telerik TabStrip (ALAN 3) - modern ve anlaşılır görünüm */
+    #tabs .k-tabstrip-items {
+      gap: 2px;
+    }
     #tabs .k-tabstrip-item {
-      font-size: 12px !important;
+      font-size: 14px !important;
+      line-height: 1;
     }
     #tabs .k-tabstrip-item .k-link {
-      font-size: 12px !important;
-      padding: 4px 12px !important;
+      font-size: 14px !important;
+      padding: 6px 12px !important;
+      height: 30px;
+      line-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 4px 4px 0 0;
+      border: 1px solid transparent;
+      background: #f0f0f0;
+      color: #333333;
+      font-weight: 500;
+    }
+    #tabs .k-tabstrip-item .k-link:hover,
+    #tabs .k-tabstrip-item .k-link.k-hover {
+      background: #e6e6e6;
+      border-color: #d0d0d0;
+    }
+    #tabs .k-tabstrip-item.k-active .k-link,
+    #tabs .k-tabstrip-item.k-selected .k-link,
+    #tabs .k-tabstrip-item .k-link.k-active,
+    #tabs .k-tabstrip-item .k-link.k-selected {
+      background: #2e7d32;
+      border-color: #2e7d32;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    #tabs .k-tabstrip-item.k-active .k-link:hover,
+    #tabs .k-tabstrip-item.k-selected .k-link:hover {
+      background: #2b6f2e;
+      border-color: #2b6f2e;
     }
     /* Eski CSS'ler temizlendi - Artık Telerik kullanılıyor */
     /* Ribbon buton stili - Resimdeki gibi kompakt */
@@ -239,10 +266,12 @@
         <span>Tanımlar</span>
         <ul>
           <li><span>Firma Tanımları</span></li>
+          <li><span>Şube Tanımları</span></li>
           <li><span>Ürün Tanımları</span></li>
           <li><span>Whatsapp Tanımları</span></li>
           <li><span>Sistem Tanımları</span></li>
           <li><span>Kullanıcı Tanımları</span></li>
+          <li><span>Menü Çubuğu Ayarları</span></li>
           <li><span>Çıkış</span></li>
         </ul>
       </li>
@@ -261,6 +290,7 @@
         <ul></ul>
       </li>
     </ul>
+    <span style="position:absolute;right:8px;top:6px;color:#555;font-size:10pt;font-weight:600;pointer-events:none;white-space:nowrap;">ALAN 1</span>
   </div>
   
   <!-- 2. SABİT ALAN: ALAN 2 (İkonlu Butonlar) - Açık Gri -->
@@ -269,23 +299,13 @@
     <div id="main-ribbon-container" style="display:flex;align-items:center;gap:4px;overflow-x:auto;flex:1;justify-content:flex-start;">
       <div id="ribbon-buttons" style="display:flex;gap:4px;align-items:center;flex-wrap:nowrap"></div>
     </div>
-    <!-- ALAN 2 Etiketi (Proje anlatımı için) -->
-    <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;white-space:nowrap;">
-      ALAN 2 
-      <span style="color:#FF0000;font-size:10pt;margin-left:10px;">↕ 80px</span>
-      <span style="color:#FF0000;font-size:10pt;margin-left:10px;">↔ 100%</span>
-    </span>
+    <span style="position:absolute;right:8px;top:30px;color:#555;font-size:10pt;font-weight:600;pointer-events:none;white-space:nowrap;">ALAN 2</span>
   </div>
   
   <!-- 3. Tab Container - Telerik TabStrip - Açık Gri (ALAN 2 ile aynı) -->
-  <div id="tabs-container" style="position:fixed;top:108px;left:0;right:0;z-index:9998;height:26px;background:#f5f5f5;border-bottom:1px solid #e0e0e0;padding:0;opacity:0;">
+  <div id="tabs-container" style="position:fixed;top:108px;left:0;right:0;z-index:9998;height:30px;background:#f5f5f5;border-bottom:1px solid #e0e0e0;padding:0;opacity:0;">
     <div id="tabs"></div>
-    <!-- ALAN 3 Etiketi (Proje anlatımı için) -->
-    <span style="position:absolute;left:50%;transform:translateX(-50%);color:#FF0000;font-size:12pt;font-weight:bold;pointer-events:none;z-index:1;white-space:nowrap;">
-      ALAN 3 
-      <span style="color:#FF0000;font-size:10pt;margin-left:10px;">↕ 26px</span>
-      <span style="color:#FF0000;font-size:10pt;margin-left:10px;">↔ 100%</span>
-    </span>
+    <span style="position:absolute;right:8px;top:6px;color:#555;font-size:10pt;font-weight:600;pointer-events:none;white-space:nowrap;">ALAN 3</span>
   </div>
   
   <!-- TANIMLAR ALT MENÜ -->
@@ -325,6 +345,11 @@
   
   <!-- İÇERİK ALANI -->
   <div id="main-content" style="margin-top:134px;padding-top:0;opacity:0;">
+    <style>
+      #main-content-firma-tanimlari h1 {
+        margin-top: 4px !important;
+      }
+    </style>
     {% block content %}{% endblock %}
   </div>
   
@@ -339,8 +364,10 @@
     // Şimdilik mevcut Tanımlar alt başlıklarıyla aynı içerik verildi.
     var tanimlarMenuData = [
       { text: "Firma Tanımları", key: "firma_tanimlari" },
+      { text: "Şube Tanımları", key: "sube_tanimlari" },
       { text: "Ürün Tanımları", key: "urun_tanimlari" },
       { text: "Whatsapp Tanımları", key: "whatsapp_tanimlari" },
+      { text: "Menü Çubuğu Ayarları", key: "menu_cubugu_ayarlari" },
       { text: "Çıkış", key: "cikis" }
     ];
 
@@ -375,6 +402,22 @@
         li.append($("<span></span>").text(item.text));
         subList.append(li);
       });
+    }
+
+    function updateFixedArea4DateTime() {
+      var target = document.getElementById("fixed-area-4-datetime");
+      if (!target) {
+        return;
+      }
+      var now = new Date();
+      if (typeof kendo !== "undefined" && typeof kendo.toString === "function") {
+        target.textContent = kendo.toString(now, "dd.MM.yyyy dddd HH:mm:ss");
+      } else {
+        var pad = function(value) { return value < 10 ? ("0" + value) : value; };
+        var dateText = pad(now.getDate()) + "." + pad(now.getMonth() + 1) + "." + now.getFullYear();
+        var timeText = pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
+        target.textContent = dateText + " " + timeText;
+      }
     }
     
     // Tab yönetimi - Sadece Operasyon sayfası için test
@@ -598,12 +641,16 @@
                 // Alt menü öğelerine tıklama işlemleri
                 if (menuText === "Firma Tanımları") {
                   openFirmaTanimlariTab();
+                } else if (menuText === "Şube Tanımları") {
+                  openSubeTanimlariTab();
                 } else if (menuText === "Ürün Tanımları") {
                   openUrunTanimlariWindow();
                 } else if (menuText === "Sistem Tanımları") {
                   openSistemTanimlariWindow();
                 } else if (menuText === "Kullanıcı Tanımları") {
                   openKullaniciTanimlariWindow();
+                } else if (menuText === "Menü Çubuğu Ayarları") {
+                  openMenuCubuguAyarlarTab();
                 } else if (menuText === "Cari Kartlar" || menuText === "Cari Kart") {
                   // Cari Kart sayfası devre dışı
                 }
@@ -1271,6 +1318,9 @@
       // Ribbon butonlarını oluştur (ALAN 2)
       loadRibbonButtons();
 
+      updateFixedArea4DateTime();
+      setInterval(updateFixedArea4DateTime, 1000);
+
       // Telerik TabStrip başlat (ALAN 3) - Sadece operasyon için
       if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
         tabStrip = $("#tabs").kendoTabStrip({
@@ -1319,6 +1369,8 @@
                 tabId = "tanker";
               } else if (tabText.indexOf("Fiyat") >= 0) {
                 tabId = "fiyat-degisimi";
+              } else if (tabText.indexOf("Menü Çubuğu") >= 0 || tabText.indexOf("Menu Cubugu") >= 0) {
+                tabId = "menu-cubugu-ayarlari";
               }
             }
             
@@ -1368,6 +1420,13 @@
         console.log("Şube Kartı X butonuna tıklandı!");
         closeSubeKartiTab();
       });
+
+      $(document).on("click", ".tab-close-sube-tanimlari", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Şube Tanımları X butonuna tıklandı!");
+        closeSubeTanimlariTab();
+      });
       
       $(document).on("click", ".tab-close-banka", function(e) {
         e.stopPropagation();
@@ -1389,36 +1448,402 @@
         console.log("Fiyat Değişimi X butonuna tıklandı!");
         closeFiyatDegisimiTab();
       });
+      
+      $(document).on("click", ".tab-close-menu-cubugu-ayarlari", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Menü Çubuğu Ayarları X butonuna tıklandı!");
+        closeMenuCubuguAyarlarTab();
+      });
+
+      $(document).on("click", "#firma-tanimlari-right-buttons .exit-button", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeFirmaTanimlariTab();
+      });
     });
     
+    var menuCubuguAyarStorageKey = "menu_cubugu_ayarlari_v1";
+
+    function getDefaultRibbonItems() {
+      return [];
+    }
+
+    function getSavedRibbonItems() {
+      try {
+        var raw = localStorage.getItem(menuCubuguAyarStorageKey);
+        if (!raw) {
+          return null;
+        }
+        var parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      } catch (error) {
+        console.warn("Ribbon ayarları okunamadı:", error);
+      }
+      return null;
+    }
+
+    function saveRibbonItems(items) {
+      try {
+        localStorage.setItem(menuCubuguAyarStorageKey, JSON.stringify(items || []));
+      } catch (error) {
+        console.warn("Ribbon ayarları kaydedilemedi:", error);
+      }
+    }
+
+    function getRibbonItemsForRender() {
+      var saved = getSavedRibbonItems();
+      if (saved && saved.length > 0) {
+        return saved.filter(function(item) {
+          var pageName = (item.name || '').toString();
+          return (pageName !== 'operasyon' && pageName !== 'operasyon_sayfasi');
+        });
+      }
+      return getDefaultRibbonItems();
+    }
+
     // Ribbon butonlarını oluştur (tüm sayfalarda kullanılabilir) - Telerik Button ile
     function loadRibbonButtons() {
       // Önce mevcut butonları temizle
       $("#ribbon-buttons").empty();
-      
-      menuItems.forEach(function(item) {
-        if (item.aktif) {
-          // Yazıları kısa tut, uzunsa kısalt
-          var baslik = item.baslik;
-          if (baslik.length > 12) {
-            baslik = baslik.substring(0, 10) + '...';
-          }
-          
-          // Telerik Button için HTML oluştur
-          var buttonId = 'ribbon-btn-' + item.name;
-          var buttonHtml = '<button id="' + buttonId + '" class="k-button k-button-md ribbon-button" data-page="' + item.name + '" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 6px;min-width:70px;max-width:70px;height:70px;">' +
-            '<span style="font-size:32px;margin-bottom:2px;line-height:1;">' + item.icon + '</span>' +
-            '<span style="text-align:center;font-size:12px;line-height:1.1;max-width:65px;word-wrap:break-word;">' + baslik + '</span>' +
-            '</button>';
-          
-          $("#ribbon-buttons").append(buttonHtml);
-          
-          // Telerik Button'ı başlat (sadece görsel)
-          if (typeof kendo !== 'undefined' && typeof $.fn.kendoButton !== 'undefined') {
-            $("#" + buttonId).kendoButton();
-          }
+
+      var itemsToRender = getRibbonItemsForRender();
+      itemsToRender.forEach(function(item) {
+        var pageName = (item.name || '').toString();
+        var baslik = (item.baslik || '').toString();
+
+        if (!pageName) {
+          return;
+        }
+
+        // Yazıları kısa tut, uzunsa kısalt
+        if (baslik.length > 12) {
+          baslik = baslik.substring(0, 10) + '...';
+        }
+
+        // Telerik Button için HTML oluştur
+        var buttonId = 'ribbon-btn-' + pageName;
+        var buttonHtml = '<button id="' + buttonId + '" class="k-button k-button-md ribbon-button" data-page="' + pageName + '" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 6px;min-width:70px;max-width:70px;height:70px;">' +
+          '<span style="font-size:32px;margin-bottom:2px;line-height:1;">' + (item.icon || '⬜') + '</span>' +
+          '<span style="text-align:center;font-size:12px;line-height:1.1;max-width:65px;word-wrap:break-word;">' + baslik + '</span>' +
+          '</button>';
+
+        $("#ribbon-buttons").append(buttonHtml);
+
+        // Telerik Button'ı başlat (sadece görsel)
+        if (typeof kendo !== 'undefined' && typeof $.fn.kendoButton !== 'undefined') {
+          $("#" + buttonId).kendoButton();
         }
       });
+    }
+
+    var menuAyarPageInitialized = false;
+    var menuAyarTreeView = null;
+    var menuAyarListBox = null;
+    var menuAyarIconDropDown = null;
+    var menuAyarWindow = null;
+    var menuAyarLastTreeItem = null;
+    var menuAyarEscBound = false;
+
+    function getMenuAyarIconByName(name, fallback) {
+      if (!Array.isArray(menuItems)) {
+        return fallback || "⬜";
+      }
+      var found = menuItems.find(function(item) {
+        return (item.name || "") === name;
+      });
+      return (found && found.icon) ? found.icon : (fallback || "⬜");
+    }
+
+    function buildMenuAyarTreeData() {
+      return [
+        {
+          text: "Tanımlar",
+          expanded: true,
+          items: [
+            { text: "Firma Tanımları", name: "firma_tanimlari", icon: "🏢" },
+            { text: "Şube Tanımları", name: "sube_tanimlari", icon: "🏬" },
+            { text: "Ürün Tanımları", name: "urun_tanimlari", icon: "📦" },
+            { text: "Whatsapp Tanımları", name: "whatsapp_tanimlari", icon: "💬" },
+            { text: "Sistem Tanımları", name: "sistem_tanimlari", icon: "⚙️" },
+            { text: "Kullanıcı Tanımları", name: "kullanici_tanimlari", icon: "👤" }
+          ]
+        },
+        
+      ];
+    }
+
+    function getMenuAyarIconOptions() {
+      var options = [];
+      var seen = {};
+      if (Array.isArray(menuItems)) {
+        menuItems.forEach(function(item) {
+          if (!item || !item.icon) {
+            return;
+          }
+          var iconValue = item.icon.toString();
+          if (!seen[iconValue]) {
+            options.push({ text: iconValue + " " + (item.baslik || ""), value: iconValue });
+            seen[iconValue] = true;
+          }
+        });
+      }
+
+      var defaultIcons = ["⛽", "🏢", "🏬", "📦", "💬", "⚙️", "👤", "📌", "✅"];
+      defaultIcons.forEach(function(iconValue) {
+        if (!seen[iconValue]) {
+          options.push({ text: iconValue + " Seçim", value: iconValue });
+          seen[iconValue] = true;
+        }
+      });
+
+      return options;
+    }
+
+    function getMenuAyarSelectedItems() {
+      var saved = getSavedRibbonItems();
+      if (saved && saved.length > 0) {
+        return saved;
+      }
+      return getDefaultRibbonItems();
+    }
+
+    function refreshMenuAyarSelectedList() {
+      if (!menuAyarListBox) {
+        return;
+      }
+      var items = getMenuAyarSelectedItems();
+      menuAyarListBox.dataSource.data(items);
+      menuAyarListBox.refresh();
+      if (menuAyarIconDropDown) {
+        menuAyarIconDropDown.value("");
+      }
+    }
+
+    function initMenuCubuguAyarlarPage() {
+      var container = $("#main-content-menu-cubugu-ayarlari");
+      if (!container.length || typeof kendo === "undefined") {
+        $("#menu-cubugu-ayarlari-window").css("display", "block");
+        return;
+      }
+
+      if (!menuAyarWindow) {
+        menuAyarWindow = $("#menu-cubugu-ayarlari-window").kendoWindow({
+          title: "Menü Çubuğunu Ayarla",
+          width: "860px",
+          height: "540px",
+          modal: false,
+          visible: false,
+          resizable: false,
+          draggable: true,
+          actions: ["Close"],
+          close: function() {
+            closeMenuCubuguAyarlarTab();
+          }
+        }).data("kendoWindow");
+      }
+
+      menuAyarWindow.center().open();
+
+      if (!menuAyarPageInitialized) {
+        setTimeout(function() {
+          try {
+            if (!$("#menu-ayar-splitter").data("kendoSplitter")) {
+              $("#menu-ayar-splitter").kendoSplitter({
+                panes: [
+                  { size: "35%", collapsible: false },
+                  { size: "10%", collapsible: false },
+                  { size: "55%", collapsible: false }
+                ]
+              });
+            }
+
+            menuAyarTreeView = $("#menu-ayar-tree").kendoTreeView({
+              dataSource: buildMenuAyarTreeData(),
+              dataTextField: "text",
+              select: function(e) {
+                var item = this.dataItem(e.node);
+                menuAyarLastTreeItem = item || null;
+              }
+            }).data("kendoTreeView");
+
+            menuAyarListBox = $("#menu-ayar-selected-list").kendoListBox({
+              dataSource: new kendo.data.DataSource({ data: [] }),
+              dataTextField: "baslik",
+              dataValueField: "name",
+              selectable: "single",
+              template: function(dataItem) {
+                return '<span style="font-size:18px;margin-right:6px;">' + (dataItem.icon || "⬜") + '</span>' +
+                  '<span>' + (dataItem.baslik || "") + '</span>';
+              },
+              change: function() {
+                var selected = this.dataItem(this.select());
+                if (menuAyarIconDropDown) {
+                  menuAyarIconDropDown.value(selected ? (selected.icon || "") : "");
+                }
+              }
+            }).data("kendoListBox");
+
+            menuAyarIconDropDown = $("#menu-ayar-icon-select").kendoDropDownList({
+              dataTextField: "text",
+              dataValueField: "value",
+              optionLabel: "İkon seç",
+              dataSource: getMenuAyarIconOptions()
+            }).data("kendoDropDownList");
+
+            function addSelectedMenuAyarItem() {
+              if (!menuAyarTreeView || !menuAyarListBox) {
+                return;
+              }
+              var selectedNode = menuAyarTreeView.select();
+              var dataItem = null;
+              if (selectedNode && selectedNode.length > 0) {
+                dataItem = menuAyarTreeView.dataItem(selectedNode);
+              }
+              if (!dataItem && menuAyarLastTreeItem) {
+                dataItem = menuAyarLastTreeItem;
+              }
+              if (!dataItem) {
+                return;
+              }
+              var name = dataItem.name || (typeof dataItem.get === "function" ? dataItem.get("name") : "");
+              var text = dataItem.text || (typeof dataItem.get === "function" ? dataItem.get("text") : "");
+              var icon = dataItem.icon || (typeof dataItem.get === "function" ? dataItem.get("icon") : "");
+              var hasChild = false;
+              if (typeof dataItem.hasChildren === "function") {
+                hasChild = dataItem.hasChildren();
+              } else {
+                hasChild = !!dataItem.hasChildren;
+              }
+              if (!name || hasChild) {
+                return;
+              }
+              var existing = null;
+              var currentItems = menuAyarListBox.dataSource.data();
+              for (var i = 0; i < currentItems.length; i++) {
+                if (currentItems[i].name === name) {
+                  existing = currentItems[i];
+                  break;
+                }
+              }
+              if (existing) {
+                return;
+              }
+              menuAyarListBox.dataSource.add({
+                name: name,
+                baslik: text,
+                icon: icon || "⬜"
+              });
+              menuAyarListBox.refresh();
+            }
+
+            $("#menu-ayar-add").kendoButton().click(addSelectedMenuAyarItem);
+            $("#menu-ayar-tree").on("click", ".k-in", function() {
+              var item = menuAyarTreeView.dataItem($(this).closest(".k-item"));
+              menuAyarLastTreeItem = item || null;
+            });
+            $("#menu-ayar-tree").on("dblclick", ".k-in", function() {
+              var item = menuAyarTreeView.dataItem($(this).closest(".k-item"));
+              menuAyarLastTreeItem = item || null;
+              addSelectedMenuAyarItem();
+            });
+
+            $("#menu-ayar-remove").kendoButton().click(function() {
+              if (!menuAyarListBox) {
+                return;
+              }
+              var selected = menuAyarListBox.select();
+              var dataItem = menuAyarListBox.dataItem(selected);
+              if (dataItem) {
+                menuAyarListBox.dataSource.remove(dataItem);
+              }
+            });
+
+            $("#menu-ayar-up").kendoButton().click(function() {
+              if (!menuAyarListBox) {
+                return;
+              }
+              var selected = menuAyarListBox.select();
+              var dataItem = menuAyarListBox.dataItem(selected);
+              if (!dataItem) {
+                return;
+              }
+              var data = menuAyarListBox.dataSource.data();
+              var index = data.indexOf(dataItem);
+              if (index > 0) {
+                data.splice(index, 1);
+                data.splice(index - 1, 0, dataItem);
+                menuAyarListBox.dataSource.data(data);
+                menuAyarListBox.select(menuAyarListBox.items().eq(index - 1));
+              }
+            });
+
+            $("#menu-ayar-down").kendoButton().click(function() {
+              if (!menuAyarListBox) {
+                return;
+              }
+              var selected = menuAyarListBox.select();
+              var dataItem = menuAyarListBox.dataItem(selected);
+              if (!dataItem) {
+                return;
+              }
+              var data = menuAyarListBox.dataSource.data();
+              var index = data.indexOf(dataItem);
+              if (index >= 0 && index < data.length - 1) {
+                data.splice(index, 1);
+                data.splice(index + 1, 0, dataItem);
+                menuAyarListBox.dataSource.data(data);
+                menuAyarListBox.select(menuAyarListBox.items().eq(index + 1));
+              }
+            });
+
+            $("#menu-ayar-icon-apply").kendoButton().click(function() {
+              if (!menuAyarListBox || !menuAyarIconDropDown) {
+                return;
+              }
+              var selected = menuAyarListBox.select();
+              var dataItem = menuAyarListBox.dataItem(selected);
+              var newIcon = menuAyarIconDropDown.value();
+              if (dataItem && newIcon) {
+                dataItem.set("icon", newIcon);
+                menuAyarListBox.refresh();
+              }
+            });
+
+            $("#menu-ayar-save").kendoButton().click(function() {
+              if (!menuAyarListBox) {
+                return;
+              }
+              var items = menuAyarListBox.dataSource.data().toJSON();
+              saveRibbonItems(items);
+              loadRibbonButtons();
+            });
+
+            $("#menu-ayar-exit").kendoButton().click(function() {
+              closeMenuCubuguAyarlarTab();
+            });
+
+            menuAyarPageInitialized = true;
+          } catch (error) {
+            console.error("Menü ayarları ekranı başlatılamadı:", error);
+          }
+        }, 0);
+      }
+
+      refreshMenuAyarSelectedList();
+
+      if (!menuAyarEscBound) {
+        menuAyarEscBound = true;
+        $(document).on("keydown.menuAyarEsc", function(e) {
+          if (e.key === "Escape" || e.keyCode === 27) {
+            if (menuAyarWindow && menuAyarWindow.wrapper && menuAyarWindow.wrapper.is(":visible")) {
+              closeMenuCubuguAyarlarTab();
+            }
+          }
+        });
+      }
     }
     
     // Tab yönetimi fonksiyonları temizlendi - Baştan yazılacak
@@ -1462,7 +1887,9 @@
           activeTabId = "kredi-karti";
         } else if (activeTabText.indexOf("Cari Kart") >= 0) {
           activeTabId = "cari-kart";
-        } else if (activeTabText.indexOf("Şube") >= 0) {
+        } else if (activeTabText.indexOf("Şube Tanımları") >= 0) {
+          activeTabId = "sube-tanimlari";
+        } else if (activeTabText.indexOf("Şube Kartı") >= 0) {
           activeTabId = "sube-karti";
         } else if (activeTabText.indexOf("Banka") >= 0) {
           activeTabId = "banka";
@@ -1470,6 +1897,8 @@
           activeTabId = "tanker";
         } else if (activeTabText.indexOf("Fiyat") >= 0) {
           activeTabId = "fiyat-degisimi";
+        } else if (activeTabText.indexOf("Menü Çubuğu") >= 0 || activeTabText.indexOf("Menu Cubugu") >= 0) {
+          activeTabId = "menu-cubugu-ayarlari";
         }
       }
       
@@ -1493,7 +1922,9 @@
             currentTabId = "kredi-karti";
           } else if (tabText.indexOf("Cari Kart") >= 0) {
             currentTabId = "cari-kart";
-        } else if (tabText.indexOf("Şube") >= 0) {
+        } else if (tabText.indexOf("Şube Tanımları") >= 0) {
+          currentTabId = "sube-tanimlari";
+        } else if (tabText.indexOf("Şube Kartı") >= 0) {
           currentTabId = "sube-karti";
         } else if (tabText.indexOf("Banka") >= 0) {
             currentTabId = "banka";
@@ -1501,6 +1932,8 @@
             currentTabId = "tanker";
           } else if (tabText.indexOf("Fiyat") >= 0) {
             currentTabId = "fiyat-degisimi";
+          } else if (tabText.indexOf("Menü Çubuğu") >= 0 || tabText.indexOf("Menu Cubugu") >= 0) {
+            currentTabId = "menu-cubugu-ayarlari";
           }
         }
         
@@ -1564,6 +1997,8 @@
                   nextTabId = "tanker";
                 } else if (nextTabText.indexOf("Fiyat") >= 0) {
                   nextTabId = "fiyat-degisimi";
+                } else if (nextTabText.indexOf("Menü Çubuğu") >= 0 || nextTabText.indexOf("Menu Cubugu") >= 0) {
+                  nextTabId = "menu-cubugu-ayarlari";
                 }
               }
               
@@ -1614,6 +2049,8 @@
                   activeTabId = "tanker";
                 } else if (activeTabText.indexOf("Fiyat") >= 0) {
                   activeTabId = "fiyat-degisimi";
+                } else if (activeTabText.indexOf("Menü Çubuğu") >= 0 || activeTabText.indexOf("Menu Cubugu") >= 0) {
+                  activeTabId = "menu-cubugu-ayarlari";
                 }
               }
               
@@ -1635,17 +2072,19 @@
     // Tüm sayfaları gizle, sadece belirtilen sayfayı göster
     function showPageOnly(pageId) {
       // Body class'larını temizle
-      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik sube-karti-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik');
+      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik sube-tanimlari-sayfasi-acik sube-karti-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik menu-cubugu-ayarlari-sayfasi-acik');
       
       // Tüm sayfaları gizle
       $('#main-content-operasyon').hide();
       $('#main-content-kredi-karti').hide();
       $('#main-content-cari-kart').hide();
       $('#main-content-firma-tanimlari').hide();
+      $('#main-content-sube-tanimlari').hide();
       $('#main-content-banka').hide();
       $('#main-content-sube-karti').hide();
       $('#main-content-tanker').hide();
       $('#main-content-fiyat-degisimi').hide();
+      $('#main-content-menu-cubugu-ayarlari').hide();
       
       // Belirtilen sayfayı göster
       if (pageId === 'operasyon') {
@@ -1667,6 +2106,13 @@
         if (window.initFirmaTanimlariGrid) {
           setTimeout(function() { window.initFirmaTanimlariGrid(true); }, 0);
         }
+      } else if (pageId === 'sube-tanimlari') {
+        $('body').addClass('sube-tanimlari-sayfasi-acik');
+        $('#main-content-sube-tanimlari').show();
+        $('#title-bar').hide();
+        if (window.initSubeTanimlariGrid) {
+          setTimeout(function() { window.initSubeTanimlariGrid(true); }, 0);
+        }
       } else if (pageId === 'sube-karti') {
         $('body').addClass('sube-karti-sayfasi-acik');
         $('#main-content-sube-karti').show();
@@ -1685,6 +2131,10 @@
       } else if (pageId === 'fiyat-degisimi') {
         $('body').addClass('fiyat-degisimi-sayfasi-acik');
         $('#main-content-fiyat-degisimi').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'menu-cubugu-ayarlari') {
+        $('body').addClass('menu-cubugu-ayarlari-sayfasi-acik');
+        $('#main-content-menu-cubugu-ayarlari').show();
         $('#title-bar').hide();
       } else {
         // Hiçbir sayfa açık değilse lobi göster
@@ -2222,6 +2672,248 @@
       }, 0);
     }
 
+    // Şube Tanımları tab'ını aç
+    function openSubeTanimlariTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+
+      var allTabs = tabStrip.items();
+      var subeTanimTabIndex = -1;
+
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+
+        if (tabId === "sube-tanimlari" || tabText.indexOf("Şube Tanımları") >= 0) {
+          subeTanimTabIndex = i;
+          break;
+        }
+      }
+
+      if (subeTanimTabIndex >= 0) {
+        console.log("Şube Tanımları tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(subeTanimTabIndex);
+        showPageOnly('sube-tanimlari');
+        return;
+      }
+
+      console.log("Yeni Şube Tanımları tab'ı ekleniyor...");
+      showPageOnly('sube-tanimlari');
+
+      var tabContent = '🏢 Şube Tanımları <span class="tab-close-sube-tanimlari" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "sube-tanimlari");
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+
+    // Şube Tanımları tab'ını kapat
+    function closeSubeTanimlariTab() {
+      console.log("closeSubeTanimlariTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+
+      var allTabs = tabStrip.items();
+      var subeTanimTabIndex = -1;
+
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+
+        if (tabId === "sube-tanimlari" || tabText.indexOf("Şube Tanımları") >= 0) {
+          subeTanimTabIndex = i;
+          break;
+        }
+      }
+
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (subeTanimTabIndex >= 0 && subeTanimTabIndex === activeTabIndex);
+
+      if (subeTanimTabIndex < 0) {
+        console.log("Şube Tanımları tab'ı bulunamadı!");
+        return;
+      }
+
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+
+      setTimeout(function() {
+        try {
+          console.log("Şube Tanımları tab'ı kapatılıyor... Index:", subeTanimTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(subeTanimTabIndex);
+
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(subeTanimTabIndex, wasActiveTab);
+          }
+        } catch (error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+
+    // Menü Çubuğu Ayarları tab'ını aç
+    function openMenuCubuguAyarlarTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+
+      var allTabs = tabStrip.items();
+      var menuAyarTabIndex = -1;
+
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+
+        if (tabId === "menu-cubugu-ayarlari" || tabText.indexOf("Menü Çubuğu") >= 0 || tabText.indexOf("Menu Cubugu") >= 0) {
+          menuAyarTabIndex = i;
+          break;
+        }
+      }
+
+      if (menuAyarTabIndex >= 0) {
+        console.log("Menü Çubuğu Ayarları tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(menuAyarTabIndex);
+        showPageOnly('menu-cubugu-ayarlari');
+        setTimeout(initMenuCubuguAyarlarPage, 0);
+        return;
+      }
+
+      console.log("Yeni Menü Çubuğu Ayarları tab'ı ekleniyor...");
+      showPageOnly('menu-cubugu-ayarlari');
+      setTimeout(initMenuCubuguAyarlarPage, 0);
+
+      var tabContent = '⚙️ Menü Çubuğu Ayarları <span class="tab-close-menu-cubugu-ayarlari" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "menu-cubugu-ayarlari");
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+
+    // Menü Çubuğu Ayarları tab'ını kapat
+    function closeMenuCubuguAyarlarTab() {
+      console.log("closeMenuCubuguAyarlarTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+
+      var allTabs = tabStrip.items();
+      var menuAyarTabIndex = -1;
+
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+
+        if (tabId === "menu-cubugu-ayarlari" || tabText.indexOf("Menü Çubuğu") >= 0 || tabText.indexOf("Menu Cubugu") >= 0) {
+          menuAyarTabIndex = i;
+          break;
+        }
+      }
+
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (menuAyarTabIndex >= 0 && menuAyarTabIndex === activeTabIndex);
+
+      if (menuAyarTabIndex < 0) {
+        console.log("Menü Çubuğu Ayarları tab'ı bulunamadı!");
+        return;
+      }
+
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true;
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+
+      setTimeout(function() {
+        try {
+          console.log("Menü Çubuğu Ayarları tab'ı kapatılıyor... Index:", menuAyarTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(menuAyarTabIndex);
+
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true;
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            showNextTabAfterClose(menuAyarTabIndex, wasActiveTab);
+          }
+        } catch (error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+
     // Şube Kartı tab'ını aç
     function openSubeKartiTab() {
       if (!tabStrip) {
@@ -2237,7 +2929,7 @@
         var tabId = tab.attr("data-tab-id");
         var tabText = tab.text() || tab.html() || "";
 
-        if (tabId === "sube-karti" || tabText.indexOf("Şube") >= 0) {
+        if (tabId === "sube-karti" || tabText.indexOf("Şube Kartı") >= 0) {
           subeTabIndex = i;
           break;
         }
@@ -2288,7 +2980,7 @@
         var tabId = tab.attr("data-tab-id");
         var tabText = tab.text() || tab.html() || "";
 
-        if (tabId === "sube-karti" || tabText.indexOf("Şube") >= 0) {
+        if (tabId === "sube-karti" || tabText.indexOf("Şube Kartı") >= 0) {
           subeTabIndex = i;
           break;
         }
@@ -2728,37 +3420,42 @@
         console.log("Operasyon sayfası açılıyor...");
         openOperasyonTab();
         setActiveRibbonButton(pageName);
-      }
-      // Kredi Kartı sayfası
-      else if (pageName === 'kredi_karti' || pageName === 'kredi-karti' || pageName === 'kredi_kart') {
-        console.log("Kredi Kartı sayfası açılıyor...");
-        openKrediKartiTab();
+      } else if (pageName === 'firma_tanimlari' || pageName === 'firma-tanimlari') {
+        console.log("Firma Tanımları açılıyor...");
+        openFirmaTanimlariTab();
         setActiveRibbonButton(pageName);
-      }
-      // Cari Kart sayfası (devre dışı)
-      else if (pageName === 'cari_kart' || pageName === 'cari-kart' || pageName === 'carikart') {
-        console.log("Cari Kart sayfası devre dışı.");
-      }
-      // Banka sayfası
-      else if (pageName === 'banka') {
-        console.log("Banka sayfası açılıyor...");
-        openBankaTab();
+      } else if (pageName === 'sube_tanimlari' || pageName === 'sube-tanimlari') {
+        console.log("Şube Tanımları açılıyor...");
+        openSubeTanimlariTab();
         setActiveRibbonButton(pageName);
-      }
-      // Tanker sayfası
-      else if (pageName === 'tanker') {
-        console.log("Tanker sayfası açılıyor...");
-        openTankerTab();
+      } else if (pageName === 'sube_karti' || pageName === 'sube-karti') {
+        console.log("Şube Kartı açılıyor...");
+        openSubeKartiTab();
         setActiveRibbonButton(pageName);
-      }
-      // Fiyat Değişimi sayfası
-      else if (pageName === 'fiyat_degisimi' || pageName === 'fiyat-degisimi') {
-        console.log("Fiyat Değişimi sayfası açılıyor...");
-        openFiyatDegisimiTab();
+      } else if (pageName === 'urun_tanimlari') {
+        console.log("Ürün Tanımları açılıyor...");
+        if (typeof openUrunTanimlariWindow === 'function') {
+          openUrunTanimlariWindow();
+        }
+        setActiveRibbonButton(pageName);
+      } else if (pageName === 'sistem_tanimlari') {
+        console.log("Sistem Tanımları açılıyor...");
+        if (typeof openSistemTanimlariWindow === 'function') {
+          openSistemTanimlariWindow();
+        }
+        setActiveRibbonButton(pageName);
+      } else if (pageName === 'kullanici_tanimlari') {
+        console.log("Kullanıcı Tanımları açılıyor...");
+        if (typeof openKullaniciTanimlariWindow === 'function') {
+          openKullaniciTanimlariWindow();
+        }
+        setActiveRibbonButton(pageName);
+      } else if (pageName === 'menu_cubugu_ayarlari') {
+        console.log("Menü Çubuğu Ayarları açılıyor...");
+        openMenuCubuguAyarlarTab();
         setActiveRibbonButton(pageName);
       } else {
-        // Diğer sayfalar için şimdilik bir şey yapma
-        console.log("Diğer sayfa:", pageName, "- Şimdilik çalışmıyor");
+        console.log("Bu sayfa için tanım yok:", pageName);
       }
     });
     
@@ -2798,5 +3495,9 @@
   </script>
   
   {% block extra_scripts %}{% endblock %}
+  <div id="fixed-area-4-container" style="position:fixed;left:0;right:0;bottom:0;z-index:9997;height:30px;background:#f5f5f5;border-top:1px solid #e0e0e0;font-family:'Segoe UI',Arial,sans-serif;display:flex;align-items:center;justify-content:space-between;padding:0 8px;opacity:1;">
+    <span id="fixed-area-4-datetime" style="color:#333;font-size:10pt;font-weight:600;white-space:nowrap;"></span>
+    <span style="color:#555;font-size:10pt;font-weight:600;pointer-events:none;white-space:nowrap;">ALAN 4</span>
+  </div>
 </body>
 </html>
