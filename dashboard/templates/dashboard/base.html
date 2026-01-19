@@ -283,7 +283,9 @@
       </li>
       <li>
         <span>Operasyon</span>
-        <ul></ul>
+        <ul>
+          <li><span>Zam/İndirim</span></li>
+        </ul>
       </li>
       <li>
         <span>Raporlar</span>
@@ -417,6 +419,648 @@
         var dateText = pad(now.getDate()) + "." + pad(now.getMonth() + 1) + "." + now.getFullYear();
         var timeText = pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds());
         target.textContent = dateText + " " + timeText;
+      }
+    }
+
+    function updateFixedArea4Rates() {
+      var target = document.getElementById("fixed-area-4-rates");
+      if (!target) {
+        return;
+      }
+      fetch("/api/harem-kur/", { cache: "no-store" })
+        .then(function(response) { return response.json(); })
+        .then(function(result) {
+          if (!result || !result.data) {
+            target.textContent = "";
+            return;
+          }
+          var data = result.data;
+          var usd = data.USD || {};
+          var eur = data.EUR || {};
+          var altin = data.ALTIN || {};
+          var format = function(item) {
+            if (!item || !item.alis || !item.satis) {
+              return "--/--";
+            }
+            return item.alis + "/" + item.satis;
+          };
+          var alis = altin && altin.alis ? altin.alis : "--";
+          var satis = altin && altin.satis ? altin.satis : "--";
+          var yuzdeRaw = altin && altin.yuzde ? altin.yuzde : (altin && altin.fark ? altin.fark : "--");
+          var renk = function(value) {
+            var num = parseFloat((value || "").toString().replace(",", "."));
+            if (isNaN(num)) {
+              return "#333";
+            }
+            return num >= 0 ? "#2e7d32" : "#c62828";
+          };
+          var usdYuzde = usd && (usd.yuzde || usd.fark) ? (usd.yuzde || usd.fark) : "--";
+          var eurYuzde = eur && (eur.yuzde || eur.fark) ? (eur.yuzde || eur.fark) : "--";
+          var brent = window.investingOilData ? window.investingOilData.brent : null;
+          var wti = window.investingOilData ? window.investingOilData.wti : null;
+          var formatOil = function(label, data, cssClass) {
+            if (!data || !data.last) {
+              return "<span class=\"area4-chip " + cssClass + "\">" + label + " -- <span style=\"color:#666;font-weight:700;\">%--</span></span>";
+            }
+            var degisim = data.pcp || data.pc || "--";
+            return "<span class=\"area4-chip " + cssClass + "\">" + label + " " + data.last +
+              " <span style=\"color:" + renk(degisim) + ";font-weight:700;\">%" + degisim + "</span></span>";
+          };
+          target.innerHTML =
+            "<span class=\"area4-chip area4-usd\">USD " + format(usd) +
+              " <span style=\"color:" + renk(usdYuzde) + ";font-weight:700;\">%" + usdYuzde + "</span></span>" +
+            "<span class=\"area4-chip area4-eur\">EUR " + format(eur) +
+              " <span style=\"color:" + renk(eurYuzde) + ";font-weight:700;\">%" + eurYuzde + "</span></span>" +
+            "<span class=\"area4-chip area4-gold\">HAS ALTIN " + alis + "/" + satis +
+              " <span style=\"color:" + renk(yuzdeRaw) + ";font-weight:700;\">%" + yuzdeRaw + "</span></span>" +
+            formatOil("BRENT", brent, "area4-oil-brent") +
+            formatOil("HAM", wti, "area4-oil-wti");
+        })
+        .catch(function() {
+          target.textContent = "";
+        });
+    }
+
+    var zamIndirimUsdTryValue = null;
+    var zamIndirimInputsReady = false;
+    var zamIndirimSaveTimer = null;
+    var zamIndirimGridReady = false;
+    var zamIndirimInfoReady = false;
+
+    function initZamIndirimGrids() {
+      if (zamIndirimGridReady) {
+        return;
+      }
+      var veriGrid = $("#zam-indirim-veri-grid");
+      var benzinGrid = $("#zam-indirim-benzin-ort5-grid");
+      var motorinGrid = $("#zam-indirim-motorin-ort5-grid");
+      if (!veriGrid.length || !benzinGrid.length || !motorinGrid.length) {
+        return;
+      }
+      veriGrid.kendoGrid({
+        dataSource: { data: [] },
+        sortable: true,
+        scrollable: true,
+        height: 300,
+        columns: [
+          { field: "tarih", title: "Tarih", width: 110 },
+          { field: "usdtry_1530", title: "USD/TRY (15:30)", width: 140 },
+          { field: "benzin_usd_ton", title: "Benzin_USD_TON", width: 140 },
+          { field: "motorin_usd_ton", title: "Motorin_USD_TON", width: 140 }
+        ],
+        noRecords: { template: "" }
+      });
+      benzinGrid.kendoGrid({
+        dataSource: { data: [] },
+        sortable: false,
+        scrollable: true,
+        height: 200,
+        columns: [
+          { field: "tarih", title: "Tarih", width: 110 },
+          { field: "ref", title: "Benzin_Referans", width: 150 }
+        ],
+        noRecords: { template: "" }
+      });
+      motorinGrid.kendoGrid({
+        dataSource: { data: [] },
+        sortable: false,
+        scrollable: true,
+        height: 200,
+        columns: [
+          { field: "tarih", title: "Tarih", width: 110 },
+          { field: "ref", title: "Motorin_Referans", width: 150 }
+        ],
+        noRecords: { template: "" }
+      });
+      zamIndirimGridReady = true;
+    }
+
+    function initZamIndirimInfoPanels() {
+      if (zamIndirimInfoReady) {
+        return;
+      }
+      var panels = [
+        "#zam-indirim-system-note",
+        "#zam-indirim-veri-info",
+        "#zam-indirim-hesap-info",
+        "#zam-indirim-panel-info"
+      ];
+      panels.forEach(function(selector) {
+        var $panel = $(selector);
+        if ($panel.length && typeof $panel.kendoExpansionPanel === "function") {
+          $panel.kendoExpansionPanel({
+            title: "Bilgi",
+            expanded: false
+          });
+        }
+      });
+      zamIndirimInfoReady = true;
+    }
+
+    function parseZamIndirimNumber(value) {
+      if (value === null || value === undefined) {
+        return null;
+      }
+      if (typeof value === "number") {
+        return isNaN(value) ? null : value;
+      }
+      var text = value.toString().trim();
+      if (!text) {
+        return null;
+      }
+      var normalized = text.replace(",", ".");
+      var num = parseFloat(normalized);
+      return isNaN(num) ? null : num;
+    }
+
+    function initZamIndirimInputs() {
+      if (zamIndirimInputsReady) {
+        return;
+      }
+      var benzinInput = $("#zam-indirim-benzin-usd-ton");
+      var motorinInput = $("#zam-indirim-motorin-usd-ton");
+      if (!benzinInput.length || !motorinInput.length) {
+        return;
+      }
+      benzinInput.kendoNumericTextBox({
+        format: "n4",
+        decimals: 4,
+        min: 0,
+        step: 0.0001,
+        change: function() {
+          updateZamIndirimReferans();
+          scheduleZamIndirimSave();
+        }
+      });
+      motorinInput.kendoNumericTextBox({
+        format: "n4",
+        decimals: 4,
+        min: 0,
+        step: 0.0001,
+        change: function() {
+          updateZamIndirimReferans();
+          scheduleZamIndirimSave();
+        }
+      });
+      zamIndirimInputsReady = true;
+    }
+
+    function getZamIndirimInputValues() {
+      var benzinWidget = $("#zam-indirim-benzin-usd-ton").data("kendoNumericTextBox");
+      var motorinWidget = $("#zam-indirim-motorin-usd-ton").data("kendoNumericTextBox");
+      return {
+        benzin: benzinWidget ? benzinWidget.value() : null,
+        motorin: motorinWidget ? motorinWidget.value() : null
+      };
+    }
+
+    function formatZamIndirimValue(value, decimals) {
+      var num = parseZamIndirimNumber(value);
+      if (num === null) {
+        return "--";
+      }
+      if (window.kendo && kendo.toString) {
+        var format = "n" + decimals;
+        return kendo.toString(num, format);
+      }
+      return num.toFixed(decimals);
+    }
+
+    function updateZamIndirimDisplayValues(data) {
+      var tarihTarget = document.getElementById("zam-indirim-tarih");
+      var usdTargets = [
+        document.getElementById("zam-indirim-usd-kur"),
+        document.getElementById("zam-indirim-panel-usd")
+      ];
+      if (tarihTarget) {
+        tarihTarget.textContent = data.tarih || "--";
+      }
+      usdTargets.forEach(function(target) {
+        if (target) {
+          target.textContent = data.usdtry_1530 || "--";
+        }
+      });
+      var benzinRefTargets = [
+        document.getElementById("zam-indirim-benzin-ref"),
+        document.getElementById("zam-indirim-panel-benzin-ref")
+      ];
+      var motorinRefTargets = [
+        document.getElementById("zam-indirim-motorin-ref"),
+        document.getElementById("zam-indirim-panel-motorin-ref")
+      ];
+      var benzinOrtTargets = [
+        document.getElementById("zam-indirim-benzin-ort5"),
+        document.getElementById("zam-indirim-panel-benzin-ort5")
+      ];
+      var motorinOrtTargets = [
+        document.getElementById("zam-indirim-motorin-ort5"),
+        document.getElementById("zam-indirim-panel-motorin-ort5")
+      ];
+      var benzinSinyalTargets = [
+        document.getElementById("zam-indirim-benzin-sinyal"),
+        document.getElementById("zam-indirim-panel-benzin-sinyal")
+      ];
+      var motorinSinyalTargets = [
+        document.getElementById("zam-indirim-motorin-sinyal"),
+        document.getElementById("zam-indirim-panel-motorin-sinyal")
+      ];
+      var benzinKalanTargets = [
+        document.getElementById("zam-indirim-panel-benzin-kalan")
+      ];
+      var motorinKalanTargets = [
+        document.getElementById("zam-indirim-panel-motorin-kalan")
+      ];
+
+      var benzinRefText = formatZamIndirimValue(data.benzin_ref, 2);
+      var motorinRefText = formatZamIndirimValue(data.motorin_ref, 2);
+      benzinRefTargets.forEach(function(target) {
+        if (target) target.textContent = benzinRefText;
+      });
+      motorinRefTargets.forEach(function(target) {
+        if (target) target.textContent = motorinRefText;
+      });
+      var benzinOrtText = data.benzin_ort5_text || formatZamIndirimValue(data.benzin_ort5, 2);
+      var motorinOrtText = data.motorin_ort5_text || formatZamIndirimValue(data.motorin_ort5, 2);
+      benzinOrtTargets.forEach(function(target) {
+        if (target) target.textContent = benzinOrtText;
+      });
+      motorinOrtTargets.forEach(function(target) {
+        if (target) target.textContent = motorinOrtText;
+      });
+      benzinSinyalTargets.forEach(function(target) {
+        if (target) target.textContent = data.benzin_sinyal || "--";
+      });
+      motorinSinyalTargets.forEach(function(target) {
+        if (target) target.textContent = data.motorin_sinyal || "--";
+      });
+      var benzinKalanText = "Ort5 yok";
+      var motorinKalanText = "Ort5 yok";
+      var benzinPctNum = parseZamIndirimNumber(data.benzin_kalan_pct);
+      var motorinPctNum = parseZamIndirimNumber(data.motorin_kalan_pct);
+      if (!data.benzin_ort5_text && benzinPctNum !== null) {
+        var benzinPctText = formatZamIndirimValue(benzinPctNum, 2);
+        benzinKalanText = (benzinPctNum > 0 ? "+" : benzinPctNum < 0 ? "-" : "") + benzinPctText.replace("-", "") + " %";
+      }
+      if (!data.motorin_ort5_text && motorinPctNum !== null) {
+        var motorinPctText = formatZamIndirimValue(motorinPctNum, 2);
+        motorinKalanText = (motorinPctNum > 0 ? "+" : motorinPctNum < 0 ? "-" : "") + motorinPctText.replace("-", "") + " %";
+      }
+      benzinKalanTargets.forEach(function(target) {
+        if (target) {
+          target.textContent = benzinKalanText;
+          if (target.id && target.id.indexOf("panel") >= 0 && benzinPctNum !== null) {
+            target.style.color = benzinPctNum > 0 ? "#2e7d32" : benzinPctNum < 0 ? "#c62828" : "#666";
+          } else {
+            target.style.color = "";
+          }
+        }
+      });
+      motorinKalanTargets.forEach(function(target) {
+        if (target) {
+          target.textContent = motorinKalanText;
+          if (target.id && target.id.indexOf("panel") >= 0 && motorinPctNum !== null) {
+            target.style.color = motorinPctNum > 0 ? "#2e7d32" : motorinPctNum < 0 ? "#c62828" : "#666";
+          } else {
+            target.style.color = "";
+          }
+        }
+      });
+
+      var benzinTlTarget = document.getElementById("zam-indirim-panel-benzin-tl-l");
+      var motorinTlTarget = document.getElementById("zam-indirim-panel-motorin-tl-l");
+      var benzinTlNum = parseZamIndirimNumber(data.benzin_tl_l);
+      var motorinTlNum = parseZamIndirimNumber(data.motorin_tl_l);
+      if (!data.benzin_ort5_text && benzinTlNum !== null) {
+        var benzinTl = formatZamIndirimValue(benzinTlNum, 2);
+        if (benzinTlTarget) {
+          benzinTlTarget.textContent = "≈ " + (benzinTlNum > 0 ? "+" : benzinTlNum < 0 ? "-" : "") + benzinTl.replace("-", "") + " TL/L";
+          benzinTlTarget.style.color = benzinTlNum > 0 ? "#2e7d32" : benzinTlNum < 0 ? "#c62828" : "#666";
+        }
+      } else if (benzinTlTarget) {
+        benzinTlTarget.textContent = "";
+        benzinTlTarget.style.color = "";
+      }
+      if (!data.motorin_ort5_text && motorinTlNum !== null) {
+        var motorinTl = formatZamIndirimValue(motorinTlNum, 2);
+        if (motorinTlTarget) {
+          motorinTlTarget.textContent = "≈ " + (motorinTlNum > 0 ? "+" : motorinTlNum < 0 ? "-" : "") + motorinTl.replace("-", "") + " TL/L";
+          motorinTlTarget.style.color = motorinTlNum > 0 ? "#2e7d32" : motorinTlNum < 0 ? "#c62828" : "#666";
+        }
+      } else if (motorinTlTarget) {
+        motorinTlTarget.textContent = "";
+        motorinTlTarget.style.color = "";
+      }
+
+      var ort5Uyari = document.getElementById("zam-indirim-panel-ort5-uyari");
+      if (ort5Uyari) {
+        ort5Uyari.style.display = data.ort5_yetersiz ? "block" : "none";
+      }
+
+      var anlikBox = document.getElementById("zam-indirim-anlik");
+      var anlikBadge = document.getElementById("zam-indirim-anlik-badge");
+      var anlikBenzin = document.getElementById("zam-indirim-anlik-benzin-text");
+      var anlikMotorin = document.getElementById("zam-indirim-anlik-motorin-text");
+      if (anlikBox && anlikBadge && anlikBenzin && anlikMotorin) {
+        if (data.anlik_active) {
+          anlikBox.style.display = "block";
+          anlikBox.style.borderColor = "#d32f2f";
+          anlikBadge.className = "k-badge k-badge-solid k-badge-md k-badge-error";
+          anlikBenzin.textContent = data.anlik_benzin_text || "Veri yok";
+          anlikMotorin.textContent = data.anlik_motorin_text || "Veri yok";
+        } else {
+          anlikBox.style.display = "block";
+          anlikBox.style.borderColor = "#9e9e9e";
+          anlikBadge.className = "k-badge k-badge-solid k-badge-md k-badge-base";
+          anlikBenzin.textContent = "Kapanış sonrası pasif";
+          anlikMotorin.textContent = "";
+        }
+      }
+    }
+
+    function loadZamIndirimForm() {
+      initZamIndirimInfoPanels();
+      initZamIndirimGrids();
+      initZamIndirimInputs();
+      fetch("/api/zam-indirim/", { cache: "no-store" })
+        .then(function(response) { return response.json(); })
+        .then(function(result) {
+          if (!result || !result.success) {
+            return;
+          }
+          var benzinWidget = $("#zam-indirim-benzin-usd-ton").data("kendoNumericTextBox");
+          var motorinWidget = $("#zam-indirim-motorin-usd-ton").data("kendoNumericTextBox");
+          if (benzinWidget) {
+            benzinWidget.value(parseZamIndirimNumber(result.benzin_usd_ton));
+          }
+          if (motorinWidget) {
+            motorinWidget.value(parseZamIndirimNumber(result.motorin_usd_ton));
+          }
+          zamIndirimUsdTryValue = result.usdtry_1530 || null;
+          refreshZamIndirimPanel();
+        })
+        .catch(function() {});
+    }
+
+    function scheduleZamIndirimSave() {
+      if (zamIndirimSaveTimer) {
+        clearTimeout(zamIndirimSaveTimer);
+      }
+      zamIndirimSaveTimer = setTimeout(saveZamIndirimForm, 300);
+    }
+
+    function saveZamIndirimForm() {
+      var values = getZamIndirimInputValues();
+      fetch("/api/zam-indirim/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          benzin_usd_ton: values.benzin,
+          motorin_usd_ton: values.motorin
+        })
+      })
+        .then(function() { refreshZamIndirimPanel(); })
+        .catch(function() {});
+    }
+
+    function refreshZamIndirimPanel() {
+      fetch("/api/zam-indirim-panel/", { cache: "no-store" })
+        .then(function(response) { return response.json(); })
+        .then(function(result) {
+          if (!result || !result.success) {
+            return;
+          }
+          updateZamIndirimDisplayValues(result);
+          updateZamIndirimTables(result);
+          window.zamIndirimPanelData = result;
+        })
+        .catch(function() {});
+    }
+
+    function updateZamIndirimTables(data) {
+      var veriGrid = $("#zam-indirim-veri-grid").data("kendoGrid");
+      if (veriGrid) {
+        veriGrid.dataSource.data(data.veri_kayitlari || []);
+      }
+      var benzinGrid = $("#zam-indirim-benzin-ort5-grid").data("kendoGrid");
+      if (benzinGrid) {
+        benzinGrid.dataSource.data(data.benzin_ort5_list || []);
+      }
+      var motorinGrid = $("#zam-indirim-motorin-ort5-grid").data("kendoGrid");
+      if (motorinGrid) {
+        motorinGrid.dataSource.data(data.motorin_ort5_list || []);
+      }
+    }
+
+    function buildZamIndirimWhatsappMessage(data) {
+      var ort5BenzinYok = !!data.benzin_ort5_text;
+      var ort5MotorinYok = !!data.motorin_ort5_text;
+      var benzinTlNum = parseZamIndirimNumber(data.benzin_tl_l);
+      var motorinTlNum = parseZamIndirimNumber(data.motorin_tl_l);
+      var benzinPctNum = parseZamIndirimNumber(data.benzin_kalan_pct);
+      var motorinPctNum = parseZamIndirimNumber(data.motorin_kalan_pct);
+
+      var benzinDurum = "Değişim beklenmiyor";
+      var motorinDurum = "Değişim beklenmiyor";
+      if (!ort5BenzinYok && benzinTlNum !== null) {
+        if (Math.abs(benzinTlNum) < 0.0001) {
+          benzinDurum = "Değişim beklenmiyor";
+        } else if (benzinTlNum > 0) {
+          benzinDurum = benzinPctNum !== null && Math.abs(benzinPctNum) < 3 ? "Artış eşiğine yakın" : "Artış bölgesinde";
+        } else {
+          benzinDurum = benzinPctNum !== null && Math.abs(benzinPctNum) < 3 ? "İndirim eşiğine yakın" : "İndirim bölgesinde";
+        }
+      }
+      if (!ort5MotorinYok && motorinTlNum !== null) {
+        if (Math.abs(motorinTlNum) < 0.0001) {
+          motorinDurum = "Değişim beklenmiyor";
+        } else if (motorinTlNum > 0) {
+          motorinDurum = motorinPctNum !== null && Math.abs(motorinPctNum) < 3 ? "Artış eşiğine yakın" : "Artış bölgesinde";
+        } else {
+          motorinDurum = motorinPctNum !== null && Math.abs(motorinPctNum) < 3 ? "İndirim eşiğine yakın" : "İndirim bölgesinde";
+        }
+      }
+
+      var benzinTlText = "";
+      var motorinTlText = "";
+      var benzinPctText = "";
+      var motorinPctText = "";
+
+      if (ort5BenzinYok) {
+        benzinTlText = "Yetersiz veri – kesin değerlendirme yapılamıyor";
+      } else if (benzinTlNum !== null) {
+        benzinTlText = (benzinTlNum >= 0 ? "+" : "-") + formatZamIndirimValue(Math.abs(benzinTlNum), 2) + " TL/L";
+        if (benzinPctNum !== null) {
+          benzinPctText = (benzinPctNum >= 0 ? "+" : "-") + formatZamIndirimValue(Math.abs(benzinPctNum), 2) + "%";
+        }
+      }
+
+      if (ort5MotorinYok) {
+        motorinTlText = "Yetersiz veri – kesin değerlendirme yapılamıyor";
+      } else if (motorinTlNum !== null) {
+        motorinTlText = (motorinTlNum >= 0 ? "+" : "-") + formatZamIndirimValue(Math.abs(motorinTlNum), 2) + " TL/L";
+        if (motorinPctNum !== null) {
+          motorinPctText = (motorinPctNum >= 0 ? "+" : "-") + formatZamIndirimValue(Math.abs(motorinPctNum), 2) + "%";
+        }
+      }
+
+      var now = new Date();
+      var pad = function(value) { return value < 10 ? ("0" + value) : value; };
+      var tarih = pad(now.getDate()) + "." + pad(now.getMonth() + 1) + "." + now.getFullYear();
+      var saat = pad(now.getHours()) + ":" + pad(now.getMinutes());
+
+      var lines = [];
+      lines.push("Piyasa değerlendirmesi (ANLIK – Kapanış Beklemeden) – " + tarih + " " + saat);
+      lines.push("");
+      lines.push("Benzin: " + benzinDurum);
+      if (ort5BenzinYok) {
+        lines.push(benzinTlText);
+      } else {
+        lines.push("≈ " + benzinTlText + "  |  " + benzinPctText);
+      }
+      lines.push("");
+      lines.push("Motorin: " + motorinDurum);
+      if (ort5MotorinYok) {
+        lines.push(motorinTlText);
+      } else {
+        lines.push("≈ " + motorinTlText + "  |  " + motorinPctText);
+      }
+      lines.push("");
+      lines.push("Not: Bu değerlendirme anlık verilere göre hazırlanmıştır; 15:30 sonrası kesinleşir, kapanışla değişebilir.");
+      lines.push("");
+      lines.push("Tayfun Türk");
+      lines.push("Uyarı: Kişisel değerlendirmedir, kesinlik içermez; hata/yanılma olabilir.");
+      return lines.join("\n");
+    }
+
+    function initZamIndirimWhatsappCopy() {
+      var btn = document.getElementById("zam-indirim-whatsapp-copy");
+      if (!btn) {
+        return;
+      }
+      if (btn.dataset.bound === "1") {
+        return;
+      }
+      btn.dataset.bound = "1";
+      btn.addEventListener("click", function() {
+        var data = window.zamIndirimPanelData;
+        if (!data) {
+          return;
+        }
+        var message = buildZamIndirimWhatsappMessage(data);
+        var copyPromise;
+        if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+          copyPromise = navigator.clipboard.writeText(message);
+        } else {
+          var temp = document.createElement("textarea");
+          temp.value = message;
+          temp.style.position = "fixed";
+          temp.style.opacity = "0";
+          document.body.appendChild(temp);
+          temp.focus();
+          temp.select();
+          document.execCommand("copy");
+          document.body.removeChild(temp);
+          copyPromise = Promise.resolve();
+        }
+        copyPromise.then(function() {
+          if (typeof showSuccess === "function") {
+            showSuccess("Mesaj kopyalandı");
+          } else {
+            alert("Mesaj kopyalandı");
+          }
+        });
+      });
+    }
+
+    function startInvestingSocket() {
+      if (window.investingSocketStarted) {
+        return;
+      }
+      window.investingSocketStarted = true;
+      window.investingOilData = { brent: null, wti: null };
+
+      var wsUrl = "wss://streaming.forexpros.com/echo/649/0ys5gq61/websocket";
+      var pidBrent = "8833";
+      var pidWti = "8849";
+
+      var pendingSubscribe = true;
+      function sendInvestingSubscribe(ws) {
+        try {
+          var subscribeMessage = {
+            _event: "bulk-subscribe",
+            tzID: 8,
+            message: "isOpenExch-NaN:%%pid-19155:%%isOpenExch-49:%%pidExt-19155:%%pid-172:%%isOpenExch-4:%%pidExt-172:%%pid-169:%%isOpenExch-1:%%pidExt-169:%%pid-1175153:%%isOpenExch-152:%%pidExt-1175153:%%pid-178:%%isOpenExch-20:%%pidExt-178:%%pid-27:%%isOpenExch-3:%%pidExt-27:%%pid-8827:%%isOpenExch-1004:%%pidExt-8827:%%pid-18:%%isOpenExch-1002:%%pidExt-18:%%pid-50655:%%pidExt-50655:%%pid-17:%%pidExt-17:%%pid-66:%%pidExt-66:%%pid-1:%%pidExt-1:%%pid-97:%%pidExt-97:%%pid-2:%%pidExt-2:%%pid-166:%%pid-20:%%isOpenExch-2:%%pid-13665:%%isOpenExch-40:%%pid-8830:%%pidExt-8830:%%pid-8836:%%pidExt-8836:%%pid-8833:%%pidExt-8833:%%pid-8849:%%pidExt-8849:%%pid-8851:%%pidExt-8851:%%pid-8831:%%pidExt-8831:%%pid-8910:%%pidExt-8910:%%pid-19581:%%pidExt-19581:%%pid-19412:%%pidExt-19412:%%pid-19454:%%pidExt-19454:%%pid-19294:%%pidExt-19294:%%pid-19394:%%pidExt-19394:%%pid-19522:%%pidExt-19522:%%pid-19430:%%pidExt-19430:%%pid-1197643:%%pid-19556:%%pid-19402:%%pid-1198406:%%pid-19557:%%pid-19483:%%pid-1199483:%%pid-1066607:%%pid-19528:%%pid-19598:%%pid-19386:%%pid-1211837:%%pid-40456:%%pid-6408:%%pid-6369:%%pid-243:%%pid-267:%%pid-7888:%%pid-358:%%pid-402:%%isOpenExch-9:%%pid-3:%%pid-9:%%pid-126:%%isOpenExch-1003:%%cmt-10-5-8833:%%pid-1180255:%%pid-945629:%%pid-1058142:%%pid-1118146:%%pid-1153127:%%pid-1173409:%%pid-1192221:%%pid-1202584:%%pid-399:%%pid-1187186:%%pid-6497:%%pid-8274:%%pid-13969:%%pid-6564:%%pid-10522:%%pid-20610:%%pid-284:%%pid-302:%%pid-376:%%pid-462:%%pid-6974:%%pid-8862:%%pid-1178696:%%pid-1178699:%%pid-1195670:%%pid-1195671:%%pid-1234779:%%pid-1235066:%%pid-1175151:%%pid-8884:"
+          };
+          var payload = JSON.stringify(subscribeMessage).replace(/\\/g, "\\\\").replace(/\"/g, "\\\"");
+          ws.send("a[\"" + payload + "\"]");
+          pendingSubscribe = false;
+        } catch (error) {
+          return;
+        }
+      }
+
+      function handleMessage(raw, ws) {
+        try {
+          if (raw === "o" && pendingSubscribe && ws) {
+            sendInvestingSubscribe(ws);
+            return;
+          }
+          if (typeof raw === "string" && raw.startsWith("a[")) {
+            var arr = JSON.parse(raw.slice(1));
+            if (Array.isArray(arr)) {
+              arr.forEach(function(entry) { handleMessage(entry, ws); });
+            }
+            return;
+          }
+          if (Array.isArray(raw) && raw.length > 0) {
+            raw = raw[0];
+          }
+          if (typeof raw === "string") {
+            var outer = JSON.parse(raw);
+            if (outer && outer.message && typeof outer.message === "string" && outer.message.indexOf("pid-") === 0) {
+              var parts = outer.message.split("::");
+              if (parts.length >= 2) {
+                var payload = JSON.parse(parts[1]);
+                if (payload && payload.pid) {
+                  var item = {
+                    last: payload.last,
+                    pc: payload.pc,
+                    pcp: payload.pcp,
+                    time: payload.time
+                  };
+                  if (payload.pid === pidBrent) {
+                    window.investingOilData.brent = item;
+                  } else if (payload.pid === pidWti) {
+                    window.investingOilData.wti = item;
+                  }
+                  updateFixedArea4Rates();
+                }
+              }
+            }
+          }
+        } catch (error) {
+          return;
+        }
+      }
+
+      try {
+        var ws = new WebSocket(wsUrl);
+        ws.onopen = function() {
+          setTimeout(function() {
+            if (pendingSubscribe) {
+              sendInvestingSubscribe(ws);
+            }
+          }, 500);
+        };
+        ws.onmessage = function(event) {
+          handleMessage(event.data, ws);
+        };
+        ws.onclose = function() {
+          window.investingSocketStarted = false;
+          setTimeout(startInvestingSocket, 30000);
+        };
+      } catch (error) {
+        window.investingSocketStarted = false;
       }
     }
     
@@ -653,6 +1297,8 @@
                   openMenuCubuguAyarlarTab();
                 } else if (menuText === "Cari Kartlar" || menuText === "Cari Kart") {
                   // Cari Kart sayfası devre dışı
+                } else if (menuText === "Zam/İndirim") {
+                  openZamIndirimTab();
                 }
               }
             }).data("kendoMenu");
@@ -1320,6 +1966,9 @@
 
       updateFixedArea4DateTime();
       setInterval(updateFixedArea4DateTime, 1000);
+      updateFixedArea4Rates();
+      setInterval(updateFixedArea4Rates, 60000);
+      startInvestingSocket();
 
       // Telerik TabStrip başlat (ALAN 3) - Sadece operasyon için
       if (typeof kendo !== 'undefined' && typeof $.fn.kendoTabStrip !== 'undefined') {
@@ -1447,6 +2096,13 @@
         e.preventDefault();
         console.log("Fiyat Değişimi X butonuna tıklandı!");
         closeFiyatDegisimiTab();
+      });
+
+      $(document).on("click", ".tab-close-zam-indirim", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log("Zam/İndirim X butonuna tıklandı!");
+        closeZamIndirimTab();
       });
       
       $(document).on("click", ".tab-close-menu-cubugu-ayarlari", function(e) {
@@ -2072,7 +2728,7 @@
     // Tüm sayfaları gizle, sadece belirtilen sayfayı göster
     function showPageOnly(pageId) {
       // Body class'larını temizle
-      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik sube-tanimlari-sayfasi-acik sube-karti-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik menu-cubugu-ayarlari-sayfasi-acik');
+      $('body').removeClass('operasyon-sayfasi-acik kredi-karti-sayfasi-acik cari-kart-sayfasi-acik firma-tanimlari-sayfasi-acik sube-tanimlari-sayfasi-acik sube-karti-sayfasi-acik banka-sayfasi-acik tanker-sayfasi-acik fiyat-degisimi-sayfasi-acik zam-indirim-sayfasi-acik menu-cubugu-ayarlari-sayfasi-acik');
       
       // Tüm sayfaları gizle
       $('#main-content-operasyon').hide();
@@ -2084,6 +2740,7 @@
       $('#main-content-sube-karti').hide();
       $('#main-content-tanker').hide();
       $('#main-content-fiyat-degisimi').hide();
+      $('#main-content-zam-indirim').hide();
       $('#main-content-menu-cubugu-ayarlari').hide();
       
       // Belirtilen sayfayı göster
@@ -2131,6 +2788,10 @@
       } else if (pageId === 'fiyat-degisimi') {
         $('body').addClass('fiyat-degisimi-sayfasi-acik');
         $('#main-content-fiyat-degisimi').show();
+        $('#title-bar').hide();
+      } else if (pageId === 'zam-indirim') {
+        $('body').addClass('zam-indirim-sayfasi-acik');
+        $('#main-content-zam-indirim').show();
         $('#title-bar').hide();
       } else if (pageId === 'menu-cubugu-ayarlari') {
         $('body').addClass('menu-cubugu-ayarlari-sayfasi-acik');
@@ -2271,6 +2932,154 @@
           } else if (wasActiveTab) {
             // Aktif tab kapatıldıysa solundaki tab'ı göster
             showNextTabAfterClose(operasyonTabIndex, wasActiveTab);
+          }
+        } catch(error) {
+          console.error("Tab kapatılırken hata:", error);
+          ignoreSelectEvent = false;
+          activeTabIdToKeep = null;
+        }
+      }, 0);
+    }
+
+    // Zam/İndirim tab'ını aç - Operasyon kodlarının birebir aynısı
+    function openZamIndirimTab() {
+      if (!tabStrip) {
+        console.error("TabStrip başlatılmamış!");
+        return;
+      }
+      
+      // Tab zaten var mı kontrol et - Tüm tab'ları kontrol et
+      var allTabs = tabStrip.items();
+      var zamIndirimTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        // data-tab-id veya içerikte "Zam/İndirim" kelimesi varsa
+        if (tabId === "zam-indirim" || tabText.indexOf("Zam/İndirim") >= 0) {
+          zamIndirimTabIndex = i;
+          break;
+        }
+      }
+      
+      // Tab zaten varsa sadece aktif yap
+      if (zamIndirimTabIndex >= 0) {
+        console.log("Zam/İndirim tab'ı zaten var, aktif yapılıyor...");
+        tabStrip.select(zamIndirimTabIndex);
+        showPageOnly('zam-indirim');
+        if (typeof loadZamIndirimForm === "function") {
+          setTimeout(loadZamIndirimForm, 0);
+        }
+        if (typeof initZamIndirimWhatsappCopy === "function") {
+          setTimeout(initZamIndirimWhatsappCopy, 0);
+        }
+        return;
+      }
+      
+      // Yeni tab ekle
+      console.log("Yeni Zam/İndirim tab'ı ekleniyor...");
+      
+      // ÖNCE sayfayı göster (tab eklenmeden önce)
+      showPageOnly('zam-indirim');
+      if (typeof loadZamIndirimForm === "function") {
+        setTimeout(loadZamIndirimForm, 0);
+      }
+      if (typeof initZamIndirimWhatsappCopy === "function") {
+        setTimeout(initZamIndirimWhatsappCopy, 0);
+      }
+      
+      var tabContent = 'Zam/İndirim <span class="tab-close-zam-indirim" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
+      
+      tabStrip.append({
+        text: tabContent,
+        content: '<div></div>',
+        encoded: false
+      });
+      
+      // Tab elementine data-tab-id ekle
+      setTimeout(function() {
+        var allTabsArray = tabStrip.items();
+        var addedTab = allTabsArray[allTabsArray.length - 1];
+        $(addedTab).attr("data-tab-id", "zam-indirim");
+        
+        // Tab'ı aktif yap
+        var tabIndex = allTabsArray.length - 1;
+        if (tabIndex >= 0) {
+          tabStrip.select(tabIndex);
+        }
+      }, 100);
+    }
+    
+    // Zam/İndirim tab'ını kapat - Operasyon kodlarının birebir aynısı
+    function closeZamIndirimTab() {
+      console.log("closeZamIndirimTab çağrıldı");
+      if (!tabStrip) {
+        console.error("TabStrip yok!");
+        return;
+      }
+      
+      // Tab'ı bul ve kapat
+      var allTabs = tabStrip.items();
+      var zamIndirimTabIndex = -1;
+      
+      for (var i = 0; i < allTabs.length; i++) {
+        var tab = $(allTabs[i]);
+        var tabId = tab.attr("data-tab-id");
+        var tabText = tab.text() || tab.html() || "";
+        
+        if (tabId === "zam-indirim" || tabText.indexOf("Zam/İndirim") >= 0) {
+          zamIndirimTabIndex = i;
+          break;
+        }
+      }
+      
+      // Kapatılmadan önce aktif tab mı kontrol et ve aktif tab ID'sini kaydet
+      var activeTab = tabStrip.select();
+      var allTabsArray = tabStrip.items();
+      var activeTabIndex = -1;
+      for (var j = 0; j < allTabsArray.length; j++) {
+        if ($(allTabsArray[j])[0] === $(activeTab)[0]) {
+          activeTabIndex = j;
+          break;
+        }
+      }
+      var wasActiveTab = (zamIndirimTabIndex >= 0 && zamIndirimTabIndex === activeTabIndex);
+      
+      if (zamIndirimTabIndex < 0) {
+        console.log("Zam/İndirim tab'ı bulunamadı!");
+        return;
+      }
+      
+      // Pasif tab kapatılıyorsa aktif tab ID'sini kaydet
+      if (!wasActiveTab) {
+        activeTabIdToKeep = getActiveTabId();
+        ignoreSelectEvent = true; // Select event'ini ignore et
+        console.log("Pasif tab kapatılıyor, aktif tab korunacak:", activeTabIdToKeep);
+      }
+      
+      // GitHub çözümü: setTimeout ile remove() çağrısını ertele
+      setTimeout(function() {
+        try {
+          console.log("Zam/İndirim tab'ı kapatılıyor... Index:", zamIndirimTabIndex, "Aktif tab mı:", wasActiveTab);
+          tabStrip.remove(zamIndirimTabIndex);
+          console.log("Tab kapatıldı, kalan tab sayısı:", tabStrip.items().length);
+          
+          // Pasif tab kapatıldıysa aktif tab'ı manuel olarak tekrar seç
+          if (!wasActiveTab && activeTabIdToKeep) {
+            var desiredTabIndex = getTabIndexById(activeTabIdToKeep);
+            if (desiredTabIndex >= 0) {
+              console.log("Aktif tab manuel olarak tekrar seçiliyor:", activeTabIdToKeep, "Index:", desiredTabIndex);
+              ignoreSelectEvent = true; // Manuel seçim sırasında select event'ini ignore et
+              tabStrip.select(desiredTabIndex);
+              showPageOnly(activeTabIdToKeep);
+              ignoreSelectEvent = false;
+              activeTabIdToKeep = null;
+            }
+          } else if (wasActiveTab) {
+            // Aktif tab kapatıldıysa solundaki tab'ı göster
+            showNextTabAfterClose(zamIndirimTabIndex, wasActiveTab);
           }
         } catch(error) {
           console.error("Tab kapatılırken hata:", error);
@@ -3496,7 +4305,31 @@
   
   {% block extra_scripts %}{% endblock %}
   <div id="fixed-area-4-container" style="position:fixed;left:0;right:0;bottom:0;z-index:9997;height:30px;background:#f5f5f5;border-top:1px solid #e0e0e0;font-family:'Segoe UI',Arial,sans-serif;display:flex;align-items:center;justify-content:space-between;padding:0 8px;opacity:1;">
-    <span id="fixed-area-4-datetime" style="color:#333;font-size:10pt;font-weight:600;white-space:nowrap;"></span>
+    <style>
+      #fixed-area-4-container .area4-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        height: 22px;
+        padding: 0 8px;
+        border: 1px solid #cfd8dc;
+        border-radius: 4px;
+        font-size: 10pt;
+        font-weight: 600;
+        color: #333333;
+        white-space: nowrap;
+      }
+      #fixed-area-4-container .area4-time { background: #e8f1fb; }
+      #fixed-area-4-container .area4-usd { background: #eaf6ee; }
+      #fixed-area-4-container .area4-eur { background: #f3edf9; }
+      #fixed-area-4-container .area4-gold { background: #fff4e5; }
+      #fixed-area-4-container .area4-oil-brent { background: #eef6ff; }
+      #fixed-area-4-container .area4-oil-wti { background: #f0f7f0; }
+    </style>
+    <div style="display:flex;align-items:center;gap:8px;white-space:nowrap;">
+      <span id="fixed-area-4-datetime" class="area4-chip area4-time"></span>
+      <span id="fixed-area-4-rates" style="display:flex;align-items:center;gap:8px;"></span>
+    </div>
     <span style="color:#555;font-size:10pt;font-weight:600;pointer-events:none;white-space:nowrap;">ALAN 4</span>
   </div>
 </body>

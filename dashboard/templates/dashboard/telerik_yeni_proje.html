@@ -779,6 +779,239 @@
     </div>
   </div>
 
+  <!-- ZAM/İNDİRİM SAYFASI -->
+  <div class="container" id="main-content-zam-indirim" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:hidden !important;overflow-y:auto;box-sizing:border-box;margin:0;">
+    <h1 style="text-align:center;color:#333333;margin:10px 0;font-size:18pt;font-weight:bold;background:#f0f0f0;border:1px solid #d9d9d9;border-radius:6px;padding:6px 10px;">Zam/İndirim</h1>
+    <div id="zam-indirim-system-note" style="margin:8px;">
+      <div>📌 SİSTEM NOTU</div>
+      <div>
+        <div>Bu modül Türkiye akaryakıt zam/indirim sinyalini hesaplar.</div>
+        <div>Resmi mantık:</div>
+        <div>- USD/TRY (15:30) TCMB’den alınır.</div>
+        <div>- Ürün fiyatı olarak CIF Med benzin/motorin kullanılır.</div>
+        <div>- Referans = USD/TRY × USD/ton.</div>
+        <div>- Son 5 gün ortalaması alınır.</div>
+        <div>- ±%3 kuralı: Üstü → ZAM, Altı → İNDİRİM, Arası → YOK.</div>
+        <div>Şu an Investing verileri GEÇİCİDİR.</div>
+        <div>Platts CIF Med üyeliği alındığında:</div>
+        <div>- Benzin: Gasoline 95 RON CIF Med</div>
+        <div>- Motorin: ULSD 10ppm CIF Med</div>
+        <div>verileri buraya bağlanacaktır.</div>
+        <div>Bu ekran tahmini sonuç üretir, resmi fiyat ilanı değildir.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:start;">
+      <div>
+        <div class="k-card" style="margin:8px;">
+          <div class="k-card-header">
+            <h3 class="k-card-title">VERİ</h3>
+          </div>
+          <div class="k-card-body">
+            <div id="zam-indirim-veri-info" style="margin-bottom:10px;">
+              <div>
+                <span class="k-icon k-i-info"></span>
+                Bilgi
+              </div>
+              <div>
+                <div>Bu tablo işin BAŞLANGIÇ noktasıdır. Her satır 1 günü temsil eder.</div>
+                <div>Tarih: Hangi günün verisi olduğu.</div>
+                <div>USD/TRY (15:30): Devletin (TCMB) o gün saat 15:30’da açıkladığı dolar kuru. Bu otomatik gelir, sen dokunmazsın.</div>
+                <div>Benzin_USD_TON / Motorin_USD_TON: Benzin ve motorinin dünya piyasasındaki günlük fiyatıdır. Şimdilik internetten otomatik geliyor, ileride Platts’tan gelecek.</div>
+                <div>Bu satırdaki bilgiler “ham veridir”. Aşağıdaki hesaplar tamamen bu satırlardan üretilir.</div>
+                <div>Eski günler değişmez, her gün yeni satır eklenir.</div>
+              </div>
+            </div>
+            <div class="k-card" style="margin:0 0 10px 0;">
+              <div class="k-card-header">
+                <h4 class="k-card-title">Günlük Kayıt</h4>
+              </div>
+              <div class="k-card-body">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:150px;">Tarih</span>
+                  <span id="zam-indirim-tarih" class="k-badge k-badge-solid k-badge-md k-badge-base">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:150px;">USD/TRY (15:30)</span>
+                  <span id="zam-indirim-usd-kur" class="k-badge k-badge-solid k-badge-lg k-badge-base" style="font-size:18pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <label class="k-label" for="zam-indirim-benzin-usd-ton" style="min-width:150px;">Benzin_USD_TON</label>
+                  <input id="zam-indirim-benzin-usd-ton" style="width:180px;" />
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <label class="k-label" for="zam-indirim-motorin-usd-ton" style="min-width:150px;">Motorin_USD_TON</label>
+                  <input id="zam-indirim-motorin-usd-ton" style="width:180px;" />
+                </div>
+              </div>
+            </div>
+            <div class="k-card" style="margin:0;">
+              <div class="k-card-header">
+                <h4 class="k-card-title">Son 10 Gün Kayıtları</h4>
+              </div>
+              <div class="k-card-body">
+                <div id="zam-indirim-veri-grid" style="height:240px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="k-card" style="margin:8px;">
+          <div class="k-card-header">
+            <h3 class="k-card-title">HESAP</h3>
+          </div>
+          <div class="k-card-body">
+            <div id="zam-indirim-hesap-info" style="margin-bottom:10px;">
+              <div>
+                <span class="k-icon k-i-info"></span>
+                Bilgi
+              </div>
+              <div>
+                <div>Burada matematik yapılır.</div>
+                <div>Referans Fiyat: Dolar kuru ile ürün fiyatı çarpılır. (Yani: dünyadaki fiyat × Türkiye’deki dolar)</div>
+                <div>5 Günlük Ortalama: Son 5 günün referans fiyatlarının ortalamasıdır. Devlet ani değişime bakmaz, bu ortalamaya bakar.</div>
+                <div>%3 Kuralı: Bugünkü fiyat, bu ortalamanın %3 üstüne çıkarsa → ZAM, %3 altına düşerse → İNDİRİM, aradaysa → YOK.</div>
+                <div>Burada çıkan sonuç otomatik hesaplanır, elle müdahale edilmez.</div>
+              </div>
+            </div>
+            <div class="k-card" style="margin:0 0 10px 0;">
+              <div class="k-card-header">
+                <h4 class="k-card-title">Hesap Sonuçları</h4>
+              </div>
+              <div class="k-card-body">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Benzin_Referans</span>
+                  <span id="zam-indirim-benzin-ref" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Benzin_Ort5</span>
+                  <span id="zam-indirim-benzin-ort5" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                  <span style="min-width:160px;">Benzin_Sinyal</span>
+                  <span id="zam-indirim-benzin-sinyal" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Motorin_Referans</span>
+                  <span id="zam-indirim-motorin-ref" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Motorin_Ort5</span>
+                  <span id="zam-indirim-motorin-ort5" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="min-width:160px;">Motorin_Sinyal</span>
+                  <span id="zam-indirim-motorin-sinyal" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <div class="k-card" style="margin:0;flex:1;min-width:240px;">
+                <div class="k-card-header">
+                  <h4 class="k-card-title">Benzin Ort5</h4>
+                </div>
+                <div class="k-card-body">
+                  <div id="zam-indirim-benzin-ort5-grid" style="height:180px;"></div>
+                </div>
+              </div>
+              <div class="k-card" style="margin:0;flex:1;min-width:240px;">
+                <div class="k-card-header">
+                  <h4 class="k-card-title">Motorin Ort5</h4>
+                </div>
+                <div class="k-card-body">
+                  <div id="zam-indirim-motorin-ort5-grid" style="height:180px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="k-card" style="margin:8px;">
+          <div class="k-card-header">
+            <h3 class="k-card-title">PANEL</h3>
+          </div>
+          <div class="k-card-body">
+            <div id="zam-indirim-panel-info" style="margin-bottom:10px;">
+              <div>
+                <span class="k-icon k-i-info"></span>
+                Bilgi
+              </div>
+              <div>
+                <div>Bu bölüm özet ekranıdır. “Bugün ne oluyor?” sorusunun cevabıdır.</div>
+                <div>- Bugünkü dolar kuru</div>
+                <div>- Bugünkü referans fiyat</div>
+                <div>- 5 günlük ortalama</div>
+                <div>- ZAM / İNDİRİM / YOK sonucu</div>
+                <div>- “Zam’a kalan %”: %3 sınırına ne kadar yaklaştığımızı gösterir</div>
+                <div>Bu ekran tahmin ekranıdır. Resmi fiyat değildir ama piyasada konuşulan rakamların nasıl oluştuğunu birebir gösterir.</div>
+              </div>
+            </div>
+            <div class="k-card" style="margin:0;">
+              <div class="k-card-header">
+                <h4 class="k-card-title">Panel Özeti</h4>
+              </div>
+              <div class="k-card-body">
+                <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;">
+                  <button id="zam-indirim-whatsapp-copy" class="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary">WhatsApp Mesajı Kopyala</button>
+                </div>
+                <div id="zam-indirim-anlik" style="margin-bottom:12px;border:1px dashed #d32f2f;border-radius:6px;padding:8px;">
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                    <span id="zam-indirim-anlik-badge" class="k-badge k-badge-solid k-badge-md k-badge-error">👑 Anlık Tahmin (Kapanış Beklemeden)</span>
+                  </div>
+                  <div id="zam-indirim-anlik-benzin-text" style="margin-bottom:4px;"></div>
+                  <div id="zam-indirim-anlik-motorin-text"></div>
+                  <div style="margin-top:6px;color:#666;">Tahminidir, kapanışla değişebilir.</div>
+                </div>
+                <div id="zam-indirim-panel-ort5-uyari" class="k-messagebox k-messagebox-warning" style="display:none;margin-bottom:10px;">
+                  En az 5 gün veri oluşmadan zam/indirim sinyali hesaplanmaz.
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Bugünkü USD/TRY</span>
+                  <span id="zam-indirim-panel-usd" class="k-badge k-badge-solid k-badge-lg k-badge-base" style="font-size:17pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Benzin_Referans</span>
+                  <span id="zam-indirim-panel-benzin-ref" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Benzin_Ort5</span>
+                  <span id="zam-indirim-panel-benzin-ort5" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                  <span style="min-width:160px;">Benzin_Sinyal</span>
+                  <span id="zam-indirim-panel-benzin-sinyal" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                  <span style="min-width:160px;">Zam’a Kalan %</span>
+                  <span id="zam-indirim-panel-benzin-kalan" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                  <span id="zam-indirim-panel-benzin-tl-l" style="color:#666;font-size:13pt;font-weight:600;"></span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Motorin_Referans</span>
+                  <span id="zam-indirim-panel-motorin-ref" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                  <span style="min-width:160px;">Motorin_Ort5</span>
+                  <span id="zam-indirim-panel-motorin-ort5" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                  <span style="min-width:160px;">Motorin_Sinyal</span>
+                  <span id="zam-indirim-panel-motorin-sinyal" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="min-width:160px;">Zam’a Kalan %</span>
+                  <span id="zam-indirim-panel-motorin-kalan" class="k-badge k-badge-solid k-badge-md k-badge-base" style="font-size:15pt;font-weight:700;">--</span>
+                  <span id="zam-indirim-panel-motorin-tl-l" style="color:#666;font-size:13pt;font-weight:600;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FİRMA TANIMLARI SAYFASI -->
   <div class="container" id="main-content-firma-tanimlari" style="display:none;padding:0 10px;width:100%;max-width:100vw;overflow-x:visible;overflow-y:auto;box-sizing:border-box;margin:0;">
     <h1 style="text-align:center;color:#1f4d5a;margin:4px 0 0 0;font-size:16px;font-weight:600;background:#e6f0f2;border:1px solid #cfdde0;border-radius:6px;padding:4px 10px;">FİRMA TANIMLARI</h1>

@@ -5,16 +5,13 @@ Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için t
 - **Klasör:** D:\tayfun
 - **Ana Sayfa:** `dashboard/templates/dashboard/telerik_yeni_proje.html` (base.html'i extend ediyor)
 - **Base Template:** `dashboard/templates/dashboard/base.html`
-- **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
+- **Veritabanı:** SQL Server (aktif, SQLite kullanılmıyor)
 
 ## GİT KURALLARI - MUTLAKA UYULMALI
-**HER İŞLEMDEN SONRA OTOMATİK GİT KAYDET - ASLA UNUTMA!**
-- Her değişiklikten sonra: `git add -A` ve `git commit -m "açıklama"`
+**Her iş bittikten sonra tek commit yapılacak.**
+- Tek bir hamlede `git add -A` ve `git commit -m "açıklama"` yapılacak
 - Commit mesajları Türkçe ve açıklayıcı olacak
-- Kullanıcı kod yazmayı bilmiyor, bu yüzden ben (AI) otomatik commit yapacağım
-- Cursor içinde işlem biter bitmez otomatik commit yapılacak
-- Her önemli değişiklikte, her gün sonunda, her özellik eklendiğinde commit yapılacak
-- **UNUTMA:** Git kaydetmeden işlem tamamlanmış sayılmaz!
+- Git işlemlerini Cursor yapacak (AI commit atmayacak)
 
 ## KRİTİK KURAL: OTOMATİK GERİ DÖNME YOK!
 **ASLA OTOMATİK GERİ DÖNME YAPILMAYACAK - KULLANICI AÇIKÇA İSTEMEDİKÇE!**
@@ -104,6 +101,24 @@ Ben kod yazmayı bilmiyorum, sadece mantığı söyleyeceğim. Sen benim için t
 3. Hataları tararım ve düzeltirim (Agent modunda)
 4. **MUTLAKA Git'e kaydederim** (`git add -A` ve `git commit -m "açıklama"`)
 5. Kullanıcıya Türkçe bilgi veririm
+6. **Model/DB alanı değiştiyse** `manage.py migrate` çalıştırırım
+7. Model/DB alanı değiştiyse migrate işlemini **ben** çalıştırırım (sormadan).
+8. Eğer Django ortamı aktif değilse, önce sanal ortamı bulup etkinleştirmeyi denerim; bulunamazsa projeyi açma komutunu kullanarak migrate çalıştırırım.
+
+## GITHUB COPILOT KULLANIMI (SORU SORMA ŞABLONU)
+Sorun yaşayınca Copilot/GitHub’a **tek parça mesaj** gönderilecek. Mesaj sırası:
+1) **Proje bilgisi**  
+   - Proje adı, teknoloji (Django, Telerik), dosya/sayfa
+2) **Sorun nerede**  
+   - Hangi sayfa, hangi buton, hangi adımda
+3) **Ne yapmak istedik / ne yapamadık**  
+   - Kısa ve net, yazılım diliyle
+4) **Kullandığımız kodlar**  
+   - Tek parça metin içinde ilgili kodlar
+5) **Net yardım talebi**  
+   - “Neyi nasıl yapmalıyız?” gibi açık bir soru
+
+AI, bu şablona göre tek parça metin üretir. Kullanıcı kopyalayıp GitHub/Copilot’a gönderir.
 
 ## CEVAP VERME KURALLARI - MUTLAKA UYULMALI
 **KULLANICI KOD YAZMAYI BİLMİYOR - BASİT DİLLE ANLAT!**
@@ -211,7 +226,7 @@ ve CSS'te .total-row sınıfını tanımladım."
 Bu dosyayı okuyun ve şu bilgileri hatırlayın:
 
 ### Temel Kurallar:
-1. **Git:** HER İŞLEMDEN SONRA commit yapılacak - ASLA UNUTMA!
+1. **Git:** İş bitince tek commit yapılacak
 2. **Telerik:** Lisanslı, TÜM bileşenler kullanılabilir, her yerinden yararlanılacak!
 3. **Kullanıcı:** Kod yazmayı bilmiyor, sadece mantık söylüyor
 4. **HTML:** Django template sistemi kullanılıyor (HTML + Telerik JavaScript bileşenleri)
@@ -224,7 +239,7 @@ Bu dosyayı okuyun ve şu bilgileri hatırlayın:
 - **Klasör:** D:\tayfun
 - **Framework:** Django 5.2.9
 - **UI:** Telerik Kendo UI for jQuery
-- **Veritabanı:** SQLite (geçici) / SQL Server (yapılandırılacak)
+- **Veritabanı:** SQL Server (aktif, SQLite kullanılmıyor)
 
 ### Önemli:
 - ❌ **Eski dosyalar:** `dashboard.html` ve ayrı sayfa dosyaları (`banka.html`, vb.) artık kullanılmıyor

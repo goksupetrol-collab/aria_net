@@ -187,6 +187,45 @@ class AlisFiyati(models.Model):
         return f"{self.get_sube_display()} - {self.get_urun_display()} - {self.fiyat} TL"
 
 
+class ZamIndirimGunluk(models.Model):
+    """Zam/İndirim sayfası için günlük değerler"""
+    tarih = models.DateField(unique=True, verbose_name="Tarih")
+    usdtry_1530 = models.DecimalField(
+        max_digits=15,
+        decimal_places=4,
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0)],
+        verbose_name="USD/TRY 15:30"
+    )
+    benzin_usd_ton = models.DecimalField(
+        max_digits=15,
+        decimal_places=4,
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0)],
+        verbose_name="Benzin USD/Ton"
+    )
+    motorin_usd_ton = models.DecimalField(
+        max_digits=15,
+        decimal_places=4,
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(0)],
+        verbose_name="Motorin USD/Ton"
+    )
+    olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
+    guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
+
+    class Meta:
+        verbose_name = "Zam/İndirim Günlük"
+        verbose_name_plural = "Zam/İndirim Günlükleri"
+        ordering = ['-tarih']
+
+    def __str__(self):
+        return f"{self.tarih} - Benzin: {self.benzin_usd_ton} - Motorin: {self.motorin_usd_ton}"
+
+
 class Tanker(models.Model):
     """TANKER bilgileri (20 tanker)"""
     sira_no = models.IntegerField(verbose_name="Sıra No", unique=True)  # 1-20
@@ -334,13 +373,28 @@ class Firma(models.Model):
     """Firma/Şube tanımları - PetroNet'ten alındı"""
     sira_no = models.IntegerField(verbose_name="Sıra No", unique=True)
     ad = models.CharField(max_length=100, verbose_name="Firma Adı")
+    tur = models.CharField(max_length=100, blank=True, default="", verbose_name="Tür")
+    kod = models.CharField(max_length=50, blank=True, default="", verbose_name="Kod")
     sube = models.CharField(max_length=100, verbose_name="Şube", blank=True, default="")
     vergi_no = models.CharField(max_length=20, blank=True, default="", verbose_name="Vergi No")
     vergi_dairesi = models.CharField(max_length=100, blank=True, default="", verbose_name="Vergi Dairesi")
+    mersis_no = models.CharField(max_length=20, blank=True, default="", verbose_name="MERSİS No")
     adres = models.CharField(max_length=255, blank=True, default="", verbose_name="Adres")
+    mahalle = models.CharField(max_length=100, blank=True, default="", verbose_name="Mahalle")
+    cadde_sokak = models.CharField(max_length=150, blank=True, default="", verbose_name="Cadde/Sokak")
+    no = models.CharField(max_length=20, blank=True, default="", verbose_name="No")
+    bina_blok = models.CharField(max_length=50, blank=True, default="", verbose_name="Bina/Blok")
+    kat = models.CharField(max_length=20, blank=True, default="", verbose_name="Kat")
+    daire = models.CharField(max_length=20, blank=True, default="", verbose_name="Daire")
+    ilce = models.CharField(max_length=100, blank=True, default="", verbose_name="İlçe")
+    il = models.CharField(max_length=100, blank=True, default="", verbose_name="İl")
+    posta_kodu = models.CharField(max_length=20, blank=True, default="", verbose_name="Posta Kodu")
     telefon = models.CharField(max_length=30, blank=True, default="", verbose_name="Telefon")
     eposta = models.EmailField(blank=True, default="", verbose_name="E-posta")
     yetkili_kisi = models.CharField(max_length=100, blank=True, default="", verbose_name="Yetkili Kişi")
+    konum_lat = models.CharField(max_length=50, blank=True, default="", verbose_name="Konum Enlem")
+    konum_lng = models.CharField(max_length=50, blank=True, default="", verbose_name="Konum Boylam")
+    konum_link = models.CharField(max_length=255, blank=True, default="", verbose_name="Konum Linki")
     aktif = models.BooleanField(default=True, verbose_name="Aktif")
     olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
     guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
@@ -352,6 +406,31 @@ class Firma(models.Model):
 
     def __str__(self):
         return f"{self.sira_no} - {self.ad}"
+
+
+class Sube(models.Model):
+    """Şube tanımları"""
+    sira_no = models.IntegerField(verbose_name="Sıra No", unique=True)
+    ana_firma = models.ForeignKey(Firma, on_delete=models.PROTECT, related_name="subeler", verbose_name="Ana Firma")
+    sube_adi = models.CharField(max_length=150, verbose_name="Şube Adı")
+    istasyon_adi = models.CharField(max_length=150, blank=True, default="", verbose_name="İstasyon Adı")
+    vergi_dairesi = models.CharField(max_length=100, blank=True, default="", verbose_name="Vergi Dairesi")
+    vergi_no = models.CharField(max_length=20, blank=True, default="", verbose_name="Vergi No")
+    adres = models.CharField(max_length=255, blank=True, default="", verbose_name="Adres")
+    telefon = models.CharField(max_length=30, blank=True, default="", verbose_name="Telefon")
+    eposta = models.EmailField(blank=True, default="", verbose_name="E-posta")
+    yetkili_kisi = models.CharField(max_length=100, blank=True, default="", verbose_name="Yetkili Kişi")
+    aktif = models.BooleanField(default=True, verbose_name="Aktif")
+    olusturma_tarihi = models.DateTimeField(auto_now_add=True, verbose_name="Oluşturma Tarihi")
+    guncelleme_tarihi = models.DateTimeField(auto_now=True, verbose_name="Güncelleme Tarihi")
+
+    class Meta:
+        verbose_name = "Şube"
+        verbose_name_plural = "Şubeler"
+        ordering = ['sira_no']
+
+    def __str__(self):
+        return f"{self.sira_no} - {self.sube_adi}"
 
 
 class EvrakTuru(models.Model):
