@@ -76,8 +76,16 @@ WSGI_APPLICATION = 'aria_net.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'aria_net',
+        'USER': 'sa',
+        'PASSWORD': 'Mt5652472!',
+        'HOST': '127.0.0.1',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 18 for SQL Server',
+            'extra_params': 'TrustServerCertificate=yes;Encrypt=no;',
+        },
     }
 }
 
