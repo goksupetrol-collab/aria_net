@@ -1743,6 +1743,59 @@ def _update_investing_prices_if_missing(kayit):
         kayit.save(update_fields=list(updates.keys()))
 
 
+def _calc_ref_and_ort5_for_date(target_date, field_name):
+    if not target_date:
+        return None, None, 0
+    rows = list(ZamIndirimGunluk.objects.filter(tarih__lte=target_date).order_by('-tarih')[:5])
+    if not rows:
+        return None, None, 0
+    refs = []
+    target_ref = None
+    for row in rows:
+        fiyat = getattr(row, field_name, None)
+        if row.usdtry_1530 is None or fiyat is None:
+            continue
+        ref = row.usdtry_1530 * fiyat
+        refs.append(ref)
+        if row.tarih == target_date:
+            target_ref = ref
+    if not refs:
+        return target_ref, None, 0
+    ort5 = sum(refs) / Decimal(len(refs))
+    return target_ref, ort5, len(refs)
+
+
+def _calc_mesafe_percent(target_date, field_name):
+    ref, ort5, count = _calc_ref_and_ort5_for_date(target_date, field_name)
+    if ref is None or ort5 in (None, 0):
+        return None, count
+    return (ref / ort5 - Decimal("1")) * Decimal("100"), count
+
+
+def _forecast_text_and_label(mesafe_today, mesafe_d1, mesafe_d2):
+    if mesafe_today is None or mesafe_d1 is None or mesafe_d2 is None:
+        return "Yetersiz veri (TAHMİN)", "Yetersiz"
+    trend = mesafe_today - mesafe_d1
+    trend2 = mesafe_d1 - mesafe_d2
+
+    if mesafe_today >= Decimal("3.00"):
+        return "KESİN SİNYAL: ZAM", "Kesin"
+    if mesafe_today <= Decimal("-3.00"):
+        return "KESİN SİNYAL: İNDİRİM", "Kesin"
+
+    if Decimal("2.70") <= mesafe_today <= Decimal("2.99") and trend > 0 and trend2 > 0:
+        return "Yarın ZAM olasılığı YÜKSEK", "Yüksek"
+    if Decimal("-2.99") <= mesafe_today <= Decimal("-2.70") and trend < 0 and trend2 < 0:
+        return "Yarın İNDİRİM olasılığı YÜKSEK", "Yüksek"
+
+    if Decimal("2.30") <= mesafe_today <= Decimal("2.69") and trend > 0:
+        return "1–2 gün içinde ZAM olası", "Orta"
+    if Decimal("-2.69") <= mesafe_today <= Decimal("-2.30") and trend < 0:
+        return "1–2 gün içinde İNDİRİM olası", "Orta"
+
+    return "Yakın değil", "Düşük"
+
+
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
 def api_zam_indirim(request):
@@ -1903,6 +1956,24 @@ def api_zam_indirim_panel(request):
         motorin_kalan_pct = (motorin_ref / motorin_ort5 - Decimal("1")) * Decimal("100")
         motorin_tl_l = (motorin_ref - motorin_ort5) / Decimal("1190")
 
+    today_date = today
+    d1 = today_date - timedelta(days=1)
+    d2 = today_date - timedelta(days=2)
+
+    benzin_mesafe_today, _ = _calc_mesafe_percent(today_date, "benzin_usd_ton")
+    benzin_mesafe_d1, _ = _calc_mesafe_percent(d1, "benzin_usd_ton")
+    benzin_mesafe_d2, _ = _calc_mesafe_percent(d2, "benzin_usd_ton")
+    motorin_mesafe_today, _ = _calc_mesafe_percent(today_date, "motorin_usd_ton")
+    motorin_mesafe_d1, _ = _calc_mesafe_percent(d1, "motorin_usd_ton")
+    motorin_mesafe_d2, _ = _calc_mesafe_percent(d2, "motorin_usd_ton")
+
+    benzin_ongoru_text, benzin_ongoru_label = _forecast_text_and_label(
+        benzin_mesafe_today, benzin_mesafe_d1, benzin_mesafe_d2
+    )
+    motorin_ongoru_text, motorin_ongoru_label = _forecast_text_and_label(
+        motorin_mesafe_today, motorin_mesafe_d1, motorin_mesafe_d2
+    )
+
     veri_kayitlari = []
     for row in son_kayitlar:
         veri_kayitlari.append({
@@ -1929,6 +2000,10 @@ def api_zam_indirim_panel(request):
         "motorin_kalan_pct": str(motorin_kalan_pct) if motorin_kalan_pct is not None else "",
         "benzin_tl_l": str(benzin_tl_l) if benzin_tl_l is not None else "",
         "motorin_tl_l": str(motorin_tl_l) if motorin_tl_l is not None else "",
+        "benzin_ongoru": benzin_ongoru_text,
+        "motorin_ongoru": motorin_ongoru_text,
+        "benzin_ongoru_label": benzin_ongoru_label,
+        "motorin_ongoru_label": motorin_ongoru_label,
         "benzin_ort5_list": [
             {"tarih": item["tarih"], "ref": str(item["ref"])}
             for item in benzin_ort5_list

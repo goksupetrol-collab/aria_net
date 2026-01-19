@@ -456,25 +456,49 @@
           };
           var usdYuzde = usd && (usd.yuzde || usd.fark) ? (usd.yuzde || usd.fark) : "--";
           var eurYuzde = eur && (eur.yuzde || eur.fark) ? (eur.yuzde || eur.fark) : "--";
-          var brent = window.investingOilData ? window.investingOilData.brent : null;
-          var wti = window.investingOilData ? window.investingOilData.wti : null;
-          var formatOil = function(label, data, cssClass) {
-            if (!data || !data.last) {
-              return "<span class=\"area4-chip " + cssClass + "\">" + label + " -- <span style=\"color:#666;font-weight:700;\">%--</span></span>";
-            }
-            var degisim = data.pcp || data.pc || "--";
-            return "<span class=\"area4-chip " + cssClass + "\">" + label + " " + data.last +
-              " <span style=\"color:" + renk(degisim) + ";font-weight:700;\">%" + degisim + "</span></span>";
-          };
-          target.innerHTML =
-            "<span class=\"area4-chip area4-usd\">USD " + format(usd) +
-              " <span style=\"color:" + renk(usdYuzde) + ";font-weight:700;\">%" + usdYuzde + "</span></span>" +
-            "<span class=\"area4-chip area4-eur\">EUR " + format(eur) +
-              " <span style=\"color:" + renk(eurYuzde) + ";font-weight:700;\">%" + eurYuzde + "</span></span>" +
-            "<span class=\"area4-chip area4-gold\">HAS ALTIN " + alis + "/" + satis +
-              " <span style=\"color:" + renk(yuzdeRaw) + ";font-weight:700;\">%" + yuzdeRaw + "</span></span>" +
-            formatOil("BRENT", brent, "area4-oil-brent") +
-            formatOil("HAM", wti, "area4-oil-wti");
+          fetch("/api/zam-indirim-panel/", { cache: "no-store" })
+            .then(function(resp) { return resp.json(); })
+            .then(function(panel) {
+              var formatSigned = function(value, suffix) {
+                var num = parseFloat((value || "").toString().replace(",", "."));
+                if (isNaN(num)) {
+                  return { text: "--", color: "#666" };
+                }
+                var sign = num > 0 ? "+" : num < 0 ? "-" : "";
+                var abs = Math.abs(num).toFixed(2).replace(".", ",");
+                var color = num > 0 ? "#2e7d32" : num < 0 ? "#c62828" : "#666";
+                return { text: sign + abs + (suffix || ""), color: color };
+              };
+              var benzinPct = panel && panel.benzin_kalan_pct ? formatSigned(panel.benzin_kalan_pct, "%") : { text: "--", color: "#666" };
+              var motorinPct = panel && panel.motorin_kalan_pct ? formatSigned(panel.motorin_kalan_pct, "%") : { text: "--", color: "#666" };
+              var benzinTl = panel && panel.benzin_tl_l ? formatSigned(panel.benzin_tl_l, " TL/L") : { text: "--", color: "#666" };
+              var motorinTl = panel && panel.motorin_tl_l ? formatSigned(panel.motorin_tl_l, " TL/L") : { text: "--", color: "#666" };
+              var benzinSignal = panel && panel.benzin_sinyal ? panel.benzin_sinyal.toLowerCase() : "yok";
+              var motorinSignal = panel && panel.motorin_sinyal ? panel.motorin_sinyal.toLowerCase() : "yok";
+
+              target.innerHTML =
+                "<span class=\"area4-chip area4-usd\">USD " + format(usd) +
+                  " <span style=\"color:" + renk(usdYuzde) + ";font-weight:700;\">%" + usdYuzde + "</span></span>" +
+                "<span class=\"area4-chip area4-eur\">EUR " + format(eur) +
+                  " <span style=\"color:" + renk(eurYuzde) + ";font-weight:700;\">%" + eurYuzde + "</span></span>" +
+                "<span class=\"area4-chip area4-gold\">HAS ALTIN " + alis + "/" + satis +
+                  " <span style=\"color:" + renk(yuzdeRaw) + ";font-weight:700;\">%" + yuzdeRaw + "</span></span>" +
+                "<span class=\"area4-chip area4-zam-motorin\">Motorin sinyal " + motorinSignal +
+                  " • Zam’a kalan <span style=\"color:" + motorinPct.color + ";font-weight:700;\">" + motorinPct.text + "</span>" +
+                  " • <span style=\"color:" + motorinTl.color + ";font-weight:700;\">" + motorinTl.text + "</span></span>" +
+                "<span class=\"area4-chip area4-zam-benzin\">Benzin sinyal " + benzinSignal +
+                  " • Zam’a kalan <span style=\"color:" + benzinPct.color + ";font-weight:700;\">" + benzinPct.text + "</span>" +
+                  " • <span style=\"color:" + benzinTl.color + ";font-weight:700;\">" + benzinTl.text + "</span></span>";
+            })
+            .catch(function() {
+              target.innerHTML =
+                "<span class=\"area4-chip area4-usd\">USD " + format(usd) +
+                  " <span style=\"color:" + renk(usdYuzde) + ";font-weight:700;\">%" + usdYuzde + "</span></span>" +
+                "<span class=\"area4-chip area4-eur\">EUR " + format(eur) +
+                  " <span style=\"color:" + renk(eurYuzde) + ";font-weight:700;\">%" + eurYuzde + "</span></span>" +
+                "<span class=\"area4-chip area4-gold\">HAS ALTIN " + alis + "/" + satis +
+                  " <span style=\"color:" + renk(yuzdeRaw) + ";font-weight:700;\">%" + yuzdeRaw + "</span></span>";
+            });
         })
         .catch(function() {
           target.textContent = "";
@@ -670,6 +694,10 @@
       var motorinKalanTargets = [
         document.getElementById("zam-indirim-panel-motorin-kalan")
       ];
+      var benzinOngoruTarget = document.getElementById("zam-indirim-panel-benzin-ongoru");
+      var benzinOngoruLabel = document.getElementById("zam-indirim-panel-benzin-ongoru-label");
+      var motorinOngoruTarget = document.getElementById("zam-indirim-panel-motorin-ongoru");
+      var motorinOngoruLabel = document.getElementById("zam-indirim-panel-motorin-ongoru-label");
 
       var benzinRefText = formatZamIndirimValue(data.benzin_ref, 2);
       var motorinRefText = formatZamIndirimValue(data.motorin_ref, 2);
@@ -693,6 +721,18 @@
       motorinSinyalTargets.forEach(function(target) {
         if (target) target.textContent = data.motorin_sinyal || "--";
       });
+      if (benzinOngoruTarget) {
+        benzinOngoruTarget.textContent = data.benzin_ongoru || "--";
+      }
+      if (benzinOngoruLabel) {
+        benzinOngoruLabel.textContent = data.benzin_ongoru_label ? "(" + data.benzin_ongoru_label + ")" : "";
+      }
+      if (motorinOngoruTarget) {
+        motorinOngoruTarget.textContent = data.motorin_ongoru || "--";
+      }
+      if (motorinOngoruLabel) {
+        motorinOngoruLabel.textContent = data.motorin_ongoru_label ? "(" + data.motorin_ongoru_label + ")" : "";
+      }
       var benzinKalanText = "Ort5 yok";
       var motorinKalanText = "Ort5 yok";
       var benzinPctNum = parseZamIndirimNumber(data.benzin_kalan_pct);
@@ -924,7 +964,47 @@
       } else {
         lines.push("≈ " + motorinTlText + "  |  " + motorinPctText);
       }
-      lines.push("");
+      var nextBusinessDay = function(startDate) {
+        var d = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+        do {
+          d.setDate(d.getDate() + 1);
+        } while (d.getDay() === 0 || d.getDay() === 6);
+        return d;
+      };
+      var gunAdlari = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+      var formatDate = function(d) {
+        return pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear();
+      };
+      var formatDateWithDay = function(d) {
+        return formatDate(d) + " (" + gunAdlari[d.getDay()] + ")";
+      };
+      var kararGunu = nextBusinessDay(now);
+      var uygulamaGunu = new Date(kararGunu.getFullYear(), kararGunu.getMonth(), kararGunu.getDate() + 1);
+      var buildBand = function(tlNum, urunLabel) {
+        if (tlNum === null) {
+          return null;
+        }
+        var min = Math.max(0, Math.abs(tlNum) - 0.10);
+        var max = Math.abs(tlNum) + 0.10;
+        var minText = min.toFixed(2).replace(".", ",");
+        var maxText = max.toFixed(2).replace(".", ",");
+        return "≈ " + minText + " – " + maxText + " TL/L " + urunLabel + " artışı beklenebilir.";
+      };
+      var benzinBand = buildBand(benzinTlNum, "benzin");
+      var motorinBand = buildBand(motorinTlNum, "motorin");
+      if (benzinBand || motorinBand) {
+        lines.push("");
+        lines.push("Öngörü (tahmini):");
+        lines.push("Mevcut gidişat korunursa " + formatDateWithDay(kararGunu) + " günü karar,");
+        lines.push(formatDateWithDay(uygulamaGunu) + " 00:00’dan geçerli");
+        if (benzinBand) {
+          lines.push(benzinBand);
+        }
+        if (motorinBand) {
+          lines.push(motorinBand);
+        }
+        lines.push("");
+      }
       lines.push("Not: Bu değerlendirme anlık verilere göre hazırlanmıştır; 15:30 sonrası kesinleşir, kapanışla değişebilir.");
       lines.push("");
       lines.push("Tayfun Türk");
@@ -2141,6 +2221,28 @@
       return null;
     }
 
+    function findAnySavedRibbonItems() {
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          if (!key || key.indexOf("menu_cubugu_ayarlari") === -1) {
+            continue;
+          }
+          var raw = localStorage.getItem(key);
+          if (!raw) {
+            continue;
+          }
+          var parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            return { items: parsed, key: key };
+          }
+        }
+      } catch (error) {
+        return null;
+      }
+      return null;
+    }
+
     function saveRibbonItems(items) {
       try {
         localStorage.setItem(menuCubuguAyarStorageKey, JSON.stringify(items || []));
@@ -2152,10 +2254,7 @@
     function getRibbonItemsForRender() {
       var saved = getSavedRibbonItems();
       if (saved && saved.length > 0) {
-        return saved.filter(function(item) {
-          var pageName = (item.name || '').toString();
-          return (pageName !== 'operasyon' && pageName !== 'operasyon_sayfasi');
-        });
+        return saved;
       }
       return getDefaultRibbonItems();
     }
@@ -2227,7 +2326,14 @@
             { text: "Kullanıcı Tanımları", name: "kullanici_tanimlari", icon: "👤" }
           ]
         },
-        
+        {
+          text: "Operasyon",
+          expanded: true,
+          items: [
+            { text: "Operasyon", name: "operasyon_sayfasi", icon: "⛽" },
+            { text: "Zam/İndirim", name: "zam-indirim", icon: "📈" }
+          ]
+        },
       ];
     }
 
@@ -2262,6 +2368,11 @@
       var saved = getSavedRibbonItems();
       if (saved && saved.length > 0) {
         return saved;
+      }
+      var fallback = findAnySavedRibbonItems();
+      if (fallback && fallback.items) {
+        localStorage.setItem(menuCubuguAyarStorageKey, JSON.stringify(fallback.items));
+        return fallback.items;
       }
       return getDefaultRibbonItems();
     }
@@ -2482,13 +2593,15 @@
             });
 
             menuAyarPageInitialized = true;
+            refreshMenuAyarSelectedList();
           } catch (error) {
             console.error("Menü ayarları ekranı başlatılamadı:", error);
           }
         }, 0);
       }
-
-      refreshMenuAyarSelectedList();
+      if (menuAyarPageInitialized) {
+        refreshMenuAyarSelectedList();
+      }
 
       if (!menuAyarEscBound) {
         menuAyarEscBound = true;
@@ -4259,6 +4372,10 @@
           openKullaniciTanimlariWindow();
         }
         setActiveRibbonButton(pageName);
+      } else if (pageName === 'zam-indirim' || pageName === 'zam_indirim') {
+        console.log("Zam/İndirim açılıyor...");
+        openZamIndirimTab();
+        setActiveRibbonButton(pageName);
       } else if (pageName === 'menu_cubugu_ayarlari') {
         console.log("Menü Çubuğu Ayarları açılıyor...");
         openMenuCubuguAyarlarTab();
@@ -4323,8 +4440,8 @@
       #fixed-area-4-container .area4-usd { background: #eaf6ee; }
       #fixed-area-4-container .area4-eur { background: #f3edf9; }
       #fixed-area-4-container .area4-gold { background: #fff4e5; }
-      #fixed-area-4-container .area4-oil-brent { background: #eef6ff; }
-      #fixed-area-4-container .area4-oil-wti { background: #f0f7f0; }
+      #fixed-area-4-container .area4-zam-motorin { background: #eef7ed; }
+      #fixed-area-4-container .area4-zam-benzin { background: #f7f2e7; }
     </style>
     <div style="display:flex;align-items:center;gap:8px;white-space:nowrap;">
       <span id="fixed-area-4-datetime" class="area4-chip area4-time"></span>
