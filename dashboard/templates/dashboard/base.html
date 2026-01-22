@@ -680,6 +680,14 @@
         document.getElementById("zam-indirim-motorin-ort5"),
         document.getElementById("zam-indirim-panel-motorin-ort5")
       ];
+      var benzinOrtKesinTarget = document.getElementById("zam-indirim-panel-benzin-ort5-kesin");
+      var motorinOrtKesinTarget = document.getElementById("zam-indirim-panel-motorin-ort5-kesin");
+      var benzinSinyalKesinTarget = document.getElementById("zam-indirim-panel-benzin-sinyal-kesin");
+      var motorinSinyalKesinTarget = document.getElementById("zam-indirim-panel-motorin-sinyal-kesin");
+      var benzinPiyasaOrtTarget = document.getElementById("zam-indirim-panel-benzin-piyasa-ort5");
+      var motorinPiyasaOrtTarget = document.getElementById("zam-indirim-panel-motorin-piyasa-ort5");
+      var benzinPiyasaSinyalTarget = document.getElementById("zam-indirim-panel-benzin-piyasa-sinyal");
+      var motorinPiyasaSinyalTarget = document.getElementById("zam-indirim-panel-motorin-piyasa-sinyal");
       var benzinSinyalTargets = [
         document.getElementById("zam-indirim-benzin-sinyal"),
         document.getElementById("zam-indirim-panel-benzin-sinyal")
@@ -715,12 +723,39 @@
       motorinOrtTargets.forEach(function(target) {
         if (target) target.textContent = motorinOrtText;
       });
+      if (benzinOrtKesinTarget) {
+        benzinOrtKesinTarget.textContent = benzinOrtText;
+      }
+      if (motorinOrtKesinTarget) {
+        motorinOrtKesinTarget.textContent = motorinOrtText;
+      }
       benzinSinyalTargets.forEach(function(target) {
         if (target) target.textContent = data.benzin_sinyal || "--";
       });
       motorinSinyalTargets.forEach(function(target) {
         if (target) target.textContent = data.motorin_sinyal || "--";
       });
+      if (benzinSinyalKesinTarget) {
+        benzinSinyalKesinTarget.textContent = data.benzin_sinyal || "--";
+      }
+      if (motorinSinyalKesinTarget) {
+        motorinSinyalKesinTarget.textContent = data.motorin_sinyal || "--";
+      }
+
+      var benzinPiyasaOrtText = data.piyasa_benzin_ort5_text || formatZamIndirimValue(data.piyasa_benzin_ort5, 2);
+      var motorinPiyasaOrtText = data.piyasa_motorin_ort5_text || formatZamIndirimValue(data.piyasa_motorin_ort5, 2);
+      if (benzinPiyasaOrtTarget) {
+        benzinPiyasaOrtTarget.textContent = benzinPiyasaOrtText;
+      }
+      if (motorinPiyasaOrtTarget) {
+        motorinPiyasaOrtTarget.textContent = motorinPiyasaOrtText;
+      }
+      if (benzinPiyasaSinyalTarget) {
+        benzinPiyasaSinyalTarget.textContent = data.piyasa_benzin_sinyal || "--";
+      }
+      if (motorinPiyasaSinyalTarget) {
+        motorinPiyasaSinyalTarget.textContent = data.piyasa_motorin_sinyal || "--";
+      }
       if (benzinOngoruTarget) {
         benzinOngoruTarget.textContent = data.benzin_ongoru || "--";
       }
@@ -794,6 +829,11 @@
       var ort5Uyari = document.getElementById("zam-indirim-panel-ort5-uyari");
       if (ort5Uyari) {
         ort5Uyari.style.display = data.ort5_yetersiz ? "block" : "none";
+      }
+
+      var fallbackNote = document.getElementById("zam-indirim-panel-fallback-note");
+      if (fallbackNote) {
+        fallbackNote.style.display = data.product_fallback_used ? "block" : "none";
       }
 
       var anlikBox = document.getElementById("zam-indirim-anlik");
@@ -947,22 +987,44 @@
       var pad = function(value) { return value < 10 ? ("0" + value) : value; };
       var tarih = pad(now.getDate()) + "." + pad(now.getMonth() + 1) + "." + now.getFullYear();
       var saat = pad(now.getHours()) + ":" + pad(now.getMinutes());
+      var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      var tomorrowText = pad(tomorrow.getDate()) + "." + pad(tomorrow.getMonth() + 1) + "." + tomorrow.getFullYear() + " 00:00";
+      var afterClose = now.getHours() > 15 || (now.getHours() === 15 && now.getMinutes() >= 30);
 
       var lines = [];
-      lines.push("Piyasa değerlendirmesi (ANLIK – Kapanış Beklemeden) – " + tarih + " " + saat);
+      lines.push("Piyasa değerlendirmesi – " + tarih + " " + saat);
       lines.push("");
+      lines.push("ANLIK MOD (kapanış beklemeden)");
+      lines.push("Bugün böyle kapanırsa → " + tomorrowText);
       lines.push("Benzin: " + benzinDurum);
       if (ort5BenzinYok) {
         lines.push(benzinTlText);
       } else {
         lines.push("≈ " + benzinTlText + "  |  " + benzinPctText);
       }
-      lines.push("");
       lines.push("Motorin: " + motorinDurum);
       if (ort5MotorinYok) {
         lines.push(motorinTlText);
       } else {
         lines.push("≈ " + motorinTlText + "  |  " + motorinPctText);
+      }
+      lines.push("");
+      lines.push("KESİN MOD (15:30 sonrası)");
+      if (afterClose && ((benzinPctNum !== null && benzinPctNum >= 3.0) || (motorinPctNum !== null && motorinPctNum >= 3.0))) {
+        lines.push("Uygulama: " + tomorrowText);
+      } else {
+        lines.push("Değişim yok");
+      }
+      if (afterClose && motorinPctNum !== null && motorinPctNum >= 3.4) {
+        var motorinTlEst = motorinTlNum !== null ? Math.max(motorinTlNum, 0.8) : 0.8;
+        var motorinTlTextRounded = "≈ " + formatZamIndirimValue(motorinTlEst, 2) + " TL";
+        if (motorinTlEst >= 0.8 && motorinTlEst <= 1.2) {
+          motorinTlTextRounded = "≈ 1,00 TL";
+        }
+        lines.push("PİYASA: 00:00’da " + motorinTlTextRounded + " zam");
+      }
+      if (data.piyasa_product_fallback_used) {
+        lines.push("Piyasa projeksiyonu: bugünün ürün verisi gelmediği için son değerle hesaplandı (geçici).");
       }
       var nextBusinessDay = function(startDate) {
         var d = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
@@ -2104,6 +2166,11 @@
             }
             
             if (tabId) {
+              if (tabId === "menu-cubugu-ayarlari") {
+                showPageOnly(null);
+                setTimeout(initMenuCubuguAyarlarPage, 0);
+                return;
+              }
               console.log("Sayfa gösteriliyor:", tabId);
               showPageOnly(tabId);
             } else {
@@ -2297,10 +2364,12 @@
     var menuAyarPageInitialized = false;
     var menuAyarTreeView = null;
     var menuAyarListBox = null;
-    var menuAyarIconDropDown = null;
+    var menuAyarIconPopup = null;
     var menuAyarWindow = null;
     var menuAyarLastTreeItem = null;
     var menuAyarEscBound = false;
+    var menuAyarNotification = null;
+    var menuAyarClosing = false;
 
     function getMenuAyarIconByName(name, fallback) {
       if (!Array.isArray(menuItems)) {
@@ -2323,7 +2392,8 @@
             { text: "Ürün Tanımları", name: "urun_tanimlari", icon: "📦" },
             { text: "Whatsapp Tanımları", name: "whatsapp_tanimlari", icon: "💬" },
             { text: "Sistem Tanımları", name: "sistem_tanimlari", icon: "⚙️" },
-            { text: "Kullanıcı Tanımları", name: "kullanici_tanimlari", icon: "👤" }
+            { text: "Kullanıcı Tanımları", name: "kullanici_tanimlari", icon: "👤" },
+            { text: "Menü Çubuğu Ayarları", name: "menu_cubugu_ayarlari", icon: "🧰" }
           ]
         },
         {
@@ -2353,7 +2423,7 @@
         });
       }
 
-      var defaultIcons = ["⛽", "🏢", "🏬", "📦", "💬", "⚙️", "👤", "📌", "✅"];
+      var defaultIcons = ["⛽", "🏢", "🏬", "📦", "💬", "⚙️", "👤", "🧰", "📌", "✅"];
       defaultIcons.forEach(function(iconValue) {
         if (!seen[iconValue]) {
           options.push({ text: iconValue + " Seçim", value: iconValue });
@@ -2384,9 +2454,6 @@
       var items = getMenuAyarSelectedItems();
       menuAyarListBox.dataSource.data(items);
       menuAyarListBox.refresh();
-      if (menuAyarIconDropDown) {
-        menuAyarIconDropDown.value("");
-      }
     }
 
     function initMenuCubuguAyarlarPage() {
@@ -2399,20 +2466,43 @@
       if (!menuAyarWindow) {
         menuAyarWindow = $("#menu-cubugu-ayarlari-window").kendoWindow({
           title: "Menü Çubuğunu Ayarla",
-          width: "860px",
-          height: "540px",
-          modal: false,
+          width: "50%",
+          height: "90%",
+          modal: true,
           visible: false,
           resizable: false,
-          draggable: true,
+          draggable: false,
           actions: ["Close"],
+          open: function() {
+            var splitter = $("#menu-ayar-splitter").data("kendoSplitter");
+            if (splitter) {
+              splitter.resize();
+            }
+          },
           close: function() {
-            closeMenuCubuguAyarlarTab();
+            if (!menuAyarClosing) {
+              closeMenuCubuguAyarlarTab();
+            }
           }
         }).data("kendoWindow");
+        if (menuAyarWindow && menuAyarWindow.wrapper) {
+          menuAyarWindow.wrapper.addClass("menu-ayar-window");
+        }
       }
 
       menuAyarWindow.center().open();
+
+      if (!menuAyarNotification && typeof $.fn.kendoNotification !== 'undefined') {
+        var $menuAyarNotification = $("#menu-ayar-notification");
+        if ($menuAyarNotification.length) {
+          menuAyarNotification = $menuAyarNotification.kendoNotification({
+            position: { top: 8, right: 8 },
+            stacking: "down",
+            hideAfter: 2000,
+            appendTo: menuAyarWindow.wrapper
+          }).data("kendoNotification");
+        }
+      }
 
       if (!menuAyarPageInitialized) {
         setTimeout(function() {
@@ -2420,10 +2510,9 @@
             if (!$("#menu-ayar-splitter").data("kendoSplitter")) {
               $("#menu-ayar-splitter").kendoSplitter({
                 panes: [
-                  { size: "35%", collapsible: false },
-                  { size: "10%", collapsible: false },
-                  { size: "55%", collapsible: false }
-                ]
+                  { size: "50%", collapsible: false },
+                  { size: "50%", collapsible: false }
+                ],
               });
             }
 
@@ -2437,28 +2526,42 @@
             }).data("kendoTreeView");
 
             menuAyarListBox = $("#menu-ayar-selected-list").kendoListBox({
-              dataSource: new kendo.data.DataSource({ data: [] }),
+              dataSource: new kendo.data.DataSource({ data: getMenuAyarSelectedItems() }),
               dataTextField: "baslik",
               dataValueField: "name",
               selectable: "single",
-              template: function(dataItem) {
-                return '<span style="font-size:18px;margin-right:6px;">' + (dataItem.icon || "⬜") + '</span>' +
-                  '<span>' + (dataItem.baslik || "") + '</span>';
-              },
-              change: function() {
-                var selected = this.dataItem(this.select());
-                if (menuAyarIconDropDown) {
-                  menuAyarIconDropDown.value(selected ? (selected.icon || "") : "");
-                }
-              }
+              draggable: true,
+              dropSources: ["menu-ayar-selected-list"]
             }).data("kendoListBox");
 
-            menuAyarIconDropDown = $("#menu-ayar-icon-select").kendoDropDownList({
-              dataTextField: "text",
-              dataValueField: "value",
-              optionLabel: "İkon seç",
-              dataSource: getMenuAyarIconOptions()
-            }).data("kendoDropDownList");
+            function addMenuAyarItemFromDataItem(dataItem) {
+              if (!dataItem || !menuAyarListBox) {
+                return;
+              }
+              var name = dataItem.name || (typeof dataItem.get === "function" ? dataItem.get("name") : "");
+              var text = dataItem.text || (typeof dataItem.get === "function" ? dataItem.get("text") : "");
+              var hasChild = false;
+              if (typeof dataItem.hasChildren === "function") {
+                hasChild = dataItem.hasChildren();
+              } else {
+                hasChild = !!dataItem.hasChildren;
+              }
+              if (!name || hasChild) {
+                return;
+              }
+              var currentItems = menuAyarListBox.dataSource.data();
+              for (var i = 0; i < currentItems.length; i++) {
+                if (currentItems[i].name === name) {
+                  return;
+                }
+              }
+              menuAyarListBox.dataSource.add({
+                name: name,
+                baslik: text,
+                icon: ""
+              });
+              menuAyarListBox.refresh();
+            }
 
             function addSelectedMenuAyarItem() {
               if (!menuAyarTreeView || !menuAyarListBox) {
@@ -2472,41 +2575,50 @@
               if (!dataItem && menuAyarLastTreeItem) {
                 dataItem = menuAyarLastTreeItem;
               }
-              if (!dataItem) {
-                return;
-              }
-              var name = dataItem.name || (typeof dataItem.get === "function" ? dataItem.get("name") : "");
-              var text = dataItem.text || (typeof dataItem.get === "function" ? dataItem.get("text") : "");
-              var icon = dataItem.icon || (typeof dataItem.get === "function" ? dataItem.get("icon") : "");
-              var hasChild = false;
-              if (typeof dataItem.hasChildren === "function") {
-                hasChild = dataItem.hasChildren();
-              } else {
-                hasChild = !!dataItem.hasChildren;
-              }
-              if (!name || hasChild) {
-                return;
-              }
-              var existing = null;
-              var currentItems = menuAyarListBox.dataSource.data();
-              for (var i = 0; i < currentItems.length; i++) {
-                if (currentItems[i].name === name) {
-                  existing = currentItems[i];
-                  break;
-                }
-              }
-              if (existing) {
-                return;
-              }
-              menuAyarListBox.dataSource.add({
-                name: name,
-                baslik: text,
-                icon: icon || "⬜"
-              });
-              menuAyarListBox.refresh();
+              addMenuAyarItemFromDataItem(dataItem);
             }
 
-            $("#menu-ayar-add").kendoButton().click(addSelectedMenuAyarItem);
+            // Drag & drop ve sıralama aktif
+            var menuAyarListBoxWrapper = menuAyarListBox && menuAyarListBox.wrapper
+              ? menuAyarListBox.wrapper
+              : $("#menu-ayar-selected-list");
+
+            if (typeof $.fn.kendoDraggable !== "undefined") {
+              $("#menu-ayar-tree").kendoDraggable({
+                filter: ".k-in",
+                group: "menuAyarTreeDrag",
+                hint: function(element) {
+                  return element.clone().css({
+                    background: "#e3f2fd",
+                    border: "1px solid #90caf9",
+                    padding: "4px 8px"
+                  });
+                },
+                dragstart: function(e) {
+                  var $source = $(e.currentTarget || e.target);
+                  var dataItem = null;
+                  if (menuAyarTreeView && $source && $source.length) {
+                    dataItem = menuAyarTreeView.dataItem($source.closest(".k-item"));
+                  }
+                  $("#menu-ayar-tree").data("menuAyarDragItem", dataItem || null);
+                },
+                dragend: function() {
+                  $("#menu-ayar-tree").removeData("menuAyarDragItem");
+                }
+              });
+            }
+
+            if (typeof $.fn.kendoDropTarget !== "undefined" && menuAyarListBoxWrapper.length) {
+              menuAyarListBoxWrapper.kendoDropTarget({
+                group: "menuAyarTreeDrag",
+                drop: function() {
+                  var dataItem = $("#menu-ayar-tree").data("menuAyarDragItem");
+                  addMenuAyarItemFromDataItem(dataItem);
+                  $("#menu-ayar-tree").removeData("menuAyarDragItem");
+                }
+              });
+            }
+
             $("#menu-ayar-tree").on("click", ".k-in", function() {
               var item = menuAyarTreeView.dataItem($(this).closest(".k-item"));
               menuAyarLastTreeItem = item || null;
@@ -2517,68 +2629,6 @@
               addSelectedMenuAyarItem();
             });
 
-            $("#menu-ayar-remove").kendoButton().click(function() {
-              if (!menuAyarListBox) {
-                return;
-              }
-              var selected = menuAyarListBox.select();
-              var dataItem = menuAyarListBox.dataItem(selected);
-              if (dataItem) {
-                menuAyarListBox.dataSource.remove(dataItem);
-              }
-            });
-
-            $("#menu-ayar-up").kendoButton().click(function() {
-              if (!menuAyarListBox) {
-                return;
-              }
-              var selected = menuAyarListBox.select();
-              var dataItem = menuAyarListBox.dataItem(selected);
-              if (!dataItem) {
-                return;
-              }
-              var data = menuAyarListBox.dataSource.data();
-              var index = data.indexOf(dataItem);
-              if (index > 0) {
-                data.splice(index, 1);
-                data.splice(index - 1, 0, dataItem);
-                menuAyarListBox.dataSource.data(data);
-                menuAyarListBox.select(menuAyarListBox.items().eq(index - 1));
-              }
-            });
-
-            $("#menu-ayar-down").kendoButton().click(function() {
-              if (!menuAyarListBox) {
-                return;
-              }
-              var selected = menuAyarListBox.select();
-              var dataItem = menuAyarListBox.dataItem(selected);
-              if (!dataItem) {
-                return;
-              }
-              var data = menuAyarListBox.dataSource.data();
-              var index = data.indexOf(dataItem);
-              if (index >= 0 && index < data.length - 1) {
-                data.splice(index, 1);
-                data.splice(index + 1, 0, dataItem);
-                menuAyarListBox.dataSource.data(data);
-                menuAyarListBox.select(menuAyarListBox.items().eq(index + 1));
-              }
-            });
-
-            $("#menu-ayar-icon-apply").kendoButton().click(function() {
-              if (!menuAyarListBox || !menuAyarIconDropDown) {
-                return;
-              }
-              var selected = menuAyarListBox.select();
-              var dataItem = menuAyarListBox.dataItem(selected);
-              var newIcon = menuAyarIconDropDown.value();
-              if (dataItem && newIcon) {
-                dataItem.set("icon", newIcon);
-                menuAyarListBox.refresh();
-              }
-            });
-
             $("#menu-ayar-save").kendoButton().click(function() {
               if (!menuAyarListBox) {
                 return;
@@ -2586,6 +2636,11 @@
               var items = menuAyarListBox.dataSource.data().toJSON();
               saveRibbonItems(items);
               loadRibbonButtons();
+              if (menuAyarNotification) {
+                menuAyarNotification.show("Kaydedildi", "success");
+              } else {
+                showSuccess("Kaydedildi");
+              }
             });
 
             $("#menu-ayar-exit").kendoButton().click(function() {
@@ -2602,6 +2657,17 @@
       if (menuAyarPageInitialized) {
         refreshMenuAyarSelectedList();
       }
+
+      $(window).off("resize.menuAyar").on("resize.menuAyar", function() {
+        if (menuAyarWindow && menuAyarWindow.wrapper && menuAyarWindow.wrapper.is(":visible")) {
+          menuAyarWindow.center();
+          menuAyarWindow.resize();
+          var splitter = $("#menu-ayar-splitter").data("kendoSplitter");
+          if (splitter) {
+            splitter.resize();
+          }
+        }
+      });
 
       if (!menuAyarEscBound) {
         menuAyarEscBound = true;
@@ -3738,13 +3804,13 @@
       if (menuAyarTabIndex >= 0) {
         console.log("Menü Çubuğu Ayarları tab'ı zaten var, aktif yapılıyor...");
         tabStrip.select(menuAyarTabIndex);
-        showPageOnly('menu-cubugu-ayarlari');
+        showPageOnly(null);
         setTimeout(initMenuCubuguAyarlarPage, 0);
         return;
       }
 
       console.log("Yeni Menü Çubuğu Ayarları tab'ı ekleniyor...");
-      showPageOnly('menu-cubugu-ayarlari');
+      showPageOnly(null);
       setTimeout(initMenuCubuguAyarlarPage, 0);
 
       var tabContent = '⚙️ Menü Çubuğu Ayarları <span class="tab-close-menu-cubugu-ayarlari" style="margin-left:6px;cursor:pointer;padding:2px 4px;border-radius:4px;font-weight:bold;">×</span>';
@@ -3772,6 +3838,14 @@
       if (!tabStrip) {
         console.error("TabStrip yok!");
         return;
+      }
+
+      if (menuAyarWindow && menuAyarWindow.wrapper && menuAyarWindow.wrapper.is(":visible")) {
+        menuAyarClosing = true;
+        menuAyarWindow.close();
+        setTimeout(function() {
+          menuAyarClosing = false;
+        }, 0);
       }
 
       var allTabs = tabStrip.items();
